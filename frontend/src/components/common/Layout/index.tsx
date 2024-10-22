@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
-import { Flex } from './Flex';
-import Navbar from './Navbar';
-import Footer from './Footer';
 
-export const Layout = ({ children }) => {
+import Navbar from '../Navbar';
+import { Flex } from '../Flex';
+import { Footer } from '../Footer';
+
+export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Wrapper direction="column" align="center">
-      <Navbar />
       {children}
+      <Navbar />
       <Footer />
     </Wrapper>
   );

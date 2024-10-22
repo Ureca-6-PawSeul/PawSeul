@@ -33,7 +33,7 @@ export default meta;
 /**
  * `DefaultText`는 `Text` 컴포넌트의 기본 스토리입니다.
  */
-export const Default: Story = {
+export const DefaultText: Story = {
   args: {
     webTypo: 'Heading1_Kor',
     mobileTypo: 'Heading1_Kor',

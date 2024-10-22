@@ -18,7 +18,7 @@ export default meta;
 /**
  * `DefaultFlex`는 플렉스박스 컴포넌트의 기본 `Flex` 스토리입니다.
  */
-export const Default: Story = {
+export const DefaultFlex: Story = {
   args: {
     width: 100,
     height: 100,

@@ -9,9 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "svgr": "npx @svgr/cli -d src/assets/images/svgs --ignore-existing --no-dimensions --ext jsx public/svgs"
   },
   "dependencies": {
+    "@emotion/babel-plugin": "^11.12.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "emotion-reset": "^3.0.1",
