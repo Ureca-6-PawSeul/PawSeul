@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@emotion/css": "^11.13.4",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "emotion-reset": "^3.0.1",
+    "react-router-dom": "^6.27.0",
+    "vite-plugin-svgr": "^4.2.0",
+    "zustand": "^5.0.0"
+  }
+}
