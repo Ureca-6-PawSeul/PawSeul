@@ -10,17 +10,19 @@ import Store from '@pages/Store';
 import Mypage from '@pages/Mypage';
 
 function App() {
-  <BrowserRouter>
-    <Layout>
-      <Global styles={globalStyle} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/store" element={<Store />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/mypage" element={<Mypage />} />
-      </Routes>
-    </Layout>
-  </BrowserRouter>;
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Global styles={globalStyle} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/mypage" element={<Mypage />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
+  );
 }
 
 export default App;
