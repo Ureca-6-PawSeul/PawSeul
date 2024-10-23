@@ -1,9 +1,10 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeORMConfig } from 'configs/typeorm.config';
+import * as cookieParser from 'cookie-parser';
 
 @Module({
   imports: [
@@ -18,4 +19,11 @@ import { typeORMConfig } from 'configs/typeorm.config';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(cookieParser()).forRoutes('*');
+    // consumer
+    //   .apply(BearerTokenMiddleware)
+    //   .forRoutes({ path: '*', method: RequestMethod.ALL });
+  }
+}
