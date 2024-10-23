@@ -1,3 +1,8 @@
+# compiled output
+/dist
+/node_modules
+/build
+
 # Logs
 logs
 *.log
@@ -12,6 +17,13 @@ dist
 dist-ssr
 *.local
 
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -24,3 +36,26 @@ dist-ssr
 *.sw?
 
 *storybook.log
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.env.*
+
+# temp directory
+.temp
+.tmp
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+.DS_Store
