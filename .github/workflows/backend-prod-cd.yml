@@ -1,0 +1,74 @@
+name: Paw_Seul - 포슬(backend-prod)
+
+on:
+  push:
+    branches: ['main']
+
+permissions:
+  checks: write
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 모든 Git 히스토리를 가져옴
+      - name: Get previous tag
+        id: previoustag
+        run: echo "PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ --always)" >> $GITHUB_OUTPUT
+        # 이전 태그를 찾아서 환경 변수로 저장
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          base: ${{ steps.previoustag.outputs.PREVIOUS_TAG }} # 이전 태그 기준
+          ref: ${{ github.ref }} # 현재 GitHub 참조(커밋, 태그 등)
+          filters: |
+            backend:
+              - 'backend/**'
+            frontend:
+              - 'frontend/**'
+
+  docker-deploy:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.backend == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker hub 로그인
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker 이미지 빌드 및 푸시
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/paw_seul-backend:latest ./backend
+          docker push ${{ secrets.DOCKER_USERNAME }}/paw_seul-backend:latest
+
+  ec2-deploy:
+    needs: docker-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: EC2에 배포
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            docker pull ${{ secrets.DOCKER_USERNAME }}/paw_seul-backend:latest
+            docker stop paw_seul-backend || true
+            docker rm paw_seul-backend || true
+            docker run -d --env-file /home/ubuntu/env/backend.env -p 80:80 --name paw_seul-backend ${{ secrets.DOCKER_USERNAME }}/paw_seul-backend:latest
