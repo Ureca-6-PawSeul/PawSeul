@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeORMConfig } from 'src/configs/typeorm.config';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 import * as cookieParser from 'cookie-parser';
 
 @Module({
@@ -15,6 +17,8 @@ import * as cookieParser from 'cookie-parser';
     TypeOrmModule.forRootAsync({
       useClass: typeORMConfig,
     }),
+    AuthModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
