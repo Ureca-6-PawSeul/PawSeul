@@ -7,12 +7,12 @@ import { Header } from '../Header';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Wrapper direction="column" align="center">
-      <Flex width={375}>
+    <Wrapper direction="column" align="center" height={812}>
+      <Flex width={375} direction='column'>
         <Header />
         {children}
-        <Navbar />
-        <Footer />
+        {/* <Navbar /> */}
+        {/* <Footer /> */}
       </Flex>
     </Wrapper>
   );

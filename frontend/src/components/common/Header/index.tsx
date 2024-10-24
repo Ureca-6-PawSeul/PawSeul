@@ -8,5 +8,6 @@ export const Header = () => {
 };
 
 const Wrapper = styled(Flex)`
+height: 0px;
   overflow-x: hidden;
 `;
