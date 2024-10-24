@@ -6,20 +6,23 @@ import { colors } from '@styles/colors';
 const PetAdd = () => {
     return (
         <Container>
-            <PetName direction='column' widthPer={100}>
-                <Question>반려견의 이름은 무엇인가요?</Question>
+            <PetName>
+            <Flex direction='column' align='flex-start' webGap={7}>
+                <Text webTypo='Label2'>반려견의 이름은 무엇인가요?</Text></Flex>
                 <Input type="text" placeholder="이름" />
             </PetName>
             <PetGender>
-                <Question>반려견의 성별을 선택해주세요</Question>
+            <Flex direction='column' align='flex-start' webGap={7}>
+                <Text webTypo='Label2'>반려견의 성별을 선택해주세요</Text></Flex>
                 <ButtonContainer>
                     <MaleBtn>수컷</MaleBtn>
                     <FemaleBtn>암컷</FemaleBtn>
                 </ButtonContainer>
             </PetGender>
             <PetAge>
-                <Question>반려견이 몇살인가요?</Question>
-                <Guide>연령별 필요한 식품을 제공해드릴게요</Guide>
+            <Flex direction='column' align='flex-start' webGap={7}>
+                <Text webTypo='Label2'>반려견이 몇살인가요?</Text>
+                <Guide>연령별 필요한 식품을 제공해드릴게요</Guide></Flex>
                 <AgeSelect>
                     <option value="">나이를 선택하세요</option>
                     <option value="0-2">0~2살</option>
@@ -27,15 +30,16 @@ const PetAdd = () => {
                 </AgeSelect>
             </PetAge>
             <PetWeight>
-                {/* <Question>반려견의 몸무게를 알려주세요</Question> */}
                 <Flex direction='column' align='flex-start' webGap={7}>
                 <Text webTypo='Label2'>반려견의 몸무게를 알려주세요</Text>
                 <Guide>몸무게에 따라 소/중/대형견으로 나뉘어져요</Guide></Flex>
                 <Input type="text" placeholder="몸무게" />
             </PetWeight>
+            
 
             <PetSpayNeuterCheck>
-                <Question>중성화 수술을 했나요?</Question>
+                <Flex direction='column' align='flex-start' webGap={7}>
+                <Text webTypo='Label2'>중성화 수술을 했나요?</Text></Flex>
                 <YesBtn>중성화 수술을 했어요!</YesBtn>
                 <NoBtn>아니요. 하지않았어요!</NoBtn>
             </PetSpayNeuterCheck>
@@ -50,31 +54,22 @@ export default PetAdd;
 const Container = styled(Flex)`
     width: 100%;
     max-width: 400px;
-    /* height: 500; */
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
     background-color: ${colors.White};
     border: 1px ${colors.Black} solid;
-    padding: 20px;
+    padding: 35px;
 `;
 
 const PetName = styled(Flex)`
-height: fit-content;
-margin: 20px 0;
-`;
-
-const Question = styled.h2`
-    width: 100%;
-    text-align: left;
-    margin-bottom: 5px;
-    color: #3c1e1e;
-    padding-left: 10%;
+    flex-direction: column;
+    height: fit-content;
+    margin: 20px 0;
 `;
 
 const Input = styled.input`
-    width: 85%;
+    width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -88,7 +83,6 @@ const Input = styled.input`
 `;
 
 const PetGender = styled(Flex)`
-    width: 100%;
     flex-direction: column;
     height: fit-content;
     margin: 20px 0;
@@ -106,7 +100,6 @@ const ButtonContainer = styled(Flex)`
 
 const MaleBtn = styled.button`
     width: 47%;
-    margin-left: 5px;
     padding: 10px;
     background-color: #ffffff;
     border: 1px solid #ccc;
