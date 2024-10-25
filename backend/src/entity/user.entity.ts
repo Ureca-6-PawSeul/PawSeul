@@ -17,7 +17,7 @@ import { Cart } from 'src/entity/cart.entity';
 export class User {
   @ApiProperty({ description: '사용자 고유 ID' })
   @PrimaryGeneratedColumn()
-  userId: number;
+  userId: string;
 
   @ApiProperty({ description: '사용자 이름' })
   @Column()
