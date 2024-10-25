@@ -28,5 +28,6 @@
       "@assets/*": ["src/assets/*"]
     }
   },
+
   "include": ["src"]
 }
