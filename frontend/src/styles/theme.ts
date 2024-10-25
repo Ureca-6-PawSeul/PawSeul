@@ -10,5 +10,3 @@ export const theme: TypeOfTheme = {
 
 export type TypeOfTypo = typeof typo;
 export type KeyOfTypo = keyof typeof typo;
-export type KeyOfWebTypo = keyof typeof typo.Web;
-export type KeyOfMobileTypo = keyof typeof typo.Mobile;
