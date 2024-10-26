@@ -7,8 +7,8 @@ import { Product } from '@components/store/Product';
 import { useEffect, useState } from 'react';
 import Navbar from '@components/common/Navbar';
 import { ProductDetailType, ProductType } from '@components/store/Product/type';
-import { getSnackData } from '@apis/snack';
-import snack from '@mocks/data/snack.json';
+// import { getSnackData } from '@apis/snack';
+import snack from '@/mocks/data/snack.json';
 
 type Category = '사료' | '간식' | '영양제';
 
