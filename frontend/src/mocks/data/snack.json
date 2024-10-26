@@ -1,0 +1,1156 @@
+[
+    {
+        "index": 0,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/9dc1/40b1e13b5495b578b95a05980070c5f392dfff722303d78e126f328c7833.jpg",
+        "title": "수제명가 애견용 셰프시리즈 건강 한입 간식, 리얼황태, 2개",
+        "price": "5,900원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3fed/e125af0f0edb82e869becadb757349e18336d34da004259280b0213e4612.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d81a/e9d6b33d9f34b13ae7beaa52d3e192f3f483993763d21a0367a7dcbf86d6.jpg"
+        ],
+        "main_ingredient": "생선",
+        "food_function": "치석제거",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 1,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/552586276986956-6e7619a5-8b0b-47ae-888f-a08139a0fef0.png",
+        "title": "와그작 강아지 하루간식, 혼합맛(자색고구마/..., 30g, 14개",
+        "price": "17,480원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/2/5fde045f-3b3f-42df-ac5a-7048ca06c6d4.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/9/8d9c3438-d3f7-4113-8afa-abf7ad1d977e.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/8/b44ed1ea-b9e3-40ce-a9bb-9d82c28e157f.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/2/c5fcd871-cb3c-4503-a1ca-f0dd6b2e9af3.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/3/fb58c53e-9f85-41e7-9928-eb32c9d7e50c.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/180961285821501-52d653ca-bdc0-4b54-9f24-a3427cf59eec.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5099807565795076-e3d29578-730c-4ed2-9a41-025d9fa3d760.jpg"
+        ],
+        "main_ingredient": "과일/야채",
+        "food_function": "다이어트",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 2,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg",
+        "title": "뷰카펫 스니커츄 덴탈껌, 밀크맛, 300g, 1개",
+        "price": "9,900원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1253389805825136-03480d40-db01-49ff-a2c0-c63af80a973c.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1153304744508744-9b86ff5f-1b2d-49c2-af5b-f3d7b6b5d181.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "치석제거",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 3,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3316836862055369-5b47a923-339b-4e02-b8ad-dcdfb2c3b5f2.jpg",
+        "title": "마이도기 강아지 간식, 치킨믹스, 300g, 6개",
+        "price": "15,960원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/795169631551542-376857ed-38c9-4d8d-8a13-ee9ac25dbba1.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/473381481063149-293b3c94-2922-45c6-9bec-cb82274021df.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "체력증진",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 4,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/6425876930767524-fa759c25-187c-4535-bc91-74cee7430cd8.jpg",
+        "title": "마도로스펫 반려동물 건조 트릿 간식, 열빙어, 100g, 1개",
+        "price": "11,700원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5206063065912001-ec72c6ec-6e2a-48a5-9a5c-e3ecbac7e4e2.jpg"
+        ],
+        "main_ingredient": "생선",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 5,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/5062/ad4a340f80e0dc6add0429c3f5db003eefac639505bc7c523c5650b1d3f4.png",
+        "title": "진짜육포 강아지 간식 져키 180g, 소고기, 180g, 3개",
+        "price": "14,310원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/c5a2/ce12699bdd1c06ca2b4decf63a5ac6f2fb6848236a450f6d46b044807125.jpeg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/602c/b4375060935683155c7fa9fa86aef8ddce26b5b0acf9f749ad4cd4ad3721.jpeg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a0a4/15d31b69c2ef514c24473540fa9c813db8ad1c365490f13bc3ede6e6bbcd.jpeg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/bb38/c140e01439bf24978077563fbac351c7bc7623e7bb2b4c582754ddc99d47.jpeg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/f513/4747d653da5f1f7d2b5b1f5462da404090d4e38b48451c0959d77ac975f1.jpeg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "면역력 강화",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 6,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/edrgfxio/a08971e93473467799873a623cf916d0.jpg",
+        "title": "올가밀 말랑 촉촉 고기 수제 강아지 간식, 소고기, 1kg, 1개",
+        "price": "16,680원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/2/3614cf28-726f-4638-a132-e12f3c3863e5.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/7/085a0625-4896-4af4-a27a-546322cb1805.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/5/a3d5106e-5576-437b-bce2-4fd074ade346.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/5/2e3e1ec0-698a-4726-b8ff-a3a0518beeea.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/9/c08892aa-ed5d-47a3-99e9-ab9b6b0b7973.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/mln2xdjk/6d5e9f488dd741618c8b18278920b968.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/4/63e433ae-55ac-47ea-b205-b6570057c0f9.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/2f8wjvje/617b0d1b4771413694ed7da5be1f0ec8.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/15/8/d2557e41-f420-4014-b91b-8165049912d2.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/15/9/7a30abf6-0f02-4255-871a-4bb662fae669.jpg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "캔/파우치",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 7,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/436119620374966-35cb43bb-bf5b-4cf4-b258-2a5621222378.jpg",
+        "title": "파미데이즈 강아지 유산균 덴탈껌, 황태맛, 320g, 1개",
+        "price": "14,900원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/436056563592090-ad701f90-ab55-412c-a8f0-b31ec68f23ce.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/xa29mmaz/50fca682c4c842a08ffe04c03ad514aa.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "유산균",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 8,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/ae96/a10afaa66ac95c979d13204f016d6acd8b536bd7e67b5888e4577f36d15c.jpg",
+        "title": "브랜드없음 인네이처 리얼 사사미 1kg 건조간식/육포, 치킨, 1kg, 1개",
+        "price": "13,770원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/195f/6d78b4d477958d9423d5124fd099efa75ab9771a319e26ae4d1417e88962.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/b770/e0fd0d7ad92f867a8ccc594e2473f729ef841d53af48890597ada73ab0ad.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/cd1b/81fbfbb2f146f9935264c4f5c3672e6bcf297e05c28c4af12dda7d3bd572.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3a5f/15247c2254bfb32d3a58964712ee5fefa8ced8abdafac3d38739a2079178.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 9,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/operator/170750072/f03f0811-1f43-fe37-a606-cf0277129573.jpg",
+        "title": "수제명가 대용량수제져키-8종 수제간식, 황태스틱500g, 1개",
+        "price": "9,290원",
+        "description_img": [
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/812e/696d5fcdcea6e0ea266a5b6c1bf83902287044cb5db8d1a93c7ee6e036f6.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/4135/15c957d572cece02c6bbb214100a37ed6018c01d8c626e2476f91580e192.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a2ee/6ffa739e5795c22f0040184e8e26f4951912043674fc8c3384660ff005b2.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3c82/1c64b1aa264f6cd3b4586af0890dafbede0853af6621ca57b87528c112dc.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ec55/28b1633511bc7c4c7e59d7a7f943a5f24cbf9ce7b63ec5bee89f65533223.jpg"
+        ],
+        "main_ingredient": "생선",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 10,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2019/02/25/14/0/a621e299-e8cd-4a7b-926f-26060885496a.jpg",
+        "title": "참좋은간식 강아지 고구마치즈 간식, 치킨봉맛, 100g, 10개",
+        "price": "13,950원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2019/02/27/13/1/2aecafda-f56e-404b-adad-523c69f44714.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/153687929992609-310a4ad8-41be-4221-96e3-ab9aef1ffe42.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 11,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7122140804178811-88f7bdfd-1798-4b3f-a953-e2cb5e03c992.png",
+        "title": "와그작 하루한컵 선물세트 동결건조 간식 16개입",
+        "price": "25,080원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/7122190686863961-29a4fd50-a7d6-4465-9c0a-7d9ed10cc604.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/7734707035825286-3383cecd-89ff-44db-9229-159eb04326d9.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/7733152877511923-afcba3eb-861c-4881-b673-df4ddb115689.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/6687594521983911-fa575c93-6a63-49cf-b849-e7abc45eca34.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 12,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2020/06/26/14/1/330aa216-c829-4a55-bde1-b60719cc1cb6.jpg",
+        "title": "와그작 강아지 하루간식, 혼합맛(소고기/고구..., 30g, 14개",
+        "price": "17,480원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/7/1c61076a-cf27-47b6-b70c-bfdac4d339e9.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/7/5978412f-be17-4f77-af66-3a6f15d9ffab.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/8/b44ed1ea-b9e3-40ce-a9bb-9d82c28e157f.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/2/c5fcd871-cb3c-4503-a1ca-f0dd6b2e9af3.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2020/06/26/14/3/fb58c53e-9f85-41e7-9928-eb32c9d7e50c.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/167977754028707-318e4b62-94a2-4ceb-b1f3-8d2240861c4d.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/857376346379749-0e711784-38f1-42b4-b907-aceaa7ad0378.jpg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 13,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2019/10/04/17/4/713e15de-3b78-44c3-8917-5b4d5685c419.jpg",
+        "title": "굿데이 맛있는 유산균껌 반려동물 간식, 블루베리혼합, 300g, 2개",
+        "price": "15,200원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2019/10/07/11/5/4c4c2729-f707-469d-8f11-ea4897a560b3.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2019/10/07/11/5/6f5ac1d2-85e1-4833-8760-b2b8f6069db5.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/541527291585375-a9803816-662e-4612-86b1-8b5b3ad406a6.jpg"
+        ],
+        "main_ingredient": "과일/야채",
+        "food_function": "피부/털개선",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 14,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3496477320633838-71cd0e37-570e-47ad-a0cd-04b2840ef9a6.jpg",
+        "title": "마이베프 펫밀크 생유베리마치, 크랜베리맛, 200ml, 10개",
+        "price": "24,300원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1133602829687145-dcd38f8c-97cf-450b-8e11-aceb22efb18b.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/6262322100479575-050af6a8-3ace-4d84-8cde-397ac7d2819b.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/6012490109912936-4d19b3f0-89b0-4537-8465-5e1b52728a9a.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1133605210105164-f5eb064b-6628-4c5b-b834-857da356269e.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/4449680114939396-139ca8ef-7228-4ef2-9040-37eca4a45b15.jpg"
+        ],
+        "main_ingredient": "우유",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "캔/파우치",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 15,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/ipbk1ar4/fe90a7b57239470fbf1e254fb956c5a2.jpg",
+        "title": "다이아몬드펫 사자 강아지 대용량 실속형 간식, 치킨꽈배기슬라이스, 1kg, 1개",
+        "price": "18,720원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/xqi8bsiz/73a4a87c0e424f83a7dc2cfa4fa760fb.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1455951897124234-5cc4f12b-3845-447d-9ba8-564ecde47c42.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1894225367892763-ca5a2df1-1d17-490d-9d97-bc661a9bdd5e.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1198412435172290-259a615f-8a3f-4f11-ab45-282434daef5e.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1110506906151429-85ba89ef-05bb-48b9-aa00-3596350cf996.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "면역력 강화",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 16,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/f839/86fad8a66d6cda49e0974fee4dfdebd30da2266bc63be45495d9d4bb0dc6.png",
+        "title": "맛있고 오래먹는 한우스틱_15cm 45g, 한우, 45g, 1개",
+        "price": "19,190원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ec0b/0a4e5f5a927810d950bf8da8b0ce6b326d780b30e1c9aefb6af139a591f3.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3af0/cf444e355b87d1ac273cc5a5fc557b1ade09bb24b0801b5edd900dd02a30.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/c03e/ce138034ede6c795f4be25626fffba822c443052d2f2c601eebdcfa1165e.jpg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "치석제거",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 17,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/76e0/efa730dbd3aa327db539f2818e09b60139df85483acc294dd1a77fd9daaa.jpg",
+        "title": "수제명가 대용량수제져키-8종 수제간식, 오리스틱500g, 1개",
+        "price": "9,290원",
+        "description_img": [
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/812e/696d5fcdcea6e0ea266a5b6c1bf83902287044cb5db8d1a93c7ee6e036f6.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/4135/15c957d572cece02c6bbb214100a37ed6018c01d8c626e2476f91580e192.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a2ee/6ffa739e5795c22f0040184e8e26f4951912043674fc8c3384660ff005b2.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3c82/1c64b1aa264f6cd3b4586af0890dafbede0853af6621ca57b87528c112dc.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ec55/28b1633511bc7c4c7e59d7a7f943a5f24cbf9ce7b63ec5bee89f65533223.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 18,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/b784/2a828a16c75253db01b6cd716ddba744a69f5a4766f4887d101c3778e65d.jpg",
+        "title": "많이드시개 강아지 대용량 수제간식, 오리발, 400g, 1개",
+        "price": "14,310원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/5ba4/84e0b92d0bce17e9456f43bc4d6b6701cd3e7d76aa4acc77afde706f728e.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/e3da/a12f6e3a8168602301d2bff80fe1ea2a109bf4e36f1e19731b1e55d7bb25.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/dbe9/5fcded9727bada34577b56cce4a4340096d62fc77a2f90737c3011c0b553.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/118f/7043dcac589f4bcca463491653a1eb5270d38806ccc52b66f05000d98c07.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/f1fe/2807fde4fbe32474d875f4abf2bab161d1457a426141520df451d641ea94.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/c560/0a8d41e57be91e2f9af9e61e996b26478e6f6446a7e4b9549b5df80454cf.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ad00/9e0e54cfa83a3b6eb45b3782af82e39039d21f11e033bcf6f50dd582f032.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/f332/c102fc04b7de851abaff60d7a2a83fc199d0ac323f39dd62e3b62e3a8216.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "콜라겐 & 치석제거",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 19,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4333343600547061-1286c603-891d-413e-b41f-cffeef82def1.jpg",
+        "title": "마이도기 강아지 간식, 닭갈비, 300g, 6개",
+        "price": "15,960원",
+        "description_img": [
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/793091246706399-b0fdc040-8e3b-4435-8835-b2b94c35e2da.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2856914807341981-ac96c1bd-41e9-442d-89ba-c8a30263b818.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "체력증진",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 20,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/023f/8596689e825cc0fa7e521f159c94a078384763d00432550e2fb7c55c219c.jpg",
+        "title": "수제명가 오리윙500g 대용량팩 오리날개500g 수제간식",
+        "price": "7,300원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d687/5f8234c9432a761f84aede78e672d67825a77acaac3902ea17292d5c70cb.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/85d6/a3b4a727b516126938449910186164f40f238b86eeddbbacf098a14763ec.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a52a/404d9ee238c9cefae00a6ad704ba3a39aff4cd794a1722245158ae1fa3aa.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ec55/28b1633511bc7c4c7e59d7a7f943a5f24cbf9ce7b63ec5bee89f65533223.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "치석제거",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 21,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2017/03/09/17/8/5e7a8ee8-cee4-4005-866b-0d2d56452161.jpg",
+        "title": "풀무원 아미오 반려견 헬씨믹스 트릿, 블루베리, 100g, 5개",
+        "price": "20,320원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/945118644631226-e8aedfac-01c5-4dd1-be69-08fcf51021e3.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/323223859086469-914fe5b7-ced0-488b-a10d-1ec22afac922.jpg"
+        ],
+        "main_ingredient": "과일/야채",
+        "food_function": "눈건강",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 23,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/ddbe/e7b3f86b676f125bf285b9f2444ff9b9f7a61c4916e84b7a41479d1cec34.jpg",
+        "title": "와라모두 윔지스 덴탈껌 버라이어티팩 S ( 840g 56P), 덴탈, 840g, 1개",
+        "price": "34,500원",
+        "description_img": [
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/bed8/514cd05a3df132936d4e34092000a062c24ccc53cc1366035e239431c6ab.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7234/53df2da08a7e58025c27f733e4423139e5224cd50f7f4df7a7b28b89f462.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/6aee/c52b450864112778a705207ee4576a7a9106d1aa3939f7dc209062c494cf.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 24,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/04/11/4460708743/236c7c04-52d0-45b0-bb6e-3a2125cab9f0.jpg",
+        "title": "마도로스펫 동결건조 간식, 북어트릿, 80g, 2개",
+        "price": "23,280원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5201945971791787-71542a42-17df-48f1-913b-70dde80f808d.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5201945843571505-fe02d39d-000e-47c3-b233-1f895cac0b17.png"
+        ],
+        "main_ingredient": "생선",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": true
+    },
+    {
+        "index": 25,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/06/06/10/1/e1c22e30-eda3-4a29-86b7-d6fb7e066fc3.jpg",
+        "title": "노즈워크 트레이닝 강아지 트릿, 소고기맛, 150g, 1개",
+        "price": "6,700원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/06/06/10/4/fe047d0d-d42b-4256-98f8-23da7722807c.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/ggdmf3np/b2c3607c739b4254a409792b88cad8b3.jpg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 26,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/362179532044450-11175c86-738f-48d8-8378-b8f89f9444cf.jpg",
+        "title": "마이도기 강아지 간식, 미니닭갈비, 300g, 6개",
+        "price": "15,960원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/793510502029664-7428f754-cfac-4f04-984a-0423f6866d27.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "체력증진",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 27,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3316772915556344-7de2dfd2-477a-47a6-aa7e-1abc875e5fc0.jpg",
+        "title": "마이도기 강아지 간식, 건식꽈배기 사사미, 300g, 6개",
+        "price": "15,960원",
+        "description_img": [
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/795219254329595-fe93cdef-ae0e-4783-ae8d-1bb6d9c70a92.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2234667762197669-c5a88452-a3ab-4c26-9126-66b8accfb530.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "체력증진",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 28,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/10e6/e003352126219d2cecc126175760f06540c241e1fbc15ce2a84791f79074.jpg",
+        "title": "수제명가 오리도가니 대용량500g 국산수제개껌 껌",
+        "price": "5,450원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d687/5f8234c9432a761f84aede78e672d67825a77acaac3902ea17292d5c70cb.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/c364/817be64b6bcaf6355ac5e07a2234cdb6cd03fda904755d4ee87815004551.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/85d6/a3b4a727b516126938449910186164f40f238b86eeddbbacf098a14763ec.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/8a7c/2e92538092df8d623eb9606ec0b5dacb0d6f5f99fdd089fbc90131c11a9a.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ec55/28b1633511bc7c4c7e59d7a7f943a5f24cbf9ce7b63ec5bee89f65533223.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "치석제거",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 29,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/0b66/b62eded6935b390a326191c8b77d7678f11a5a0f879c89f85f5c00210462.jpg",
+        "title": "수제명가 국내산 대용량 강아지 황태 200g, 1개",
+        "price": "9,100원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d687/5f8234c9432a761f84aede78e672d67825a77acaac3902ea17292d5c70cb.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/2eea/b01340afb4a3de41b805b5d73e21f7011dda2f2fa275760e667f3340822a.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/26e3/154b20f04cc81bc0de6aa273cbb77963c394180b3c84e37557ae6d122e5b.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ec55/28b1633511bc7c4c7e59d7a7f943a5f24cbf9ce7b63ec5bee89f65533223.jpg"
+        ],
+        "main_ingredient": "생선",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 30,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/rtbonotv/d23be31a02bf48ab83e46e70960f4d73.jpg",
+        "title": "사자 강아지 대용량 건조간식, 오리가슴살, 1kg, 1개",
+        "price": "18,720원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/xqi8bsiz/73a4a87c0e424f83a7dc2cfa4fa760fb.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/8569728798898163-7cfc63d6-9595-4322-a709-214f7b2ac6a9.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1893909957098055-7e9b23d8-82a2-4a86-be4b-2eff2aaaeade.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/3839096205934975-995a8084-6b5a-403e-a804-dcd89b0a408d.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1893910559443283-16e04f46-d700-41fe-9f1f-cf88eb7bc23d.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "면역력 강화",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 31,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/a519e455-e0d2-4d2e-84f8-26cc603470bf2615374392959692166.png",
+        "title": "굿데이 건강한 육포 강아지 간식, 오리가슴살 스틱, 300g, 3개",
+        "price": "31,500원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1585912926750557-f8b8046f-6054-4433-b397-4129960950ef.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5240978493410042-aaa5ea69-8298-4e27-8675-13015f6ed53f.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5240995533260836-471543c8-6f62-4f18-aa7c-8839922245f6.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/362366378865345-382be607-72b0-4406-beab-01df9389b917.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 32,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2019/02/21/11/5/b5f04d12-84fe-4970-a226-018daeebdbac.jpg",
+        "title": "띵크유어도그티 강아지 딩고껌 스틱형, 혼합맛(치킨/우유), 240g, 4개",
+        "price": "28,600원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/product/content/vendorItem/2019/02/26/540439256/67e3f43e-6fd4-48a6-8b30-a5ac0f936dbd.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/product/content/vendorItem/2019/02/26/540439256/9fde8b53-af1f-4688-94f4-e0caa2948118.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/401653968763024-f88374ce-f15d-4af1-a4eb-be55120dbb39.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 33,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2023/05/30/16/1/479644c8-f02c-44cb-b4b1-bbf0706893d4.jpg",
+        "title": "더독 강아지 모닝 키세스 3in1 덴탈껌 50p, 블루베리, 500g, 1개",
+        "price": "20,310원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1548588566816437-2c7b41df-e8c0-49cb-96e2-ed992738799c.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/529864222643514-fc3cb0c8-0d5e-4123-a92a-648b1844b48c.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "치석제거",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 34,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2021/10/19/14/9/3803cd23-c361-437b-9c12-56fbff759389.jpg",
+        "title": "마이베프 강아지 고양이 짜먹는간식 별자리스틱 4p, 신장건강, 60g, 5팩",
+        "price": "15,720원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/akpofhdz/82386ffe0cb042d788d7a5e69a5dc26a.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2021/10/26/13/6/1f0714b8-efdf-40b0-b372-0d63097f64e0.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2021/10/26/13/1/5da6af3e-fd15-4ed4-9d12-bd0f8d4dcc81.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2021/10/26/13/3/7e28c6c7-6c70-4371-8691-3b8459ac1574.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2021/10/26/13/4/a01d3922-d23f-4daf-b41e-100beab04903.jpg"
+        ],
+        "main_ingredient": "생선",
+        "food_function": "유리너리 (비뇨계)",
+        "target_age": "전연령",
+        "food_type": "캔/파우치",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 35,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/06/19/4436823224/c4870e74-bcf4-4ddd-82fe-776c903b6708.jpg",
+        "title": "베게브랜드 스마트 베게본 미니스틱 반려견 간식 3종 세트, 우유 + 소고기 +..., 4개",
+        "price": "10,660원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/product/content/vendorItem/2019/06/19/547663681/5060bca3-8d95-4826-a473-1ee844dca699.jpg"
+        ],
+        "main_ingredient": "우유",
+        "food_function": "치석제거",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "소형견",
+        "is_grainfree": false
+    },
+    {
+        "index": 37,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/05/17/12/1/361a9cf6-e53b-4c51-90e4-a3db888e7994.jpg",
+        "title": "마도로스펫 반려동물 소프트 연어트릿, 홍연어, 100g, 1개",
+        "price": "13,500원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/05/17/12/9/0c9d0408-5f22-48b6-a2f7-55e9338beb55.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/05/17/12/5/f57e067f-01cc-45ce-bd0f-cafb680ee6d5.jpg"
+        ],
+        "main_ingredient": "연어",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "캔/파우치",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 38,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4811171507371406-74d3e1c5-041b-4cfd-af76-71c6600d20b2.jpg",
+        "title": "개빼로 콜라보 강아지 껌 6p, 치즈 + 오리 혼합..., 70g, 5개",
+        "price": "13,210원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/4811175514909630-b31cd6ac-6668-4551-a810-2bb7c3eaf938.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/852584881161730-ad8bb481-564c-4b1f-b68c-7da8caf83345.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/409544349429432-dd0f8089-f90e-49b2-8e5f-9eac8e4fdab3.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "치석제거",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 40,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1251805814033002-aba0ada3-6c9b-47d9-a66b-efd05fb94c04.jpg",
+        "title": "페페로니 진짜 오메가3 애견용 져키, 소고기, 180g, 3개",
+        "price": "15,300원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1221194688419325-e45b098b-dbff-4c93-a94c-18b8cee40f1b.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/626162994301199-9651457d-b8f7-4457-a71d-04af3f0b9711.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/545182061535280-5605316c-4e5a-431f-b79e-b104fc1719d2.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1152166239521425-9897a32f-5ca6-41ee-b5ce-d618b726a014.jpg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "뼈/관절강화",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 41,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/5309151453612903-77866f44-c80b-42c3-bcc2-4417740fc3aa.jpg",
+        "title": "탐사 덴탈 클리닉 반려동물 치석제거 덴탈껌 청사과맛, 1개",
+        "price": "7,290원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5720866125701395-fdf609e0-1093-4350-9a8f-e87cdf645361.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "치석제거",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 42,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/fofdfuxa/b8bfc22a6cc546c3986594647a7beb8d.jpg",
+        "title": "올가밀 말랑 촉촉 고기 수제 강아지 간식, 황태, 1kg, 1개",
+        "price": "16,680원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/2/3614cf28-726f-4638-a132-e12f3c3863e5.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/7/085a0625-4896-4af4-a27a-546322cb1805.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/5/a3d5106e-5576-437b-bce2-4fd074ade346.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/5/2e3e1ec0-698a-4726-b8ff-a3a0518beeea.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/9/c08892aa-ed5d-47a3-99e9-ab9b6b0b7973.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/mln2xdjk/6d5e9f488dd741618c8b18278920b968.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/16/5/d351e750-4ad2-4694-9aab-abb67285a2d4.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/2f8wjvje/617b0d1b4771413694ed7da5be1f0ec8.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/15/1/f3e2f230-94ca-4824-a8af-ba10dd9ddc75.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2023/04/03/15/4/22a4d7ba-b7fc-4edd-bc51-02bb40e006f0.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 43,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2546546848222935-d58dbcf9-e3af-4060-9429-89b0aea863db.jpg",
+        "title": "잇츄 옐로우 S 강아지 덴탈껌 79p, 혼합맛(밀웜/마누카..., 948g, 1개",
+        "price": "46,670원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947641051993618-a57263e7-4dc2-479d-ab2a-4e4771b09279.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13397857647393416-387fd6bd-7011-4db8-8845-21d63d65fbd5.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947641285658482-b99abc14-e496-4d19-9d34-5c2a787460bc.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13397857820207724-41b6d084-8a13-4d8e-852a-07bb6e36e044.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947443297129603-cf3660e9-bf19-4c26-bd08-7941d1667fcc.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13397857794932714-e416461f-161c-43cd-b1ea-03d0b13b1e19.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947443291421740-739311a6-1350-4f6d-a51e-cdb855d920a3.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/538401272175736-b84bf444-65b6-4aad-83ab-12365df17780.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13397857809458504-b558c7f4-877b-4bef-9a47-08cc46b90e22.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947641270712715-7d5d17f5-933f-4e9e-8770-16ac91a29630.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/538401288642444-07ddf2f6-03c7-46c7-b7bb-46d4cbe53099.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/538401244154633-c65b80f1-4c9b-4929-b1df-2013765a7354.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947443304469209-c8d012b0-25a6-4391-9589-c9bcfa4a45e0.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947443308756593-905fae98-dbba-49c9-ba75-7d398844d536.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947443328038891-56c718ed-1764-4791-9e54-33f33be47c4a.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947443375290419-36b9d1ba-d00d-4dc6-b695-57273e984514.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/538401362873935-c602d873-d5d2-4b0f-b8fa-c66d5f7bdc4a.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/13947641340521798-4ccc8690-3794-4020-824f-c6cdbfde8a18.jpg"
+        ],
+        "main_ingredient": "곤충",
+        "food_function": "치석제거",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 44,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/c7dd/f8deeef2f31a5a98ec94c0fbbeddde3726b46382bc915d38a9cde4977dc6.jpg",
+        "title": "[안전성분인증]닥터뉴트리코어 보스웰리아100(10개입) 180g 강아지 관절 덴탈껌, 관절/덴탈케어, 180g, 1개",
+        "price": "11,000원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/45e9/96458efd1137322cb4345a0f3f18504d68f85173b91deb9dd0e3186a2ec1.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/f56b/909d1f3f4efc2c81b23eb30db56993422a2a5e170b6a41208bfb26ac18e0.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/fbce/95e07ce82370be3b2f513ee103c53cb77fef5a2c8b12b860afe9ae295bd7.jpeg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/0ea2/653e2a96bc4dfd258046d5bf4597d21e0b11d2e5644e9ba91edcc6cc16ab.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/f04a/1b6a4239ca44862932a946020f0e18de60eb9dc56275040155c16dba6062.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7a32/499acb2c3d18bc0095316237c5cdbcdb08b98e2f4b689838f706e62554ef.png",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/1614/2b0ba4bc6ecaab7f115e13578cab582689f93364546edb994ceab9166f5b.png",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/67b5/97cd8114b6528c8dbe923d802ec99b352970f351272c76060997b5875775.png",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/73b3/2fb9ab5a7439f40acf04632bd8d1fa33df44b2292558db3fa59f185cf14c.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/2494/6f58e19c176f0564337b0f8bdc7a0ba1215213ccf8578230ed6e79a43da6.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/03ca/1e8d6f11884bd82569ae6e1044d5633bbdc850563b3e27c7fab0b6b3b8f0.png",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d308/146e7428377e162ebc5730ca7fe38f67c38e6675c5ce9cd5f5722b802e60.png",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/753a/5a9c2eb28c53e276498cbe7e3c52b38a6754442869acb506835aaf3a1572.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/6a16/6454bdc9f4ace119a0d20750cae66952a9398d6b6d3a38ce71b68cf7f3bb.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/57c8/6e4fd594f32df5477c5aa97b74d9b7cb44af3986e71bc251acab4cbeb1a5.png",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/6b5f/e6f09f94ffcf2ecd9a96c18c2c5b8522596c314c183afa431ca151448968.png",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/9f6d/85db0a58c9229a89b6951329e095bf925e402e72f4388a320bd9a36765b4.png",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/b48f/5027fe9046a8053eb58c1947fbde2e4e8d39213d36f31aff121e4cbdb9dc.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/622e/2e31a4b97bbabbedbe712e221864b63f732ac3a9c963f86a1224aa890b9e.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/1a7c/6d79e1b847e86abab42d3ba56468d0f945dc600d85ca965cce264ae8a4c3.png",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a5a0/1bcf5b77c18590f221d7a355fa4cb837e1dba8fad2f3ada6338c6f2dbbd4.png",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/cac3/8b00ae35dc51970dea451cada19934e50789b9f22ee08dba1b127bc41861.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d56a/58304e2d6e1647eec87b17231ff51eebac4b326cb7c7f740d1524147e46f.png",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3704/32b78cc77558ee9afa086108d5498f47eb5bc53f555cb8bf50f7cfbaa562.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/5461/1680ef735a71511a6056fba9cfc779823f33b68870e1588172905dc9e5b3.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/079b/439b888e0928f4af71367187466c5f2cbfff715b69263add300d4319ec2c.png",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/6824/b36efba2270d85d961a2af88687f355b997d032dcd4f4187426c1f65c81b.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7221/8e9c5737151f509d0b1449ba310de05066ac76c1d39bea8dc5816675e001.png",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a8a5/3ee1a2f5e19c032ea8e51ac1e834ccd0d962ac404e2072b99c8131dfce2c.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/db91/4cf41e72a391ec023dea618e4e59c14b2a4b7df02bdd426f20a4c57c2967.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7986/4b627a9ba089a3d6d74b4e7ad41cd71f0f0c06106dc862fe779810fbf860.png",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/875b/6940e6ac474e375d5a9ea5ca99c3864da64efe9a8e4b9344bac84881cc1f.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3c9e/2edac231f6a8878d52328b68a67345cb37422603d078a01b8acba9055a22.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/67a8/72c26f7690487cabcd373dac8918295235ff3afc999d555cca2409ff1e95.png",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/cb2c/502c2a13029f5273f9b3320705d6de66bb805c0408d0504dd670a7d6c393.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a0b5/380e46660c27e5f4118f36719714f567d91d3b8ba50e102ccfaf68fd82c5.png",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/5acc/c2df4c5abba11273dd82d31fdfe4f24e0fbcc6092a4057db06e59c525f36.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7366/6444298c4aa347e6068acd6c5c8d50537367a92ef49c6e9f359f5b6119aa.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7b4e/71cc457c81b03b86ac73549e640632470567273c65ab58b2f1e5074786f1.png"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 45,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/5653733857596000-230b068e-db4b-48d8-b51a-c9138dd4e260.jpg",
+        "title": "맥시 대용량 강아지 간식, 비프 져키 맛, 800g, 2개",
+        "price": "21,240원",
+        "description_img": [
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/863049813954495-21a60212-4d4d-47e2-814b-d1e2878a6f57.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/6449045538278078-b9d6e5b3-75ef-4ca6-9194-a72f49695695.jpg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "면역력 강화",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 46,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4719099273994802-713e3142-d3a0-4346-a89d-d27669de8361.jpg",
+        "title": "굿데이 건강한육포 강아지 간식, 연어 + 우유 혼합..., 300g, 1개",
+        "price": "11,040원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5047736560395312-2d13248d-591a-4528-8753-8ef3a9e6c9a0.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/uqt7wsxb/18cd12f31a174e81879260eb9cc9416f.jpg"
+        ],
+        "main_ingredient": "연어",
+        "food_function": "치석제거",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 47,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/kpdaduqt/a53121ebb624487c8cfe2234b230a5a9.jpg",
+        "title": "사자 강아지 대용량 건조간식, 우유닭갈비, 1kg, 1개",
+        "price": "18,720원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/xqi8bsiz/73a4a87c0e424f83a7dc2cfa4fa760fb.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/8569700227606313-1f5726d7-da1b-48f2-9d19-a6743689da22.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1894013292519474-5fba797b-f574-4fed-bd3a-657f85d4f432.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/3839136826363015-3d9e7576-36af-49b5-942a-a574704fcd4d.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1110294835680023-854f857c-90dc-4992-ade2-036c323c39d0.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "면역력 강화",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 48,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4722569316866463-223cce9d-5f9a-4e80-be1b-c8fde9bf25b0.png",
+        "title": "댕냥이라이프 강아지 보니웨트캔, 소고기 + 닭고기 ..., 375g, 24개",
+        "price": "26,740원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2022/07/08/18/2/452189d4-d628-41dd-aa57-1c3087e85fcb.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2022/07/07/15/7/316480ad-f951-46b0-b34e-40d8e948c007.PNG"
+        ],
+        "main_ingredient": "소고기와닭고기",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "캔/파우치",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 49,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/199969037560492-0d7f5358-8b02-4eda-b5d3-00e829ddd46b.jpg",
+        "title": "사자 강아지 대용량 건조간식, 혼합맛(오리/고구마..., 1.1kg, 1개",
+        "price": "18,720원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/xqi8bsiz/73a4a87c0e424f83a7dc2cfa4fa760fb.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1455981602707129-f8380cd6-37b8-4d3b-9385-13fcb9b06b07.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1109917638850469-4539e51d-2c24-40d3-8fa6-0d005fe53631.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/7810244328375058-49688977-f942-4867-adbe-ac35e740094d.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1109918215065060-2d7be816-75b5-47e2-9ab4-8b7e9fb5b809.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "면역력 강화",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 50,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2020/09/10/16/9/0036a092-a65d-4132-8655-43b4437a3cb8.jpg",
+        "title": "굿데이 치카치카 강아지 기능성 덴탈껌, 눈 건강, 132g, 1개",
+        "price": "9,600원",
+        "description_img": [
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/967960184337496-106ea0e3-a81a-400b-bffe-ecd1d55e9ca1.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1411035410853447-e33574b1-a5fd-4676-a027-a3ef59d29d95.jpg"
+        ],
+        "main_ingredient": "곡물",
+        "food_function": "눈건강",
+        "target_age": "전연령",
+        "food_type": "껌/캔디",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 51,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/3f32/32f251b46bf5f950eaf1c0e0171a71b18774d020a8dcf564e1cebe7b247c.jpg",
+        "title": "펫스토리 해피츄 반려동물 터키츄 간식 S 1박스",
+        "price": "11,640원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7608/bf55603ac8a262295d2b2d3006ef7617ac58bd9f5c521d1933010cc8c17d.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/ea17/0812e24def78b1768a1762f4d44e2f2f8f85e8ea343eadfc1670376acb32.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/9a84/32f6747508b16d5cf5272c63b17c5cb1862b51bc07ea60932b2a051ce32b.jpg"
+        ],
+        "main_ingredient": "칠면조",
+        "food_function": "치석제거",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 52,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4088622386649564-073eb392-f899-4a87-b2dd-3e40cdcaadb1.jpg",
+        "title": "마이도기 강아지 간식, 치킨우유껌, 300g, 6개",
+        "price": "15,960원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/783428803279717-f3a36062-ff61-4b2c-983c-a72cd5707eb5.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2248652705476415-c2bcb39b-edde-46d1-9d4b-50ffafd87747.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "체력증진",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 53,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/2399/8d18baa147ec616fcbf06cbe7d68530fd3f924b0b7ced6df182b910bde65.png",
+        "title": "하이포알러지 츄 강아지 치석 덴탈 양치 개 껌 저알러지 간식 캥거루 오리 276g 12개입",
+        "price": "11,610원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/21a0/2577721ae55262c90c379d5913a5e3b854d18af6c9566efdfe361bdfa1df.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/505b/ee14b5d24de0728835fb010df8e41384ccdfd68183063fb63de63f6db06f.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/b5f4/12872393ed5350e3114d8474a7342b3a971bf9b4047660a2e98c33728a4c.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/0811/f2a12da74acac23c6f8e2f7c1f4a04e48b535c9d61fc150f4ea0cc3062cb.png",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/9051/383f6be0a863b07818505ddac4f9ad4c5db7a22de4d6213900555a1d6bd8.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/dcd2/5450955e576ed0b821d6960f8dc08b84d546dc7f67b50b9e2a81b5057f3f.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/6088/503011a887f516ccef69fb5741ff579999e73eee825a4287b6e279a9559e.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/5ccb/2d6547d6dae411af3e04c8febe46d880235383c8865ec9d7a909ac24b54e.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/8ec0/e608a75ca082de078ccf09d00dd6d5fc78b8c627ffa3f0cc7a2ceff4cd2f.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/5e8d/9449e7d1a72f1b9b3d962cbfde11d2a7e9efb6d9ec22ef7aba463c819423.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/3f45/6a6257068bf5c55e4a7e28f2f8bcf98ac07c09587e57a40544beae12df83.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/94fa/8b9b3d893020a3b84a7b577896aed175384d0c7cd1fb2cb4a32a3bca1b43.png",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/1cff/2dde9478b68e0228bd3eda27589fddce13828f34905fbda95a1e90f1b5f3.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/e244/23bb3bbe0ef55378be9e23a158a64ba45e176b4b42da63beb14010b63467.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/7b77/7e219e9e2685755ad7d9361171f2b5335ebe8a7085e1481ed4013c98bbce.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/a318/7275cc32c7e4339cd800caa0cd872b0bb571d8e473062e4c872fb28c2d58.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "알러지 예방",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 54,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/07/26/11/7/a7176c65-a1c8-4cb1-90d1-0ecb7e5c998e.jpg",
+        "title": "펫츠밀 강아지 한우 소고기 져키 대용량 간식, 소고기, 1kg, 1개",
+        "price": "16,900원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/9/deeb29c6-1219-475e-80e8-15c3bc245812.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/4/5c9b7144-a196-4f97-91e5-c8a00e571c8f.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/6/6b926b08-650c-4747-87b4-d78119f68ba4.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/9/aa2eb882-82dd-4b77-bca4-9fd882aef1ba.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/3/5dda0928-5d2f-4bf7-a0a3-3935dc28ecde.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/8/a773380d-e5bd-4173-8a21-2469484768ad.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/caduk1ky/054a4607b59948399b964e77d206f490.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/7/46f3b1f0-2e6f-4750-b68f-561e43fc5cc1.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/6/bb100dfd-354a-4442-a24f-896efba4c6a5.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2024/07/26/11/3/ffd0b1a2-3ee3-4b63-831d-d25999b3cf97.jpeg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "미표기",
+        "target_age": "전연령",
+        "food_type": "져키",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 55,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/f924/7717376120ee0a5955553b4d6082c983b489074f27ea1f240da1e17c7983.jpg",
+        "title": "1+1 신선한 수제 오리목뼈100g~1kg, 오리목뼈500g+5..., 1개",
+        "price": "14,750원",
+        "description_img": [
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/f087/43dbc6ee9f519a8de8bde6e7376660e9b61dabd7e5609f68869c60a20c16.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": false
+    },
+    {
+        "index": 56,
+        "category": "snack",
+        "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/84658825919868-bd232a23-6066-47fe-aa6b-d92a259ff388.png",
+        "title": "와그작 강아지 하루간식 선물세트 4종 5p, 혼합맛(오리랑 과일..., 30g, 20개",
+        "price": "23,920원",
+        "description_img": [
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/707516185011371-fec179e1-c7a6-45e5-b542-e4ebf077aefc.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/476223636808222-fe964347-7556-48f8-bef9-e9c2a6939e1d.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/476224755347258-15258c01-3722-4df4-b1a3-ee6bde27acda.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5229675887663465-45b30227-7113-4ee8-8f05-2e6afde09fe4.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/707517555187260-329923a2-3b3f-4dc0-a1ec-4bdeb58ced74.jpg",
+            "https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/987092812719539-fe9fda1f-ea42-4e7d-89ed-d4d76dee5965.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/987092883002970-f330be13-3cbf-4eab-93ae-202b83beeedc.jpg"
+        ],
+        "main_ingredient": "오리",
+        "food_function": "피부/털개선",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "미표기",
+        "is_grainfree": true
+    },
+    {
+        "index": 57,
+        "category": "snack",
+        "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2772894921692617-d306a597-a239-4ee0-9a52-b89cad474d46.jpg",
+        "title": "사자 강아지 대용량 건조간식, 닭가슴살, 1kg, 1개",
+        "price": "18,720원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/rs_quotation_api/xqi8bsiz/73a4a87c0e424f83a7dc2cfa4fa760fb.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1456009763630498-559ec76e-5692-45de-8230-948755c6d417.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1110055112346581-e88f4ee9-ddec-42a4-99e4-78fe50bc789e.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/3839051093564904-ae5296fb-aeed-4ab2-90da-2da446e89923.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1893774558918845-4897a864-89c9-4e30-87ec-2943e20739a9.jpg"
+        ],
+        "main_ingredient": "닭",
+        "food_function": "면역력 강화",
+        "target_age": "전연령",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 58,
+        "category": "snack",
+        "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/b5c4/c18dfdaaa5f041f5ae7e6d72476d1b37a61c2026e78d13d130de2be20da6.jpg",
+        "title": "펫카소 강아지 천연 수제간식",
+        "price": "16,130원",
+        "description_img": [
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d086/865a9c07cb14f9f99ae49628b0c7ca3a91b197de7a31130408d1c239ac7d.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/e09e/ba7195edb33543e3e8f528edbc03d05706670b128480ffb8630a482d03c4.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/94cd/4fcca1a7987c39c9b1f16082b7b76703c7328b047f22b5a7dd9e3bcb2d35.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/866b/71288abab7d55fe1fba88d4b6744689357afb33d26f24d3fa3fb192a37bd.jpg"
+        ],
+        "main_ingredient": "소",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "건조간식",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 60,
+        "category": "snack",
+        "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/601023922640291-adbc3b6a-52de-4947-866a-3ed032fe078d.jpg",
+        "title": "베게브랜드 스마트베게본 스틱 3in1 18p, 혼합맛(클로렐라/밀..., 4개",
+        "price": "11,250원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/5586181317127839-3bd2b529-448e-42d7-bdbb-6a6e274baddf.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2858031262571569-af656e2c-2820-4de9-a843-161d330cdadf.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "치석제거",
+        "target_age": "미표기",
+        "food_type": "껌/캔디",
+        "target_size": "전대상견용",
+        "is_grainfree": false
+    },
+    {
+        "index": 61,
+        "category": "snack",
+        "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3496183902033534-11fc0aab-ba32-4e00-9939-c0d1b189e416.jpg",
+        "title": "마이베프 생유 베리 마치 반려동물 펫밀크, 크랜베리맛, 200ml, 5개",
+        "price": "11,470원",
+        "description_img": [
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1042383765126176-2d2949db-b4b2-496e-95ec-d2de5132ee39.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/3496197802099296-d6032bb5-55f0-4c59-afa8-66ffc0aef70d.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/4449706909721595-3461f34f-1189-447d-a032-3f5277aaeeee.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/3496560952496955-a349b42e-7127-4248-9dc2-fe9fc59d24e5.jpg",
+            "https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1042384279648802-f5c98d53-209d-484a-8620-a2f61d09f632.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/3496561388642156-98749db4-eb7f-4cb7-b61e-c40bd705868d.jpg",
+            "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/4449707505525259-b28fa5d2-5129-4b83-b6e7-286805df9608.jpg",
+            "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/4449707716734697-f1c92cda-a28e-4e2d-a5c4-7a87809d95aa.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/4449706652427693-c605c60a-404c-47d3-a719-979097a5973f.jpg",
+            "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/228106028993814-396d370d-3c08-46cd-995e-781dec755c5c.jpg"
+        ],
+        "main_ingredient": "미표기",
+        "food_function": "미표기",
+        "target_age": "미표기",
+        "food_type": "음료",
+        "target_size": "미표기",
+        "is_grainfree": false
+    }
+]
