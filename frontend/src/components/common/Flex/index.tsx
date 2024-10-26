@@ -6,8 +6,7 @@ export const Flex = styled.div<{
   align?: string;
   margin?: string;
   padding?: string;
-  webGap?: number;
-  mobileGap?: number;
+  gap?: number;
   widthPer?: number;
   heightPer?: number;
   width?: number | string;
@@ -19,13 +18,13 @@ export const Flex = styled.div<{
   flex-direction: ${({ direction }) => (direction ? `${direction}` : 'row')};
   justify-content: ${({ justify }) => (justify ? `${justify}` : 'center')};
   align-items: ${({ align }) => (align ? `${align}` : 'center')};
-  gap: ${({ webGap }) => (webGap ? `${webGap}px` : '0px')};
+  gap: ${({ gap }) => (gap ? `${gap}px` : '0px')};
   width: ${({ width, widthPer }) =>
     width ? `${width}px` : widthPer ? `${widthPer}%` : '100%'};
   height: ${({ height, heightPer }) =>
     height ? `${height}px` : heightPer ? `${heightPer}%` : '100%'};
   margin: ${({ margin }) => (margin ? margin : '0')};
-  padding: ${({ padding }) => (padding ? padding : '0')};
+  padding: ${({ padding }) => (padding ? `${padding}px` : '0')};
   box-sizing: border-box;
   border-radius: ${({ borderRadius }) =>
     borderRadius ? `${borderRadius}px` : '0px'};
@@ -33,8 +32,8 @@ export const Flex = styled.div<{
   background-color: ${({ backgroundColor }) =>
     backgroundColor ?? `transparent`};
 
-  /* 브라우저 크기에 따라 가로 크기 변경 */
+  /*브라우저 크기에 따라 가로 크기 변경 */
   @media (max-width: 1023px) {
-    gap: ${({ mobileGap }) => (mobileGap ? `${mobileGap}px` : '0px')};
+    gap: ${({ gap }) => (gap ? `${gap}px` : '0px')};
   }
 `;
