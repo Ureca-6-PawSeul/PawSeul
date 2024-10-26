@@ -5,9 +5,10 @@ import { colors } from '@styles/colors';
 import { Flex } from '../Flex';
 import NavItem from './NavItem';
 import HomeIcon from '@assets/images/svgs/HomeIcon';
-import MypageIcon from '@assets/images/svgs/MypageIcon';
-import SearchIcon from '@assets/images/svgs/SearchIcon';
 import StoreIcon from '@assets/images/svgs/StoreIcon';
+import HealthIcon from '@assets/images/svgs/HealthIcon';
+import SearchIcon from '@assets/images/svgs/SearchIcon';
+import MypageIcon from '@assets/images/svgs/MypageIcon';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -41,6 +42,14 @@ const Navbar = () => {
             iconType="store"
           >
             <StoreIcon height={24} />
+          </NavItem>
+          <NavItem
+            isActive={pathname === '/health'}
+            text="건강"
+            onClick={() => handleNavigate('/health')}
+            iconType="health"
+          >
+            <HealthIcon height={24} />
           </NavItem>
           <NavItem
             isActive={pathname === '/search'}
