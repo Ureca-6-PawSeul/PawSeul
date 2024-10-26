@@ -41,50 +41,44 @@ const Store = () => {
   }, [items]);
 
   return (
-    <>
-      <Header />
-      <Flex
-        direction="column"
-        justify="flex-start"
-        align="center"
-        gap={5}
-        style={{ border: 'solid 1px' }}
-      >
-        {/* 카테고리 버튼 */}
-        <Flex direction="row" align="center" height={40}>
-          <button onClick={() => setSelectedCategory('사료')}>사료</button>
-          <button onClick={() => setSelectedCategory('간식')}>간식</button>
-          <button onClick={() => setSelectedCategory('영양제')}>영양제</button>
-        </Flex>
-        <Flex justify="flex-start" height={40}>
-          <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
-            여은이의 맞춤 상품 찾기
-          </Text>
-        </Flex>
-        <Flex direction="row" justify="flex-start" height={40}>
-          {subCategories[selectedCategory]?.map((subCategory, index) => (
-            <button key={index}>{subCategory}</button>
-          ))}
-        </Flex>
-        {/* 상품 리스트 */}
-        <Wrapper direction="row" justify="start" gap={8}>
-          {items.map((item) => {
-            return (
-              <ProductWrapper key={item.index}>
-                <Product
-                  index={item.index}
-                  product_img={item.product_img}
-                  title={item.title}
-                  price={item.price}
-                />
-              </ProductWrapper>
-            );
-          })}
-        </Wrapper>
-
-        <Navbar />
+    <Flex
+      direction="column"
+      justify="flex-start"
+      align="center"
+      gap={5}
+    >
+      {/* 카테고리 버튼 */}
+      <Flex direction="row" align="center" height={40}>
+        <button onClick={() => setSelectedCategory('사료')}>사료</button>
+        <button onClick={() => setSelectedCategory('간식')}>간식</button>
+        <button onClick={() => setSelectedCategory('영양제')}>영양제</button>
       </Flex>
-    </>
+      <Flex justify="flex-start" height={40}>
+        <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
+          여은이의 맞춤 상품 찾기
+        </Text>
+      </Flex>
+      <Flex direction="row" justify="flex-start" height={40}>
+        {subCategories[selectedCategory]?.map((subCategory, index) => (
+          <button key={index}>{subCategory}</button>
+        ))}
+      </Flex>
+      {/* 상품 리스트 */}
+      <Wrapper direction="row" justify="start" gap={8}>
+        {items.map((item) => {
+          return (
+            <ProductWrapper key={item.index}>
+              <Product
+                index={item.index}
+                product_img={item.product_img}
+                title={item.title}
+                price={item.price}
+              />
+            </ProductWrapper>
+          );
+        })}
+      </Wrapper>
+    </Flex>
   );
 };
 
@@ -93,7 +87,7 @@ export default Store;
 const Wrapper = styled(Flex)`
   overflow-y: auto; /* 세로 스크롤을 추가 */
   overflow-x: hidden;
-  max-height: calc(100% - 200px);
+  height: calc(100vh - 256px);
   flex-wrap: wrap;
   width: 100%;
 `;

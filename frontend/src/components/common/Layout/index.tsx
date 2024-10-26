@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 import Navbar from '../Navbar';
 import { Flex } from '../Flex';
-import { Footer } from '../Footer';
 import { Header } from '../Header';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -11,7 +10,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       <Header />
       <Flex width={375} direction="column">
         {children}
-        <Footer />
       </Flex>
       <Navbar />
     </Wrapper>
