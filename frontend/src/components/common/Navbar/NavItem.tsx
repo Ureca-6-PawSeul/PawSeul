@@ -7,7 +7,7 @@ interface NavItemProps {
   isActive: boolean;
   text: string;
   onClick: () => void;
-  iconType: 'home' | 'store' | 'search' | 'mypage';
+  iconType: 'home' | 'store' | 'search' | 'health' | 'mypage';
   children: ReactNode;
 }
 
