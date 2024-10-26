@@ -24,7 +24,7 @@ export const Flex = styled.div<{
   height: ${({ height, heightPer }) =>
     height ? `${height}px` : heightPer ? `${heightPer}%` : '100%'};
   margin: ${({ margin }) => (margin ? margin : '0')};
-  padding: ${({ padding }) => (padding ? `${padding}px` : '0')};
+  padding: ${({ padding }) => (padding ? padding : '0')};
   box-sizing: border-box;
   border-radius: ${({ borderRadius }) =>
     borderRadius ? `${borderRadius}px` : '0px'};
