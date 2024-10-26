@@ -17,7 +17,7 @@ const Store = () => {
   const [items, setItems] = useState<ProductDetailType[]>([]);
   const [productDataList, setProductDataList] = useState<ProductDetailType[] | undefined>(food)
 
-  
+
   const fetchData = async (category: Category) => {
     if (category === '사료') setProductDataList(food);
     else if (category === '간식') setProductDataList(snack);
