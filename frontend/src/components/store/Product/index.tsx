@@ -3,7 +3,7 @@ import { Flex } from '../../common/Flex';
 import { Text } from '../../common/Typo';
 import { colors } from '@styles/colors';
 import StarRating from '@components/store/Star';
-import { ProductType } from './type';
+import { ProductType } from '../../../assets/types/ProductType';
 
 export const Product = ({ product_img, title, price }: ProductType) => {
   return (
@@ -16,16 +16,18 @@ export const Product = ({ product_img, title, price }: ProductType) => {
       padding="2"
       backgroundColor={colors.White}
     >
-      <ProductImage src={product_img} />
-      <TitleWrapper>
+      <Flex direction="column" align="center" borderRadius={10}>
+        <img src={product_img} width="100%" />
+      </Flex>
+      <Flex height="auto">
         <Title colorCode={colors.Black} typo="Body3">
           {title}
         </Title>
-      </TitleWrapper>
+      </Flex>
       <Text colorCode={colors.Black} typo="Label1">
         {price}
       </Text>
-      <RatingWrapper height={10} align="center">
+      <Flex direction='row' height={10} justify='flex-start' align="flex-end" gap={1}>
         <StarRating score={4.5} />
         <Text colorCode={colors.Black} typo="Body4">
           {4}
@@ -36,7 +38,7 @@ export const Product = ({ product_img, title, price }: ProductType) => {
         <Text colorCode={colors.Gray400} typo="Body4">
           5.0
         </Text>
-      </RatingWrapper>
+      </Flex>
     </Wrapper>
   );
 };
@@ -44,24 +46,11 @@ export const Product = ({ product_img, title, price }: ProductType) => {
 const Wrapper = styled(Flex)`
   box-sizing: border-box;
   border-radius: 10px;
+
   &:hover {
-    transform: scale(1.02); /* 2px 확대 효과 */
+    transform: scale(1.02); 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
-`;
-const ProductImage = styled.img`
-  width: 100%;
-  border-radius: 10px;
-`;
-const RatingWrapper = styled(Flex)`
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 1px;
-`;
-
-const TitleWrapper = styled(Flex)`
-  height: auto;
 `;
 
 // 두줄 이상 말줄임표

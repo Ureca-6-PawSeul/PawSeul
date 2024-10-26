@@ -6,7 +6,7 @@ import { colors } from '@styles/colors';
 import { Product } from '@components/store/Product';
 import { useEffect, useState } from 'react';
 import Navbar from '@components/common/Navbar';
-import { ProductDetailType, ProductType } from '@components/store/Product/type';
+import { ProductDetailType, ProductType } from '@assets/types/ProductType';
 // import { getSnackData } from '@apis/snack';
 import snack from '@/mocks/data/snack.json';
 
@@ -41,12 +41,7 @@ const Store = () => {
   }, [items]);
 
   return (
-    <Flex
-      direction="column"
-      justify="flex-start"
-      align="center"
-      gap={5}
-    >
+    <Flex direction="column" justify="flex-start" align="center" gap={5}>
       {/* 카테고리 버튼 */}
       <Flex direction="row" align="center" height={40}>
         <button onClick={() => setSelectedCategory('사료')}>사료</button>
