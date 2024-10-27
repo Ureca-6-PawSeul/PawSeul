@@ -21,7 +21,7 @@ export abstract class Product {
 
   @ApiProperty({ description: '제품 이미지 URL' })
   @Column()
-  productImg: string;
+  product_img: string;
 
   @ApiProperty({ description: '상세 설명 이미지 배열' })
   @Column('json')
