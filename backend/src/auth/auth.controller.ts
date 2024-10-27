@@ -22,6 +22,7 @@ export class AuthController {
     const isSignup = await this.authService.validateUser(req.user);
 
     res.setHeader('Authorization', `Bearer ${refreshToken}`);
+
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
       secure: true,
