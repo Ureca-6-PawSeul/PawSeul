@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
+import { Flex } from '@components/common/Flex';
 
 const DetailImageList = ({ images }: { images: string[] }) => {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
@@ -18,11 +19,13 @@ const DetailImageList = ({ images }: { images: string[] }) => {
           <Image key={index} src={img} alt={`description_img_${index}`} />
         ))}
       </ImageWrapper>
-      <OpenButton onClick={handleMoreButtonClick}>
-        <Text typo="Body2" margin="10px 0px">
-          {isDetailOpen ? '상품 설명 접기' : '상품 설명 더보기'}
-        </Text>
-      </OpenButton>
+      <Flex padding='16px 16px 0'>
+        <OpenButton onClick={handleMoreButtonClick}>
+          <Text typo="Body2" margin="10px 0px">
+            {isDetailOpen ? '상품 설명 접기' : '상품 설명 더보기'}
+          </Text>
+        </OpenButton>
+      </Flex>
     </>
   );
 };
