@@ -5,8 +5,9 @@ import { colors } from '@styles/colors';
 import foodDetail from '@/mocks/data/foodDetail.json';
 import tableData from '@/utils/tableData';
 import DetailTable from '@components/store/detail/DetailTable';
+import DetailImageList from '@components/store/detail/DetailImageList';
 
-const Detail: React.FC = () => {
+const Detail = () => {
   const mock = foodDetail;
   const descriptionData = tableData(mock);
 
@@ -41,9 +42,7 @@ const Detail: React.FC = () => {
           <DetailTable tableData={descriptionData} />
         </Flex>
         <Flex direction="column" padding="16px 0px">
-          {mock.description_img.map((img, index) => (
-            <Image src={img} key={index} alt={`description_img_${index}`} />
-          ))}
+          <DetailImageList images={mock.description_img}/>
         </Flex>
         <Separator />
         {/* 후기 목록 */}
@@ -58,7 +57,6 @@ const Image = styled.img<{
 }>`
   object-fit: cover;
   width: ${({ width }) => (width ? `${width}%` : '100%')};
-  /* height: ${({ height }) => (height ? `${height}px` : '50%')}; */
 `;
 
 const DetailText = styled(Text)<{
