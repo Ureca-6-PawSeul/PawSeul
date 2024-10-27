@@ -22,6 +22,7 @@ export class AuthController {
     const isSignup = await this.authService.validateUser(req.user);
 
     res.setHeader('Authorization', `Bearer ${refreshToken}`);
+
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
       secure: true,
@@ -30,10 +31,10 @@ export class AuthController {
 
     if (!isSignup) {
       // 정보 등록 페이지
-      return res.redirect('');
+      return res.redirect('http://localhost:5173/');
     }
 
     //홈페이지
-    return res.redirect('');
+    return res.redirect('http://localhost:5173/login');
   }
 }
