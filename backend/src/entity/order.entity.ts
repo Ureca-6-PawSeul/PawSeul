@@ -3,35 +3,34 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  CreateDateColumn,
-  JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { User } from './user.entity';
+import { OrderItem } from './orderitem.entity';
 import { ApiProperty } from '@nestjs/swagger';
 
 @Entity()
 export class Order {
-  @ApiProperty({ description: '주문 고유 ID' })
+  @ApiProperty({ description: '주문의 고유 ID' })
   @PrimaryGeneratedColumn()
-  orderId: number;
+  order_id: number;
 
+  @ApiProperty({ description: '사용자 ID', type: () => User })
   @ManyToOne(() => User, (user) => user.orders)
-  @JoinColumn({ name: 'userId' }) // 통일된 외래 키 이름
   user: User;
 
-  @ApiProperty({ description: '총 주문 금액' })
+  @ApiProperty({ description: '총 가격' })
   @Column()
-  totalPrice: number;
+  total_price: number;
 
   @ApiProperty({ description: '주문 상태' })
   @Column()
-  orderState: 'PENDING' | 'COMPLETED' | 'CANCELLED';
+  order_state: string;
 
   @ApiProperty({ description: 'Toss 주문 키' })
   @Column()
-  tossOrderKey: number;
+  toss_order_key: string;
 
-  @ApiProperty({ description: '주문 일시' })
-  @CreateDateColumn()
-  orderDate: Date;
+  @OneToMany(() => OrderItem, (orderItem) => orderItem.order)
+  orderItems: OrderItem[];
 }
