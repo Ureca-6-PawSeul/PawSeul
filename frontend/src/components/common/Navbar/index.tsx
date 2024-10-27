@@ -26,14 +26,14 @@ const Navbar = () => {
   return (
     <>
       <TabContainer>
-        <Flex direction="row">
+        <Flex direction="row" justify="center">
           <NavItem
             isActive={pathname === '/'}
             text="홈"
             onClick={() => handleNavigate('/')}
             iconType="home"
           >
-            <HomeIcon height={24} />
+            <HomeIcon height={20} />
           </NavItem>
           <NavItem
             isActive={pathname === '/store'}
@@ -41,7 +41,7 @@ const Navbar = () => {
             onClick={() => handleNavigate('/store')}
             iconType="store"
           >
-            <StoreIcon height={24} />
+            <StoreIcon height={20} />
           </NavItem>
           <NavItem
             isActive={pathname === '/health'}
@@ -49,7 +49,7 @@ const Navbar = () => {
             onClick={() => handleNavigate('/health')}
             iconType="health"
           >
-            <HealthIcon height={24} />
+            <HealthIcon height={20} />
           </NavItem>
           <NavItem
             isActive={pathname === '/search'}
@@ -57,7 +57,7 @@ const Navbar = () => {
             onClick={() => handleNavigate('/search')}
             iconType="mypage"
           >
-            <SearchIcon height={24} />
+            <SearchIcon height={20} />
           </NavItem>
           <NavItem
             isActive={pathname === '/mypage'}
@@ -65,7 +65,7 @@ const Navbar = () => {
             onClick={() => handleNavigate('/mypage')}
             iconType="mypage"
           >
-            <MypageIcon height={24} />
+            <MypageIcon height={20} />
           </NavItem>
         </Flex>
       </TabContainer>
@@ -77,10 +77,10 @@ export default Navbar;
 
 const TabContainer = styled.div`
   width: 100%;
-  height: 85px;
+  height: 60px;
   display: fixed;
   bottom: 0;
   z-index: 20;
-  border-top: '0.5px solid rgba(112, 115, 124, 0.16)';
+  border-top: 0.5px solid rgba(112, 115, 124, 0.16);
   background-color: ${colors.White};
 `;

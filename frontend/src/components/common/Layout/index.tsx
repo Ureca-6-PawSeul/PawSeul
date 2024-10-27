@@ -9,7 +9,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
     <Wrapper direction="column" align="center">
       <Header />
       <Flex width={375} direction="column">
-        {children}
+        <Flex padding="0 10px">{children}</Flex>
         <Navbar />
       </Flex>
     </Wrapper>
