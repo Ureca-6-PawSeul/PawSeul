@@ -9,10 +9,11 @@ export interface ProductType {
 export interface ProductDetailType extends ProductType {
   category: string;
   description_img: string[];
-  food_function: string;
-  food_type: string;
-  is_grainfree: boolean;
-  main_ingredient: string;
-  target_age: string;
-  target_size: string;
+  main_ingredient?: string;
+  food_function?: string;
+  target_age?: string;
+  food_type?: string;
+  supplemment_type?: string;
+  target_size?: string;
+  is_grainfree?: boolean;
 }

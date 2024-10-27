@@ -1,40 +1,58 @@
 import styled from '@emotion/styled';
 import { Flex } from '@components/common/Flex';
-import { Header } from '@components/common/Header';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 import { Product } from '@components/store/Product';
 import { useEffect, useState } from 'react';
-import Navbar from '@components/common/Navbar';
-import { ProductDetailType, ProductType } from '@assets/types/ProductType';
+import { ProductDetailType } from '@assets/types/ProductType';
+import { Category, subCategories } from '@assets/types/CategoryType';
 // import { getSnackData } from '@apis/snack';
 import snack from '@/mocks/data/snack.json';
+import food from '@/mocks/data/food.json'
+import supplement from '@/mocks/data/supplement.json'
 
-type Category = '사료' | '간식' | '영양제';
 
-interface SubCategories {
-  [key: string]: string[];
-}
-
-const subCategories: SubCategories = {
-  사료: ['전체', '건식', '습식', '기타'],
-  간식: ['수제간식', '건조간식', '져키', '트릿'],
-  영양제: ['캡슐', '알약', '스틱', '바이오틱스', '기타'],
-};
 
 const Store = () => {
   // 선택한 카테고리를 상태로 관리
   const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
-
+  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('전체');
   const [items, setItems] = useState<ProductDetailType[]>([]);
-  const fetchData = async () => {
-    const data = snack;
-    setItems(data);
+
+  function handleCategoryBtn(selectedCategory:Category) {
+    setSelectedCategory(selectedCategory);
+    setSelectedSubCategory('전체');
+  }
+
+  const fetchData = async (
+    selectedCategory: Category, selectedSubCategory: string
+  ) => {
+
+    let data:ProductDetailType[] | undefined;
+
+    if(selectedCategory === '사료'){
+      data = food;
+    }
+    else if(selectedCategory === '간식'){
+      data = snack;
+    }
+    else if(selectedCategory === '영양제'){
+      data = supplement;
+    }
+
+    // 서브카테고리가 '전체'이거나 null일 경우 필터링 없이 전체 데이터 사용
+    if (selectedSubCategory && selectedSubCategory !== '전체') {
+      console.log(selectedSubCategory);
+      data = data.filter((item) => item.category === selectedSubCategory);
+    }
+
+
+    setItems(data ?? []); // data가 undefined일 경우 빈 배열 할당
   };
 
   useEffect(() => {
-    fetchData();
-  }, [selectedCategory]);
+    fetchData(selectedCategory, selectedSubCategory);
+  }, [selectedCategory, selectedSubCategory]);
 
   useEffect(() => {
     console.log(items);
@@ -44,9 +62,10 @@ const Store = () => {
     <Flex direction="column" justify="flex-start" align="center" gap={5}>
       {/* 카테고리 버튼 */}
       <Flex direction="row" align="center" height={40}>
-        <button onClick={() => setSelectedCategory('사료')}>사료</button>
-        <button onClick={() => setSelectedCategory('간식')}>간식</button>
-        <button onClick={() => setSelectedCategory('영양제')}>영양제</button>
+        <button onClick={() => handleCategoryBtn('사료')}>사료</button>
+        <button onClick={() => handleCategoryBtn('간식')}>간식</button>
+        <button onClick={() => handleCategoryBtn('영양제')}>영양제</button>
+
       </Flex>
       <Flex justify="flex-start" height={40}>
         <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
@@ -55,7 +74,7 @@ const Store = () => {
       </Flex>
       <Flex direction="row" justify="flex-start" height={40}>
         {subCategories[selectedCategory]?.map((subCategory, index) => (
-          <button key={index}>{subCategory}</button>
+          <button key={index} onClick={()=>setSelectedSubCategory(subCategory)}>{subCategory}</button>
         ))}
       </Flex>
       {/* 상품 리스트 */}
