@@ -1,0 +1,19 @@
+{
+  "index": 0,
+  "category": "food",
+  "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg",
+  "title": "탐사 6free 강아지 사료 연어 레시피, 6kg, 연어, 1개",
+  "price": "25,990원",
+  "description_img": [
+      "https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/813919679459372-d916cb07-2146-4c48-8519-44bef8fda4bb.jpg",
+      "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/7138052969640772-d5451202-845b-42ab-9a1f-e51066e277a0.jpg",
+      "https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2448470305360427-e98910d8-1de2-4eac-adb3-e0adfa435ed1.jpg",
+      "https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/987353662102941-e81d95e3-c720-4a31-8b6e-edc305d6e84e.jpg"
+  ],
+  "main_ingredient": "연어",
+  "food_function": "미표기",
+  "target_age": "전연령",
+  "food_type": "건식사료",
+  "target_size": "전대상견용",
+  "is_grainfree": false
+}
