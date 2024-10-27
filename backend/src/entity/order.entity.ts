@@ -7,6 +7,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { User } from './user.entity';
+import { OrderItem } from './orderitem.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { OrderItem } from 'src/entity/orderItem.entity';
 
@@ -23,7 +24,7 @@ export class Order {
 
   @ApiProperty({ description: '총 가격' })
   @Column()
-  totalPrice: number;
+  total_price: number;
 
   @ApiProperty({ description: '주문 상태' })
   @Column()
