@@ -9,6 +9,7 @@ import Home from '@pages/Home';
 import Search from '@pages/Search';
 import Store from '@pages/Store';
 import Mypage from '@pages/Mypage';
+import Detail from '@pages/Store/Detail';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/store" element={<Store />} />
           <Route path="/search" element={<Search />} />
           <Route path="/mypage" element={<Mypage />} />
+          <Route path="/store/detail/:productId" element={<Detail />} />
         </Routes>
       </Layout>
     </BrowserRouter>
