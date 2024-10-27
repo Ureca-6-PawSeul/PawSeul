@@ -8,7 +8,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Wrapper direction="column" align="center">
       <Header />
-      <MobileWrapper direction="column">
+      <MobileWrapper width={375} direction="column">
         <Flex padding="0 10px">{children}</Flex>
         <Navbar />
       </MobileWrapper>
