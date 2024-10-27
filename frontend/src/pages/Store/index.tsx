@@ -7,12 +7,20 @@ import { SetStateAction, useEffect, useState } from 'react';
 import { ProductDetailType } from '@assets/types/ProductType';
 import { Category, subCategories } from '@assets/types/CategoryType';
 import snack from '@/mocks/data/snack.json';
-import food from '@/mocks/data/food.json';
-import supplement from '@/mocks/data/supplement.json';
-import { foodTypeMapping } from '@assets/types/CategoryType';
-import Tag from '@components/common/Tag';
-import { useNavigate } from 'react-router-dom';
 import { getProductList } from '@/apis/getProductList';
+import { useNavigate } from 'react-router-dom';
+
+type Category = '사료' | '간식' | '영양제';
+
+interface SubCategories {
+  [key: string]: string[];
+}
+
+const subCategories: SubCategories = {
+  사료: ['전체', '건식', '습식', '기타'],
+  간식: ['수제간식', '건조간식', '져키', '트릿'],
+  영양제: ['캡슐', '알약', '스틱', '바이오틱스', '기타'],
+};
 
 const Store = () => {
   const fetch = async (
@@ -39,11 +47,7 @@ const Store = () => {
   };
 
   useEffect(() => {
-    fetch('food', setProductDataList);
-  }, []);
-
-  useEffect(() => {
-    // fetchData(selectedCategory);
+    fetch(selectedCategory, setProductDataList);
   }, [selectedCategory]);
 
   useEffect(() => {
@@ -69,26 +73,10 @@ const Store = () => {
       padding="0 12px"
     >
       {/* 카테고리 버튼 */}
-      <Flex
-        direction="row"
-        align="center"
-        // justify="space-between"
-        height={40}
-        gap={30}
-      >
-        {(['사료', '간식', '영양제'] as Category[]).map((category) => (
-          <Tag
-            key={category}
-            width={60}
-            height={30}
-            colorCode={
-              selectedCategory === category ? 'FilledMainColor' : 'Empty'
-            }
-            onClick={() => setSelectedCategory(category)}
-          >
-            <Text typo="Body3">{category}</Text>
-          </Tag>
-        ))}
+      <Flex direction="row" align="center" height={40}>
+        <button onClick={() => setSelectedCategory('사료')}>사료</button>
+        <button onClick={() => setSelectedCategory('간식')}>간식</button>
+        <button onClick={() => setSelectedCategory('영양제')}>영양제</button>
       </Flex>
 
       <Flex justify="flex-start" height={24} margin="20px 0px 0 0">
@@ -99,17 +87,7 @@ const Store = () => {
 
       <Flex direction="row" justify="flex-start" height={40} gap={8}>
         {subCategories[selectedCategory]?.map((subCategory, index) => (
-          <Tag
-            key={index}
-            colorCode={
-              selectedSubCategory === subCategory
-                ? 'FilledMainColor'
-                : 'BorderGray'
-            }
-            onClick={() => setSelectedSubCategory(subCategory)}
-          >
-            <Text typo="Label3">{subCategory}</Text>
-          </Tag>
+          <button key={index}>{subCategory}</button>
         ))}
       </Flex>
 
