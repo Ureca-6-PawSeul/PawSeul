@@ -65,6 +65,7 @@ const Store = () => {
         <button onClick={() => handleCategoryBtn('사료')}>사료</button>
         <button onClick={() => handleCategoryBtn('간식')}>간식</button>
         <button onClick={() => handleCategoryBtn('영양제')}>영양제</button>
+
       </Flex>
       <Flex justify="flex-start" height={40}>
         <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
