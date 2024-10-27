@@ -1,46 +1,45 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  JoinColumn,
-  OneToMany,
-} from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
-import { ProductReview } from 'src/entity/productReview.entity';
-import { Category } from 'src/entity/catagory.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class Product {
-  @ApiProperty({ description: '상품 고유 ID' })
+export abstract class Product {
+  @ApiProperty({ description: '제품 고유 ID' })
   @PrimaryGeneratedColumn()
-  productId: number;
+  product_id: number;
 
-  @ApiProperty({ description: '상품 제목' })
+  @ApiProperty({ description: '제품 제목' })
   @Column()
   title: string;
 
-  @ApiProperty({ description: '상품 가격' })
+  @ApiProperty({ description: '제품 카테고리' })
+  @Column()
+  category: string;
+
+  @ApiProperty({ description: '제품 가격' })
   @Column()
   price: number;
 
-  @ApiProperty({ description: '상품 이미지 URL' })
+  @ApiProperty({ description: '제품 이미지 URL' })
   @Column()
-  productImg: string;
+  product_img: string;
 
-  @ApiProperty({ description: '상세 설명 이미지(제이슨 형식)' })
+  @ApiProperty({ description: '상세 설명 이미지 배열' })
   @Column('json')
-  descriptionImg: object;
+  description_img: string[];
 
-  @ApiProperty({ description: '상품 생성 일시' })
-  @CreateDateColumn()
-  createdAt: Date;
+  @ApiProperty({ description: '주 원재료' })
+  @Column()
+  main_ingredient: string;
 
-  @OneToMany(() => Category, (category) => category.categoryId)
-  @JoinColumn({ name: 'categoryId' })
-  category: Category;
+  @ApiProperty({ description: '제품 기능' })
+  @Column()
+  product_function: string;
 
-  @OneToMany(() => ProductReview, (review) => review.product)
-  @JoinColumn({ name: 'productId' })
-  reviews: ProductReview[];
+  @ApiProperty({ description: '적정 연령' })
+  @Column()
+  target_age: string;
+
+  @ApiProperty({ description: '평균 점수' })
+  @Column('decimal', { precision: 2, scale: 1 })
+  average_score: number;
 }
