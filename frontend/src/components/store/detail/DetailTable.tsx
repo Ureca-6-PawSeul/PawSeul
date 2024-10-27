@@ -6,7 +6,7 @@ interface DetailTableProps {
   tableData: Record<string, any>;
 }
 
-const DetailTable: React.FC<DetailTableProps> = ({ tableData }) => {
+const DetailTable = ({ tableData }: DetailTableProps ) => {
   return (
     <Table>
       <TableBody>
