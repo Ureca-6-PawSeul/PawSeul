@@ -5,7 +5,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 export abstract class Product {
   @ApiProperty({ description: '제품 고유 ID' })
   @PrimaryGeneratedColumn()
-  product_id: number;
+  productId: string;
 
   @ApiProperty({ description: '제품 제목' })
   @Column()
@@ -21,25 +21,25 @@ export abstract class Product {
 
   @ApiProperty({ description: '제품 이미지 URL' })
   @Column()
-  product_img: string;
+  productImg: string;
 
   @ApiProperty({ description: '상세 설명 이미지 배열' })
   @Column('json')
-  description_img: string[];
+  descriptionImg: string[];
 
   @ApiProperty({ description: '주 원재료' })
   @Column()
-  main_ingredient: string;
+  mainIngredient: string;
 
   @ApiProperty({ description: '제품 기능' })
   @Column()
-  product_function: string;
+  productFunction: string;
 
   @ApiProperty({ description: '적정 연령' })
   @Column()
-  target_age: string;
+  targetAge: string;
 
   @ApiProperty({ description: '평균 점수' })
   @Column('decimal', { precision: 2, scale: 1 })
-  average_score: number;
+  averageScore: number;
 }

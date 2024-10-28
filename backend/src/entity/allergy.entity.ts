@@ -6,7 +6,7 @@ import { ApiProperty } from '@nestjs/swagger';
 @Entity()
 export class Allergy extends BaseEntity {
   @ApiProperty({ description: '알레르기의 고유 ID' })
-  allergy_id: number;
+  allergyId: string;
 
   @ApiProperty({ description: '반려동물 ID', type: () => Pet })
   @ManyToOne(() => Pet, (pet) => pet.allergies)

@@ -7,7 +7,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class Cart {
   @ApiProperty({ description: '장바구니의 고유 ID' })
   @PrimaryGeneratedColumn()
-  cart_id: number;
+  cartId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
   @ManyToOne(() => User, (user) => user.carts)

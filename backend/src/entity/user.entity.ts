@@ -9,7 +9,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class User {
   @ApiProperty({ description: '사용자의 고유 ID' })
   @PrimaryGeneratedColumn()
-  user_id: number;
+  userId: string;
 
   @ApiProperty({ description: '사용자 이름' })
   @Column()

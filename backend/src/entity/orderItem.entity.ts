@@ -7,14 +7,14 @@ import { ApiProperty } from '@nestjs/swagger';
 export class OrderItem {
   @ApiProperty({ description: '주문 항목의 고유 ID' })
   @PrimaryGeneratedColumn()
-  order_item_id: number;
+  orderItemId: string;
 
   @ApiProperty({ description: '주문 ID', type: () => Order })
   @ManyToOne(() => Order, (order) => order.orderItems)
   order: Order;
 
   @ApiProperty({ description: '제품 ID', type: () => Product })
-  @ManyToOne(() => Product, (product) => product.product_id)
+  @ManyToOne(() => Product, (product) => product.productId)
   product: Product;
 
   @ApiProperty({ description: '제품 수량' })

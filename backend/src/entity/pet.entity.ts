@@ -8,7 +8,7 @@ import { ApiProperty } from '@nestjs/swagger';
 @Entity()
 export class Pet extends BaseEntity {
   @ApiProperty({ description: '반려동물의 고유 ID' })
-  pet_id: number;
+  petId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
   @ManyToOne(() => User, (user) => user.pets)
@@ -32,7 +32,7 @@ export class Pet extends BaseEntity {
 
   @ApiProperty({ description: '중성화 여부 (예: YES, NO)' })
   @Column()
-  is_neutered: string;
+  isNeutered: string;
 
   @ApiProperty({ description: '알레르기 목록' })
   @OneToMany(() => Allergy, (allergy) => allergy.pet)

@@ -13,7 +13,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class Order {
   @ApiProperty({ description: '주문의 고유 ID' })
   @PrimaryGeneratedColumn()
-  order_id: number;
+  orderId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
   @ManyToOne(() => User, (user) => user.orders)
@@ -21,15 +21,15 @@ export class Order {
 
   @ApiProperty({ description: '총 가격' })
   @Column()
-  total_price: number;
+  totalPrice: number;
 
   @ApiProperty({ description: '주문 상태' })
   @Column()
-  order_state: string;
+  orderState: string;
 
   @ApiProperty({ description: 'Toss 주문 키' })
   @Column()
-  toss_order_key: string;
+  tossOrderKey: string;
 
   @OneToMany(() => OrderItem, (orderItem) => orderItem.order)
   orderItems: OrderItem[];
