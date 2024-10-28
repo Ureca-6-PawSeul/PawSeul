@@ -24,7 +24,7 @@ export class Order {
 
   @ApiProperty({ description: '총 가격' })
   @Column()
-  total_price: number;
+  totalPrice: number;
 
   @ApiProperty({ description: '주문 상태' })
   @Column()
