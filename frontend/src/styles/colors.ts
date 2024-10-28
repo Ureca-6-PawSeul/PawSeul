@@ -4,6 +4,7 @@ export const colors = {
   Mint50: '#E1FFFF',
   Mint200: '#00A9C0',
   Red: '#FF3F57',
+  Star: '#FFC700',
 
   //gray
   White: '#FFFFFF',
