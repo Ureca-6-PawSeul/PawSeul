@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
-import { Text } from '@components/common/Typo';
+import DetailButton from '@components/store/detail/DetailButton';
 import { colors } from '@styles/colors';
-import { Flex } from '@components/common/Flex';
 
 const DetailImageList = ({ images }: { images: string[] }) => {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
@@ -19,13 +18,12 @@ const DetailImageList = ({ images }: { images: string[] }) => {
           <Image key={index} src={img} alt={`description_img_${index}`} />
         ))}
       </ImageWrapper>
-      <Flex padding='16px 16px 0'>
-        <OpenButton onClick={handleMoreButtonClick}>
-          <Text typo="Body2" margin="10px 0px">
-            {isDetailOpen ? '상품 설명 접기' : '상품 설명 더보기'}
-          </Text>
-        </OpenButton>
-      </Flex>
+      <DetailButton
+        handleButtonClick={handleMoreButtonClick}
+        colorCode={colors.Gray400}
+      >
+        {isDetailOpen ? '상품 설명 접기' : '상품 설명 더보기'}
+      </DetailButton>
     </>
   );
 };
@@ -65,18 +63,6 @@ const Image = styled.img<{
 }>`
   object-fit: cover;
   width: ${({ width }) => (width ? `${width}%` : '100%')};
-`;
-
-const OpenButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${colors.White};
-  cursor: pointer;
-  padding: 0;
-  border-radius: 6px;
-  border: 1px solid ${colors.Gray400};
-  width: 100%;
 `;
 
 export default DetailImageList;
