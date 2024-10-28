@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { colors } from "@styles/colors";
 
 export const StickyFooter = ({isScrolledToBottom, children} :{isScrolledToBottom: boolean, children : React.ReactNode}) => {
     return (
@@ -16,7 +17,7 @@ const Wrapper = styled.div<{ isScrolledToBottom: boolean }>`
   border-radius: 10px;
   padding: 16px;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: ${colors.White};
   z-index: 1000;
   transition: bottom 0.3s ease;
 `;
