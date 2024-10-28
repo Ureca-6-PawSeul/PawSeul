@@ -17,6 +17,15 @@ const SHIPMENT_MESSAGE = [
     "택배 보관함에 넣어주시기 바랍니다.",
 ]
 
+const CARD_MESSAGE = [
+  "카드사 선택",
+  "삼성카드",
+  "하나카드",
+  "국민카드",
+  "롯데카드",
+  "농협카드"
+]
+
 
 const Payment = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
@@ -64,7 +73,7 @@ const Payment = () => {
             <Text typo="Body2">010-1234-5678</Text>
           </Flex>
           <Text>경기도 수원시 XX구 XX로</Text>
-          {/* <Select optionList={SHIPMENT_MESSAGE} /> */}
+          <Select optionList={SHIPMENT_MESSAGE}/>
         </Flex>
 
         {/* 상품 정보 */}
@@ -90,9 +99,7 @@ const Payment = () => {
           </Flex>
           <button>신용·체크카드</button>
           <button>TOSS</button>
-          <select>
-            <option selected>카드사 선택</option>
-          </select>
+          <Select optionList={CARD_MESSAGE}/>
           <Text typo="Body4" colorCode={colors.Gray400}>
             삼성 앱카드 5만원 이상 결제 시 1,000원 할인
           </Text>
