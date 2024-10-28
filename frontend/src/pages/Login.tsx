@@ -3,10 +3,18 @@ import styled from '@emotion/styled';
 import { colors } from '@styles/colors';
 
 const Login = () => {
+  const handleKakaoRedirect = () => {
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${
+      import.meta.env.VITE_CLIENT_ID
+    }&redirect_uri=${import.meta.env.VITE_KAKAO_REDIRECT_URI}`;
+  };
+
   return (
     <Container direction="column">
       <Logo src="https://via.placeholder.com/150" alt="로고" />
-      <LoginButton>카카오톡으로 시작하기</LoginButton>
+      <LoginButton onClick={handleKakaoRedirect}>
+        카카오톡으로 시작하기
+      </LoginButton>
       <Nosign>나중에 가입할래요</Nosign>
     </Container>
   );

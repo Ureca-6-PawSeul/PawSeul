@@ -1,19 +1,18 @@
-import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
 import { User } from './user.entity';
+import { CartProduct } from './cart.product.entity';
 import { ApiProperty } from '@nestjs/swagger';
-import { Product } from 'src/entity/product.entity';
 
 @Entity()
 export class Cart {
-  @ManyToOne(() => Product, (product) => product.productId)
-  @JoinColumn({ name: 'productId' }) // 통일된 외래 키 이름
-  product: Product;
+  @ApiProperty({ description: '장바구니의 고유 ID' })
+  @PrimaryGeneratedColumn()
+  cartId: string;
 
+  @ApiProperty({ description: '사용자 ID', type: () => User })
   @ManyToOne(() => User, (user) => user.carts)
-  @JoinColumn({ name: 'userId' }) // 통일된 외래 키 이름
   user: User;
 
-  @ApiProperty({ description: '장바구니에 담긴 상품 수량' })
-  @Column()
-  quantity: number;
+  @OneToMany(() => CartProduct, (cartProduct) => cartProduct.cart)
+  cartProducts: CartProduct[];
 }

@@ -20,6 +20,6 @@ export class RefreshTokenStrategy extends PassportStrategy(
     const { userId } = payload;
     if (!userId) throw new UnauthorizedException('Invalid refreshToken');
 
-    return { userId: payload.userId };
+    return true;
   }
 }

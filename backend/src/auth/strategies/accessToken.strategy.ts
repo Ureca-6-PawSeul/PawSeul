@@ -1,6 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-jwt';
+import { UserPayload } from 'src/types/payload';
 
 @Injectable()
 export class AccessTokenStrategy extends PassportStrategy(
@@ -18,7 +19,10 @@ export class AccessTokenStrategy extends PassportStrategy(
     });
   }
 
-  async validate(payload) {
+  async validate(payload: UserPayload) {
+    if (!payload.userId)
+      throw new UnauthorizedException('토큰이 유효하지 않습니다.');
+
     return {
       userId: payload.userId,
       username: payload.username,

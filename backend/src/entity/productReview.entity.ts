@@ -1,38 +1,27 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  CreateDateColumn,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Product } from './product.entity';
 import { User } from './user.entity';
 import { ApiProperty } from '@nestjs/swagger';
-import { Product } from 'src/entity/product.entity';
 
 @Entity()
 export class ProductReview {
-  @ApiProperty({ description: '리뷰 고유 ID' })
+  @ApiProperty({ description: '리뷰의 고유 ID' })
   @PrimaryGeneratedColumn()
-  id: number;
+  productReviewId: string;
 
-  @ManyToOne(() => Product, (product) => product.reviews)
-  @JoinColumn({ name: 'productId' }) // 통일된 외래 키 이름
+  @ApiProperty({ description: '제품 ID', type: () => Product })
+  @ManyToOne(() => Product, (product) => product.productId)
   product: Product;
 
+  @ApiProperty({ description: '사용자 ID', type: () => User })
   @ManyToOne(() => User, (user) => user.reviews)
-  @JoinColumn({ name: 'userId' }) // 통일된 외래 키 이름
   user: User;
 
   @ApiProperty({ description: '리뷰 내용' })
   @Column()
   text: string;
 
-  @ApiProperty({ description: '리뷰 작성 일시' })
-  @CreateDateColumn()
-  created_at: Date;
-
-  @ApiProperty({ description: '리뷰 점수' })
+  @ApiProperty({ description: '리뷰 점수 (1~5)' })
   @Column()
   score: number;
 }
