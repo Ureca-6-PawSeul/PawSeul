@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
+import { Hr } from '@components/store/Hr';
 import foodDetail from '@/mocks/data/foodDetail.json';
 import tableData from '@/utils/tableData';
 import DetailTable from '@components/store/detail/DetailTable';
@@ -54,8 +55,9 @@ const Detail = () => {
             </DetailText>
           </Flex>
         </Flex>
-        <Flex justify="flex-end" padding="0px 16px">
-          <PriceText typo="Heading2">{mock.price}</PriceText>
+        <Hr />
+        <Flex justify="flex-end">
+          <Text typo="Heading3">{mock.price}</Text>
         </Flex>
       </Flex>
       <Flex
@@ -101,8 +103,7 @@ const DetailText = styled(Text)<{
   text-decoration-line: ${({ decorationLine }) =>
     decorationLine ? `${decorationLine}` : 'none'};
   justify-content: ${({ justify }) => (justify ? `${justify}` : 'center')};
-  width: ${({ width }) => (width ? `${width}` : '100%')};
-  cursor: ${({ cursor }) => (cursor ? `${cursor}` : 'auto')};
+  width: ${({ width }) => (width ? `${width}` : 'auto')};
 `;
 
 const PriceText = styled(Text)`
