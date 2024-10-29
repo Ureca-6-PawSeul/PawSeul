@@ -58,11 +58,11 @@ const OverLay = styled.div`
 `;
 
 const Image = styled.img<{
-  width?: number;
+  widthPer?: number;
   height?: number;
 }>`
   object-fit: cover;
-  width: ${({ width }) => (width ? `${width}%` : '100%')};
+  width: ${({ widthPer }) => (widthPer ? `${widthPer}%` : '100%')};
 `;
 
 export default DetailImageList;

@@ -3,7 +3,7 @@ import { Flex } from '../../common/Flex';
 import { Text } from '../../common/Typo';
 import { colors } from '@styles/colors';
 import StarRating from '@components/store/Star';
-import { ProductType } from '../../../assets/types/ProductType';
+import { ProductType } from '@assets/types/ProductType';
 import { useNavigate } from 'react-router-dom';
 
 export const Product = ({ product_img, title, price }: ProductType) => {

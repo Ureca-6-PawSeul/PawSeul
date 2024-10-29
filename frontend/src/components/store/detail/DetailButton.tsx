@@ -27,7 +27,7 @@ const DetailButton = ({
 };
 
 const OpenButton = styled.button<{
-  colorCode: string | undefined;
+  colorCode?: string | undefined;
 }>`
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@ const OpenButton = styled.button<{
   padding: 0;
   border-radius: 6px;
   border: 1px solid;
-  border-color: ${({ colorCode }) => colorCode};
+  border-color: ${({ colorCode }) => colorCode ?? 'none'};
   width: 100%;
 `;
 
