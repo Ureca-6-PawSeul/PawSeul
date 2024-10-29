@@ -41,4 +41,8 @@ export class Pet extends BaseEntity {
   @ApiProperty({ description: '건강 기록 목록' })
   @OneToMany(() => Health, (health) => health.pet)
   healthRecords: Health[];
+
+  @ApiProperty({ description: '반려동물 품종' })
+  @Column()
+  breed: string;
 }
