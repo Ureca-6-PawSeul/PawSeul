@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 import { ProductReview } from './productreview.entity';
 import { Cart } from './cart.entity';
 import { Order } from './order.entity';
@@ -8,7 +15,7 @@ import { ApiProperty } from '@nestjs/swagger';
 @Entity()
 export class User {
   @ApiProperty({ description: '사용자의 고유 ID' })
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   userId: string;
 
   @ApiProperty({ description: '사용자 이름' })
@@ -16,7 +23,7 @@ export class User {
   username: string;
 
   @ApiProperty({ description: '사용자 이메일' })
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @OneToMany(() => ProductReview, (review) => review.user)
@@ -28,6 +35,7 @@ export class User {
   @OneToMany(() => Order, (order) => order.user)
   orders: Order[];
 
-  @OneToMany(() => Pet, (pet) => pet.user)
-  pets: Pet[];
+  @OneToOne(() => Pet, (pet) => pet.user, { cascade: true })
+  @JoinColumn()
+  pet: Pet;
 }

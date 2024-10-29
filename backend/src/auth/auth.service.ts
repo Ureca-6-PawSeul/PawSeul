@@ -36,13 +36,6 @@ export class AuthService {
     });
   }
 
-  async validateUser(userPayload: UserPayload): Promise<boolean> {
-    const { userId } = userPayload;
-    const user: User = await this.usersRepository.findOneBy({ userId }); // 유저 조회
-
-    return !!user;
-  }
-
   async getJWTs(userPayload: UserPayload) {
     const accessToken = this.generateAccessToken(userPayload);
     const refreshToken = this.generateRefreshToken(userPayload);
@@ -56,5 +49,30 @@ export class AuthService {
 
   async getRefreshToken(userPayload: UserPayload) {
     return this.generateRefreshToken(userPayload);
+  }
+
+  // 카카오 로그인한 유저 정보를 DB에 저장
+  async registerKakaoUser(userPayload: UserPayload): Promise<User> {
+    const { userId, username, email } = userPayload;
+    const newUser = this.usersRepository.create({
+      userId,
+      username,
+      email,
+    });
+    return await this.usersRepository.save(newUser);
+  }
+
+  // 중복 유저 등록 예외 처리
+  async validateUser(userPayload: UserPayload): Promise<boolean> {
+    const { userId } = userPayload;
+    const user = await this.usersRepository.findOneBy({ userId });
+
+    if (!user) {
+      // 사용자 정보가 존재하지 않으면 새로 등록
+      await this.registerKakaoUser(userPayload);
+      return false; // 새로 가입된 사용자임을 표시
+    }
+
+    return true; // 기존 사용자임을 표시
   }
 }
