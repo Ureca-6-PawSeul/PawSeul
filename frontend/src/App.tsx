@@ -12,6 +12,7 @@ import Mypage from '@pages/Mypage';
 import Detail from '@pages/Store/Detail';
 import Payment from '@pages/Payment';
 import Health from '@pages/Health';
+import PetInfo from './components/login/PetInfo';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/health" element={<Health />} />
           <Route path="/search" element={<Search />} />
           <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage/pet" element={<PetInfo />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/store/detail/:productId" element={<Detail />} />
         </Routes>

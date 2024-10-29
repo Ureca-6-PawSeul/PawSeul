@@ -1,0 +1,11 @@
+{
+        "user_id":1,
+        "username":"심여은",
+        "pet_id":3,
+        "petname":"삼순",
+        "age":4,
+        "weight":5.4,
+        "gender": "여자",
+        "breedname": "골든 리트리버",
+        "is_neutered": "완료"
+}
