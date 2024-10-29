@@ -4,11 +4,11 @@ import { Footer } from '@components/common/Footer';
 
 const Home = () => {
   return (
-    <>
-      <Wrapper direction="column" align="center">
-        <Footer />
-      </Wrapper>
-    </>
+    <Wrapper direction="column" align="center">
+      <div></div>
+
+      <Footer />
+    </Wrapper>
   );
 };
 
