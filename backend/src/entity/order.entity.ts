@@ -4,6 +4,7 @@ import {
   Column,
   ManyToOne,
   OneToMany,
+  JoinColumn,
 } from 'typeorm';
 import { User } from './user.entity';
 import { OrderItem } from './orderitem.entity';
@@ -16,6 +17,7 @@ export class Order {
   orderId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
+  @JoinColumn({ name: 'user_id' })
   @ManyToOne(() => User, (user) => user.orders)
   user: User;
 

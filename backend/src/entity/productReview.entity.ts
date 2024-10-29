@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Product } from './product.entity';
 import { User } from './user.entity';
 import { ApiProperty } from '@nestjs/swagger';
@@ -10,10 +16,12 @@ export class ProductReview {
   productReviewId: string;
 
   @ApiProperty({ description: '제품 ID', type: () => Product })
+  @JoinColumn({ name: 'product_id' })
   @ManyToOne(() => Product, (product) => product.productId)
   product: Product;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
+  @JoinColumn({ name: 'user_id' })
   @ManyToOne(() => User, (user) => user.reviews)
   user: User;
 
