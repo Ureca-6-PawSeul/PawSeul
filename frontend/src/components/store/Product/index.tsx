@@ -3,9 +3,14 @@ import { Flex } from '../../common/Flex';
 import { Text } from '../../common/Typo';
 import { colors } from '@styles/colors';
 import StarRating from '@components/store/Star';
-import { ProductType } from '../../../assets/types/ProductType';
+import { ProductType } from '@assets/types/ProductType';
+import { useNavigate } from 'react-router-dom';
 
 export const Product = ({ product_img, title, price }: ProductType) => {
+  {
+    /* 나중에 수정할것! */
+  }
+  const navigate = useNavigate();
   return (
     <Wrapper
       direction="column"
@@ -15,6 +20,7 @@ export const Product = ({ product_img, title, price }: ProductType) => {
       gap={1}
       padding="2"
       backgroundColor={colors.White}
+      onClick={() => navigate('/store/detail/1')}
     >
       <Flex direction="column" align="center" borderRadius={10}>
         <img src={product_img} width="100%" />
@@ -27,7 +33,13 @@ export const Product = ({ product_img, title, price }: ProductType) => {
       <Text colorCode={colors.Black} typo="Label1">
         {price}
       </Text>
-      <Flex direction='row' height={10} justify='flex-start' align="flex-end" gap={1}>
+      <Flex
+        direction="row"
+        height={10}
+        justify="flex-start"
+        align="flex-end"
+        gap={1}
+      >
         <StarRating score={4.5} />
         <Text colorCode={colors.Black} typo="Body4">
           {4}
@@ -46,11 +58,11 @@ export const Product = ({ product_img, title, price }: ProductType) => {
 const Wrapper = styled(Flex)`
   box-sizing: border-box;
   border-radius: 10px;
-
-  &:hover {
-    transform: scale(1.02); 
+  cursor: pointer;
+  /* &:hover {
+    transform: scale(1.02);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
+  } */
 `;
 
 // 두줄 이상 말줄임표

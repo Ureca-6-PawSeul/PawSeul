@@ -24,6 +24,6 @@ export default defineConfig({
   // 로컬 호스트 바깥에서도 접근 가능하도록 설정
   server: {
     host: '0.0.0.0',
-    port: 5173,
+    port: 3000,
   },
 });
