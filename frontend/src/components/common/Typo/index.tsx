@@ -11,6 +11,6 @@ export const Text = styled.div<{
   color: ${({ colorCode }) => colorCode ?? `${colorCode}`};
 
   display: flex;
-  align-items: center;
+  align-items: ${({ align }) => (align ? align : 'center')};
   margin: ${({ margin }) => (margin ? margin : '0')};
 `;
