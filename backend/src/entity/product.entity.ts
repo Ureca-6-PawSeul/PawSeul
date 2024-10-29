@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity()
 export abstract class Product {
   @ApiProperty({ description: '제품 고유 ID' })
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   productId: string;
 
   @ApiProperty({ description: '제품 제목' })
