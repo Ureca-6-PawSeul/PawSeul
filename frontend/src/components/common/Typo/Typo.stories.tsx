@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Text } from '.';
-import { KeyOfMobileTypo, KeyOfWebTypo, theme } from '@styles/theme';
+import { KeyOfTypo, theme } from '@styles/theme';
 
 type Story = StoryObj<typeof Text>;
 
@@ -11,13 +11,9 @@ const meta: Meta<typeof Text> = {
   title: 'Components/common/Text',
   component: Text,
   argTypes: {
-    webTypo: {
+    typo: {
       control: 'select',
-      options: Object.keys(theme.typo.Web) as KeyOfWebTypo[], // Web 타이포 옵션
-    },
-    mobileTypo: {
-      control: 'select',
-      options: Object.keys(theme.typo.Mobile) as KeyOfMobileTypo[], // Mobile 타이포 옵션
+      options: Object.keys(theme.typo) as KeyOfTypo[], // Web 타이포 옵션
     },
     colorCode: {
       control: 'color',
@@ -35,8 +31,7 @@ export default meta;
  */
 export const DefaultText: Story = {
   args: {
-    webTypo: 'Heading1_Kor',
-    mobileTypo: 'Heading1_Kor',
+    typo: 'Heading1',
     colorCode: '#000000',
     margin: '0',
     children: 'This is a sample text',
