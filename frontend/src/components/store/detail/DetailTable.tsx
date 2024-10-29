@@ -14,13 +14,13 @@ const DetailTable = ({ tableData }: DetailTableProps ) => {
           /* tableData를 [key, value]의 배열 형태로 변환 */
           Object.entries(tableData).map(([key, value]) => (
             <TableRow key={key}>
-              <TableData bgColor={colors.Gray100} width="30%">
+              <TableData bgColor={colors.Gray50} width="30%">
                 <Text typo="Body3" colorCode={colors.Gray500}>
                   {key}
                 </Text>
               </TableData>
               <TableData bgColor={colors.White} width="70%">
-                <Text typo="Body3" colorCode={colors.Gray900}>
+                <Text typo="Body3" colorCode={colors.Gray700}>
                   {value}
                 </Text>
               </TableData>

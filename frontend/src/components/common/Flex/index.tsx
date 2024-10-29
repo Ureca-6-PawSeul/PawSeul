@@ -31,9 +31,4 @@ export const Flex = styled.div<{
 
   background-color: ${({ backgroundColor }) =>
     backgroundColor ?? `transparent`};
-
-  /*브라우저 크기에 따라 가로 크기 변경 */
-  @media (max-width: 1023px) {
-    gap: ${({ gap }) => (gap ? `${gap}px` : '0px')};
-  }
 `;
