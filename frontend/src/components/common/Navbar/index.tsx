@@ -57,7 +57,7 @@ const Navbar = () => {
             onClick={() => handleNavigate('/health')}
             iconType="health"
           >
-            <HealthIcon height={24} />
+            <HealthIcon height={20} />
           </NavItem>
           <NavItem
             isActive={pathname === '/search'}
