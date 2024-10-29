@@ -1,44 +1,47 @@
-// /** @jsxImportSource @emotion/react */
-// import styled from '@emotion/styled';
-// import { colors } from '@/styles/colors';
+/** @jsxImportSource @emotion/react */
+import styled from '@emotion/styled';
+import { colors } from '@/styles/colors';
 
-// interface ButtonProps{
-//     width:number;
-//     height: number;
-//     bg: string;
-//     hoverBg: string;
-//     font
-// }
+interface ButtonProps {
+  width: string;
+  height: string;
+  bg: string; //background
+  hoverBg: string;
+  fontColor: string;
+  fontSize: number;
+  hoverFontColor: string;
+  borderRadius: string;
+  border: string;
+}
 
-// export const Button = styled.div<ButtonProps>`
-//   display: flex;
-//   padding: 8px 16px;
-//   justify-content: center;
-//   align-items: center;
-//   width: ${({ width }) => (width ? `${width}px` : 'fit-content')};
-//   height: ${({ height }) => (height ? `${height}px` : 'fit-content')};
+const Button = styled.div<ButtonProps>`
+  display: flex;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  width: ${({ width }) => (width ? `${width}` : '100%')};
+  height: ${({ height }) => (height ? `${height}` : '100%')};
 
-//   border-radius: ${({ borderRadius }) =>
-//     borderRadius ? borderRadius : '10px'};
-//   background-color: ${({ bg }) => (bg ? bg : colors.white)};
-//   background-image: ${({ bgi }) => (bgi ? bgi : 'none')};
-//   border: ${({ isBorder }) =>
-//     isBorder ? '1px solid rgba(255, 255, 255, 0.5)' : 'none'};
+  border-radius: ${({ borderRadius }) =>
+    borderRadius ? borderRadius : '10px'};
+  background-color: ${({ bg }) => (bg ? bg : colors.MainColor)};
+  border: ${({ border }) => border ?? 'none'};
+  box-sizing: border-box;
+  flex: 1;
 
-//   box-sizing: border-box;
-//   flex-shrink: 0;
+  flex-shrink: 0;
+  font-family: 'Pretendard';
+  font-size: ${({ fontSize }) => (fontSize ? fontSize : '1rem')};
+  font-weight: 600;
+  color: ${({ fontColor }) => (fontColor ? fontColor : colors.White)};
 
-//   font-family: 'Pretendard';
-//   font-size: ${({ fontSize }) => (fontSize ? fontSize : '14px')};
-//   font-weight: 600;
-//   color: ${({ fontColor }) => (fontColor ? fontColor : colors.primaryColor)};
+  &:hover {
+    cursor: pointer;
+    background-color: ${({ hoverBg }) =>
+      hoverBg ? hoverBg : colors.MainColor};
+    color: ${({ hoverFontColor }) =>
+      hoverFontColor ? hoverFontColor : colors.White};
+  }
+`;
 
-//   &:hover {
-//     cursor: pointer;
-//     background-color: ${({ hoverBg }) =>
-//       hoverBg ? hoverBg : colors.primaryColor};
-//     background-image: ${({ hbgi }) => (hbgi ? hbgi : 'none')};
-//     color: ${({ hoverFontColor }) =>
-//       hoverFontColor ? hoverFontColor : colors.white};
-//   }
-// `;
+export default Button;
