@@ -3,9 +3,9 @@ import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 
-const PetAdd = () => {
+const PetInfo = () => {
   return (
-    <Container direction="column" align="flex-start" webGap={40} padding="35px">
+    <Container direction="column" align="flex-start" gap={40} padding="35px">
       {/* 펫 이름 */}
       <Flex direction="column" align="flex-start" height="fit-content">
         <Text typo="Label2">반려견의 이름은 무엇인가요?</Text>
@@ -40,12 +40,7 @@ const PetAdd = () => {
       </Flex>
 
       {/* 펫 중성화 여부 */}
-      <Flex
-        direction="column"
-        align="flex-start"
-        webGap={7}
-        height="fit-content"
-      >
+      <Flex direction="column" align="flex-start" gap={7} height="fit-content">
         <Text typo="Label2">중성화 수술을 했나요?</Text>
         <YesBtn>중성화 수술을 했어요!</YesBtn>
         <NoBtn>아니요. 하지않았어요!</NoBtn>
@@ -59,7 +54,7 @@ const PetAdd = () => {
   );
 };
 
-export default PetAdd;
+export default PetInfo;
 
 const Container = styled(Flex)`
   background-color: ${colors.White};
