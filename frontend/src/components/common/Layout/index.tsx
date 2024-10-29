@@ -10,8 +10,8 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
       <Header />
       <Flex width={375} direction="column">
         {children}
+        <Navbar />
       </Flex>
-      <Navbar />
     </Wrapper>
   );
 };

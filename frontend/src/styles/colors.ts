@@ -4,9 +4,11 @@ export const colors = {
   Mint50: '#E1FFFF',
   Mint200: '#00A9C0',
   Red: '#FF3F57',
+  Star: '#FFC700',
 
   //gray
   White: '#FFFFFF',
+  Gray50: '#F8F8F8',
   Gray100: '#F2F2F7',
   Gray200: '#D1D1D6',
   Gray300: '#C7C7CC',
