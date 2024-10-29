@@ -17,5 +17,14 @@ export default meta;
  * `DefaultModal`는 'Modal' 컴포넌트의 기본 스토리입니다.
  */
 export const DefaultModal: Story = {
-  args: { isOpen: true, toggleModal: () => {}, children: <div>안녕</div> },
+  args: {
+    isOpen: true,
+    toggleModal: () => {},
+    children: (
+      <div>
+        <div>포슬 모달</div>
+        <button>포슬포슬</button>
+      </div>
+    ),
+  },
 };
