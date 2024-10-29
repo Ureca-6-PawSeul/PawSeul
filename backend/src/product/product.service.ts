@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Food } from 'src/entity/food.entity';
 import { Snack } from 'src/entity/snack.entity';
@@ -15,4 +15,44 @@ export class ProductService {
     @InjectRepository(Supplement)
     private supplementRepository: Repository<Supplement>,
   ) {}
+
+  async getProduct(
+    category: string,
+    subcategory: string,
+    page: number,
+    limit: number,
+  ) {
+    const options = {
+      take: limit,
+      skip: (page - 1) * limit,
+    };
+
+    if (category === 'food') {
+      if (subcategory === 'all') {
+        return this.foodRepository.find(options);
+      }
+      return this.foodRepository.find({
+        ...options,
+        where: { foodType: subcategory },
+      });
+    } else if (category === 'snack') {
+      if (subcategory === 'all') {
+        return this.snackRepository.find(options);
+      }
+      return this.snackRepository.find({
+        ...options,
+        where: { snackType: subcategory },
+      });
+    } else if (category === 'supplement') {
+      if (subcategory === 'all') {
+        return this.supplementRepository.find(options);
+      }
+      return this.supplementRepository.find({
+        ...options,
+        where: { supplementType: subcategory },
+      });
+    } else {
+      throw new HttpException('잘못된 카테고리입니다.', HttpStatus.BAD_REQUEST);
+    }
+  }
 }
