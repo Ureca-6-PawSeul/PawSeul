@@ -51,18 +51,8 @@ const Store = () => {
   }, [selectedCategory]);
 
   useEffect(() => {
-    //productDataList가 업데이트될 때 재렌더링
-    // let filteredItems = productDataList;
-
-    // 사료 세부 카테고리
-    if (selectedCategory === '영양제' && selectedSubCategory !== '전체') {
-      //api -> 세부 카테고리 데이터
-      //setProductList
-    } else if (selectedCategory === '사료' && selectedSubCategory !== '전체') {
-      ///api -> 세부 카테고리 데이터
-      //setProductList
-    }
-  }, [productDataList, selectedSubCategory]);
+    console.log(items);
+  }, [items]);
 
   return (
     <Flex
@@ -74,9 +64,10 @@ const Store = () => {
     >
       {/* 카테고리 버튼 */}
       <Flex direction="row" align="center" height={40}>
-        <button onClick={() => setSelectedCategory('사료')}>사료</button>
-        <button onClick={() => setSelectedCategory('간식')}>간식</button>
-        <button onClick={() => setSelectedCategory('영양제')}>영양제</button>
+        <button onClick={() => handleCategoryBtn('사료')}>사료</button>
+        <button onClick={() => handleCategoryBtn('간식')}>간식</button>
+        <button onClick={() => handleCategoryBtn('영양제')}>영양제</button>
+
       </Flex>
 
       <Flex justify="flex-start" height={24} margin="20px 0px 0 0">
@@ -87,7 +78,7 @@ const Store = () => {
 
       <Flex direction="row" justify="flex-start" height={40} gap={8}>
         {subCategories[selectedCategory]?.map((subCategory, index) => (
-          <button key={index}>{subCategory}</button>
+          <button key={index} onClick={()=>setSelectedSubCategory(subCategory)}>{subCategory}</button>
         ))}
       </Flex>
 
@@ -119,7 +110,6 @@ const Wrapper = styled(Flex)`
 `;
 
 const ProductWrapper = styled.div`
-  /* width: calc(33.33% - 8px); */
-  width: calc(50% - 30px);
+  width: calc(33.33% - 8px); /* 한 행에 3개씩 배치되도록 3등분 */
   box-sizing: border-box;
 `;
