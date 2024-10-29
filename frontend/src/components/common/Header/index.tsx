@@ -28,8 +28,3 @@ export const Header = ({
     </Flex>
   );
 };
-
-const Wrapper = styled(Flex)`
-  height: 56px;
-  overflow-x: hidden;
-`;
