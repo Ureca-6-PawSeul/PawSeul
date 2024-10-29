@@ -16,7 +16,7 @@ export class ProductService {
     private supplementRepository: Repository<Supplement>,
   ) {}
 
-  async getProduct(
+  async getProducts(
     category: string,
     subcategory: string,
     page: number,
@@ -54,5 +54,27 @@ export class ProductService {
     } else {
       throw new HttpException('잘못된 카테고리입니다.', HttpStatus.BAD_REQUEST);
     }
+  }
+
+  async getProductById(id: string) {
+    const result = await this.foodRepository.manager.query(
+      `
+      SELECT * FROM food WHERE productId = $1
+      UNION
+      SELECT * FROM snack WHERE productId = $1
+      UNION
+      SELECT * FROM supplement WHERE productId = $1
+    `,
+      [id],
+    );
+
+    if (result.length === 0) {
+      throw new HttpException(
+        '제품을 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    return result;
   }
 }
