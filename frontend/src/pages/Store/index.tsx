@@ -16,27 +16,30 @@ import Tag from '@components/common/Tag';
 
 const Store = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
-  const [selectedSubCategory, setSelectedSubCategory] =
-    useState<string>('전체');
+  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('전체');
   const [items, setItems] = useState<ProductDetailType[]>([]);
+  const [productDataList, setProductDataList] = useState<ProductDetailType[] | undefined>(food)
 
-  const fetchData = async (category: Category, subCategory: string) => {
-    let data: ProductDetailType[] | undefined;
-
-    if (category === '사료') data = food;
-    else if (category === '간식') data = snack;
-    else if (category === '영양제') data = supplement;
-
-    if (subCategory && subCategory !== '전체') {
-      data = data.filter((item) => item.category === subCategory);
-    }
-
-    setItems(data ?? []);
+  
+  const fetchData = async (category: Category) => {
+    if (category === '사료') setProductDataList(food);
+    else if (category === '간식') setProductDataList(snack);
+    else if (category === '영양제') setProductDataList(supplement);
   };
 
   useEffect(() => {
-    fetchData(selectedCategory, selectedSubCategory);
-  }, [selectedCategory, selectedSubCategory]);
+    fetchData(selectedCategory);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    //productDataList가 업데이트될 때 재렌더링
+    //세부 카테고리 필터링 필요
+    const filteredItems = selectedSubCategory === '전체'
+      ? productDataList
+      : productDataList.filter((item) => item.subCategory === selectedSubCategory);
+
+    setItems(filteredItems);
+  }, [productDataList, selectedSubCategory]);
 
   return (
     <Flex direction="column" justify="flex-start" align="center" gap={5}>
