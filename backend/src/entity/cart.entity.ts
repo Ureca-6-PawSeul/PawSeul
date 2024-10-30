@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 import { User } from './user.entity';
 import { CartProduct } from './cart.product.entity';
 import { ApiProperty } from '@nestjs/swagger';
@@ -10,6 +16,7 @@ export class Cart {
   cartId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
+  @JoinColumn({ name: 'user_id' })
   @ManyToOne(() => User, (user) => user.carts)
   user: User;
 
