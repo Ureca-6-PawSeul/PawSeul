@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Food } from 'src/entity/food.entity';
+import { Product } from 'src/entity/product.entity';
 import { Snack } from 'src/entity/snack.entity';
 import { Supplement } from 'src/entity/supplement.entity';
 import { Repository } from 'typeorm';
@@ -14,6 +15,8 @@ export class ProductService {
     private snackRepository: Repository<Snack>,
     @InjectRepository(Supplement)
     private supplementRepository: Repository<Supplement>,
+    @InjectRepository(Product)
+    private productRepository: Repository<Product>,
   ) {}
 
   async getProducts(
@@ -56,25 +59,16 @@ export class ProductService {
     }
   }
 
-  async getProductById(id: string) {
-    const result = await this.foodRepository.manager.query(
-      `
-      SELECT * FROM food WHERE productId = $1
-      UNION
-      SELECT * FROM snack WHERE productId = $1
-      UNION
-      SELECT * FROM supplement WHERE productId = $1
-    `,
-      [id],
-    );
+  async getProductById(productId: string) {
+    const product = await this.productRepository.findOne({
+      where: { productId },
+      relations: ['food', 'snack', 'supplement'],
+    });
 
-    if (result.length === 0) {
-      throw new HttpException(
-        '제품을 찾을 수 없습니다.',
-        HttpStatus.BAD_REQUEST,
-      );
+    if (!product) {
+      throw new Error('Product not found');
     }
 
-    return result;
+    return product;
   }
 }

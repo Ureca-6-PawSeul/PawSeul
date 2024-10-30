@@ -1,8 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Food } from 'src/entity/food.entity';
+import { Snack } from 'src/entity/snack.entity';
+import { Supplement } from 'src/entity/supplement.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
-export abstract class Product {
+export class Product {
   @ApiProperty({ description: '제품 고유 ID' })
   @PrimaryGeneratedColumn('uuid')
   productId: string;
@@ -42,4 +45,13 @@ export abstract class Product {
   @ApiProperty({ description: '평균 점수' })
   @Column('decimal', { precision: 2, scale: 1 })
   averageScore: number;
+
+  @OneToMany(() => Food, (food) => food.product)
+  food?: Food[];
+
+  @OneToMany(() => Supplement, (supplement) => supplement.product)
+  supplement?: Supplement[];
+
+  @OneToMany(() => Snack, (snack) => snack.product)
+  snack?: Snack[];
 }
