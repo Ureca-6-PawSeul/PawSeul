@@ -3,43 +3,74 @@ import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 import { Product } from '@components/store/Product';
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { ProductDetailType } from '@assets/types/ProductType';
 import { Category, subCategories } from '@assets/types/CategoryType';
 import snack from '@/mocks/data/snack.json';
 import food from '@/mocks/data/food.json';
 import supplement from '@/mocks/data/supplement.json';
+import { foodTypeMapping } from '@assets/types/CategoryType';
 import Tag from '@components/common/Tag';
+import { useNavigate } from 'react-router-dom';
+import { getProductList } from '@/apis/getProductList';
 
 const Store = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
-  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('전체');
-  const [items, setItems] = useState<ProductDetailType[]>([]);
-  const [productDataList, setProductDataList] = useState<ProductDetailType[] | undefined>(food)
+  const fetch = async (
+    category: string,
+    setProductDataList: React.Dispatch<
+      SetStateAction<ProductDetailType[] | undefined>
+    >,
+  ) => {
+    try {
+      await getProductList('food', setProductDataList);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  
-  const fetchData = async (category: Category) => {
-    if (category === '사료') setProductDataList(food);
-    else if (category === '간식') setProductDataList(snack);
-    else if (category === '영양제') setProductDataList(supplement);
+
+  const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
+  const [selectedSubCategory, setSelectedSubCategory] =
+  useState<string>('전체');
+  const [productDataList, setProductDataList] = useState<
+  ProductDetailType[] | []
+  >();
+  const navigate = useNavigate();
+  const handleClick = (productId: number) => {
+    console.log(`Navigating to detail/${productId}`);
+    navigate(`detail/${productId}`);
   };
 
   useEffect(() => {
-    fetchData(selectedCategory);
+    fetch('food', setProductDataList);
+  }, []);
+
+  useEffect(() => {
+    // fetchData(selectedCategory);
   }, [selectedCategory]);
 
   useEffect(() => {
     //productDataList가 업데이트될 때 재렌더링
-    //세부 카테고리 필터링 필요
-    const filteredItems = selectedSubCategory === '전체'
-      ? productDataList
-      : productDataList.filter((item) => item.subCategory === selectedSubCategory);
+    // let filteredItems = productDataList;
 
-    setItems(filteredItems);
+    // 사료 세부 카테고리
+    if (selectedCategory === '영양제' && selectedSubCategory !== '전체') {
+      //api -> 세부 카테고리 데이터
+      //setProductList
+    } else if (selectedCategory === '사료' && selectedSubCategory !== '전체') {
+      ///api -> 세부 카테고리 데이터
+      //setProductList
+    }
   }, [productDataList, selectedSubCategory]);
 
   return (
-    <Flex direction="column" justify="flex-start" align="center" gap={5}>
+    <Flex
+      direction="column"
+      justify="flex-start"
+      align="center"
+      gap={5}
+      padding="0 12px"
+    >
       {/* 카테고리 버튼 */}
       <Flex
         direction="row"
@@ -86,11 +117,11 @@ const Store = () => {
       </Flex>
 
       {/* 상품 리스트 */}
-      <Wrapper direction="row" justify="start" gap={12}>
-        {items.map((item) => (
-          <ProductWrapper key={item.index}>
+      <Wrapper direction="row" justify="center" gap={30}>
+        {productDataList?.map((item) => (
+          <ProductWrapper onClick={() => handleClick(item.product_id)}>
             <Product
-              index={item.index}
+              product_id={item.product_id}
               product_img={item.product_img}
               title={item.title}
               price={item.price}
@@ -113,6 +144,7 @@ const Wrapper = styled(Flex)`
 `;
 
 const ProductWrapper = styled.div`
-  width: calc(33.33% - 8px);
+  /* width: calc(33.33% - 8px); */
+  width: calc(50% - 30px);
   box-sizing: border-box;
 `;
