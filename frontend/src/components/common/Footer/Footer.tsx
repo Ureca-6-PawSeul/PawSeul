@@ -5,7 +5,7 @@ import { colors } from '@styles/colors';
 
 const Footer = () => {
   return (
-    <Flex
+    <Wrapper
       direction="column"
       align="center"
       justify="center"
@@ -21,11 +21,15 @@ const Footer = () => {
         <br />
         개인정보보호책임자 : 김포슬/ 구매안전(에스크로)서비스
       </FooterText>
-    </Flex>
+    </Wrapper>
   );
 };
 
 export default Footer;
+
+const Wrapper = styled(Flex)`
+  height: fit-content;
+`;
 
 const FooterText = styled(Text)`
   font-family: 'Pretendard';
