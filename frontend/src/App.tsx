@@ -12,8 +12,8 @@ import Mypage from '@pages/Mypage';
 import Detail from '@pages/Store/Detail';
 import Payment from '@pages/Payment';
 import Health from '@pages/Health';
-import { OrderHistoryPage } from '@pages/Mypage/Order';
 import Cart from '@pages/Cart';
+import { OrderHistoryPage } from '@pages/Mypage/Order';
 
 function App() {
   return (
