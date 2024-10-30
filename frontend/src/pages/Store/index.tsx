@@ -18,7 +18,7 @@ const Store = () => {
   const fetch = async (
     category: string,
     setProductDataList: React.Dispatch<
-      SetStateAction<ProductDetailType[] | undefined>
+      SetStateAction<ProductDetailType[]>
     >,
   ) => {
     try {
@@ -30,13 +30,12 @@ const Store = () => {
 
 
   const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
-  const [selectedSubCategory, setSelectedSubCategory] =
-  useState<string>('전체');
+  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('전체');
   const [productDataList, setProductDataList] = useState<
-  ProductDetailType[] | []
-  >();
+  ProductDetailType[]
+  >([]);
   const navigate = useNavigate();
-  const handleClick = (productId: number) => {
+  const handleClick = (productId: number|string) => {
     console.log(`Navigating to detail/${productId}`);
     navigate(`detail/${productId}`);
   };

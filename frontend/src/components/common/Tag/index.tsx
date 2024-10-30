@@ -44,4 +44,11 @@ const TagWrapper = styled(Flex)<{
           height: ${height}px;
         `
       : 'height: fit-content;'}
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    opacity: 0.5;
+  }
 `;
