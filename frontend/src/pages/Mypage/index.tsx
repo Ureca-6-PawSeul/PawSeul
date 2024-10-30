@@ -8,59 +8,9 @@ import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 
 const Mypage = () => {
-  const navigate = useNavigate();
-  const handleClickOrderHistory = () => navigate("order")
-  const handleClickReviewHistory = () => navigate("review")
-
-  return (
-    <Flex direction="column" align="center" padding="0px 12px" justify="flex-start">
-      <Flex direction="row" justify="flex-start" height={40}>
-        <Text colorCode={colors.Black} typo="Label1" align="flex-start">
-          {ProfileData.username}
-        </Text>
-        <Text colorCode={colors.Black} typo="Body3" align="flex-start">
-          님
-        </Text>
-      </Flex>
-      <Flex direction="row" justify="flex-start" height={40}>
-        <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
-          반려견 정보
-        </Text>
-        {/* 반려견 정보 컴포넌트 */}
-      </Flex>
-      <Profile
-        petname={ProfileData.petname}
-        age={ProfileData.age}
-        breedname={ProfileData.breedname}
-        weight={ProfileData.weight}
-        gender={ProfileData.gender}
-        is_neutered={ProfileData.is_neutered}
-      />
-      <BottomBtn direction="column" align="flex-start" padding="19px 11px" onClick={handleClickOrderHistory}>
-        <Text colorCode={colors.Black} typo="Body3" align="flex-start">
-          찜한 목록
-        </Text>
-      </BottomBtn>
-      <BottomBtn direction="column" align="flex-start" padding="19px 11px" >
-        <Text colorCode={colors.Black} typo="Body3" align="flex-start">
-          주문 내역
-        </Text>
-      </BottomBtn>
-      <BottomBtn direction="column" align="flex-start" padding="19px 11px"onClick={handleClickReviewHistory}>
-        <Text colorCode={colors.Black} typo="Body3" align="flex-start">
-          구매 후기
-        </Text>
-      </BottomBtn>
-    </Flex>
-  );
+  return <Wrapper direction="column" align="center"></Wrapper>;
 };
 
 export default Mypage;
 
-const BottomBtn = styled(Flex)`
-  border-bottom: solid 1px ${colors.Gray100};
-  height: fit-content;
-  &:hover {
-    cursor: pointer;
-  }
-`;
+const Wrapper = styled(Flex)``;
