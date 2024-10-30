@@ -1,5 +1,5 @@
 export interface ProductType {
-  index: number;
+  product_id: number;
   product_img: string;
   title: string;
   price: string;
@@ -13,7 +13,7 @@ export interface ProductDetailType extends ProductType {
   food_function?: string;
   target_age?: string;
   food_type?: string;
-  supplemment_type?: string;
+  supplement_type?: string;
   target_size?: string;
   is_grainfree?: boolean;
 }

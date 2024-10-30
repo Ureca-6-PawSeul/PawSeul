@@ -48,7 +48,7 @@ export const typo = {
   Body4: css`
     font-family: 'Pretendard';
     font-weight: 400;
-    font-size: ${calcRem(8)};
+    font-size: ${calcRem(10)};
     line-height: 140%;
   `,
   Label1: css`

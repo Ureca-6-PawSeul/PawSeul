@@ -1,6 +1,6 @@
 [
     {
-        "index": 0,
+        "product_id": 0,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/9dc1/40b1e13b5495b578b95a05980070c5f392dfff722303d78e126f328c7833.jpg",
         "title": "수제명가 애견용 셰프시리즈 건강 한입 간식, 리얼황태, 2개",
@@ -17,7 +17,7 @@
         "is_grainfree": true
     },
     {
-        "index": 1,
+        "product_id": 1,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/552586276986956-6e7619a5-8b0b-47ae-888f-a08139a0fef0.png",
         "title": "와그작 강아지 하루간식, 혼합맛(자색고구마/..., 30g, 14개",
@@ -39,7 +39,7 @@
         "is_grainfree": false
     },
     {
-        "index": 2,
+        "product_id": 2,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg",
         "title": "뷰카펫 스니커츄 덴탈껌, 밀크맛, 300g, 1개",
@@ -56,7 +56,7 @@
         "is_grainfree": false
     },
     {
-        "index": 3,
+        "product_id": 3,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3316836862055369-5b47a923-339b-4e02-b8ad-dcdfb2c3b5f2.jpg",
         "title": "마이도기 강아지 간식, 치킨믹스, 300g, 6개",
@@ -73,7 +73,7 @@
         "is_grainfree": false
     },
     {
-        "index": 4,
+        "product_id": 4,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/6425876930767524-fa759c25-187c-4535-bc91-74cee7430cd8.jpg",
         "title": "마도로스펫 반려동물 건조 트릿 간식, 열빙어, 100g, 1개",
@@ -89,7 +89,7 @@
         "is_grainfree": false
     },
     {
-        "index": 5,
+        "product_id": 5,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/5062/ad4a340f80e0dc6add0429c3f5db003eefac639505bc7c523c5650b1d3f4.png",
         "title": "진짜육포 강아지 간식 져키 180g, 소고기, 180g, 3개",
@@ -109,7 +109,7 @@
         "is_grainfree": false
     },
     {
-        "index": 6,
+        "product_id": 6,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/edrgfxio/a08971e93473467799873a623cf916d0.jpg",
         "title": "올가밀 말랑 촉촉 고기 수제 강아지 간식, 소고기, 1kg, 1개",
@@ -134,7 +134,7 @@
         "is_grainfree": false
     },
     {
-        "index": 7,
+        "product_id": 7,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/436119620374966-35cb43bb-bf5b-4cf4-b258-2a5621222378.jpg",
         "title": "파미데이즈 강아지 유산균 덴탈껌, 황태맛, 320g, 1개",
@@ -151,7 +151,7 @@
         "is_grainfree": false
     },
     {
-        "index": 8,
+        "product_id": 8,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/ae96/a10afaa66ac95c979d13204f016d6acd8b536bd7e67b5888e4577f36d15c.jpg",
         "title": "브랜드없음 인네이처 리얼 사사미 1kg 건조간식/육포, 치킨, 1kg, 1개",
@@ -170,7 +170,7 @@
         "is_grainfree": false
     },
     {
-        "index": 9,
+        "product_id": 9,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/operator/170750072/f03f0811-1f43-fe37-a606-cf0277129573.jpg",
         "title": "수제명가 대용량수제져키-8종 수제간식, 황태스틱500g, 1개",
@@ -190,7 +190,7 @@
         "is_grainfree": false
     },
     {
-        "index": 10,
+        "product_id": 10,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2019/02/25/14/0/a621e299-e8cd-4a7b-926f-26060885496a.jpg",
         "title": "참좋은간식 강아지 고구마치즈 간식, 치킨봉맛, 100g, 10개",
@@ -207,7 +207,7 @@
         "is_grainfree": false
     },
     {
-        "index": 11,
+        "product_id": 11,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7122140804178811-88f7bdfd-1798-4b3f-a953-e2cb5e03c992.png",
         "title": "와그작 하루한컵 선물세트 동결건조 간식 16개입",
@@ -226,7 +226,7 @@
         "is_grainfree": false
     },
     {
-        "index": 12,
+        "product_id": 12,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2020/06/26/14/1/330aa216-c829-4a55-bde1-b60719cc1cb6.jpg",
         "title": "와그작 강아지 하루간식, 혼합맛(소고기/고구..., 30g, 14개",
@@ -248,7 +248,7 @@
         "is_grainfree": false
     },
     {
-        "index": 13,
+        "product_id": 13,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2019/10/04/17/4/713e15de-3b78-44c3-8917-5b4d5685c419.jpg",
         "title": "굿데이 맛있는 유산균껌 반려동물 간식, 블루베리혼합, 300g, 2개",
@@ -266,7 +266,7 @@
         "is_grainfree": false
     },
     {
-        "index": 14,
+        "product_id": 14,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3496477320633838-71cd0e37-570e-47ad-a0cd-04b2840ef9a6.jpg",
         "title": "마이베프 펫밀크 생유베리마치, 크랜베리맛, 200ml, 10개",
@@ -286,7 +286,7 @@
         "is_grainfree": false
     },
     {
-        "index": 15,
+        "product_id": 15,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/ipbk1ar4/fe90a7b57239470fbf1e254fb956c5a2.jpg",
         "title": "다이아몬드펫 사자 강아지 대용량 실속형 간식, 치킨꽈배기슬라이스, 1kg, 1개",
@@ -306,7 +306,7 @@
         "is_grainfree": false
     },
     {
-        "index": 16,
+        "product_id": 16,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/f839/86fad8a66d6cda49e0974fee4dfdebd30da2266bc63be45495d9d4bb0dc6.png",
         "title": "맛있고 오래먹는 한우스틱_15cm 45g, 한우, 45g, 1개",
@@ -324,7 +324,7 @@
         "is_grainfree": false
     },
     {
-        "index": 17,
+        "product_id": 17,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/76e0/efa730dbd3aa327db539f2818e09b60139df85483acc294dd1a77fd9daaa.jpg",
         "title": "수제명가 대용량수제져키-8종 수제간식, 오리스틱500g, 1개",
@@ -344,7 +344,7 @@
         "is_grainfree": false
     },
     {
-        "index": 18,
+        "product_id": 18,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/b784/2a828a16c75253db01b6cd716ddba744a69f5a4766f4887d101c3778e65d.jpg",
         "title": "많이드시개 강아지 대용량 수제간식, 오리발, 400g, 1개",
@@ -367,7 +367,7 @@
         "is_grainfree": true
     },
     {
-        "index": 19,
+        "product_id": 19,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4333343600547061-1286c603-891d-413e-b41f-cffeef82def1.jpg",
         "title": "마이도기 강아지 간식, 닭갈비, 300g, 6개",
@@ -384,7 +384,7 @@
         "is_grainfree": false
     },
     {
-        "index": 20,
+        "product_id": 20,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/023f/8596689e825cc0fa7e521f159c94a078384763d00432550e2fb7c55c219c.jpg",
         "title": "수제명가 오리윙500g 대용량팩 오리날개500g 수제간식",
@@ -403,7 +403,7 @@
         "is_grainfree": false
     },
     {
-        "index": 21,
+        "product_id": 21,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2017/03/09/17/8/5e7a8ee8-cee4-4005-866b-0d2d56452161.jpg",
         "title": "풀무원 아미오 반려견 헬씨믹스 트릿, 블루베리, 100g, 5개",
@@ -420,7 +420,7 @@
         "is_grainfree": true
     },
     {
-        "index": 23,
+        "product_id": 23,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/ddbe/e7b3f86b676f125bf285b9f2444ff9b9f7a61c4916e84b7a41479d1cec34.jpg",
         "title": "와라모두 윔지스 덴탈껌 버라이어티팩 S ( 840g 56P), 덴탈, 840g, 1개",
@@ -438,7 +438,7 @@
         "is_grainfree": true
     },
     {
-        "index": 24,
+        "product_id": 24,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/04/11/4460708743/236c7c04-52d0-45b0-bb6e-3a2125cab9f0.jpg",
         "title": "마도로스펫 동결건조 간식, 북어트릿, 80g, 2개",
@@ -455,7 +455,7 @@
         "is_grainfree": true
     },
     {
-        "index": 25,
+        "product_id": 25,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/06/06/10/1/e1c22e30-eda3-4a29-86b7-d6fb7e066fc3.jpg",
         "title": "노즈워크 트레이닝 강아지 트릿, 소고기맛, 150g, 1개",
@@ -472,7 +472,7 @@
         "is_grainfree": false
     },
     {
-        "index": 26,
+        "product_id": 26,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/362179532044450-11175c86-738f-48d8-8378-b8f89f9444cf.jpg",
         "title": "마이도기 강아지 간식, 미니닭갈비, 300g, 6개",
@@ -488,7 +488,7 @@
         "is_grainfree": false
     },
     {
-        "index": 27,
+        "product_id": 27,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3316772915556344-7de2dfd2-477a-47a6-aa7e-1abc875e5fc0.jpg",
         "title": "마이도기 강아지 간식, 건식꽈배기 사사미, 300g, 6개",
@@ -505,7 +505,7 @@
         "is_grainfree": false
     },
     {
-        "index": 28,
+        "product_id": 28,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/10e6/e003352126219d2cecc126175760f06540c241e1fbc15ce2a84791f79074.jpg",
         "title": "수제명가 오리도가니 대용량500g 국산수제개껌 껌",
@@ -525,7 +525,7 @@
         "is_grainfree": false
     },
     {
-        "index": 29,
+        "product_id": 29,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/0b66/b62eded6935b390a326191c8b77d7678f11a5a0f879c89f85f5c00210462.jpg",
         "title": "수제명가 국내산 대용량 강아지 황태 200g, 1개",
@@ -544,7 +544,7 @@
         "is_grainfree": false
     },
     {
-        "index": 30,
+        "product_id": 30,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/rtbonotv/d23be31a02bf48ab83e46e70960f4d73.jpg",
         "title": "사자 강아지 대용량 건조간식, 오리가슴살, 1kg, 1개",
@@ -564,7 +564,7 @@
         "is_grainfree": true
     },
     {
-        "index": 31,
+        "product_id": 31,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/a519e455-e0d2-4d2e-84f8-26cc603470bf2615374392959692166.png",
         "title": "굿데이 건강한 육포 강아지 간식, 오리가슴살 스틱, 300g, 3개",
@@ -583,7 +583,7 @@
         "is_grainfree": false
     },
     {
-        "index": 32,
+        "product_id": 32,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2019/02/21/11/5/b5f04d12-84fe-4970-a226-018daeebdbac.jpg",
         "title": "띵크유어도그티 강아지 딩고껌 스틱형, 혼합맛(치킨/우유), 240g, 4개",
@@ -601,7 +601,7 @@
         "is_grainfree": true
     },
     {
-        "index": 33,
+        "product_id": 33,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2023/05/30/16/1/479644c8-f02c-44cb-b4b1-bbf0706893d4.jpg",
         "title": "더독 강아지 모닝 키세스 3in1 덴탈껌 50p, 블루베리, 500g, 1개",
@@ -618,7 +618,7 @@
         "is_grainfree": false
     },
     {
-        "index": 34,
+        "product_id": 34,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2021/10/19/14/9/3803cd23-c361-437b-9c12-56fbff759389.jpg",
         "title": "마이베프 강아지 고양이 짜먹는간식 별자리스틱 4p, 신장건강, 60g, 5팩",
@@ -638,7 +638,7 @@
         "is_grainfree": false
     },
     {
-        "index": 35,
+        "product_id": 35,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/06/19/4436823224/c4870e74-bcf4-4ddd-82fe-776c903b6708.jpg",
         "title": "베게브랜드 스마트 베게본 미니스틱 반려견 간식 3종 세트, 우유 + 소고기 +..., 4개",
@@ -654,7 +654,7 @@
         "is_grainfree": false
     },
     {
-        "index": 37,
+        "product_id": 37,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/05/17/12/1/361a9cf6-e53b-4c51-90e4-a3db888e7994.jpg",
         "title": "마도로스펫 반려동물 소프트 연어트릿, 홍연어, 100g, 1개",
@@ -671,7 +671,7 @@
         "is_grainfree": false
     },
     {
-        "index": 38,
+        "product_id": 38,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4811171507371406-74d3e1c5-041b-4cfd-af76-71c6600d20b2.jpg",
         "title": "개빼로 콜라보 강아지 껌 6p, 치즈 + 오리 혼합..., 70g, 5개",
@@ -689,7 +689,7 @@
         "is_grainfree": false
     },
     {
-        "index": 40,
+        "product_id": 40,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1251805814033002-aba0ada3-6c9b-47d9-a66b-efd05fb94c04.jpg",
         "title": "페페로니 진짜 오메가3 애견용 져키, 소고기, 180g, 3개",
@@ -708,7 +708,7 @@
         "is_grainfree": false
     },
     {
-        "index": 41,
+        "product_id": 41,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/5309151453612903-77866f44-c80b-42c3-bcc2-4417740fc3aa.jpg",
         "title": "탐사 덴탈 클리닉 반려동물 치석제거 덴탈껌 청사과맛, 1개",
@@ -724,7 +724,7 @@
         "is_grainfree": false
     },
     {
-        "index": 42,
+        "product_id": 42,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/fofdfuxa/b8bfc22a6cc546c3986594647a7beb8d.jpg",
         "title": "올가밀 말랑 촉촉 고기 수제 강아지 간식, 황태, 1kg, 1개",
@@ -749,7 +749,7 @@
         "is_grainfree": false
     },
     {
-        "index": 43,
+        "product_id": 43,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2546546848222935-d58dbcf9-e3af-4060-9429-89b0aea863db.jpg",
         "title": "잇츄 옐로우 S 강아지 덴탈껌 79p, 혼합맛(밀웜/마누카..., 948g, 1개",
@@ -782,7 +782,7 @@
         "is_grainfree": false
     },
     {
-        "index": 44,
+        "product_id": 44,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/c7dd/f8deeef2f31a5a98ec94c0fbbeddde3726b46382bc915d38a9cde4977dc6.jpg",
         "title": "[안전성분인증]닥터뉴트리코어 보스웰리아100(10개입) 180g 강아지 관절 덴탈껌, 관절/덴탈케어, 180g, 1개",
@@ -836,7 +836,7 @@
         "is_grainfree": false
     },
     {
-        "index": 45,
+        "product_id": 45,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/5653733857596000-230b068e-db4b-48d8-b51a-c9138dd4e260.jpg",
         "title": "맥시 대용량 강아지 간식, 비프 져키 맛, 800g, 2개",
@@ -853,7 +853,7 @@
         "is_grainfree": false
     },
     {
-        "index": 46,
+        "product_id": 46,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4719099273994802-713e3142-d3a0-4346-a89d-d27669de8361.jpg",
         "title": "굿데이 건강한육포 강아지 간식, 연어 + 우유 혼합..., 300g, 1개",
@@ -870,7 +870,7 @@
         "is_grainfree": false
     },
     {
-        "index": 47,
+        "product_id": 47,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/kpdaduqt/a53121ebb624487c8cfe2234b230a5a9.jpg",
         "title": "사자 강아지 대용량 건조간식, 우유닭갈비, 1kg, 1개",
@@ -890,7 +890,7 @@
         "is_grainfree": true
     },
     {
-        "index": 48,
+        "product_id": 48,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4722569316866463-223cce9d-5f9a-4e80-be1b-c8fde9bf25b0.png",
         "title": "댕냥이라이프 강아지 보니웨트캔, 소고기 + 닭고기 ..., 375g, 24개",
@@ -907,7 +907,7 @@
         "is_grainfree": false
     },
     {
-        "index": 49,
+        "product_id": 49,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/199969037560492-0d7f5358-8b02-4eda-b5d3-00e829ddd46b.jpg",
         "title": "사자 강아지 대용량 건조간식, 혼합맛(오리/고구마..., 1.1kg, 1개",
@@ -927,7 +927,7 @@
         "is_grainfree": false
     },
     {
-        "index": 50,
+        "product_id": 50,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2020/09/10/16/9/0036a092-a65d-4132-8655-43b4437a3cb8.jpg",
         "title": "굿데이 치카치카 강아지 기능성 덴탈껌, 눈 건강, 132g, 1개",
@@ -944,7 +944,7 @@
         "is_grainfree": false
     },
     {
-        "index": 51,
+        "product_id": 51,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/3f32/32f251b46bf5f950eaf1c0e0171a71b18774d020a8dcf564e1cebe7b247c.jpg",
         "title": "펫스토리 해피츄 반려동물 터키츄 간식 S 1박스",
@@ -962,7 +962,7 @@
         "is_grainfree": false
     },
     {
-        "index": 52,
+        "product_id": 52,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4088622386649564-073eb392-f899-4a87-b2dd-3e40cdcaadb1.jpg",
         "title": "마이도기 강아지 간식, 치킨우유껌, 300g, 6개",
@@ -979,7 +979,7 @@
         "is_grainfree": false
     },
     {
-        "index": 53,
+        "product_id": 53,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/2399/8d18baa147ec616fcbf06cbe7d68530fd3f924b0b7ced6df182b910bde65.png",
         "title": "하이포알러지 츄 강아지 치석 덴탈 양치 개 껌 저알러지 간식 캥거루 오리 276g 12개입",
@@ -1010,7 +1010,7 @@
         "is_grainfree": false
     },
     {
-        "index": 54,
+        "product_id": 54,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/07/26/11/7/a7176c65-a1c8-4cb1-90d1-0ecb7e5c998e.jpg",
         "title": "펫츠밀 강아지 한우 소고기 져키 대용량 간식, 소고기, 1kg, 1개",
@@ -1035,7 +1035,7 @@
         "is_grainfree": false
     },
     {
-        "index": 55,
+        "product_id": 55,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/f924/7717376120ee0a5955553b4d6082c983b489074f27ea1f240da1e17c7983.jpg",
         "title": "1+1 신선한 수제 오리목뼈100g~1kg, 오리목뼈500g+5..., 1개",
@@ -1051,7 +1051,7 @@
         "is_grainfree": false
     },
     {
-        "index": 56,
+        "product_id": 56,
         "category": "snack",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/84658825919868-bd232a23-6066-47fe-aa6b-d92a259ff388.png",
         "title": "와그작 강아지 하루간식 선물세트 4종 5p, 혼합맛(오리랑 과일..., 30g, 20개",
@@ -1073,7 +1073,7 @@
         "is_grainfree": true
     },
     {
-        "index": 57,
+        "product_id": 57,
         "category": "snack",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2772894921692617-d306a597-a239-4ee0-9a52-b89cad474d46.jpg",
         "title": "사자 강아지 대용량 건조간식, 닭가슴살, 1kg, 1개",
@@ -1093,7 +1093,7 @@
         "is_grainfree": false
     },
     {
-        "index": 58,
+        "product_id": 58,
         "category": "snack",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/b5c4/c18dfdaaa5f041f5ae7e6d72476d1b37a61c2026e78d13d130de2be20da6.jpg",
         "title": "펫카소 강아지 천연 수제간식",
@@ -1112,7 +1112,7 @@
         "is_grainfree": false
     },
     {
-        "index": 60,
+        "product_id": 60,
         "category": "snack",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/601023922640291-adbc3b6a-52de-4947-866a-3ed032fe078d.jpg",
         "title": "베게브랜드 스마트베게본 스틱 3in1 18p, 혼합맛(클로렐라/밀..., 4개",
@@ -1129,7 +1129,7 @@
         "is_grainfree": false
     },
     {
-        "index": 61,
+        "product_id": 61,
         "category": "snack",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3496183902033534-11fc0aab-ba32-4e00-9939-c0d1b189e416.jpg",
         "title": "마이베프 생유 베리 마치 반려동물 펫밀크, 크랜베리맛, 200ml, 5개",

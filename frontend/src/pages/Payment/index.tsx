@@ -63,7 +63,7 @@ const Payment = () => {
           <Select optionList={SHIPMENT_MESSAGE} />
         </Flex>
 
-        {/* 상품 정보 */}
+        {/* 상품 정보! */}
         <Flex direction="column" align="flex-start" gap={10}>
           <Text typo="Heading3">상품 정보</Text>
           {Array(6)
@@ -71,7 +71,7 @@ const Payment = () => {
             .map((_, index) => (
               <ProductHorizontal
                 key={index}
-                index={index}
+                product_id={1}
                 price="3,900원"
                 title="강아지 촉촉뼈껌 22종 모음"
                 product_img="https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg"
