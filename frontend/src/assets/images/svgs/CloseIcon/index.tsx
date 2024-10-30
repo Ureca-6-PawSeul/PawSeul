@@ -1,5 +1,3 @@
-import { css } from '@emotion/react';
-import { useModal } from '../../../../utils';
 import styled from '@emotion/styled';
 
 export interface CloseProps {
