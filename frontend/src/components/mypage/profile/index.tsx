@@ -2,7 +2,7 @@ import { Flex } from '@components/common/Flex';
 import { colors } from '@styles/colors';
 import styled from '@emotion/styled';
 import { Text } from '@components/common/Typo';
-import DogProfile from '@assets/images/svgs/DogProfile';
+import DogProfile from '@/assets/images/svgs/Fordong/DogProfile';
 import KeyboardArrowRight from '@assets/images/svgs/KeyboardArrowRight';
 import { CardProfileType } from '@assets/types/ProfileType';
 
@@ -12,16 +12,12 @@ const Profile = (
 ) => {
   return (
     <ProfileWrapper direction="column" padding="10px 10px" borderRadius={10}>
-      <UpdateBtn
-        justify="flex-end"
-        direction="row"
-        onClick={handleClick}
-      >
+      <ClickBtn justify="flex-end" direction="row" onClick={handleClick}>
         <Text align="flex-end" typo="Label3" colorCode={colors.Gray400}>
           정보 수정하기
         </Text>
         <KeyboardArrowRight width={13} />
-      </UpdateBtn>
+      </ClickBtn>
       <Flex direction="row">
         <DogProfile width={200} />
         <Flex direction="column" align="flex-start" gap={5}>
@@ -54,7 +50,7 @@ const ProfileWrapper = styled(Flex)`
   height: fit-content;
 `;
 
-const UpdateBtn = styled(Flex)`
+export const ClickBtn = styled(Flex)`
   &:hover {
     cursor: pointer;
   }
