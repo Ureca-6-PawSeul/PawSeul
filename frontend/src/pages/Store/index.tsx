@@ -18,7 +18,7 @@ const Store = () => {
   const fetch = async (
     category: string,
     setProductDataList: React.Dispatch<
-      SetStateAction<ProductDetailType[] | undefined>
+      SetStateAction<ProductDetailType[]>
     >,
   ) => {
     try {

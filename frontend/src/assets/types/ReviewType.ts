@@ -1,6 +1,6 @@
 export interface ReviewType {
-  product_review_id: number;
-  product_id: number;
+  product_review_id: number | string;
+  product_id: string;
   text: string;
   score: number;
   pet: {
