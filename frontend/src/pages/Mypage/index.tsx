@@ -23,14 +23,14 @@ const Mypage = () => {
         </Text>
         {/* 반려견 정보 컴포넌트 */}
       </Flex>
-        <Profile
-          petname={ProfileData.petname}
-          age={ProfileData.age}
-          breedname={ProfileData.breedname}
-          weight={ProfileData.weight}
-          gender={ProfileData.gender}
-          is_neutered={ProfileData.is_neutered}
-        />
+      <Profile
+        petname={ProfileData.petname}
+        age={ProfileData.age}
+        breedname={ProfileData.breedname}
+        weight={ProfileData.weight}
+        gender={ProfileData.gender}
+        is_neutered={ProfileData.is_neutered}
+      />
       <BottomBtn direction="column" align="flex-start" padding="19px 11px">
         <Text colorCode={colors.Black} typo="Body3" align="flex-start">
           찜한 목록
