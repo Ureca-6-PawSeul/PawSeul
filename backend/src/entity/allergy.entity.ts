@@ -15,8 +15,8 @@ export class Allergy {
   @PrimaryGeneratedColumn()
   allergyId: number;
 
-  @ManyToOne(() => Pet, (pet) => pet.allergy)
-  @JoinColumn({ name: 'petId' }) // 통일된 외래 키 이름
+  @ApiProperty({ description: '반려동물 ID', type: () => Pet })
+  @ManyToOne(() => Pet, (pet) => pet.allergies)
   pet: Pet;
 
   @ApiProperty({ description: '알레르기 설명 (제이슨 형식)' })

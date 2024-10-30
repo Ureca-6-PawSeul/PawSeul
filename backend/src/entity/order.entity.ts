@@ -7,7 +7,6 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { User } from './user.entity';
-import { OrderItem } from './orderitem.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { OrderItem } from 'src/entity/orderItem.entity';
 
