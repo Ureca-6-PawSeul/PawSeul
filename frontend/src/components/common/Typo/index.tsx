@@ -1,21 +1,16 @@
 import styled from '@emotion/styled';
-import { KeyOfMobileTypo, KeyOfWebTypo, theme } from '@styles/theme';
+import { KeyOfTypo, theme } from '@styles/theme';
 
 export const Text = styled.div<{
-  webTypo?: KeyOfWebTypo;
-  mobileTypo?: KeyOfMobileTypo;
+  typo?: KeyOfTypo;
   colorCode?: string;
   margin?: string;
+  align?: string;
 }>`
-  ${({ webTypo }) => (webTypo ? theme.typo.Web[webTypo] : '')};
+  ${({ typo }) => (typo ? theme.typo[typo] : '')};
   color: ${({ colorCode }) => colorCode ?? `${colorCode}`};
 
   display: flex;
-  align-items: center;
+  align-items: ${({ align }) => (align ? align : 'center')};
   margin: ${({ margin }) => (margin ? margin : '0')};
-
-  /* 브라우저 크기에 따라 가로 크기 변경 */
-  @media (max-width: 1023px) {
-    ${({ mobileTypo }) => (mobileTypo ? theme.typo.Mobile[mobileTypo] : '')};
-  }
 `;

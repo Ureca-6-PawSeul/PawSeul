@@ -1,0 +1,67 @@
+[
+  {
+    "product_review_id": 1,
+    "product_id": 1,
+    "user_id": 1,
+    "text": "정말 좋은 제품입니다. 추천합니다!\n가격 대비 성능이 좋네요. 만족합니다.",
+    "score": 5,
+    "pet": {
+      "petname": "코코",
+      "age": 3,
+      "weight": 5.2
+    },
+    "created_at": "2023-10-25T14:30:00Z"
+  },
+  {
+    "product_review_id": 2,
+    "product_id": 1,
+    "user_id": 2,
+    "text": "가격 대비 성능이 좋네요. 만족합니다.",
+    "score": 4,
+    "pet": {
+      "petname": "초코",
+      "age": 2,
+      "weight": 4.8
+    },
+    "created_at": "2023-10-24T11:00:00Z"
+  },
+  {
+    "product_review_id": 3,
+    "product_id": 1,
+    "user_id": 3,
+    "text": "사용해보니 생각보다 별로네요.\n별로였습니다. 다시 구매하지 않을 것 같아요.",
+    "score": 2,
+    "pet": {
+      "petname": "두부",
+      "age": 1,
+      "weight": 3.5
+    },
+    "created_at": "2023-10-23T09:15:00Z"
+  },
+  {
+    "product_review_id": 4,
+    "product_id": 1,
+    "user_id": 4,
+    "text": "품질이 우수합니다. 재구매 의사 있습니다.",
+    "score": 5,
+    "pet": {
+      "petname": "밀크",
+      "age": 4,
+      "weight": 6.0
+    },
+    "created_at": "2023-10-22T17:45:00Z"
+  },
+  {
+    "product_review_id": 5,
+    "product_id": 1,
+    "user_id": 5,
+    "text": "별로였습니다. 다시 구매하지 않을 것 같아요.",
+    "score": 1,
+    "pet": {
+      "petname": "모찌",
+      "age": 2,
+      "weight": 4.1
+    },
+    "created_at": "2023-10-21T13:20:00Z"
+  }
+]

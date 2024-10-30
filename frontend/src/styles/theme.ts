@@ -1,14 +1,17 @@
 import { typo } from './typo';
+import { tag } from './tag';
 
 export interface TypeOfTheme {
   typo: TypeOfTypo;
+  tag: TypeOfTag;
 }
 
 export const theme: TypeOfTheme = {
   typo,
+  tag,
 };
 
 export type TypeOfTypo = typeof typo;
 export type KeyOfTypo = keyof typeof typo;
-export type KeyOfWebTypo = keyof typeof typo.Web;
-export type KeyOfMobileTypo = keyof typeof typo.Mobile;
+export type TypeOfTag = typeof tag;
+export type KeyOfTag = keyof typeof tag;

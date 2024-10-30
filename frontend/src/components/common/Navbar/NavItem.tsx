@@ -7,7 +7,7 @@ interface NavItemProps {
   isActive: boolean;
   text: string;
   onClick: () => void;
-  iconType: 'home' | 'store' | 'search' | 'mypage';
+  iconType: 'home' | 'store' | 'search' | 'health' | 'mypage';
   children: ReactNode;
 }
 
@@ -46,7 +46,7 @@ const inactive = css`
 
 const textStyle = css`
   margin-top: 0.25rem;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
 `;
 
 export default NavItem;
