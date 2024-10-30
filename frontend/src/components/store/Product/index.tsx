@@ -10,7 +10,6 @@ export const Product = ({ product_img, title, price }: ProductType) => {
   {
     /* 나중에 수정할것! */
   }
-  const navigate = useNavigate();
   return (
     <Wrapper
       direction="column"
@@ -20,7 +19,6 @@ export const Product = ({ product_img, title, price }: ProductType) => {
       gap={1}
       padding="2"
       backgroundColor={colors.White}
-      onClick={() => navigate('/store/detail/1')}
     >
       <Flex direction="column" align="center">
         <Img src={product_img} width="100%" />
@@ -77,4 +75,4 @@ const Title = styled(Text)`
 
 const Img = styled.img`
   border-radius: 10px;
-`
+`;

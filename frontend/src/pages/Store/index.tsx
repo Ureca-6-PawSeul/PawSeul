@@ -15,7 +15,12 @@ import { useNavigate } from 'react-router-dom';
 import { getProductList } from '@/apis/getProductList';
 
 const Store = () => {
-  const fetch = async (category:string, setProductDataList:React.Dispatch<SetStateAction<ProductDetailType[] | undefined>>) => {
+  const fetch = async (
+    category: string,
+    setProductDataList: React.Dispatch<
+      SetStateAction<ProductDetailType[] | undefined>
+    >,
+  ) => {
     try {
       await getProductList('food', setProductDataList);
     } catch (e) {
@@ -23,15 +28,18 @@ const Store = () => {
     }
   };
 
-  const handleClick = (productId: number) => {
-    navigate(`/detail/${productId}`);
-  };
 
   const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
-  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('전체');
-  const [productDataList, setProductDataList] = useState<ProductDetailType[] | []>();
+  const [selectedSubCategory, setSelectedSubCategory] =
+  useState<string>('전체');
+  const [productDataList, setProductDataList] = useState<
+  ProductDetailType[] | []
+  >();
   const navigate = useNavigate();
-
+  const handleClick = (productId: number) => {
+    console.log(`Navigating to detail/${productId}`);
+    navigate(`detail/${productId}`);
+  };
 
   useEffect(() => {
     fetch('food', setProductDataList);
@@ -56,7 +64,13 @@ const Store = () => {
   }, [productDataList, selectedSubCategory]);
 
   return (
-    <Flex direction="column" justify="flex-start" align="center" gap={5} padding="0 12px">
+    <Flex
+      direction="column"
+      justify="flex-start"
+      align="center"
+      gap={5}
+      padding="0 12px"
+    >
       {/* 카테고리 버튼 */}
       <Flex
         direction="row"
