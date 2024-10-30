@@ -1,9 +1,24 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Entity, Column } from 'typeorm';
-import { Product } from './product.entity';
+import { Product } from 'src/entity/product.entity';
+import {
+  Entity,
+  Column,
+  ManyToOne,
+  JoinColumn,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
-export class Food extends Product {
+export class Food {
+  @ApiProperty({ description: 'Food ID' })
+  @PrimaryGeneratedColumn('uuid')
+  foodId: string;
+
+  @ApiProperty({ description: 'Product ID' })
+  @JoinColumn({ name: 'product' })
+  @ManyToOne(() => Product, (product) => product.food)
+  product: Product;
+
   @ApiProperty({ description: '대상 견종 크기' })
   @Column()
   targetSize: string;

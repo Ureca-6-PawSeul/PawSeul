@@ -6,11 +6,11 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { ProductReview } from './productreview.entity';
 import { Cart } from './cart.entity';
 import { Order } from './order.entity';
 import { Pet } from './pet.entity';
 import { ApiProperty } from '@nestjs/swagger';
+import { ProductReview } from 'src/entity/productReview.entity';
 
 @Entity()
 export class User {
