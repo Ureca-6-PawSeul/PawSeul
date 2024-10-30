@@ -33,7 +33,7 @@ const commonStyle = css`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 6rem;
+  flex: 1;
 `;
 
 const active = css`
@@ -45,7 +45,7 @@ const inactive = css`
 `;
 
 const textStyle = css`
-  margin-top: 0.25rem;
+  margin-top: 4px;
   font-size: 0.7rem;
 `;
 

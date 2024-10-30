@@ -6,9 +6,9 @@ import { Header } from '../Header';
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Wrapper direction="column" align="center">
-      <MobileWrapper width={375} direction="column">
+      <MobileWrapper direction="column">
         <Header />
-        <Flex padding="0 10px">{children}</Flex>
+        <Flex>{children}</Flex>
         <Navbar />
       </MobileWrapper>
     </Wrapper>
@@ -17,11 +17,18 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
 const Wrapper = styled(Flex)`
   overflow-x: hidden;
-  min-height: 100vh;
+  height: 100vh;
 `;
 
 const MobileWrapper = styled(Flex)`
-  width: 100%;
   max-width: 480px;
   min-width: 320px;
+  min-height: 100vh;
+
+  @media (min-width: 431px) {
+    border-style: solid;
+    border-color: rgb(225, 225, 225);
+    border-image: initial;
+    border-width: 0.5px;
+  }
 `;
