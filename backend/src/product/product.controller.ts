@@ -7,6 +7,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
+import { Category } from 'src/types/category';
 
 @Controller('product')
 export class ProductController {
@@ -14,7 +15,7 @@ export class ProductController {
 
   @Get('/')
   async getProduct(
-    @Query('category') category: string,
+    @Query('category') category: Category,
     @Query('subcategory') subcategory: string,
     @Query('page') page = 1,
     @Query('limit') limit = 15,
