@@ -24,7 +24,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
+    <Wrapper>
       <TabContainer>
         <Flex direction="row" justify="center">
           <NavItem
@@ -77,18 +77,26 @@ const Navbar = () => {
           </NavItem>
         </Flex>
       </TabContainer>
-    </>
+    </Wrapper>
   );
 };
 
 export default Navbar;
 
+const Wrapper = styled(Flex)`
+  display: block;
+  position: relative;
+  height: fit-content;
+`;
+
 const TabContainer = styled.div`
+  display: flex;
   width: 100%;
   height: 60px;
-  display: fixed;
+  position: absolute;
   bottom: 0;
   z-index: 20;
   border-top: 0.5px solid rgba(112, 115, 124, 0.16);
   background-color: ${colors.White};
+  justify-content: center;
 `;
