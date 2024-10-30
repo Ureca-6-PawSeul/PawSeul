@@ -15,7 +15,6 @@ export const Product = ({ product_img, title, price }: ProductType) => {
       gap={1}
       padding="2"
       backgroundColor={colors.White}
-      onClick={() => navigate('/store/detail/1')}
     >
       <Flex direction="column" align="center">
         <Img src={product_img} width="100%" />
