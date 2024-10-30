@@ -7,6 +7,7 @@ export const ReviewText = styled(Text)<{
   width?: string;
   whiteSpace?: string;
   fontWeight?: string;
+  fontSize?: number;
 }>`
   text-decoration-line: ${({ decorationLine }) =>
     decorationLine ? `${decorationLine}` : 'none'};
@@ -14,5 +15,6 @@ export const ReviewText = styled(Text)<{
   width: ${({ width }) => (width ? `${width}` : 'auto')};
   white-space: ${({ whiteSpace }) => (whiteSpace ? `${whiteSpace}` : 'none')};
   font-weight: ${({ fontWeight }) =>
-    fontWeight ? `${fontWeight}` : 'inherit'};
+    fontWeight ? `${fontWeight}` : 'none'};
+  font-size: ${({ fontSize }) => (fontSize ? `${fontSize}px` : 'none')};
 `;
