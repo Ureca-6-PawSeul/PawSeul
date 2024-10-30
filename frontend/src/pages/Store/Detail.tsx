@@ -22,11 +22,11 @@ const Detail = () => {
       <Flex direction="column" gap={20} padding="40px 0 0">
         <Flex
           direction="column"
-          justify="flex-start"
+          align="flex-start"
           gap={7}
           padding="0px 16px"
         >
-          <Text typo="Heading3">{mock.title}</Text>
+          <Text typo="Heading3" align="flex-start">{mock.title}</Text>
           <Flex gap={8} justify="flex-start">
             <StarRating score={mock.score} size={14} width={74} gap={1} />
             <DetailText

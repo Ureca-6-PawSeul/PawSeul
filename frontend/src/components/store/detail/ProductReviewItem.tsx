@@ -59,6 +59,8 @@ const ProductReviewItem = ({ review }: ProductReviewItemProps) => {
           typo="Body3"
           colorCode={colors.Gray700}
           whiteSpace="pre-wrap"
+          fontWeight="400"
+          fontSize={14}
         >
           {review.text}
         </ReviewText>
