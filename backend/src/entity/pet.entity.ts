@@ -3,10 +3,10 @@ import {
   Column,
   OneToMany,
   OneToOne,
+  PrimaryGeneratedColumn,
   JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  PrimaryGeneratedColumn,
 } from 'typeorm';
 import { User } from './user.entity';
 import { Allergy } from './allergy.entity';

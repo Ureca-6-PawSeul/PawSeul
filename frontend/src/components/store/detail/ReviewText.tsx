@@ -14,7 +14,6 @@ export const ReviewText = styled(Text)<{
   justify-content: ${({ justify }) => (justify ? `${justify}` : 'center')};
   width: ${({ width }) => (width ? `${width}` : 'auto')};
   white-space: ${({ whiteSpace }) => (whiteSpace ? `${whiteSpace}` : 'none')};
-  font-weight: ${({ fontWeight }) =>
-    fontWeight ? `${fontWeight}` : 'none'};
+  font-weight: ${({ fontWeight }) => (fontWeight ? `${fontWeight}` : 'none')};
   font-size: ${({ fontSize }) => (fontSize ? `${fontSize}px` : 'none')};
 `;
