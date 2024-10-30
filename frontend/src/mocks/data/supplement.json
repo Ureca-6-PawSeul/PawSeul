@@ -1,6 +1,6 @@
 [
   {
-    "index": 0,
+    "product_id": 0,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3469923506001127-377a6c75-79bf-43b0-8330-d36f187dcadd.jpg",
     "title": "일동 후디스 후디스펫 반려동물 영양제, 혼합맛(닭고기/치즈..., 뼈/관절강화, 1개",
@@ -15,7 +15,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 1,
+    "product_id": 1,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2513352496784952-3363d7ec-1150-40db-97d3-22ceccee63bd.jpg",
     "title": "일동 후디스 후디스펫 반려동물 영양제, 군고구마맛, 눈물개선/눈건강, 1개",
@@ -30,7 +30,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 2,
+    "product_id": 2,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2561003130895586-54774019-db13-4b6e-9fe0-49cbb191f9de.png",
     "title": "페노비스 인캡슐 강아지 눈영양제, 가수분해 연어, 눈물개선/눈건강, 1개",
@@ -46,7 +46,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 3,
+    "product_id": 3,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/9e51/4d87b51f66966655a2170c797b98cddefb05640305ad782e74f8fadf49e9.png",
     "title": "비타펫 살안찌는 강아지 기관지 협착증 영양제 호흡기 기침 프로폴리스 코큐텐 90일분 120g, 호흡기/기관지, 1개",
@@ -70,7 +70,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 4,
+    "product_id": 4,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/882a131d-fc97-4aed-a6be-71f3d7b3b6ef7996372191024581558.png",
     "title": "펫또마망 피부 건강에 도움 강아지 영양제 80g, 가수분해 오리고기, 피부/피모, 2개",
@@ -87,7 +87,7 @@
     "supplement_type": "알약"
   },
   {
-    "index": 5,
+    "product_id": 5,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2533106326338361-764c72a8-334c-4081-887f-260169c571fc.jpg",
     "title": "리얼PET 반려동물 생유산균 영양제",
@@ -103,7 +103,7 @@
     "supplement_type": "스틱"
   },
   {
-    "index": 6,
+    "product_id": 6,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/8ea3/90ffc3725ae2a770336e921ba8b89c5f33a4eda689e7a041ff8623848791.jpg",
     "title": "한국바이오펫 강아지 브레스 기도협착 호흡기 보조제, 1통",
@@ -128,7 +128,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 7,
+    "product_id": 7,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2403757786178120-7e05505b-a1ef-4489-9bcc-939b65e55908.png",
     "title": "페노비스벳 강아지 유산균 30포, 프락토올리고당, 장건강/피부/유산균, 1개",
@@ -143,7 +143,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 8,
+    "product_id": 8,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2404370564373713-e2d749ee-6b57-4142-9335-0932dd1db41a.png",
     "title": "페노비스 인캡슐 강아지 관절영양제, 가수분해 연어, 뼈/관절강화, 1개",
@@ -158,7 +158,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 9,
+    "product_id": 9,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/8f88/cbcf014499cc8c4549e0eea06a1584055fadcd8cbcab43c5450b7081188f.png",
     "title": "울애기쌩쌩 반려동물 프리미엄, 영양제, 면역력 강화, 2개",
@@ -184,7 +184,7 @@
     "supplement_type": "영양제"
   },
   {
-    "index": 10,
+    "product_id": 10,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/feca/f0c91ee3f2714bd536cde1b66a8126756049ab403cf3a9c770a8c66a802f.png",
     "title": "울애기쌩쌩 이너플러스 반려동물 프리미엄 종합영양제 기관지 심장 간 신장 면역 개선",
@@ -207,7 +207,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 11,
+    "product_id": 11,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/52794609427986-d4f0a158-2034-4e95-a76d-a6c7e75eac6f.jpg",
     "title": "붐붐포 슈퍼바이트 강아지 영양제 50P, 종합영양제, 종합영양제, 1개",
@@ -225,7 +225,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 12,
+    "product_id": 12,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/f766/ea8e04aa9d42a08b5f76a32132f4906bed0c8f6eb1e85dc4b0e33863d373.jpg",
     "title": "댕이수랏간 강아지 기관지영양제 기관지 협착증 호흡기 거위소리 켁켁거림 기침 감기 침향 기관지청청, 면역력 강화, 1개",
@@ -239,7 +239,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 13,
+    "product_id": 13,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2270965038812060-4b279142-be3e-4d64-8314-1844a2888e16.png",
     "title": "페노비스 벳 강아지 기관지 영양제 30정 24g",
@@ -254,7 +254,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 14,
+    "product_id": 14,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/ff19/1f3d2a41766db20818763d50773aaf10e04cfc1c3f2bd1afbf4431598b7b.jpg",
     "title": "강아지 기관지 협착증 호흡기 영양제 대용량 펠렛 메이제이, 호흡기/기관지, 2개",
@@ -280,7 +280,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 15,
+    "product_id": 15,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/e182/7852e9bd5405e8ba27f57010619b944621c9c7b72301ea43df73bf15db6c.jpg",
     "title": "목우촌 펫9단 강아지 슬개골 뼈 관절 연골 영양제 100g, 바이오 조인트, 뼈/관절강화, 1개",
@@ -317,7 +317,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 16,
+    "product_id": 16,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/66a2/14669b821eb70b2a4b1ecca3e0f83aa078d9f418f86875c9b18223e8ca84.jpg",
     "title": "강아지 눈 영양제 눈물자국 백내장예방 시력개선 고함량 닥터펫츠 120g 2세트, 눈물 개선/눈건강, 2개",
@@ -343,7 +343,7 @@
     "supplement_type": "져키"
   },
   {
-    "index": 17,
+    "product_id": 17,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3315427710821623-733c51f1-11ac-4cf1-9d1c-4cd2d513bd1c.jpg",
     "title": "일동 후디스 후디스펫 반려동물 영양제, 우유맛, 면역/항산화, 1개",
@@ -359,7 +359,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 18,
+    "product_id": 18,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2517005899731778-8cd724b9-156c-4a03-a852-8777bc1e9556.jpg",
     "title": "일동 후디스 후디스펫 반려동물 영양제, 밀크요거트맛, 장건강/유산균, 1개",
@@ -374,7 +374,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 19,
+    "product_id": 19,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/69b7/dae292d9c1e341e9913aba06cb4abda43a06b5c4f36abf5195a8d9ad0d5d.jpg",
     "title": "[동물병원정품]닥터헤리엇 알러지케어 강아지 피부 영양제 고함량 아토피 습진 가려움증 수의사처방 32정, 피부/피모, 1세트",
@@ -398,7 +398,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 20,
+    "product_id": 20,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3f5c710a-e17e-4597-9e26-ddbc0d5535793189255283460710444.png",
     "title": "펫또마망 눈 건강에 도움 강아지 영양제, 오리고기맛, 눈물 개선/눈건강, 2개",
@@ -414,7 +414,7 @@
     "supplement_type": "알약"
   },
   {
-    "index": 21,
+    "product_id": 21,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2403804026508806-ebb4fffa-8f10-49ee-9ed8-daca35ba57cf.jpg",
     "title": "페노비스 벳 프리미엄 유산균 강아지 영양제, 프락토올리고당, 장건강/피부/유산균, 2개",
@@ -429,7 +429,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 22,
+    "product_id": 22,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/158900164766468-0b586cf5-7f98-4be3-99e9-7f3e5c5ed316.jpg",
     "title": "메디솔브 코큐텐 강아지 영양제 50g, 50g, 1개",
@@ -444,7 +444,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 24,
+    "product_id": 24,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/images/2017/11/11/15/8/a3d6332d-d053-4df3-b194-9714d9cce4c8.jpg",
     "title": "웰펫 한우 소 간 파우더 반려견 간식, 소 간, 1개",
@@ -459,7 +459,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 25,
+    "product_id": 25,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2562383192538413-6bb7377e-3591-4ce9-b8c3-4493560472ec.jpg",
     "title": "페노비스 인캡슐 강아지 눈영양제, 가수분해 연어, 눈물개선/눈건강, 2개",
@@ -475,7 +475,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 26,
+    "product_id": 26,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/ctehmrnv/50f745f93fab4ae6bdc7a15e40f76370.png",
     "title": "대웅펫 반려동물 베아제펫 소화효소보조제 2g x 30p",
@@ -492,7 +492,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 27,
+    "product_id": 27,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/473983667633694-3cd43bcb-8157-4ade-835a-9862e71bcf44.png",
     "title": "애니웰 식물성 rTG 오메가3 반려동물 영양제, 대형어류, 오메가3, 1개",
@@ -507,7 +507,7 @@
     "supplement_type": "알약"
   },
   {
-    "index": 28,
+    "product_id": 28,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/f06b/479085b7e30daa5939dae02fa08ac5294dffc4c2080352b5458fd5e01a54.png",
     "title": "강아지 영양제 종합영양제 아기강아지 노령견 성장기 피부 관절 눈 간 면역 건강 올인원 멀티비타민 66g, 종합영양제, 5개",
@@ -541,7 +541,7 @@
     "supplement_type": "말랑한 츄어블"
   },
   {
-    "index": 30,
+    "product_id": 30,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/9676/f6a0262191398d774861715c10919980eeed33380f5683b4e8b4404d004b.jpg",
     "title": "강아지 고양이 신장 방광 요로 결석 변비 비뇨기 영양제 원데이원테블렛 60캡슐 2개월분, 유리너리, 1개",
@@ -573,7 +573,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 31,
+    "product_id": 31,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/a387/94f1ad3750318d4f7e6e926c54dd4b296e6104a9c3255e39763593669603.jpg",
     "title": "테일리케어 조인트 150g 애견 노령견 전연령 슬개골 탈구 관절염 강아지 관절 영양제, 치즈오리, 관절건강,연골형성,..., 1팩",
@@ -591,7 +591,7 @@
     "supplement_type": "펠릿"
   },
   {
-    "index": 32,
+    "product_id": 32,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/328b/11abc57c8f5d31ab6c7adc37d17e454de1e230140e965530f2c056146bca.jpg",
     "title": "메이드인랩 강아지 터마신 관절영양제 달리 200g 200일분, 터마신, 뼈/관절강화, 2개",
@@ -634,7 +634,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 33,
+    "product_id": 33,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/a5cdaee9-ce8b-49ca-b8e2-5fc5e4ef78e8794447737441942770.png",
     "title": "일동 후디스 후디스펫 반려동물 영양제, 밀크요거트맛, 장건강/유산균, 2개",
@@ -649,7 +649,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 34,
+    "product_id": 34,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/14624852455401-f692584c-f1da-4f70-84fa-b24fc5993b5b.jpg",
     "title": "브리지테일 페토메디 락토 생유산균 600 파우더, 무수결정포도당, 장건강/유산균, 1개",
@@ -673,7 +673,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 35,
+    "product_id": 35,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3137705694622320-32ddd019-5ffd-4228-99e1-17cf921385b8.jpg",
     "title": "려원담 짱구는못말려 배도라지 스틱 20p, 200g, 1개",
@@ -692,7 +692,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 36,
+    "product_id": 36,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2022/10/27/16/6/bb0c0c16-3087-4210-b3cd-5f4fff9fd70e.jpg",
     "title": "마이펫닥터 클로디올드 반려동물 영양제 60g, 황태, 노령견, 1개",
@@ -711,7 +711,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 37,
+    "product_id": 37,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/8f88/cbcf014499cc8c4549e0eea06a1584055fadcd8cbcab43c5450b7081188f.png",
     "title": "울애기쌩쌩 반려동물 프리미엄, 영양제, 면역력 강화, 4개",
@@ -737,7 +737,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 39,
+    "product_id": 39,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/5c16/8496ea9269a18dae6038fad0cdbfa0981fc03a07ae48cbf460546148a5c3.jpg",
     "title": "무지조타 냄새쓱싹No5. 강아지 구강악취 치석 제거용, 1개",
@@ -768,7 +768,7 @@
     "supplement_type": "미표기"
   },
   {
-    "index": 40,
+    "product_id": 40,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/992423713285865-102d37f7-f826-4b7d-9b9b-170bb5b45741.jpg",
     "title": "포켄스 뉴트리션 트릿 미니 강아지 영양제, 빌베리&루테인, 눈물개선/눈건강, 2개",
@@ -782,7 +782,7 @@
     "supplement_type": "기타"
   },
   {
-    "index": 41,
+    "product_id": 41,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/0235/5055470bad98f52dc710a6b6631e203278010ae396fcc535e9cce541d2c9.jpg",
     "title": "강아지 눈 눈물 관절 피부 기관지 기관지협착 기침 심장 간 신장 췌장 유산균 노견 노령견 산화질소 영양제 닥터이안 강아지종합영양제, 종합영양제, 1세트",
@@ -813,7 +813,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 42,
+    "product_id": 42,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7c164b6c-93f2-4c4e-a2f8-5962a1e41142495964457984970942.png",
     "title": "인트라젠 플러스 반려동물 영양제 100p, 유산균, 위/장건강, 2개",
@@ -829,7 +829,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 43,
+    "product_id": 43,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/c9b7/f7f9cbfc64dd04d35634a27f984ee7e166f668c7b8b1116cfa07c22fd7a3.png",
     "title": "강아지 관절 영양제 관절보감 소형견 슬개골 탈구, 면역력강화, 뼈/관절 강화, 4개",
@@ -863,7 +863,7 @@
     "supplement_type": "기타"
   },
   {
-    "index": 44,
+    "product_id": 44,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3366520803357322-777d0809-899a-4d54-93fb-4cbf7b129d69.png",
     "title": "페노비스벳 강아지 관절 영양제 60정 48g",
@@ -878,7 +878,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 46,
+    "product_id": 46,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1358928394403556-b55e4f9a-af8a-4bee-85d2-08f1694c57fb.jpg",
     "title": "퍼센트퍼센트 리얼 보스웰리아10 강아지 관절 영양제 100g, 보스웰리아, 뼈/관절강화, 1개",
@@ -894,7 +894,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 47,
+    "product_id": 47,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2d0dedf1-8956-49eb-96ea-0594a7264c9e309938144613632762.png",
     "title": "굿데이 네츄럴랩 반려동물 락토데이 오리지널 100억 프로바이오틱스 30p, 유산균, 장건강/유산균, 2개",
@@ -909,7 +909,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 48,
+    "product_id": 48,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4137082310503426-0a80581d-7344-4108-aec3-4608925bfc39.jpg",
     "title": "리터락커 플러스 고양이 화장실",
@@ -923,7 +923,7 @@
     "supplement_type": "일반형"
   },
   {
-    "index": 49,
+    "product_id": 49,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/74ce/7b13d91612944369663120f2a29bbbd6710c0be3444c497030c73d7b368c.jpg",
     "title": "한국바이오펫 강아지 브레스 기도협착 호흡기 보조제, 4통",
@@ -948,7 +948,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 51,
+    "product_id": 51,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1074880612849128-058284fe-2ef6-40c0-919a-dec8c63f7fd4.jpg",
     "title": "리얼Pet 반려동물 기능성 영양제 120g, 소고기향, 눈물개선/눈건강, 1개",
@@ -964,7 +964,7 @@
     "supplement_type": "스틱"
   },
   {
-    "index": 52,
+    "product_id": 52,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/06d3/603785c3e06f5e903c4370a0bffd3d6330eed1244f7c643f9c3efe2c6c40.jpg",
     "title": "베네퍼피 프리미엄 강아지 눈 영양제 전연령",
@@ -985,7 +985,7 @@
     "supplement_type": "젤리"
   },
   {
-    "index": 54,
+    "product_id": 54,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/d52d/27c4b918eeda540bf6d830eb56cf15212dd998f3a64daed7f126bc5292ce.jpg",
     "title": "목우촌 펫9단 강아지 눈물 자국 눈 영양제 100g, 바이오 아이즈, 눈물개선/눈건강, 1개",
@@ -1022,7 +1022,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 55,
+    "product_id": 55,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/15116629053614630-96196667-c016-4b82-8b6d-105e00bbfc66.jpg",
     "title": "데일리케어 샤이닝아이즈 반려견 눈영양제, 혼합맛(소간/결명자..., 눈물개선/눈건강, 2개",
@@ -1037,7 +1037,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 56,
+    "product_id": 56,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/06/25/3006955422/18ed1f15-be24-4469-9fd9-d317bfcc8a97.jpg",
     "title": "아이앤지메딕스 뉴플렉스 카디오케어 반려동물 심장 영양제 120정, L카르니틴, 심장, 1개",
@@ -1051,7 +1051,7 @@
     "supplement_type": "알약"
   },
   {
-    "index": 59,
+    "product_id": 59,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2325479358805536-4e4554eb-6847-4836-a056-7946f1b90f08.jpg",
     "title": "펫에그 펫펙틸린 강아지 고양이 지사제, 전해질 보충, 지사제, 1개",
@@ -1066,7 +1066,7 @@
     "supplement_type": "미표기"
   },
   {
-    "index": 60,
+    "product_id": 60,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/13276599804960312-6b1b52d4-cea3-4417-ad18-65c572261c5d.jpg",
     "title": "데일리케어 반려견 영양제, 글루코사민, 뼈/관절강화, 2개",
@@ -1081,7 +1081,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 61,
+    "product_id": 61,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1772256611351606-fb5a8bc5-cad8-4126-9a68-5ff50288fc2f.jpg",
     "title": "마이베프 별자리스틱 7종 버라이어티팩 반려동물 종합영양제, 3개",
@@ -1102,7 +1102,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 65,
+    "product_id": 65,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2404392596568148-35b221f5-e91c-4c94-9c33-1cb8aa3b65a6.jpg",
     "title": "페노비스 인캡슐 강아지 관절영양제, 가수분해 연어, 뼈/관절강화, 2개",
@@ -1117,7 +1117,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 66,
+    "product_id": 66,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2020/02/13/14/9/4139e6e4-4803-47af-9162-9a48ecb9c4ee.jpg",
     "title": "뉴트라라이프 노쉬 조인트에이드 반려동물 관절영양제, 초록입홍합, 뼈/관절강화, 1개",
@@ -1131,7 +1131,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 67,
+    "product_id": 67,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/899c/aa222870e190d83eb2f57134fa75626eff0a19d0da1df7b5f8931756899f.jpg",
     "title": "88PET 88덴탈가드 강아지 고양이 잇몸 영양제 구내염 치은염 치주염 잇몸 염증 치석 제거, 구강/치석관리+장건..., 1개",
@@ -1150,7 +1150,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 69,
+    "product_id": 69,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1685054336304814-a4fff35f-bfdd-4806-a003-79f9a015df0f.png",
     "title": "식스스텝 밀크씨슬 프로바이오틱스 반려동물 영양제 2g x 30p, 간 장 건강 복합기..., 60개",
@@ -1175,7 +1175,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 70,
+    "product_id": 70,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/9676/f6a0262191398d774861715c10919980eeed33380f5683b4e8b4404d004b.jpg",
     "title": "강아지 고양이 신장 방광 요로 결석 변비 비뇨기 영양제 원데이원테블렛 60캡슐 2개월분, 유리너리, 2개",
@@ -1207,7 +1207,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 71,
+    "product_id": 71,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2020/02/19/14/1/7037fe3c-ec20-4adc-9eee-cc93921fd683.jpg",
     "title": "프롬벳 순수스틱 반려동물 프로바이오틱스, 프로바이오틱스, 위, 2개",
@@ -1224,7 +1224,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 75,
+    "product_id": 75,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/15108238361061753-99a6ecd3-0a0c-4245-a084-8f112357af03.jpg",
     "title": "인터펫코리아 데일리케어 멀티비타민 반려견 종합영양제, 멀티뉴트리션, 종합영양제, 2개",
@@ -1239,7 +1239,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 76,
+    "product_id": 76,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2022/11/01/17/1/d5e13e06-19e1-48d7-a423-190670305ac7.jpg",
     "title": "견옥고 본 반려견 영양제 30포, 가수분해오리, 1세트",
@@ -1254,7 +1254,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 77,
+    "product_id": 77,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4715729415996614-61db328b-f38c-402f-842b-812ec29c83b4.jpg",
     "title": "리얼Pet 헤비메탈케어 반려동물 영양제 120g, 소고기향, 종합건강, 1개",
@@ -1272,7 +1272,7 @@
     "supplement_type": "스틱"
   },
   {
-    "index": 78,
+    "product_id": 78,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/images/2018/04/03/20/1/cba14f8f-6e2a-4fb6-b795-3d4a364b756e.jpg",
     "title": "수제명가 파우더 영양제 모음 파우더, 타우린, 1개",
@@ -1287,7 +1287,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 79,
+    "product_id": 79,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/bbce/521b07dc11c41e0901842c9e6391c8638992c05cc413e91f1fa0a7c023cd.png",
     "title": "동물병원 강아지 기관지 호흡기 영양제 제리스타일스 브레스 파우치 153g 51chews",
@@ -1319,7 +1319,7 @@
     "supplement_type": "알약"
   },
   {
-    "index": 80,
+    "product_id": 80,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/8549c63f-8b87-4e15-9de2-c6f8e21d967d8521043265932539825.png",
     "title": "옵티펫 츄어블 강아지 영양제 300g, 루테인, 눈물개선/눈건강, 2개",
@@ -1340,7 +1340,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 81,
+    "product_id": 81,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/affa/7e3b7889dd3be7570ebc2ff0e71d50eef5bdcbf36a2435e27ac8b3870566.png",
     "title": "네이처알로 우주츄 황태&산양유 대용량 강아지 고양이 간식 신장 신부전 당뇨, 신장, 50개",
@@ -1360,7 +1360,7 @@
     "supplement_type": "젤리"
   },
   {
-    "index": 82,
+    "product_id": 82,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/ea94/4a07b4aeaddcd9637cd83ce58738a468f7b7547483f7c607b8691735c9c8.jpg",
     "title": "38.5 강아지 고양이 기침 켁켁거림 거위소리 펫타민 기관지케어",
@@ -1386,7 +1386,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 83,
+    "product_id": 83,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2561087744594465-0dc6462d-11aa-4617-a19f-0c6802b69644.jpg",
     "title": "페노비스 인캡슐 포스트 바이오틱스 강아지 영양제, 가수분해 연어, 장건강/유산균, 2개",
@@ -1400,7 +1400,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 84,
+    "product_id": 84,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/092a/af6acb591eb09cc8284cda97eb4aeb0bac93421ef67adcc6deca8f0d358e.jpg",
     "title": "강아지 눈 영양제 눈물자국 백내장예방 시력개선 고함량 닥터펫츠 120g, 눈물 개선/눈건강, 1개",
@@ -1426,7 +1426,7 @@
     "supplement_type": "져키"
   },
   {
-    "index": 86,
+    "product_id": 86,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/images/2018/04/03/20/7/2a4d3505-fe9c-496c-b2b4-e0629df7901a.jpg",
     "title": "수제명가 영양제모음 기타 영양제, 소간파우더, 1개",
@@ -1441,7 +1441,7 @@
     "supplement_type": "분말"
   },
   {
-    "index": 87,
+    "product_id": 87,
     "category": "supplement",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/1660/3f63a5dea109ee2ed0ecc4ece96f066b880caffded48bdb9b0a37af5cf92.jpg",
     "title": "파파메디 메디아이즈 애견 강아지 눈 눈물 영양제",
@@ -1478,7 +1478,7 @@
     "supplement_type": "스틱"
   },
   {
-    "index": 88,
+    "product_id": 88,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7fb58379-3b87-47db-9fd1-9a41384984fe6252457183603092334.png",
     "title": "옵티펫 츄어블 강아지 영양제 300g, 유기태 미네랄, 종합영양제, 2개",
@@ -1499,7 +1499,7 @@
     "supplement_type": "캡슐"
   },
   {
-    "index": 90,
+    "product_id": 90,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/2910/07f3c3b81f7adad73949d576e6f69fb26d0516622c01ccdd22f2faf88bca.jpg",
     "title": "파파메디 메디조인트 애견 강아지 관절영양제",
@@ -1534,7 +1534,7 @@
     "supplement_type": "스틱"
   },
   {
-    "index": 91,
+    "product_id": 91,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/2ed7/786db4a8955e03945dc5bc8d1e67a75962e86c7431d68b69c5bdf3245c41.jpg",
     "title": "88PET 덴탈가드 츄정 잇몸염증 치석제거 씹어먹는 강아지 고양이 정제형 잇몸영양제, 토코페릴아세테이트, 치석관리, 1개",
@@ -1550,7 +1550,7 @@
     "supplement_type": "알약"
   },
   {
-    "index": 92,
+    "product_id": 92,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/1feb/70da21bf36db15dcf5b5f9baf5074dec66a4d8a3ced716254affd3ebe23d.png",
     "title": "목우촌 펫9단 강아지 슬개골 뼈 관절 연골 영양제 100g, 바이오 조인트, 뼈/관절강화, 3개",
@@ -1587,7 +1587,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 93,
+    "product_id": 93,
     "category": "supplement",
     "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/51ea/35285a1bc1522ca528d8616917d0f558877776bd2a8cad0215799ce3c3d4.jpg",
     "title": "무지조타 냄새쓱싹no5 강아지 입냄새 제거 치석관리 구강스프레이 뿌리는 치약, 2개",
@@ -1619,7 +1619,7 @@
     "supplement_type": "미표기"
   },
   {
-    "index": 94,
+    "product_id": 94,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/117644824187700-8d214730-61bc-4389-b5d7-1f3255d58866.jpg",
     "title": "브리지테일 페토메디 락토 생유산균 600 캡슐형 고양이 영양제, 비피도박트리엄 롱검, 장/유산균, 1개",
@@ -1635,7 +1635,7 @@
     "supplement_type": "스틱"
   },
   {
-    "index": 95,
+    "product_id": 95,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/61c9/fa1ad4dc5a1d53ccd50deadd07c45db5702e8a1adc4a68b566fb37b4a786.png",
     "title": "강아지 눈 영양제 눈물개선 눈물자국 [유통기한 임박] 25.01.22 펠렛, 눈물 개선/눈건강, 오리고기, 2개",
@@ -1662,7 +1662,7 @@
     "supplement_type": "알약"
   },
   {
-    "index": 97,
+    "product_id": 97,
     "category": "supplement",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1725737808733487-bfeeca61-1850-471c-86ea-6d249251cd44.jpg",
     "title": "리얼Pet 반려동물 기능성 영양제 120g, 소고기향, 뼈/관절강화, 1개",
@@ -1678,7 +1678,7 @@
     "supplement_type": "스틱"
   },
   {
-    "index": 98,
+    "product_id": 98,
     "category": "supplement",
     "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/8dd9/d31004504e5d76bf7e7f44ce2c56b65e9627085a8bd4afcdfd01fc7523e5.jpg",
     "title": "88오메가가드 맛있게 씹어먹는 강아지 고양이 오메가3 영양제 피부 관절 눈 심장, 1개",
@@ -1715,7 +1715,7 @@
     "supplement_type": "츄어블"
   },
   {
-    "index": 99,
+    "product_id": 99,
     "category": "supplement",
     "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/4e19/0bab7b7beaf24680055c6cbfab4eb6889fb394d00db06f4860c0a6e82b35.jpg",
     "title": "[동물병원정품]닥터헤리엇 알러지케어 강아지 피부 영양제 고함량 아토피 습진 가려움증 수의사처방 32정, 피부/피모, 3세트",
