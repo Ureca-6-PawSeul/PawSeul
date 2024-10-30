@@ -18,7 +18,9 @@ export default meta;
  * `DefaultNavbar`는 `Navbar` 컴포넌트의 기본 스토리입니다.
  */
 export const DefaultNavbar: Story = (args) => (
-  <BrowserRouter>
-    <Navbar {...args} />
-  </BrowserRouter>
+  <div style={{ marginTop: 70 }}>
+    <BrowserRouter>
+      <Navbar {...args} />
+    </BrowserRouter>
+  </div>
 );
