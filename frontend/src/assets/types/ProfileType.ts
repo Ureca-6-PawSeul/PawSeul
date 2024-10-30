@@ -7,7 +7,7 @@ export interface CardProfileType {
     is_neutered: string
 }
 export interface ProfileType extends CardProfileType {
-    user_id: number,
+    user_id: number | string,
     username: string,
     pet_id: number,
 }
