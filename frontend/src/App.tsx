@@ -19,7 +19,7 @@ function App() {
       <Layout>
         <Global styles={globalStyle} />
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/*" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
           <Route path="/health" element={<Health />} />
