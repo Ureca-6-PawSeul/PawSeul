@@ -15,15 +15,15 @@ export const Product = ({ product_img, title, price }: ProductType) => {
     <Wrapper
       direction="column"
       widthPer={100}
-      height={210}
+      height={232}
       align="flex-start"
       gap={1}
       padding="2"
       backgroundColor={colors.White}
       onClick={() => navigate('/store/detail/1')}
     >
-      <Flex direction="column" align="center" borderRadius={10}>
-        <img src={product_img} width="100%" />
+      <Flex direction="column" align="center">
+        <Img src={product_img} width="100%" />
       </Flex>
       <Flex height="auto">
         <Title colorCode={colors.Black} typo="Body3">
@@ -74,3 +74,7 @@ const Title = styled(Text)`
   text-overflow: ellipsis;
   white-space: normal;
 `;
+
+const Img = styled.img`
+  border-radius: 10px;
+`

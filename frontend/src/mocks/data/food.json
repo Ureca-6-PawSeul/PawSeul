@@ -1,6 +1,6 @@
 [
     {
-        "index": 0,
+        "product_id": 0,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg",
         "title": "탐사 6free 강아지 사료 연어 레시피, 6kg, 연어, 1개",
@@ -19,7 +19,7 @@
         "is_grainfree": false
     },
     {
-        "index": 1,
+        "product_id": 1,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3592087444703702-fa6e68a0-1598-49e5-9088-28cac6845aa6.jpg",
         "title": "마이펫닥터 전연령 시그니처 티어스컨트롤 유기농 강아지사료, 눈물 개선/눈건강, 1kg, 3개",
@@ -56,7 +56,7 @@
         "is_grainfree": false
     },
     {
-        "index": 2,
+        "product_id": 2,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4953332089404285-f4e8b340-22b9-46f7-9b1c-db0471014f2f.jpg",
         "title": "인터펫코리아 전연령 닥터도비 힙앤조인트 관절건강 건식사료, 뼈/관절강화, 5kg, 1개",
@@ -73,7 +73,7 @@
         "is_grainfree": false
     },
     {
-        "index": 3,
+        "product_id": 3,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1249558012771772-f3a5054a-18ea-4e92-8b02-52b20dcc0ba5.jpg",
         "title": "펫스윗 전연령 로얄 그레인프리 오븐베이크드 강아지 건식사료, 2kg, 소, 1개",
@@ -104,7 +104,7 @@
         "is_grainfree": true
     },
     {
-        "index": 4,
+        "product_id": 4,
         "category": "food",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/88ce/91ee146be6c84914312b947643c380b15c242db59785fb4dfec038008408.jpg",
         "title": "라비앙독 저분자피쉬콜라겐 가수분해 사료, 연어, 4.8kg, 1개",
@@ -132,7 +132,7 @@
         "is_grainfree": false
     },
     {
-        "index": 5,
+        "product_id": 5,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1323354196057117-c329483b-710d-4a69-8dc4-c0e10497ff8d.jpg",
         "title": "데이스포 전연령 테라픽 올스테이지 플러스 코엔자임Q10 강아지 건식사료, 오리, 1kg, 2개",
@@ -148,7 +148,7 @@
         "is_grainfree": false
     },
     {
-        "index": 6,
+        "product_id": 6,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3830686684955124-cb1fb7a1-d928-4c5c-ae3f-8f7b65063dca.jpg",
         "title": "펫발란스 성견용 치킨 라이스 건식사료, 닭, 10kg, 1개",
@@ -164,7 +164,7 @@
         "is_grainfree": false
     },
     {
-        "index": 7,
+        "product_id": 7,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/07/29/9/9/001cc575-84d7-4ef5-a48f-dcbda537c7f0.png",
         "title": "데이스포 전연령 중대형견 테라픽 코엔자임Q10 라지브리드 건식사료, 오리, 10kg, 1개",
@@ -183,7 +183,7 @@
         "is_grainfree": false
     },
     {
-        "index": 8,
+        "product_id": 8,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1279590730055331-9fce4284-969e-43bd-9934-8a24662c1384.jpg",
         "title": "풀무원 전연령 아미오 건강담은 식단 관절케어 강아지 기능성 사료, 뼈/관절강화, 6.4kg, 1개",
@@ -199,7 +199,7 @@
         "is_grainfree": false
     },
     {
-        "index": 9,
+        "product_id": 9,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1836283890526195-93be0a12-9c71-489f-bd51-0e604c1a14de.jpg",
         "title": "허즈 전연령 칠면조 가슴살 레시피 건식사료, 칠면조, 908g, 1개",
@@ -219,7 +219,7 @@
         "is_grainfree": true
     },
     {
-        "index": 10,
+        "product_id": 10,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/8ff9de01-dd6e-4830-ba18-4e8b14d25bd06863716032943550056.png",
         "title": "마이펫닥터 전연령 시그니처 티어스컨트롤 유기농 강아지사료, 눈물 개선/눈건강, 1kg, 2개",
@@ -253,7 +253,7 @@
         "is_grainfree": false
     },
     {
-        "index": 11,
+        "product_id": 11,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1120281680353217-a544a381-9951-4987-b8d3-d6d12498c4e7.png",
         "title": "프로플랜 전연령 슈레드 블랜드 반려견 건식사료, 닭, 15.9kg, 1개",
@@ -269,7 +269,7 @@
         "is_grainfree": false
     },
     {
-        "index": 12,
+        "product_id": 12,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/06/21/18/8/2b636bc3-18bd-45c0-8da3-2f2d80c0d337.jpg",
         "title": "ANF 생후 4개월 이상 식스프리 인도어 독 건식사료, 양, 2kg, 1개",
@@ -287,7 +287,7 @@
         "is_grainfree": false
     },
     {
-        "index": 13,
+        "product_id": 13,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1985588358899809-860ff2a2-006c-4c11-8567-c5ed1edd2f59.jpg",
         "title": "ANF 생후 4개월 이상 식스프리 인도어 독 건식사료, 소, 2kg, 1개",
@@ -304,7 +304,7 @@
         "is_grainfree": false
     },
     {
-        "index": 14,
+        "product_id": 14,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1985588500757635-b42a0c9c-7da1-4c7c-8056-c8f7de03c37e.jpg",
         "title": "ANF 생후 4개월 이상 식스프리 인도어 독 건식사료, 소, 400g, 15개",
@@ -321,7 +321,7 @@
         "is_grainfree": false
     },
     {
-        "index": 15,
+        "product_id": 15,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2021/12/10/10/2/b5eda5c3-5849-400d-8f29-71bf0295e35b.jpg",
         "title": "마이펫닥터 전연령 시그니처 슬리밍컨트롤 기능성 사료, 다이어트(체중감소), 2kg, 3개",
@@ -355,7 +355,7 @@
         "is_grainfree": false
     },
     {
-        "index": 16,
+        "product_id": 16,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1694301104278777-d5e28da8-39c3-4757-bd44-58ed9d377727.jpg",
         "title": "라무달리 전연령 강아지 금동사료, 가수분해 연어, 2kg, 3개",
@@ -387,7 +387,7 @@
         "is_grainfree": false
     },
     {
-        "index": 17,
+        "product_id": 17,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/696890689292463-17fa7378-1ed8-401a-863d-bc88d1799987.jpg",
         "title": "나우프레쉬 자견용 스몰브리드 퍼피 건식사료, 칠면조, 2kg, 3개",
@@ -406,7 +406,7 @@
         "is_grainfree": true
     },
     {
-        "index": 18,
+        "product_id": 18,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1584fe05-a888-444e-a8e2-3ee3a767dd37284783149665942585.png",
         "title": "풀무원 전연령 아미오 시원하개 강아지 기능성 사료, 장/유산균, 1.5kg, 2개",
@@ -422,7 +422,7 @@
         "is_grainfree": false
     },
     {
-        "index": 19,
+        "product_id": 19,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1985589127906083-b16f07ba-4a6e-46e5-9bbd-ee3ed408d4b3.jpg",
         "title": "ANF 생후 4개월 이상 식스프리 인도어 독 건식사료, 오리, 400g, 15개",
@@ -439,7 +439,7 @@
         "is_grainfree": false
     },
     {
-        "index": 20,
+        "product_id": 20,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3666277278468518-d4c891e3-2082-4b8d-b5ba-4b6c691a13dc.jpg",
         "title": "인터펫코리아 닥터도비 전연령 스킨앤코트 강아지 건식사료, 피부/피모, 5kg, 1개",
@@ -456,7 +456,7 @@
         "is_grainfree": false
     },
     {
-        "index": 21,
+        "product_id": 21,
         "category": "food",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2404097417903217-2945602e-e738-49f2-911d-b9bcbeb9459c.png",
         "title": "페노비스 강아지 미트팡 화식사료 11팩, 소, 80g, 11개",
@@ -477,7 +477,7 @@
         "is_grainfree": false
     },
     {
-        "index": 22,
+        "product_id": 22,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2881726627166747-18b54955-89ba-4f4a-9fbf-79b9ad728e7b.jpg",
         "title": "시저 1세이상 버라이어티팩 습식사료, 기타육류, 100g, 1세트",
@@ -495,7 +495,7 @@
         "is_grainfree": false
     },
     {
-        "index": 23,
+        "product_id": 23,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/648889543395009-a274914d-0004-4adb-81e5-48ecf49001fa.jpg",
         "title": "이즈칸 독 그레인프리 퍼포먼스 건식사료, 닭, 15kg, 1개",
@@ -513,7 +513,7 @@
         "is_grainfree": true
     },
     {
-        "index": 24,
+        "product_id": 24,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/133757332878313-4cc0fe9a-c07a-4169-bf8c-883eb8d777f9.jpg",
         "title": "아침애사료 전연령견용 수제사료 곤약이 함유된 다이어트 소프트사료, 오리, 1.8kg, 1개",
@@ -530,7 +530,7 @@
         "is_grainfree": true
     },
     {
-        "index": 25,
+        "product_id": 25,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/02/28/3487290582/156aed83-f187-4d73-8301-112bdd8b50e0.jpg",
         "title": "건강백서 전연령 건강한 장 기능성 사료, 장건강/유산균, 3.9kg, 1개",
@@ -561,7 +561,7 @@
         "is_grainfree": false
     },
     {
-        "index": 26,
+        "product_id": 26,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1941111483296752-83417c51-b947-48d3-83f5-02a5e50b46b3.jpg",
         "title": "인터펫코리아 닥터도비 전연령 힙앤조인트 건식사료, 뼈/관절강화, 10kg, 1개",
@@ -578,7 +578,7 @@
         "is_grainfree": false
     },
     {
-        "index": 27,
+        "product_id": 27,
         "category": "food",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2022/12/05/12/5/59369423-cddd-4520-bfe3-dc803d162305.png",
         "title": "라포그 강아지 전연령용 리얼인섹트 관절사료, 곤충, 4kg, 1개",
@@ -601,7 +601,7 @@
         "is_grainfree": false
     },
     {
-        "index": 28,
+        "product_id": 28,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/366985294906848-f692aa61-e70d-4ca9-98a7-cdd44f06f3d4.jpg",
         "title": "네츄럴오 전연령 대용량 B 강아지 건식사료, 소, 10kg, 1개",
@@ -618,7 +618,7 @@
         "is_grainfree": false
     },
     {
-        "index": 29,
+        "product_id": 29,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/e4f31a9f-0f17-466d-a0cf-278506899d6c853757255543703458.png",
         "title": "펫9단 전연령견용 포메라니안 기능성 사료, 오리, 1.8kg, 2개",
@@ -644,7 +644,7 @@
         "is_grainfree": false
     },
     {
-        "index": 31,
+        "product_id": 31,
         "category": "food",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/07/19/14/2/ca26ae72-872b-4d70-bf5b-a232b7f00e7c.jpg",
         "title": "데이스포 강아지 우리아이 말티즈 사료, 오리, 1.8kg, 1개",
@@ -662,7 +662,7 @@
         "is_grainfree": false
     },
     {
-        "index": 32,
+        "product_id": 32,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1259353200302149-a42a6379-6d9b-41b6-8f19-898758e77a77.jpg",
         "title": "허즈 전연령 에어드라이사료, 오리, 908g, 1개",
@@ -678,7 +678,7 @@
         "is_grainfree": true
     },
     {
-        "index": 33,
+        "product_id": 33,
         "category": "food",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/698813271742555-f6e20a3d-d60b-4cd0-a245-3adf485f07f9.jpg",
         "title": "나우프레쉬 시니어 스몰브리드 건식사료, 칠면조, 2kg, 1개",
@@ -697,7 +697,7 @@
         "is_grainfree": true
     },
     {
-        "index": 35,
+        "product_id": 35,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/69580759973856-148c7572-86a9-4c4a-885d-265fb60e5123.jpg",
         "title": "웰츠 전연령 독 저지방 기능성 사료, 다이어트(체중유지), 6kg, 1개",
@@ -714,7 +714,7 @@
         "is_grainfree": true
     },
     {
-        "index": 36,
+        "product_id": 36,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/1934/5cae5e3fc3b99597259ae060770db8ce5ef4175c58c7f66efc204a5bb6fe.jpg",
         "title": "펫발란스 닭고기와 쌀 전연령용 강아지 사료 5Kg+2개, 곡류, 5kg, 2개",
@@ -739,7 +739,7 @@
         "is_grainfree": false
     },
     {
-        "index": 37,
+        "product_id": 37,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/d77b/9a6df834afe9c675faad71672f794f16016ce3eb14e0dd7d1488a1c039f9.jpg",
         "title": "라비앙독 저분자피쉬콜라겐 가수분해 사료, 소, 4.8kg, 1개",
@@ -767,7 +767,7 @@
         "is_grainfree": false
     },
     {
-        "index": 38,
+        "product_id": 38,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2023/05/30/15/0/a026c56c-caea-4824-94ee-5e2aa34d28de.jpg",
         "title": "지위픽 전연령용 오리지널 에어드라이 독 생식 사료, 닭, 1kg, 1개",
@@ -784,7 +784,7 @@
         "is_grainfree": false
     },
     {
-        "index": 39,
+        "product_id": 39,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/56f6/896fc7c59a00b79cab9b4ac73c437cfc7bbd701010799cdd3f4a30c7f587.jpg",
         "title": "라비앙독 저분자피쉬콜라겐 가수분해 사료, 오리, 4.8kg, 1개",
@@ -811,7 +811,7 @@
         "is_grainfree": false
     },
     {
-        "index": 40,
+        "product_id": 40,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/790774219752161-2e23d73b-5d72-4db5-95c9-f6df39f66923.png",
         "title": "프로플랜 전연령 퍼포먼스 30 20 반려견 건식사료, 닭, 17kg, 1개",
@@ -828,7 +828,7 @@
         "is_grainfree": false
     },
     {
-        "index": 41,
+        "product_id": 41,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/vsiaj7b6/62d212e62e9e4bf38e62e043d1762fd9.jpg",
         "title": "지위픽 전연령용 에어드라이 독 애견 건조사료, 양, 1kg, 1개",
@@ -844,7 +844,7 @@
         "is_grainfree": true
     },
     {
-        "index": 42,
+        "product_id": 42,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2023/06/15/13/1/34c4c876-150d-40cf-b3dc-dda61190469f.png",
         "title": "킵펫 전연령 말랑말랑 런 건식사료, 양, 2.2kg, 1개",
@@ -861,7 +861,7 @@
         "is_grainfree": false
     },
     {
-        "index": 43,
+        "product_id": 43,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/b931/b59e35720dd79f251a1fa6ace72f8c8f062bb35ceb1807680f30b34c5f3f.png",
         "title": "오가앤리프 유기농 애견 가수분해 피부 알러지 눈물 관절 강아지 사료 소고기&유산균, 소, 1.8kg, 1개",
@@ -884,7 +884,7 @@
         "is_grainfree": false
     },
     {
-        "index": 44,
+        "product_id": 44,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/698820334195848-dfe9f390-c209-4272-a5d8-a9ac569814d7.jpg",
         "title": "나우프레쉬 그레인프리 스몰브리드 시니어사료",
@@ -904,7 +904,7 @@
         "is_grainfree": true
     },
     {
-        "index": 45,
+        "product_id": 45,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/96145467639845-b723495c-2601-4dd4-b855-c310d65f25ef.jpg",
         "title": "테이스트오브더와일드 자견용 생후 12개월 이전 토우 강아지 건식사료, 연어, 9.98kg, 1개",
@@ -921,7 +921,7 @@
         "is_grainfree": true
     },
     {
-        "index": 46,
+        "product_id": 46,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/367268679675891-76e484cf-d338-4d53-958e-0f47594f9ea9.png",
         "title": "내추럴발란스 전연령 오리지날 울트라 스몰브리드 레시피 건식사료, 닭, 2.4kg, 1개",
@@ -944,7 +944,7 @@
         "is_grainfree": false
     },
     {
-        "index": 47,
+        "product_id": 47,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2718119703401359-6769530b-7c7c-46a2-9e76-ae846d0d9123.jpg",
         "title": "지니펫 홍삼넣은 연어와 닭고기, 닭+연어, 5kg, 1개",
@@ -961,7 +961,7 @@
         "is_grainfree": false
     },
     {
-        "index": 48,
+        "product_id": 48,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2022/07/12/10/0/dfa5a8f7-52e5-4a51-a26b-e4c2cf32fc5d.jpg",
         "title": "하이독 생후 3개월령 이상 케어브이 판크프 냉동 화식사료, 기타육류, 50g, 8개",
@@ -983,7 +983,7 @@
         "is_grainfree": false
     },
     {
-        "index": 49,
+        "product_id": 49,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/99591932470733-57e596b9-d7f8-413a-a9cb-8f07e6cd2fb7.jpg",
         "title": "이즈칸 독 램30 건식사료, 양, 7.5kg, 1개",
@@ -1001,7 +1001,7 @@
         "is_grainfree": false
     },
     {
-        "index": 50,
+        "product_id": 50,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1661030822492417-da19ee6a-da34-4c33-8ba2-c98dba2bc6a3.jpg",
         "title": "스텔라앤츄이스 전연령용 탄탈라이징 터키 밀믹서 강아지 동결건조 사료, 칠면조, 226g, 1개",
@@ -1020,7 +1020,7 @@
         "is_grainfree": false
     },
     {
-        "index": 51,
+        "product_id": 51,
         "category": "food",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/rs_quotation_api/t59hf6l3/687a9459b31c41729aa731200ea28805.jpg",
         "title": "펫러닝 전연령용 더 프로젝트 소프트사료, 연어, 1kg, 1개",
@@ -1038,7 +1038,7 @@
         "is_grainfree": false
     },
     {
-        "index": 52,
+        "product_id": 52,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/20/18/3/2f60947e-fa10-41ca-b170-f2fe4d31a787.jpg",
         "title": "프로플랜 스몰앤토이 어덜트 강아지 사료, 장건강/유산균, 2.5kg, 1개",
@@ -1055,7 +1055,7 @@
         "is_grainfree": false
     },
     {
-        "index": 53,
+        "product_id": 53,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/654338709300053-e779a369-4dfd-462e-a5ad-71cac09a1788.jpg",
         "title": "이즈칸 독 알러지프리 건식사료, 피부/피모+알러지, 2.1kg, 1개",
@@ -1073,7 +1073,7 @@
         "is_grainfree": false
     },
     {
-        "index": 54,
+        "product_id": 54,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2022/11/17/15/7/6f1cd0e7-5b66-4024-8f29-648660807388.jpg",
         "title": "후코홀릭 전연령용 인섹트 도그 프리미엄 J 소프트사료, 2.4kg, 곤충, 1개",
@@ -1090,7 +1090,7 @@
         "is_grainfree": true
     },
     {
-        "index": 55,
+        "product_id": 55,
         "category": "food",
         "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2021/08/31/11/0/cbcba279-56b9-4597-bb1d-666cdbd965ce.jpg",
         "title": "라포그 반려견 리얼 인섹트 관절 건식사료, 고구마, 1.2kg, 1개",
@@ -1113,7 +1113,7 @@
         "is_grainfree": false
     },
     {
-        "index": 56,
+        "product_id": 56,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1598805732565394-3b7e0d13-e55b-4556-a513-078b7fa54b83.jpg",
         "title": "스텔라앤츄이스 강아지 전연령용 동결건조 터키 밀믹서 사료, 칠면조, 510g, 1개",
@@ -1132,7 +1132,7 @@
         "is_grainfree": false
     },
     {
-        "index": 57,
+        "product_id": 57,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1683795377046094-dfd243fc-50a1-4bd1-98ac-2001e8fbbcbd.jpg",
         "title": "스텔라앤츄이스 전연령용 츄이스 치킨 디너패티 강아지 동결건조 사료, 닭, 397g, 1개",
@@ -1151,7 +1151,7 @@
         "is_grainfree": false
     },
     {
-        "index": 58,
+        "product_id": 58,
         "category": "food",
         "product_img": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1985589263714018-f763df6b-4974-41b9-90a2-5d8cb7fdf5ed.jpg",
         "title": "ANF 생후 4개월 이상 식스프리 인도어 독 건식사료, 연어, 6kg, 1개",
@@ -1168,7 +1168,7 @@
         "is_grainfree": false
     },
     {
-        "index": 59,
+        "product_id": 59,
         "category": "food",
         "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1249589935995283-dd63b911-8449-416e-a447-823a469d71db.png",
         "title": "스텔라앤츄이스 로우 코티드 키블 스몰브리드 치킨 강아지 건식사료, 1.6kg, 닭, 1개",
@@ -1187,7 +1187,7 @@
         "is_grainfree": false
     },
     {
-        "index": 60,
+        "product_id": 60,
         "category": "food",
         "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1682611153119801-908881fc-0b47-45d2-bd07-718c3d565cd1.jpg",
         "title": "스텔라앤츄이스 전연령용 츄이스 치킨 밀믹서 강아지 동결건조 사료, 닭, 226g, 1개",
@@ -1206,7 +1206,7 @@
         "is_grainfree": false
     },
     {
-        "index": 62,
+        "product_id": 62,
         "category": "food",
         "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4329533361824132-1690b6fe-a7b2-47f2-908a-e773439cda3d.jpg",
         "title": "자연스럽개 3개월이상용 고기듬뿍 삼시네끼 습식사료, 오리, 70g, 10개",
