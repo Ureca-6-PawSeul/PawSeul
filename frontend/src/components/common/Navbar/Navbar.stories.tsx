@@ -17,10 +17,10 @@ export default meta;
 /**
  * `DefaultNavbar`는 `Navbar` 컴포넌트의 기본 스토리입니다.
  */
-export const DefaultNavbar: Story = (args) => (
-  <div style={{ marginTop: 70 }}>
+export const DefaultNavbar: Story = {
+  render: () => (
     <BrowserRouter>
-      <Navbar {...args} />
+      <Navbar />
     </BrowserRouter>
-  </div>
-);
+  ),
+};
