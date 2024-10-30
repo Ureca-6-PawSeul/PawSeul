@@ -63,7 +63,7 @@ const Payment = () => {
           <Select optionList={SHIPMENT_MESSAGE} />
         </Flex>
 
-        {/* 상품 정보 */}
+        {/* 상품 정보! */}
         <Flex direction="column" align="flex-start" gap={10}>
           <Text typo="Heading3">상품 정보</Text>
           {Array(6)
