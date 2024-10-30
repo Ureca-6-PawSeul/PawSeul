@@ -4,7 +4,7 @@ import { Footer } from '@components/common/Footer';
 
 const Home = () => {
   return (
-    <Wrapper direction="column" align="center">
+    <Wrapper direction="column" align="center" justify="flex-start">
       <div></div>
 
       <Footer />

@@ -5,10 +5,10 @@ import { Header } from '../Header';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Wrapper direction="column" align="center">
+    <Wrapper direction="column" align="center" justify="flex-start">
       <MobileWrapper direction="column">
         <Header />
-        <Flex>{children}</Flex>
+        <Flex direction="column">{children}</Flex>
         <Navbar />
       </MobileWrapper>
     </Wrapper>

@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
 import styled from '@emotion/styled';
 import { colors } from '@styles/colors';
-import { Flex } from '../Flex';
 import { CloseIcon } from '@assets/images/svgs/CloseIcon';
 
 interface ModalProps {
