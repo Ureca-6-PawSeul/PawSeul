@@ -2,10 +2,11 @@ import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 import { ReviewType } from '@assets/types/ReviewType';
-import DefaultProfile from '@assets/images/svgs/DefaultProfile';
 import StarRating from '@components/store/Star';
 import { ReviewText } from '@components/store/detail/ReviewText';
 import { Hr } from '@components/store/Hr';
+import { MdOutlinePets } from "react-icons/md";
+import styled from '@emotion/styled';
 
 interface ProductReviewItemProps {
   review: ReviewType;
@@ -17,7 +18,9 @@ const ProductReviewItem = ({ review }: ProductReviewItemProps) => {
       <Flex direction="column" padding="0px 16px" gap={16} align="flex-start">
         <Flex justify="space-between" align="flex-start">
           <Flex gap={12} justify="flex-start">
-            <DefaultProfile width="40px" height="40px" color={colors.Gray200} />
+            <Profile backgroundColor={colors.Gray200} padding='8px' width='40px'>
+              <MdOutlinePets size={24} color={colors.White}/>
+            </Profile>
             <Flex
               direction="column"
               justify="flex-start"
@@ -69,5 +72,9 @@ const ProductReviewItem = ({ review }: ProductReviewItemProps) => {
     </>
   );
 };
+
+const Profile = styled(Flex)`
+  border-radius: 50%;
+`
 
 export default ProductReviewItem;
