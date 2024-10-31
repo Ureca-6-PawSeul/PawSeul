@@ -30,7 +30,7 @@ const DetailImageList = ({ images }: { images: string[] }) => {
 
 const ImageWrapper = styled.div<{ isOpen: boolean }>`
   position: relative;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   ${(props) =>
     props.isOpen
       ? `
