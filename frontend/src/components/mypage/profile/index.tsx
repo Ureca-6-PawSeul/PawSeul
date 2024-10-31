@@ -11,7 +11,7 @@ const Profile = (
   handleClick: () => void,
 ) => {
   return (
-    <ProfileWrapper direction="column" padding="10px 10px" borderRadius={10}>
+    <ProfileWrapper direction="column" justify='flex-start' padding="10px 10px" borderRadius={10}>
       <ClickBtn justify="flex-end" direction="row" onClick={handleClick}>
         <Text align="flex-end" typo="Label3" colorCode={colors.Gray400}>
           정보 수정하기
@@ -20,14 +20,14 @@ const Profile = (
       </ClickBtn>
       <Flex direction="row">
         <DogProfile width={200} />
-        <Flex direction="column" align="flex-start" gap={5}>
+        <Flex direction="column" justify="center" align="flex-start" gap={5}>
           <Text typo="Body2" colorCode={colors.Black}>
             {petname}
           </Text>
           <Text typo="Label3" colorCode={colors.Black}>
             {breedname}
           </Text>
-          <Flex justify="flex-start" align="flex-start" gap={5}>
+          <Flex justify="flex-start" align="flex-start" height={12} gap={5}>
             <Text typo="Label3">{age}살</Text>
             <Text typo="Label3">{weight}KG</Text>
           </Flex>

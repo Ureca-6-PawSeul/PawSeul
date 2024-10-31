@@ -6,12 +6,15 @@ import { useState } from 'react';
 import { ClickBtn } from '../profile';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@/assets/images/svgs';
 import { OrderItemType } from '@/assets/types/OrderType';
+import { Img } from '@/components/store/Product';
 export const OrderHistory = ({
   date,
+  state,
   items,
   children,
 }: {
   date: string;
+  state: string;
   items: OrderItemType[];
   children?: React.ReactNode;
 }) => {
@@ -22,29 +25,27 @@ export const OrderHistory = ({
   };
 
   return (
-    <Flex direction="column" gap={10} margin="12px 0 0 0">
-      <ClickBtn
-        direction="row"
-        justify="space-between"
-        height={30}
-        onClick={handleClick}
-      >
-        <Text typo="Label1" colorCode={colors.Black}>
-          {date}
-        </Text>
-        <Flex width={20} height={20}>
-          {isClicked ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-        </Flex>
-      </ClickBtn>
-      {items?.map((item, index) => (
-        <OrderWrapper
-          justify="flex-start"
-          align="flex-start"
-          gap={10}
-        >
-          {(index === 0 || isClicked) && (
-            <ProductWrapper>
-              <img src={item.product_img} width={90} height={90} />
+    <Flex direction="column" justify="flex-start" align="flex-start" gap={10} margin="12px 0 0 0">
+      <Text typo="Label1" colorCode={colors.Black}>
+        {date}
+      </Text>
+
+      <OrderWrapper isClicked={isClicked} direction="column" justify="flex-start" align="flex-start" gap={10}>
+        <ClickBtn direction="row" justify="space-between" onClick={handleClick}>
+          <Text typo="Label1" colorCode={colors.MainColor}>
+            {state}
+          </Text>
+          {isClicked ? (
+            <KeyboardArrowUp width={20} height={20} />
+          ) : (
+            <KeyboardArrowDown width={20} height={20} />
+          )}
+        </ClickBtn>
+
+        {items?.map((item, index) =>
+          (index === 0 || isClicked) ? (
+            <Flex margin='10px 0' gap={12}>
+              <Img src={item.product_img} width={90} height={90} />
               <Flex direction="column" align="flex-start" gap={3}>
                 <Text typo="Body3" colorCode={colors.Black}>
                   {item.title}
@@ -67,25 +68,21 @@ export const OrderHistory = ({
                 </Text>
               </Flex>
               {children}
-            </ProductWrapper>
-          )}
-        </OrderWrapper>
-      ))}
+            </Flex>
+          ) : null
+        )}
+      </OrderWrapper>
     </Flex>
   );
 };
 
 export default OrderHistory;
 
-const OrderWrapper = styled(Flex)`
-  /* border: solid 1px ${colors.Gray100}; */
-  /* border-radius: 5px; */
-  /* padding: 12px 10px; */
-  height: fit-content;
-`;
-const ProductWrapper = styled(Flex)`
+const OrderWrapper = styled(Flex)<{ isClicked: boolean }>`
   border: solid 1px ${colors.Gray100};
   border-radius: 5px;
   padding: 12px 10px;
-  /* height: fit-content; */
+  height: fit-content;
+  background-color: ${({ isClicked }) => (isClicked ? colors.Gray50 : 'transparent')};
+  margin-bottom: 12px;
 `;

@@ -1,10 +1,9 @@
 import { Flex } from '@/components/common/Flex';
-import { Text } from '@/components/common/Typo';
 import { OrderHistory } from '@components/mypage/orderHistory';
-import { colors } from '@/styles/colors';
 import { SetStateAction, useEffect, useState } from 'react';
 import { getUserOrder } from '@/apis/getUserOrder';
 import { OrderHistoryType } from '@/assets/types/OrderType';
+import styled from '@emotion/styled';
 
 // 나중엔 날짜가 Date객체로 올거니까 date-fns 라이브러리 사용해서 포맷 변경해줘야 함
 export const OrderHistoryPage = () => {
@@ -25,20 +24,26 @@ export const OrderHistoryPage = () => {
   }, []);
 
   return (
-    <Flex
+    <Wrapper
       direction="column"
       justify="flex-start"
       align="flex-start"
       padding="0 12px"
     >
       {userOrder?.map((order,) => (
-        <Flex direction="column" justify="space-between">
+        <Flex direction="column" justify="flex-start" height="fit-content">
           <OrderHistory
             date={order.order_created_at}
+            state={order.order_state}
             items={order.order_items}
           />
         </Flex>
       ))}
-    </Flex>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled(Flex)`
+overflow-y: auto;
+padding-bottom: 70px;
+`
