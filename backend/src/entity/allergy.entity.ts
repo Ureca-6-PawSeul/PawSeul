@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn } from 'typeorm';
+import { Entity, ManyToOne, JoinColumn, PrimaryColumn } from 'typeorm';
 import { Pet } from './pet.entity';
 import { BaseEntity } from './base.entity';
 import { ApiProperty } from '@nestjs/swagger';
