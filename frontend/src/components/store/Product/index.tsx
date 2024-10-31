@@ -72,6 +72,6 @@ const Title = styled(Text)`
   white-space: normal;
 `;
 
-const Img = styled.img`
+export const Img = styled.img`
   border-radius: 10px;
 `;

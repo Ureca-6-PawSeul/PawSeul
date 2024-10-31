@@ -12,6 +12,5 @@ export class Allergy extends BaseEntity {
 
   @ApiProperty({ description: '알레르기 유형' })
   @PrimaryColumn()
-  @Column()
   allergy_type: string;
 }
