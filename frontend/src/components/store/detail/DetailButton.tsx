@@ -16,7 +16,7 @@ const DetailButton = ({
   colorCode,
 }: DetailButtonProps) => {
   return (
-    <Flex padding="0 16px 0">
+    <Flex padding="0 16px 0" backgroundColor={colors.White} height='fit-content'>
       <OpenButton onClick={handleButtonClick} colorCode={colorCode}>
         <Text typo="Body2" margin="10px 0px" colorCode={colorCode}>
           {children}

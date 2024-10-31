@@ -6,8 +6,9 @@ import reviews from '@/mocks/data/review.json';
 import ProductReviewItem from './ProductReviewItem';
 import { ReviewText } from '@components/store/detail/ReviewText';
 import { calculateScoreCounts } from '@/utils/scoreCounts';
+import { forwardRef } from 'react';
 
-const ProductReview = () => {
+const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const reviewCount = reviews.length;
   const score = reviews.reduce((acc, cur) => acc + cur.score, 0) / reviewCount;
 
@@ -18,7 +19,7 @@ const ProductReview = () => {
   };
 
   return (
-    <Flex direction="column" gap={24}>
+    <Flex ref={ref} direction="column" gap={24} padding='32px 0 0' margin="16px 0 0" backgroundColor={colors.White}>
       <Flex direction="column" justify="flex-start" padding="0px 16px">
         <ReviewText
           typo="Heading3"
@@ -42,6 +43,8 @@ const ProductReview = () => {
       ))}
     </Flex>
   );
-};
+});
+
+ProductReview.displayName = 'ProductReview';
 
 export default ProductReview;

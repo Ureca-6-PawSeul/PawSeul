@@ -35,7 +35,7 @@ const Cart = () => {
         </DeleteText>
       </Flex>
       <Flex direction="column">
-        <CartListWrapper direction="column" margin="16px 12px">
+        <CartListWrapper direction="column" margin="16px 0px">
           {cartList.map((item, index) => {
             return (
               <CartItem key={index} item={item} index={index}/>
@@ -63,7 +63,7 @@ const DeleteText = styled(Text)`
 `;
 
 const CartListWrapper = styled(Flex)`
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px;
+  /* box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px; */
   position: relative;
 `;
 
