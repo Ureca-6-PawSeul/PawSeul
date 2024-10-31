@@ -5,60 +5,54 @@
     "quantity": 1,
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg",
     "title": "탐사 6free 강아지 사료 연어 레시피, 6kg, 연어, 1개",
-    "price": "25,990원"
+    "price": 25990
   },
   {
     "cart_id": 0,
     "product_id": 1,
     "quantity": 3,
-    "category": "food",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3592087444703702-fa6e68a0-1598-49e5-9088-28cac6845aa6.jpg",
     "title": "마이펫닥터 전연령 시그니처 티어스컨트롤 유기농 강아지사료, 눈물 개선/눈건강, 1kg, 3개",
-    "price": "48,990원"
+    "price": 48990
   },
   {
     "cart_id": 0,
     "product_id": 2,
     "quantity": 1,
-    "category": "food",
     "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/4953332089404285-f4e8b340-22b9-46f7-9b1c-db0471014f2f.jpg",
     "title": "인터펫코리아 전연령 닥터도비 힙앤조인트 관절건강 건식사료, 뼈/관절강화, 5kg, 1개",
-    "price": "27,880원"
+    "price": 27880
   },
   {
     "cart_id": 0,
     "product_id": 3,
     "quantity": 2,
-    "category": "food",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1249558012771772-f3a5054a-18ea-4e92-8b02-52b20dcc0ba5.jpg",
     "title": "펫스윗 전연령 로얄 그레인프리 오븐베이크드 강아지 건식사료, 2kg, 소, 1개",
-    "price": "24,900원"
+    "price": 24900
   },
   {
     "cart_id": 0,
     "product_id": 3,
     "quantity": 2,
-    "category": "food",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1249558012771772-f3a5054a-18ea-4e92-8b02-52b20dcc0ba5.jpg",
     "title": "펫스윗 전연령 로얄 그레인프리 오븐베이크드 강아지 건식사료, 2kg, 소, 1개",
-    "price": "24,900원"
+    "price": 24900
   },
   {
     "cart_id": 0,
     "product_id": 3,
     "quantity": 2,
-    "category": "food",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1249558012771772-f3a5054a-18ea-4e92-8b02-52b20dcc0ba5.jpg",
     "title": "펫스윗 전연령 로얄 그레인프리 오븐베이크드 강아지 건식사료, 2kg, 소, 1개",
-    "price": "24,900원"
+    "price": 24900
   },
   {
     "cart_id": 0,
     "product_id": 3,
     "quantity": 2,
-    "category": "food",
     "product_img": "https://thumbnail6.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/1249558012771772-f3a5054a-18ea-4e92-8b02-52b20dcc0ba5.jpg",
     "title": "펫스윗 전연령 로얄 그레인프리 오븐베이크드 강아지 건식사료, 2kg, 소, 1개",
-    "price": "24,900원"
+    "price": 24900
   }
 ]

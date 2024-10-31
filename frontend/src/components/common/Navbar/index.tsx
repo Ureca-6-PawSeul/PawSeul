@@ -83,9 +83,12 @@ const Wrapper = styled(Flex)`
 
 const TabContainer = styled.div`
   display: flex;
+  max-width: 480px;
+  min-width: 360px;
+  position: fixed;
   width: 100%;
   height: 60px;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   z-index: 20;
   border-top: 0.5px solid rgba(112, 115, 124, 0.16);
