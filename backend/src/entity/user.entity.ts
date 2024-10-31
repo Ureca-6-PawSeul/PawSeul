@@ -36,6 +36,6 @@ export class User {
   orders: Order[];
 
   @OneToOne(() => Pet, (pet) => pet.user, { cascade: true })
-  @JoinColumn()
+  @JoinColumn({ name: 'pet_id' })
   pet: Pet;
 }

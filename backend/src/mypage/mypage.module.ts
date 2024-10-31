@@ -4,11 +4,11 @@ import { MypageService } from 'src/mypage/mypage.service';
 import { MypageController } from 'src/mypage/mypage.controller';
 import { Pet } from 'src/entity/pet.entity';
 import { User } from 'src/entity/user.entity';
-import { UserService } from 'src/user/user.service';
-
+import { AccessTokenStrategy } from 'src/auth/strategies/accessToken.strategy';
+import { JwtService } from '@nestjs/jwt';
 @Module({
   imports: [TypeOrmModule.forFeature([User, Pet])],
-  providers: [MypageService, UserService],
+  providers: [MypageService, AccessTokenStrategy, JwtService],
   controllers: [MypageController],
 })
 export class MypageModule {}
