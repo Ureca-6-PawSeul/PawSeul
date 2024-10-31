@@ -17,15 +17,15 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
 const Wrapper = styled(Flex)`
   overflow-x: hidden;
-  /* height: 100vh; */
+  height: 100vh;
 `;
 
 const MobileWrapper = styled(Flex)`
   max-width: 480px;
   min-width: 320px;
-  /* min-height: 100vh; */
-
-  @media (min-width: 431px) {
+  height: auto;
+  flex: 1;
+   @media (min-width: 431px) {
     border-style: solid;
     border-color: rgb(225, 225, 225);
     border-image: initial;
