@@ -1,4 +1,3 @@
-// getUserResponse.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { Pet } from 'src/entity/pet.entity';
 
