@@ -8,6 +8,7 @@ import { ApiProperty } from '@nestjs/swagger';
 @Entity()
 export class Pet extends BaseEntity {
   @ApiProperty({ description: '반려동물의 고유 ID' })
+  @PrimaryGeneratedColumn('uuid')
   petId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
@@ -46,4 +47,12 @@ export class Pet extends BaseEntity {
   @ApiProperty({ description: '반려동물 품종' })
   @Column()
   breed: string;
+
+  @ApiProperty({ description: '생성 날짜' })
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: Date;
+
+  @ApiProperty({ description: '수정 날짜' })
+  @UpdateDateColumn({ type: 'timestamp' })
+  updatedAt: Date;
 }
