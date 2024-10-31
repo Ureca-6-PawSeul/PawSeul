@@ -14,7 +14,7 @@ export class typeORMConfig implements TypeOrmOptionsFactory {
       timezone: 'Asia/Seoul',
       namingStrategy: new SnakeNamingStrategy(),
       entities: [__dirname + '/../**/*.entity.{js,ts}'],
-      synchronize: true,
+      synchronize: false,
     };
   }
 }
