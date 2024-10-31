@@ -54,4 +54,7 @@ export const ClickBtn = styled(Flex)`
   &:hover {
     cursor: pointer;
   }
+  &:active {
+    opacity: 0.5;
+  }
 `;

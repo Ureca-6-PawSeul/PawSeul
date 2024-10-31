@@ -8,7 +8,7 @@ import styled from '@emotion/styled';
 
 const Mypage = () => {
   return (
-    <Flex direction="column" align="center">
+    <Flex direction="column" align="center" padding="0px 12px">
       <Flex direction="row" justify="flex-start" height={40}>
         <Text colorCode={colors.Black} typo="Label1" align="flex-start">
           {ProfileData.username}
