@@ -83,4 +83,17 @@ export class ProductController {
       );
     }
   }
+
+  @Get('/search')
+  async searchProducts(@Query('query') title: string) {
+    try {
+      const products = await this.productService.searchProducts(title);
+      return products;
+    } catch (error) {
+      throw new HttpException(
+        error.message || '상품을 검색하는데 실패했어요!',
+        error.status || HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
 }
