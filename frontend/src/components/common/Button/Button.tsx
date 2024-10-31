@@ -5,13 +5,13 @@ import { colors } from '@/styles/colors';
 interface ButtonProps {
   width: string;
   height: string;
-  bg: string; //background
-  hoverBg: string;
-  fontColor: string;
-  fontSize: number;
-  hoverFontColor: string;
-  borderRadius: string;
-  border: string;
+  bg?: string; //background
+  hoverBg?: string;
+  fontColor?: string;
+  fontSize?: number;
+  hoverFontColor?: string;
+  borderRadius?: string;
+  border?: string;
 }
 
 const Button = styled.div<ButtonProps>`

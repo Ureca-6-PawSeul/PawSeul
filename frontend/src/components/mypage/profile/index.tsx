@@ -2,7 +2,7 @@ import { Flex } from '@components/common/Flex';
 import { colors } from '@styles/colors';
 import styled from '@emotion/styled';
 import { Text } from '@components/common/Typo';
-import DogProfile from '@/assets/images/svgs/Fordong/DogProfile';
+import DogProfile from '@/assets/images/svgs/DogProfile';
 import KeyboardArrowRight from '@assets/images/svgs/KeyboardArrowRight';
 import { CardProfileType } from '@assets/types/ProfileType';
 

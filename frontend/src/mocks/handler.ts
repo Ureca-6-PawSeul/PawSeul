@@ -24,7 +24,7 @@ export const handlers = [
       return HttpResponse.json(supplement);
     }),
 
-    http.get('/api/order/:userId', () => {
+    http.get('/api/history/order/:userId', () => {
       return HttpResponse.json(user_order);
     }),
 

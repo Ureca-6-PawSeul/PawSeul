@@ -36,6 +36,7 @@ export const OrderHistoryPage = () => {
             date={order.order_created_at}
             state={order.order_state}
             items={order.order_items}
+            bottomContent={`${order.order_created_at} + 3일 후 발송 예정`}
           />
         </Flex>
       ))}
