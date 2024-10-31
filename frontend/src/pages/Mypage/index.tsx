@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Mypage = () => {
   const navigate = useNavigate();
+  const handleClickOrderHistory = () => navigate("order")
+  const handleClickReviewHistory = () => navigate("review")
 
   return (
     <Flex direction="column" align="center" padding="0px 12px" justify="flex-start">
@@ -34,17 +36,17 @@ const Mypage = () => {
         gender={ProfileData.gender}
         is_neutered={ProfileData.is_neutered}
       />
-      <BottomBtn direction="column" align="flex-start" padding="19px 11px">
+      <BottomBtn direction="column" align="flex-start" padding="19px 11px" onClick={handleClickOrderHistory}>
         <Text colorCode={colors.Black} typo="Body3" align="flex-start">
           찜한 목록
         </Text>
       </BottomBtn>
-      <BottomBtn direction="column" align="flex-start" padding="19px 11px" onClick={()=>navigate("order")}>
+      <BottomBtn direction="column" align="flex-start" padding="19px 11px" >
         <Text colorCode={colors.Black} typo="Body3" align="flex-start">
           주문 내역
         </Text>
       </BottomBtn>
-      <BottomBtn direction="column" align="flex-start" padding="19px 11px" onClick={()=>navigate("purchase")}>
+      <BottomBtn direction="column" align="flex-start" padding="19px 11px"onClick={handleClickReviewHistory}>
         <Text colorCode={colors.Black} typo="Body3" align="flex-start">
           구매 후기
         </Text>

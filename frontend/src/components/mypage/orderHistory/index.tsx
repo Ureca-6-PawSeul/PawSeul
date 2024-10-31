@@ -18,9 +18,9 @@ export const OrderHistory = ({
   items: OrderItemType[];
   children?: React.ReactNode;
 }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isOpen, setisOpen] = useState(false);
   const handleClick = () => {
-    setIsClicked(!isClicked);
+    setisOpen(!isOpen);
     console.log('버튼 클릭');
   };
 
@@ -30,12 +30,12 @@ export const OrderHistory = ({
         {date}
       </Text>
 
-      <OrderWrapper isClicked={isClicked} direction="column" justify="flex-start" align="flex-start" gap={10}>
+      <OrderWrapper isOpen={isOpen} direction="column" justify="flex-start" align="flex-start" gap={10}>
         <ClickBtn direction="row" justify="space-between" onClick={handleClick}>
           <Text typo="Label1" colorCode={colors.MainColor}>
             {state}
           </Text>
-          {isClicked ? (
+          {isOpen ? (
             <KeyboardArrowUp width={20} height={20} />
           ) : (
             <KeyboardArrowDown width={20} height={20} />
@@ -43,7 +43,7 @@ export const OrderHistory = ({
         </ClickBtn>
 
         {items?.map((item, index) =>
-          (index === 0 || isClicked) ? (
+          (index === 0 || isOpen) ? (
             <Flex margin='10px 0' gap={12}>
               <Img src={item.product_img} width={90} height={90} />
               <Flex direction="column" align="flex-start" gap={3}>
@@ -78,11 +78,11 @@ export const OrderHistory = ({
 
 export default OrderHistory;
 
-const OrderWrapper = styled(Flex)<{ isClicked: boolean }>`
+const OrderWrapper = styled(Flex)<{ isOpen: boolean }>`
   border: solid 1px ${colors.Gray100};
   border-radius: 5px;
   padding: 12px 10px;
   height: fit-content;
-  background-color: ${({ isClicked }) => (isClicked ? colors.Gray50 : 'transparent')};
+  background-color: ${({ isOpen }) => (isOpen ? colors.Gray50 : 'transparent')};
   margin-bottom: 12px;
 `;
