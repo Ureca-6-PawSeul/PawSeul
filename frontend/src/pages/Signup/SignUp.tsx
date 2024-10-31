@@ -3,7 +3,7 @@ import { Flex } from '@components/common/Flex';
 
 const SignUp = () => {
   return (
-    <Flex direction="column">
+    <Flex direction="column" justify="flex-start">
       <PetInfo />
     </Flex>
   );

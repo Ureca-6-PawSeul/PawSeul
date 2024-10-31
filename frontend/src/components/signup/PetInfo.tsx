@@ -42,8 +42,13 @@ const PetInfo = () => {
   };
 
   return (
-    <Container direction="column" align="flex-start" gap={48} padding="0 32px">
-      <Flex direction="column" align="flex-start" gap={32}>
+    <Container
+      direction="column"
+      justify="flex-start"
+      gap={48}
+      padding="0 32px"
+    >
+      <Flex direction="column" justify="flex-start" gap={32}>
         {step >= 0 && (
           <InfoBox direction="column" align="flex-start">
             <Text typo="Body2">반려견의 이름은 무엇인가요?</Text>
@@ -130,27 +135,16 @@ const PetInfo = () => {
       </Flex>
 
       {/* 다음 버튼 */}
-      <Flex>
-        {step < 4 ? (
-          <NextButton
-            backgroundColor={colors.MainColor}
-            padding="12px 20px"
-            borderRadius={10}
-            onClick={handleNextClicked}
-          >
-            다음으로
-          </NextButton>
-        ) : (
-          <NextButton
-            backgroundColor={colors.MainColor}
-            padding="12px 20px"
-            borderRadius={10}
-            onClick={handleNavigate}
-          >
-            회원가입
-          </NextButton>
-        )}
-      </Flex>
+      <BtnWrapper>
+        <NextButton
+          backgroundColor={colors.MainColor}
+          padding="12px 20px"
+          borderRadius={10}
+          onClick={step < 4 ? handleNextClicked : handleNavigate}
+        >
+          {step < 4 ? '다음으로' : '회원가입'}
+        </NextButton>
+      </BtnWrapper>
     </Container>
   );
 };
@@ -158,9 +152,8 @@ const PetInfo = () => {
 export default PetInfo;
 
 const Container = styled(Flex)`
-  height: fit-content;
-  margin-bottom: 56px;
-  overflow: auto;
+  overflow-y: auto;
+  height: 100%;
 `;
 
 const Input = styled.input`
@@ -226,8 +219,11 @@ const Guide = styled.p`
 
 const NextButton = styled(Flex)`
   color: ${colors.White};
-  padding: 12px 20px;
+  padding: 14px 20px;
   border: none;
+  height: fit-content;
+
+  margin-top: 50px;
 
   cursor: pointer;
 
@@ -236,12 +232,17 @@ const NextButton = styled(Flex)`
   font-size: 0.9rem;
   font-weight: 800;
   color: ${colors.White};
-
-  &:hover {
-    background-color: ${colors.MainColor};
-  }
 `;
 
 const InfoBox = styled(Flex)`
   gap: 10px;
+  height: fit-content;
+`;
+
+const BtnWrapper = styled(Flex)`
+  width: -webkit-fill-available;
+  height: fit-content;
+  position: sticky;
+  left: 32px;
+  bottom: 32px;
 `;
