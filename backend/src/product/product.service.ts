@@ -1,26 +1,18 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Food } from 'src/entity/food.entity';
+
 import { Product } from 'src/entity/product.entity';
-import { Snack } from 'src/entity/snack.entity';
-import { Supplement } from 'src/entity/supplement.entity';
+
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProductService {
   constructor(
-    @InjectRepository(Food)
-    private foodRepository: Repository<Food>,
-    @InjectRepository(Snack)
-    private snackRepository: Repository<Snack>,
-    @InjectRepository(Supplement)
-    private supplementRepository: Repository<Supplement>,
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
   ) {}
-
   async getProducts(
-    category: string,
+    category: 'food' | 'snack' | 'supplement',
     subcategory: string,
     page: number,
     limit: number,
@@ -30,33 +22,34 @@ export class ProductService {
       skip: (page - 1) * limit,
     };
 
-    if (category === 'food') {
-      if (subcategory === 'all') {
-        return this.foodRepository.find(options);
+    const query = this.productRepository
+      .createQueryBuilder('product')
+      .where('product.category = :category', { category });
+
+    if (subcategory !== 'all') {
+      if (category === 'snack') {
+        query
+          .innerJoinAndSelect('product.snack', 'snack') // Snack 테이블과 조인
+          .andWhere('snack.snack_type = :subcategory', { subcategory });
+      } else if (category === 'food') {
+        query
+          .innerJoinAndSelect('product.food', 'food') // Food 테이블과 조인
+          .andWhere('food.food_type = :subcategory', { subcategory });
+      } else if (category === 'supplement') {
+        query
+          .innerJoinAndSelect('product.supplement', 'supplement') // Supplement 테이블과 조인
+          .andWhere('supplement.supplement_type = :subcategory', {
+            subcategory,
+          });
       }
-      return this.foodRepository.find({
-        ...options,
-        where: { foodType: subcategory },
-      });
-    } else if (category === 'snack') {
-      if (subcategory === 'all') {
-        return this.snackRepository.find(options);
-      }
-      return this.snackRepository.find({
-        ...options,
-        where: { snackType: subcategory },
-      });
-    } else if (category === 'supplement') {
-      if (subcategory === 'all') {
-        return this.supplementRepository.find(options);
-      }
-      return this.supplementRepository.find({
-        ...options,
-        where: { supplementType: subcategory },
-      });
-    } else {
-      throw new HttpException('잘못된 카테고리입니다.', HttpStatus.BAD_REQUEST);
     }
+
+    const products = await query
+      .skip(options.skip)
+      .take(options.take)
+      .getMany();
+
+    return products;
   }
 
   async getProductById(productId: string) {
