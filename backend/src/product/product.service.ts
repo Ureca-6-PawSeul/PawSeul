@@ -64,4 +64,18 @@ export class ProductService {
 
     return product;
   }
+
+  async searchProducts(keyword: string): Promise<Product[]> {
+    const keywordStart = `${keyword}%`; // 시작 부분
+    const keywordMiddle = `%${keyword}%`; // 중간 부분
+
+    const products = await this.productRepository
+      .createQueryBuilder('product')
+      .where('product.title LIKE :keywordStart', { keywordStart })
+      .orWhere('product.title LIKE :keywordMiddle', { keywordMiddle })
+      .limit(5) // 최대 5개 결과
+      .getMany();
+
+    return products;
+  }
 }
