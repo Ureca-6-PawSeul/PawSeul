@@ -14,6 +14,7 @@ import Payment from '@pages/Payment';
 import Health from '@pages/Health';
 import Cart from '@pages/Cart';
 import { OrderHistoryPage } from '@pages/Mypage/Order';
+import { ReviewHistoryPage } from '@pages/Mypage/Review';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/mypage/order" element={<OrderHistoryPage />} />
+          <Route path="/mypage/review" element={<ReviewHistoryPage />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/store/detail/:productId" element={<Detail />} />
           <Route path="/cart" element={<Cart />} />
