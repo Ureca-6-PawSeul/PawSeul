@@ -7,6 +7,10 @@ export const globalStyle = css`
     font-family: 'Pretendard', sans-serif;
   }
 
+  #root {
+    height: 100%;
+  }
+
   html {
     box-sizing: border-box;
     font-family: 'Pretendard', sans-serif;
