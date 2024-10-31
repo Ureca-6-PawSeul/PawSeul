@@ -111,8 +111,8 @@ const Store = () => {
 
       {/* 상품 리스트 */}
       <Wrapper direction="row" justify="center" gap={30}>
-        {productDataList?.map((item) => (
-          <ProductWrapper onClick={() => handleClick(item.product_id)}>
+        {productDataList?.map((item, index) => (
+          <ProductWrapper key={index} onClick={() => handleClick(item.product_id)}>
             <Product
               product_id={item.product_id}
               product_img={item.product_img}
