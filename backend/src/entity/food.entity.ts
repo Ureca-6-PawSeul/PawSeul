@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Product } from 'src/entity/product.entity';
+import { FoodType } from 'src/types/category';
 import {
   Entity,
   Column,
@@ -30,8 +31,8 @@ export class Food {
   @ApiProperty({ description: '사료 타입' })
   @Column({
     type: 'enum',
-    enum: ['건식사료', '습식사료', '수제사료', '건조생식사료', '미표기'],
+    enum: FoodType,
     default: '미표기',
   })
-  foodType: string;
+  foodType: FoodType;
 }

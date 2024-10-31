@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Product } from './product.entity';
+import { SnackType } from 'src/types/category';
 
 @Entity()
 export class Snack {
@@ -30,8 +31,8 @@ export class Snack {
   @ApiProperty({ description: '간식 타입' })
   @Column({
     type: 'enum',
-    enum: ['캔/파우치', '건조간식', '껌/캔디', '져키', '미표기'],
+    enum: SnackType,
     default: '미표기',
   })
-  snackType: string;
+  snackType: SnackType;
 }
