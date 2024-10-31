@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Product } from './product.entity';
+import { SupplementType } from 'src/types/category';
 
 @Entity()
 export class Supplement {
@@ -22,8 +23,8 @@ export class Supplement {
   @ApiProperty({ description: '영양제 타입' })
   @Column({
     type: 'enum',
-    enum: ['캡슐', '알약', '스틱', '츄어블', '분말', '미표기'],
+    enum: SupplementType,
     default: '미표기',
   })
-  supplementType: string;
+  supplementType: SupplementType;
 }
