@@ -17,7 +17,7 @@ const Detail = () => {
   const reviewCount = reviews.length;
 
   return (
-    <Flex direction="column" justify="center" gap={20}>
+    <Wrapper direction="column" justify="center" gap={20}>
       <Image src={mock.product_img} alt="product_img" />
       <Flex direction="column" gap={20} padding="40px 0 0">
         <Flex
@@ -55,9 +55,15 @@ const Detail = () => {
       </Flex>
       <Hr />
       <ProductReview />
-    </Flex>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled(Flex)`
+  overflow-y: scroll;
+  /* height: calc(100% - 60px); */
+  flex: 1;
+`;
 
 const Image = styled.img`
   width: 100%;

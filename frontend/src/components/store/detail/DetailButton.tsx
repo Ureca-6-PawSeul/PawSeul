@@ -39,6 +39,7 @@ const OpenButton = styled.button<{
   border: 1px solid;
   border-color: ${({ colorCode }) => colorCode ?? 'none'};
   width: 100%;
+  height: 52px;
 `;
 
 export default DetailButton;

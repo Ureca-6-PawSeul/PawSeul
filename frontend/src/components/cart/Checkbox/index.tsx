@@ -1,6 +1,6 @@
 import { FaCheckSquare, FaRegSquare } from 'react-icons/fa';
-// import { FaCheckCircle, FaRegCircle } from "react-icons/fa";
 import styled from '@emotion/styled';
+import { colors } from '@styles/colors';
 
 interface CheckboxProps {
   isChecked: boolean;
@@ -11,8 +11,7 @@ const Checkbox = ({ isChecked, size = 12 }: CheckboxProps) => {
   return (
     <>
       <CheckInput type="checkbox" />
-      {isChecked ? <FaCheckSquare size={size} /> : <FaRegSquare size={size} />}
-      {/* {isChecked ? <FaCheckCircle size={size} /> : <FaRegCircle size={size} />} */}
+      {isChecked ? <FaCheckSquare size={size} color={colors.MainColor}/> : <FaRegSquare size={size} />}
     </>
   );
 };
