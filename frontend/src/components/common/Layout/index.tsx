@@ -25,7 +25,7 @@ const MobileWrapper = styled(Flex)`
   min-width: 320px;
   height: auto;
   flex: 1;
-   @media (min-width: 431px) {
+  @media (min-width: 431px) {
     border-style: solid;
     border-color: rgb(225, 225, 225);
     border-image: initial;
