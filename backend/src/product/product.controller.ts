@@ -55,27 +55,7 @@ export class ProductController {
       }
 
       // Handle empty arrays for food, snack, supplement
-      const { food, snack, supplement, ...rest } = product;
-      const foodInfo = food.length > 0 ? food[0] : null;
-      const snackInfo = snack.length > 0 ? snack[0] : null;
-      const supplementInfo = supplement.length > 0 ? supplement[0] : null;
-
-      return {
-        ...rest,
-        ...(foodInfo && {
-          targetSize: foodInfo.targetSize,
-          isGrainfree: foodInfo.isGrainfree,
-          foodType: foodInfo.foodType,
-        }),
-        ...(snackInfo && {
-          snackType: snackInfo.snackType,
-          targetSize: snackInfo.targetSize,
-          isGrainfree: snackInfo.isGrainfree,
-        }),
-        ...(supplementInfo && {
-          supplementType: supplementInfo.supplementType,
-        }),
-      };
+      return product;
     } catch (error) {
       throw new HttpException(
         error.message || '상품을 불러오는데 실패했어요!',
