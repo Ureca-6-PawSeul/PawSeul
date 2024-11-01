@@ -41,8 +41,20 @@ export const ReviewHistoryPage = () => {
         width="auto"
         height="auto"
       >
-        <Flex direction="row" justify="space-evenly" gap={20} backgroundColor={colors.Gray50} borderRadius={10} padding='12px'>
-          <Flex direction="column" justify="flex-start" align="flex-start" width="auto">
+        <Flex
+          direction="row"
+          justify="space-evenly"
+          gap={20}
+          backgroundColor={colors.Gray50}
+          borderRadius={10}
+          padding="12px"
+        >
+          <Flex
+            direction="column"
+            justify="flex-start"
+            align="flex-start"
+            width="auto"
+          >
             <Text colorCode={colors.Black} typo="Label1">
               {userReviewList.username}님
             </Text>
@@ -78,9 +90,22 @@ export const ReviewHistoryPage = () => {
               productImg={review.product_img}
             >
               <Flex width="120px">
-                <Button width="100%" height="25px">
-                  <Text typo="Label3">리뷰 작성하기</Text>
-                </Button>
+                {activeTab === 1 ? (
+                  <Button width="103px" height="30px" borderRadius="25px">
+                    <Text typo="Label2">리뷰 작성하기</Text>
+                  </Button>
+                ) : (
+                  <Button
+                    width="103px"
+                    height="30px"
+                    borderRadius="25px"
+                    bg={colors.Gray300}
+                    fontColor={colors.White}
+                    disabled={true}
+                  >
+                    <Text typo="Label2">작성 완료</Text>
+                  </Button>
+                )}
               </Flex>
             </OrderContent>
           </Wrapper>
