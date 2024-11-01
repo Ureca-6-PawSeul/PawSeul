@@ -31,17 +31,17 @@ export const ReviewHistoryPage = () => {
   }, [activeTab]);
 
   return (
-    <Flex align="flex-start">
+    <Flex align="flex-start" padding="0 0 50px 0">
       <Flex
         direction="column"
         justify="flex-start"
         padding="0 12px"
         margin="12px 0"
-        gap={20}
+        gap={0}
         width="auto"
         height="auto"
       >
-        <Flex direction="row" justify="space-evenly" gap={20}>
+        <Flex direction="row" justify="space-evenly" gap={20} backgroundColor={colors.Gray50} borderRadius={10} padding='12px'>
           <Flex direction="column" justify="flex-start" align="flex-start" width="auto">
             <Text colorCode={colors.Black} typo="Label1">
               {userReviewList.username}님
@@ -52,7 +52,7 @@ export const ReviewHistoryPage = () => {
           </Flex>
           <KakaoIcon width={40} />
         </Flex>
-        <Flex justify="flex-start" gap={10}>
+        <Flex justify="flex-start" gap={10} margin="40px 0 8px 0">
           <Tab
             direction="row"
             onClick={() => handleClickTab(1)}
@@ -99,4 +99,5 @@ const Tab = styled(ClickBtn)<{ isSelected: boolean }>`
 
 const Wrapper = styled(Flex)`
   border: solid 1px ${colors.Gray100};
+  margin: 4px;
 `;
