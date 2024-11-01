@@ -6,6 +6,7 @@ export const Text = styled.div<{
   colorCode?: string;
   margin?: string;
   align?: string;
+  textAlign?: string;
 }>`
   ${({ typo }) => (typo ? theme.typo[typo] : '')};
   color: ${({ colorCode }) => colorCode ?? `${colorCode}`};
@@ -13,4 +14,5 @@ export const Text = styled.div<{
   display: flex;
   align-items: ${({ align }) => (align ? align : 'center')};
   margin: ${({ margin }) => (margin ? margin : '0')};
+  text-align: ${({ textAlign }) => textAlign ?? 'flex-start'};
 `;
