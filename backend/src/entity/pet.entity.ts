@@ -1,4 +1,13 @@
-import { Entity, Column, OneToMany, OneToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { User } from './user.entity';
 import { Allergy } from './allergy.entity';
 import { Health } from './health.entity';
