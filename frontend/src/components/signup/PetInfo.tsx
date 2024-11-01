@@ -46,7 +46,7 @@ const PetInfo = () => {
       direction="column"
       justify="flex-start"
       gap={48}
-      padding="0 32px"
+      padding="0 32px 60px"
     >
       <Flex direction="column" justify="flex-start" gap={32}>
         {step >= 0 && (

@@ -50,6 +50,7 @@ const CartItem = ({item, index}: CartItemProps) => {
                 justify="flex-end"
                 width="auto"
                 margin="0 0 0 20px"
+                align='flex-start'
               >
                 <IoCloseOutline size={20} color={colors.Gray400} />
               </Flex>

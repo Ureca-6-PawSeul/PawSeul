@@ -3,6 +3,8 @@ import food from '@/mocks/data/food.json';
 import snack from '@/mocks/data/snack.json';
 import supplement from '@/mocks/data/supplement.json';
 import user_order from '@/mocks/data/user_order.json';
+import product_names from '@/mocks/data/product_names.json';
+
 
 export const handlers = [
     http.get('/api/product', () => {
@@ -24,5 +26,9 @@ export const handlers = [
 
     http.get('/api/order/:userId', () => {
       return HttpResponse.json(user_order);
+    }),
+
+    http.get(`/api/search`, () => {
+      return HttpResponse.json(product_names);
     }),
   ];

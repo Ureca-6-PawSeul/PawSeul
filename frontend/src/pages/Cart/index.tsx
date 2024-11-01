@@ -17,12 +17,12 @@ const Cart = () => {
       direction="column"
       backgroundColor={colors.Gray50}
       margin="0 0 62px 0"
+      width='fit-content'
     >
       <Flex
         justify="space-between"
         backgroundColor={colors.White}
-        padding="0 16px"
-        height={40}
+        padding="20px 16px"
       >
         <Flex gap={8} justify="flex-start">
           <Label>
