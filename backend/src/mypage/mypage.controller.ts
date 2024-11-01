@@ -2,12 +2,13 @@ import { Controller, Get, UseGuards, Req, Body, Patch } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { MypageService } from 'src/mypage/mypage.service';
 import { GetUserResponseDto } from 'src/mypage/dto/getUserResponse.dto';
-import { ApiBearerAuth, ApiResponse } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { Pet } from 'src/entity/pet.entity';
 import { UpdatePetRequestDto } from 'src/mypage/dto/updatePetRequest.dto';
 
-@Controller('/api/v1/user')
+@Controller('/user')
+@ApiTags('마이페이지 api')
 export class MypageController {
   constructor(private readonly userService: MypageService) {}
 
