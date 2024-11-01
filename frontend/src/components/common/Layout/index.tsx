@@ -17,7 +17,6 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
 const Wrapper = styled(Flex)`
   overflow-x: hidden;
-  height: 100vh;
 `;
 
 const MobileWrapper = styled(Flex)`

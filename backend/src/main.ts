@@ -14,6 +14,7 @@ async function bootstrap() {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
   });
+  app.setGlobalPrefix('api/v1'); // 모든 경로에 'api/v1'을 추가합니다.
   setupSwagger(app);
 
   await app.listen(port);

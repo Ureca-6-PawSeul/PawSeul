@@ -41,7 +41,7 @@ const Navbar = () => {
             onClick={() => handleNavigate('/store')}
             iconType="store"
           >
-            <StoreIcon height={20} />
+            <StoreIcon height={24} />
           </NavItem>
           <NavItem
             isActive={pathname === '/health'}
@@ -87,8 +87,8 @@ const TabContainer = styled.div`
   min-width: 360px;
   position: fixed;
   width: 100%;
-  height: 60px;
-  /* position: absolute; */
+  height: 85px;
+  display: fixed;
   bottom: 0;
   z-index: 20;
   border-top: 0.5px solid rgba(112, 115, 124, 0.16);

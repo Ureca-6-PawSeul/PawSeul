@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Product } from 'src/entity/product.entity';
@@ -62,7 +62,27 @@ export class ProductService {
       throw new Error('Product not found');
     }
 
-    return product;
+    const { food, snack, supplement, ...rest } = product;
+    const foodInfo = food.length > 0 ? food[0] : null;
+    const snackInfo = snack.length > 0 ? snack[0] : null;
+    const supplementInfo = supplement.length > 0 ? supplement[0] : null;
+
+    return {
+      ...rest,
+      ...(foodInfo && {
+        targetSize: foodInfo.targetSize,
+        isGrainfree: foodInfo.isGrainfree,
+        foodType: foodInfo.foodType,
+      }),
+      ...(snackInfo && {
+        snackType: snackInfo.snackType,
+        targetSize: snackInfo.targetSize,
+        isGrainfree: snackInfo.isGrainfree,
+      }),
+      ...(supplementInfo && {
+        supplementType: supplementInfo.supplementType,
+      }),
+    };
   }
 
   async searchProducts(keyword: string): Promise<Product[]> {

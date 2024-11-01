@@ -6,14 +6,11 @@ import StarRating from '@components/store/Star';
 import { ProductType } from '@assets/types/ProductType';
 
 export const Product = ({ product_img, title, price }: ProductType) => {
-  {
-    /* 나중에 수정할것! */
-  }
   return (
     <Wrapper
       direction="column"
       widthPer={100}
-      height={232}
+      height={252}
       align="flex-start"
       gap={1}
       padding="2"

@@ -5,13 +5,14 @@ import { colors } from '@/styles/colors';
 interface ButtonProps {
   width: string;
   height: string;
-  bg: string; //background
-  hoverBg: string;
-  fontColor: string;
-  fontSize: number;
-  hoverFontColor: string;
-  borderRadius: string;
-  border: string;
+  bg?: string; //background
+  hoverBg?: string;
+  fontColor?: string;
+  fontSize?: number;
+  hoverFontColor?: string;
+  borderRadius?: string;
+  border?: string;
+  disabled?: boolean;
 }
 
 const Button = styled.div<ButtonProps>`
@@ -36,11 +37,11 @@ const Button = styled.div<ButtonProps>`
   color: ${({ fontColor }) => (fontColor ? fontColor : colors.White)};
 
   &:hover {
-    cursor: pointer;
-    background-color: ${({ hoverBg }) =>
-      hoverBg ? hoverBg : colors.MainColor};
-    color: ${({ hoverFontColor }) =>
-      hoverFontColor ? hoverFontColor : colors.White};
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+    background-color: ${({ hoverBg, disabled }) =>
+      disabled ? "none" : hoverBg || colors.MainColor};
+    color: ${({ hoverFontColor, disabled }) =>
+      disabled ? "none" : hoverFontColor || colors.White};
   }
 `;
 

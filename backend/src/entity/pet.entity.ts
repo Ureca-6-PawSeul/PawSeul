@@ -1,13 +1,4 @@
-import {
-  Entity,
-  Column,
-  OneToMany,
-  OneToOne,
-  JoinColumn,
-  CreateDateColumn,
-  UpdateDateColumn,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Entity, Column, ManyToOne, OneToMany } from 'typeorm';
 import { User } from './user.entity';
 import { Allergy } from './allergy.entity';
 import { Health } from './health.entity';
@@ -21,8 +12,7 @@ export class Pet extends BaseEntity {
   petId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
-  @OneToOne(() => User, (user) => user.pet)
-  @JoinColumn({ name: 'user_id' })
+  @ManyToOne(() => User, (user) => user.pets)
   user: User;
 
   @ApiProperty({ description: '반려동물 이름' })

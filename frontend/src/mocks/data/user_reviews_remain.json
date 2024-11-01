@@ -1,0 +1,15 @@
+{
+  "user_id": "1",
+  "username": "이예원",
+  "email": "email@naver.com",
+  "reviews": [
+    {
+      "product_id": "1",
+      "product_img": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2513352496784952-3363d7ec-1150-40db-97d3-22ceccee63bd.jpg",
+      "title": "마이펫닥터 전연령 시그니처 티어스컨트롤 유기농 강아지사료, 눈물 개선/눈건강, 1kg, 3개",
+      "price": 7800,
+      "state": "배송 완료",
+      "quantity": 3
+    }
+  ]
+}

@@ -6,16 +6,18 @@ import { useState } from 'react';
 import { ClickBtn } from '../profile';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@/assets/images/svgs';
 import { OrderItemType } from '@/assets/types/OrderType';
-import { Img } from '@/components/store/Product';
+import { OrderContent } from './orderContent';
 export const OrderHistory = ({
   date,
   state,
   items,
+  bottomContent,
   children,
 }: {
   date: string;
   state: string;
   items: OrderItemType[];
+  bottomContent: string;
   children?: React.ReactNode;
 }) => {
   const [isOpen, setisOpen] = useState(false);
@@ -25,12 +27,24 @@ export const OrderHistory = ({
   };
 
   return (
-    <Flex direction="column" justify="flex-start" align="flex-start" gap={10} margin="12px 0 0 0">
+    <Flex
+      direction="column"
+      justify="flex-start"
+      align="flex-start"
+      gap={10}
+      // margin="12px 0 0 0"
+    >
       <Text typo="Label1" colorCode={colors.Black}>
         {date}
       </Text>
 
-      <OrderWrapper isOpen={isOpen} direction="column" justify="flex-start" align="flex-start" gap={10}>
+      <OrderWrapper
+        isOpen={isOpen}
+        direction="column"
+        justify="flex-start"
+        align="flex-start"
+        gap={10}
+      >
         <ClickBtn direction="row" justify="space-between" onClick={handleClick}>
           <Text typo="Label1" colorCode={colors.MainColor}>
             {state}
@@ -43,33 +57,42 @@ export const OrderHistory = ({
         </ClickBtn>
 
         {items?.map((item, index) =>
-          (index === 0 || isOpen) ? (
-            <Flex margin='10px 0' gap={12}>
-              <Img src={item.product_img} width={90} height={90} />
-              <Flex direction="column" align="flex-start" gap={3}>
-                <Text typo="Body3" colorCode={colors.Black}>
-                  {item.title}
-                </Text>
-                <Flex
-                  direction="row"
-                  align="center"
-                  justify="flex-start"
-                  gap={10}
-                >
-                  <Text typo="Label1" colorCode={colors.Black}>
-                    {item.price}원
-                  </Text>
-                  <Text typo="Body4" colorCode={colors.Gray500}>
-                    {item.quantity}개
-                  </Text>
-                </Flex>
-                <Text typo="Body4" colorCode={colors.Gray500}>
-                  10.24(목)이내 발송 예정
-                </Text>
-              </Flex>
-              {children}
-            </Flex>
-          ) : null
+          index === 0 || isOpen ? (
+            // <Flex margin='10px 0' gap={12}>
+            //   <Img src={item.product_img} width={90} height={90} />
+            //   <Flex direction="column" align="flex-start" gap={3}>
+            //     <Text typo="Body3" colorCode={colors.Black}>
+            //       {item.title}
+            //     </Text>
+            //     <Flex
+            //       direction="row"
+            //       align="center"
+            //       justify="flex-start"
+            //       gap={10}
+            //     >
+            //       <Text typo="Label1" colorCode={colors.Black}>
+            //         {item.price}원
+            //       </Text>
+            //       <Text typo="Body4" colorCode={colors.Gray500}>
+            //         {item.quantity}개
+            //       </Text>
+            //     </Flex>
+            //     <Text typo="Body4" colorCode={colors.Gray500}>
+            //       {bottomContent}
+            //     </Text>
+            //   </Flex>
+            //   {children}
+            // </Flex>
+
+            <OrderContent
+              productImg={item.product_img}
+              title={item.title}
+              price={item.price}
+              quantity={item.quantity}
+              bottomContent={bottomContent}
+              children={children}
+            />
+          ) : null,
         )}
       </OrderWrapper>
     </Flex>
