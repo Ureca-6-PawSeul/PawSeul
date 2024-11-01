@@ -11,6 +11,7 @@ import { ProductModule } from './product/product.module';
 import { PetModule } from './pet/pet.module';
 import * as cookieParser from 'cookie-parser';
 import { ReviewModule } from 'src/review/review.module';
+import { CartModule } from './cart/cart.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { ReviewModule } from 'src/review/review.module';
     ProductModule,
     PetModule,
     ReviewModule,
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],
