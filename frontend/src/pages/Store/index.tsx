@@ -17,9 +17,7 @@ import { getProductList } from '@/apis/getProductList';
 const Store = () => {
   const fetch = async (
     category: string,
-    setProductDataList: React.Dispatch<
-      SetStateAction<ProductDetailType[]>
-    >,
+    setProductDataList: React.Dispatch<SetStateAction<ProductDetailType[]>>,
   ) => {
     try {
       await getProductList('food', setProductDataList);
@@ -28,16 +26,10 @@ const Store = () => {
     }
   };
 
-
-  const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
-  const [selectedSubCategory, setSelectedSubCategory] = useState<string>('전체');
-  const [productDataList, setProductDataList] = useState<
-  ProductDetailType[]
-  >([]);
-  const navigate = useNavigate();
-  const handleClick = (productId: number|string) => {
-    console.log(`Navigating to detail/${productId}`);
-    navigate(`detail/${productId}`);
+  const fetchData = async (category: Category) => {
+    if (category === '사료') setProductDataList(food);
+    else if (category === '간식') setProductDataList(snack);
+    else if (category === '영양제') setProductDataList(supplement);
   };
 
   useEffect(() => {
@@ -118,7 +110,10 @@ const Store = () => {
       {/* 상품 리스트 */}
       <Wrapper direction="row" justify="center" gap={30}>
         {productDataList?.map((item, index) => (
-          <ProductWrapper key={index} onClick={() => handleClick(item.product_id)}>
+          <ProductWrapper
+            key={index}
+            onClick={() => handleClick(item.product_id)}
+          >
             <Product
               product_id={item.product_id}
               product_img={item.product_img}

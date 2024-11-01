@@ -8,7 +8,10 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { MypageModule } from './mypage/mypage.module';
 import { ProductModule } from './product/product.module';
+import { PetModule } from './pet/pet.module';
 import * as cookieParser from 'cookie-parser';
+import { ReviewModule } from 'src/review/review.module';
+import { CartModule } from './cart/cart.module';
 
 @Module({
   imports: [
@@ -23,6 +26,9 @@ import * as cookieParser from 'cookie-parser';
     UserModule,
     MypageModule,
     ProductModule,
+    PetModule,
+    ReviewModule,
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],

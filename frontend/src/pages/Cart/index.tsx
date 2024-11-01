@@ -5,12 +5,15 @@ import styled from '@emotion/styled';
 import Checkbox from '@/components/cart/Checkbox';
 import { colors } from '@styles/colors';
 
-import CartItem from "@components/cart/CartItem";
+import CartItem from '@components/cart/CartItem';
 import CartCost from '@/components/cart/CartCost';
 
 const Cart = () => {
   const cartList = carts;
-  const totalPrice = cartList.reduce((acc, cart) => acc + (cart.price * cart.quantity), 0);
+  const totalPrice = cartList.reduce(
+    (acc, cart) => acc + cart.price * cart.quantity,
+    0,
+  );
 
   return (
     <Flex
@@ -35,15 +38,13 @@ const Cart = () => {
         </DeleteText>
       </Flex>
       <Flex direction="column">
-        <CartListWrapper direction="column" margin="16px 12px">
+        <CartListWrapper direction="column" margin="16px 0px">
           {cartList.map((item, index) => {
-            return (
-              <CartItem key={index} item={item} index={index}/>
-            );
+            return <CartItem key={index} item={item} index={index} />;
           })}
         </CartListWrapper>
       </Flex>
-      <CartCost cost={totalPrice}/>
+      <CartCost cost={totalPrice} />
     </Flex>
   );
 };
@@ -63,10 +64,8 @@ const DeleteText = styled(Text)`
 `;
 
 const CartListWrapper = styled(Flex)`
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px;
+  /* box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px; */
   position: relative;
 `;
-
-
 
 export default Cart;

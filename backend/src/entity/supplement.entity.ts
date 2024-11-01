@@ -6,8 +6,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Product } from './product.entity';
 import { SupplementType } from 'src/types/category';
+import { Product } from 'src/entity/product.entity';
 
 @Entity()
 export class Supplement {

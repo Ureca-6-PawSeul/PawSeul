@@ -4,7 +4,7 @@ import { globalStyle } from '@styles/globals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from '@components/common/Layout';
 
-import Login from '@pages/Login';
+import Main from '@/pages/Main';
 import Home from '@pages/Home';
 import Search from '@pages/Search';
 import Store from '@pages/Store';
@@ -12,8 +12,11 @@ import Mypage from '@pages/Mypage';
 import Detail from '@pages/Store/Detail';
 import Payment from '@pages/Payment';
 import Health from '@pages/Health';
-// import {OrderHistoryPage} from '@pages/Mypage/Order';
 import Cart from '@pages/Cart';
+import { OrderHistoryPage } from '@pages/Mypage/Order';
+import { ReviewHistoryPage } from '@pages/Mypage/Review';
+import SignUp from './pages/Signup/SignUp';
+import SignUpResult from './pages/Signup/Result';
 
 function App() {
   return (
@@ -21,13 +24,16 @@ function App() {
       <Layout>
         <Global styles={globalStyle} />
         <Routes>
-          <Route path="/*" element={<Login />} />
+          <Route path="/*" element={<Main />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup/result" element={<SignUpResult />} />
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
           <Route path="/health" element={<Health />} />
           <Route path="/search" element={<Search />} />
           <Route path="/mypage" element={<Mypage />} />
-          {/* <Route path="/mypage/order" element={<OrderHistoryPage />} /> */}
+          <Route path="/mypage/order" element={<OrderHistoryPage />} />
+          <Route path="/mypage/review" element={<ReviewHistoryPage />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/store/detail/:productId" element={<Detail />} />
           <Route path="/cart" element={<Cart />} />
