@@ -10,7 +10,7 @@ export const Product = ({ product_img, title, price }: ProductType) => {
     <Wrapper
       direction="column"
       widthPer={100}
-      height={232}
+      height={252}
       align="flex-start"
       gap={1}
       padding="2"
