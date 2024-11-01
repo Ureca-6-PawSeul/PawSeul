@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ProductReview } from 'src/entity/productreview.entity';
+import { ProductReview } from 'src/entity/productReview.entity';
 import { CreateReviewRequestDto } from 'src/review/dto/createReviewRequest.dto';
 import { Repository } from 'typeorm';
 
