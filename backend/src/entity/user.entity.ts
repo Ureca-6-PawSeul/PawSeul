@@ -6,11 +6,11 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { Cart } from './cart.entity';
 import { Order } from './order.entity';
 import { Pet } from './pet.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { ProductReview } from 'src/entity/productReview.entity';
+import { CartProduct } from './cart.product.entity'; // CartProduct 엔티티를 가져옵니다.
 
 @Entity()
 export class User {
@@ -29,11 +29,11 @@ export class User {
   @OneToMany(() => ProductReview, (review) => review.user)
   reviews: ProductReview[];
 
-  @OneToMany(() => Cart, (cart) => cart.user)
-  carts: Cart[];
-
   @OneToMany(() => Order, (order) => order.user)
   orders: Order[];
+
+  @OneToMany(() => CartProduct, (cartProduct) => cartProduct.user) // CartProduct와의 관계를 추가합니다.
+  cartProducts: CartProduct[];
 
   @OneToOne(() => Pet, (pet) => pet.user, { cascade: true })
   @JoinColumn({ name: 'pet_id' })
