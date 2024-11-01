@@ -1,9 +1,9 @@
 import { Flex } from '@components/common/Flex';
 import styled from '@emotion/styled';
 import LoginImg from '@assets/images/pngs/kakao_button.png';
-import { colors } from '@styles/colors';
+import MainLogo from '@assets/images/pngs/signup_logo.png';
 
-const Login = () => {
+const Main = () => {
   const handleKakaoRedirect = () => {
     window.location.href = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${
       import.meta.env.VITE_CLIENT_ID
@@ -11,22 +11,37 @@ const Login = () => {
   };
 
   return (
-    <Container direction="column" justify="flex-start">
+    <Flex direction="column">
+      <Container>
+        <LogoImg src={MainLogo} />
+      </Container>
       <LoginButton onClick={handleKakaoRedirect}>
         <KaKaoLogin src={LoginImg} />
       </LoginButton>
-    </Container>
+    </Flex>
   );
 };
 
-export default Login;
+export default Main;
 
-const Container = styled(Flex)``;
+const Container = styled(Flex)`
+  flex: 4;
+`;
+
+const LogoImg = styled.img`
+  display: flex;
+  width: 220px;
+  margin: 0 0 30px 32px;
+`;
+
 const LoginButton = styled(Flex)`
   height: fit-content;
-  padding: 0 80px;
+  position: relative;
+  flex: 1;
 `;
 const KaKaoLogin = styled.img`
   display: flex;
-  width: 100%;
+  width: 320px;
+  position: absolute;
+  bottom: 65px;
 `;
