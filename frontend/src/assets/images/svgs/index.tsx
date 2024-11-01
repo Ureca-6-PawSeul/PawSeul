@@ -6,6 +6,7 @@ export { default as Fordong1 } from './Fordong1';
 export { default as Fordong2 } from './Fordong2';
 export { default as Fordong3 } from './Fordong3';
 export { default as Fordong4 } from './Fordong4';
+export { default as HealthGuideBanner } from './HealthGuideBanner';
 export { default as HealthIcon } from './HealthIcon';
 export { default as HomeIcon } from './HomeIcon';
 export { default as KakaoIcon } from './KakaoIcon';
