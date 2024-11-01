@@ -5,89 +5,98 @@ import { ClickBtn } from '@/components/mypage/profile';
 import { colors } from '@/styles/colors';
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
-import user_reviews from '@/mocks/data/user_order.json';
-import { OrderContent } from '@/components/mypage/orderHistory/orderContent';
 import { Button } from '@/components/common/Button';
+import { getUserReviewDone } from '@/apis/getUserReviewDone';
+import { getUserReviewRemain } from '@/apis/getUserReviewRemain';
+import { OrderContent } from '@/components/mypage/orderHistory/orderContent';
 
 export const ReviewHistoryPage = () => {
-  const [activeTab, setactiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(1);
+  const [userReviewList, setUserReviewList] = useState({
+    user_id: '',
+    username: '',
+    email: '',
+    reviews: [],
+  });
 
   const handleClickTab = (tabIndex: number) => {
-    setactiveTab(tabIndex);
-    console.log(tabIndex);
+    setActiveTab(tabIndex);
   };
 
+  useEffect(() => {
+    if (activeTab === 2) getUserReviewDone(setUserReviewList);
+    else if (activeTab === 1) getUserReviewRemain(setUserReviewList);
+
+    console.log(userReviewList);
+  }, [activeTab]);
+
   return (
-    <Flex
-      direction="column"
-      justify="flex-start"
-      padding="0 12px"
-      margin="12px 0"
-      gap={20}
-    >
+    <Flex align="flex-start">
       <Flex
-        direction="row"
-        justify="space-evenly"
-        height="fit-content"
+        direction="column"
+        justify="flex-start"
+        padding="0 12px"
+        margin="12px 0"
+        gap={20}
+        width="auto"
+        height="auto"
       >
-        <Flex
-          direction="column"
-          align="flex-start"
-          width="fit-content"
-        >
-          <Text colorCode={colors.Black} typo="Label1">
-            이예원님
-          </Text>
-          <Text colorCode={colors.Black} typo="Label1">
-            email@naver.com
-          </Text>
-        </Flex>
-        <KakaoIcon width={40} />
-      </Flex>
-
-      <Flex justify="flex-start" height="fit-content" gap={10}>
-        <Tab
-          direction="row"
-          onClick={() => handleClickTab(1)}
-          isSelected={activeTab === 1}
-        >
-          <Text typo="Label1">구매후기 작성</Text>
-        </Tab>
-        <Tab
-          direction="row"
-          onClick={() => handleClickTab(2)}
-          isSelected={activeTab === 2}
-        >
-          <Text typo="Label1">작성한 구매후기</Text>
-        </Tab>
-      </Flex>
-
-      <Wrapper align="flex-start" padding="12px 12px" height="fit-content">
-        <OrderContent
-          price={7800}
-          title="수제명가 오리도가니 대용량500g 국산수제개껌 껌"
-          bottomContent="배송 완료"
-          quantity={3}
-          productImg="https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/10e6/e003352126219d2cecc126175760f06540c241e1fbc15ce2a84791f79074.jpg"
-        >
-          <Flex width="120px">
-            <Button width="100%" height="25px">
-              <Text typo="Label3">리뷰 작성하기</Text>
-            </Button>
+        <Flex direction="row" justify="space-evenly" gap={20}>
+          <Flex direction="column" justify="flex-start" align="flex-start" width="auto">
+            <Text colorCode={colors.Black} typo="Label1">
+              {userReviewList.username}님
+            </Text>
+            <Text colorCode={colors.Black} typo="Label1">
+              {userReviewList.email}
+            </Text>
           </Flex>
-        </OrderContent>
-      </Wrapper>
+          <KakaoIcon width={40} />
+        </Flex>
+        <Flex justify="flex-start" gap={10}>
+          <Tab
+            direction="row"
+            onClick={() => handleClickTab(1)}
+            isSelected={activeTab === 1}
+          >
+            <Text typo="Label1">구매후기 작성</Text>
+          </Tab>
+          <Tab
+            direction="row"
+            onClick={() => handleClickTab(2)}
+            isSelected={activeTab === 2}
+          >
+            <Text typo="Label1">작성한 구매후기</Text>
+          </Tab>
+        </Flex>
+        {userReviewList?.reviews.map((review) => (
+          <Wrapper align="flex-start" padding="12px 12px">
+            <OrderContent
+              price={review.price}
+              title={review.title}
+              bottomContent={review.state}
+              quantity={review.quantity}
+              productImg={review.product_img}
+            >
+              <Flex width="120px">
+                <Button width="100%" height="25px">
+                  <Text typo="Label3">리뷰 작성하기</Text>
+                </Button>
+              </Flex>
+            </OrderContent>
+          </Wrapper>
+        ))}
+      </Flex>
     </Flex>
   );
 };
 
 const Tab = styled(ClickBtn)<{ isSelected: boolean }>`
   width: 100px;
-  border-bottom: solid 1px;
+  border-bottom: solid 2px;
   border-color: ${({ isSelected }) =>
     isSelected ? colors.Gray200 : 'transparent'};
 `;
 
 const Wrapper = styled(Flex)`
- border : solid 1px ${colors.Gray100}
-`
+  border: solid 1px ${colors.Gray100};
+`;
