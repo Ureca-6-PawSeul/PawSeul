@@ -36,7 +36,24 @@ export class CartService {
   // 유저ID로 장바구니 조회
   async getCartsUserId(userId: string): Promise<GetCartsResponseDto> {
     const user = await this.findUserId(userId);
-    return { carts: user.cartProducts };
+
+    const carts = user.cartProducts.map((cartProduct) => {
+      if (!cartProduct.product) {
+        throw new NotFoundException(`장바구니에 상품이 없습니다.`);
+      }
+
+      const product = cartProduct.product;
+      return {
+        cartProductId: cartProduct.cartProductId,
+        productId: product.productId,
+        title: product.title,
+        price: product.price,
+        productImg: product.productImg,
+        quantity: cartProduct.quantity,
+      };
+    });
+
+    return { carts };
   }
 
   // 장바구니 상품 추가
