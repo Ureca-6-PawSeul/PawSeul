@@ -31,12 +31,12 @@ export class AuthController {
 
     if (!isSignup) {
       // 정보 등록 페이지
-      return res.redirect('http://localhost:3000/');
+      return res.redirect('http://localhost:3000/signup');
     }
 
     this.logger.log('카카오 API');
 
     //홈페이지
-    return res.redirect('http://localhost:3000/login');
+    return res.redirect('http://localhost:3000');
   }
 }

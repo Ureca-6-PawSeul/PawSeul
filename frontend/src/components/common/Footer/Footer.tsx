@@ -35,4 +35,5 @@ const FooterText = styled(Text)`
   font-family: 'Pretendard';
   font-size: 0.65rem;
   line-height: 140%;
+  text-align: center;
 `;

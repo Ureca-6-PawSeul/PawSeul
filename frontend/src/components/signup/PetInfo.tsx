@@ -9,7 +9,7 @@ interface SignupProps {
   name: string;
   gender: string;
   age: string;
-  weight: string;
+  weight: number;
   neutered: boolean;
 }
 
@@ -17,19 +17,15 @@ const PetInfo = () => {
   const [step, setStep] = useState<number>(0); // 현재 단계 추적
   const [formData, setFormData] = useState<SignupProps>({
     name: '',
-    gender: '수컷',
+    gender: '남자',
     age: '',
-    weight: '',
+    weight: 0,
     neutered: true,
   });
 
   const handleNextClicked = () => {
     if (step < 4) setStep((prev) => prev + 1);
-    else handleSubmit();
-  };
-
-  const handleSubmit = () => {
-    console.log('서버로 전송할 데이터:', formData);
+    else handleNavigate();
   };
 
   const handleAnswerChanged = (key: string, value) => {
@@ -38,7 +34,8 @@ const PetInfo = () => {
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate('/signup/result');
+    console.log('서버로 전송할 데이터:', formData);
+    navigate('/signup/result', { state: formData });
   };
 
   return (
@@ -52,12 +49,14 @@ const PetInfo = () => {
         {step >= 0 && (
           <InfoBox direction="column" align="flex-start">
             <Text typo="Body2">반려견의 이름은 무엇인가요?</Text>
-            <Input
-              type="text"
-              placeholder="이름"
-              value={formData.name}
-              onChange={(e) => handleAnswerChanged('name', e.target.value)}
-            />
+            <Flex>
+              <Input
+                type="text"
+                placeholder="이름"
+                value={formData.name}
+                onChange={(e) => handleAnswerChanged('name', e.target.value)}
+              />
+            </Flex>
           </InfoBox>
         )}
 
@@ -66,16 +65,16 @@ const PetInfo = () => {
             <Text typo="Body2">반려견의 성별을 선택해주세요</Text>
             <Flex gap={12} justify="space-between">
               <InfoBtn
-                onClick={() => handleAnswerChanged('gender', '수컷')}
-                active={formData.gender === '수컷'}
+                onClick={() => handleAnswerChanged('gender', '남자')}
+                active={formData.gender === '남자'}
               >
-                수컷
+                남자
               </InfoBtn>
               <InfoBtn
-                onClick={() => handleAnswerChanged('gender', '암컷')}
-                active={formData.gender === '암컷'}
+                onClick={() => handleAnswerChanged('gender', '여자')}
+                active={formData.gender === '여자'}
               >
-                암컷
+                여자
               </InfoBtn>
             </Flex>
           </InfoBox>
@@ -94,6 +93,7 @@ const PetInfo = () => {
               <option value="">나이를 선택하세요</option>
               <option value="0-2">0~2살</option>
               <option value="3-5">3~5살</option>
+              <option value="5-">5살 이상</option>
             </AgeSelect>
           </InfoBox>
         )}
@@ -104,12 +104,17 @@ const PetInfo = () => {
               <Text typo="Body2">반려견의 몸무게를 알려주세요</Text>
               <Guide>몸무게에 따라 소/중/대형견으로 나뉘어져요</Guide>
             </Flex>
-            <Input
-              type="text"
-              placeholder="몸무게"
-              value={formData.weight}
-              onChange={(e) => handleAnswerChanged('weight', e.target.value)}
-            />
+            <Flex gap={4}>
+              <Input
+                type="text"
+                placeholder="몸무게"
+                value={formData.weight}
+                onChange={(e) => handleAnswerChanged('weight', e.target.value)}
+              />
+              <Text typo="Body3" colorCode={colors.Gray400}>
+                kg
+              </Text>
+            </Flex>
           </InfoBox>
         )}
 
@@ -140,7 +145,7 @@ const PetInfo = () => {
           backgroundColor={colors.MainColor}
           padding="12px 20px"
           borderRadius={10}
-          onClick={step < 4 ? handleNextClicked : handleNavigate}
+          onClick={handleNextClicked}
         >
           {step < 4 ? '다음으로' : '회원가입'}
         </NextButton>
@@ -157,7 +162,7 @@ const Container = styled(Flex)`
 `;
 
 const Input = styled.input`
-  width: -webkit-fill-available;
+  flex: 1;
   padding: 12px 20px;
   border: 1px solid ${colors.Gray200};
   border-radius: 10px;
