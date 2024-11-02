@@ -12,6 +12,11 @@ export const handlers = [
     return HttpResponse.json(data);
   }),
 
+  http.get('/api/product/top', () => {
+    const data = [...food.slice(30,35), ...snack.slice(20,25), ...supplement.slice(12,15)];
+    return HttpResponse.json(data);
+  }),
+
   http.get('/api/product/food', () => {
     return HttpResponse.json(food);
   }),
