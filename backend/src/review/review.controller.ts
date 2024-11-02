@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -54,5 +55,16 @@ export class ReviewController {
     };
 
     return this.reviewService.createProductReview(userId, review);
+  }
+
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiOperation({ summary: '상품 리뷰 삭제' })
+  @Delete('/:productReviewId')
+  async deleteProductReview(
+    @Req() req: Request,
+    @Param('productReviewId') productReviewId: string,
+  ) {
+    const userId = req.user?.userId;
+    return this.reviewService.deleteProductReview(productReviewId, userId);
   }
 }
