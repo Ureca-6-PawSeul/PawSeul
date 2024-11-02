@@ -1,15 +1,8 @@
-import {
-  Controller,
-  Post,
-  Body,
-  Param,
-  Get,
-  UseGuards,
-  Req,
-} from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, Req } from '@nestjs/common';
 import { CartService } from './cart.service';
-import { GetCartsResponseDto } from './dto/getCartsResponse.dto';
-import { AddProductToCartDto } from './dto/addProductToCart.dto';
+import { GetCartsResponseDto } from 'src/cart/dto/getCartsResponse.dto';
+import { AddProductCartDto } from 'src/cart/dto/addProductCart.dto';
+import { UpdateProductCartDto } from 'src/cart/dto/updateProductCart.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
@@ -19,34 +12,52 @@ import { Request } from 'express';
 export class CartController {
   constructor(private readonly cartService: CartService) {}
 
+  private getUserId(req: Request): string {
+    return req.user?.userId;
+  }
+
+  // 장바구니 조회
   @UseGuards(AuthGuard('jwt-access'))
   @Get()
   @ApiBearerAuth('accessToken')
   @ApiResponse({
-    status: 200,
     description: '장바구니 정보 조회 성공',
     type: GetCartsResponseDto,
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
   async getCarts(@Req() req: Request): Promise<GetCartsResponseDto> {
-    const userId = req.user?.userId;
-    return this.cartService.getCartsByUserId(userId);
+    const userId = this.getUserId(req);
+    return this.cartService.getCartsUserId(userId);
   }
 
+  // 장바구니 상품 추가
   @UseGuards(AuthGuard('jwt-access'))
   @Post('add')
   @ApiBearerAuth('accessToken')
   @ApiResponse({
-    status: 201,
-    description: '장바구니에 제품 추가 성공',
-    type: AddProductToCartDto,
+    description: '장바구니에 상품 추가 성공',
+    type: AddProductCartDto,
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
   async addProduct(
     @Req() req: Request,
-    @Body() addProductDto: AddProductToCartDto,
+    @Body() addProductDto: AddProductCartDto,
   ) {
-    const userId = req.user?.userId;
-    return this.cartService.addProductToCart(userId, addProductDto);
+    const userId = this.getUserId(req);
+    return this.cartService.addProductCart(userId, addProductDto);
+  }
+
+  // 장바구니 상품 수정
+  @UseGuards(AuthGuard('jwt-access'))
+  @Post('update')
+  @ApiBearerAuth('accessToken')
+  @ApiResponse({
+    description: '장바구니에 상품 수정 성공',
+    type: UpdateProductCartDto,
+  })
+  async updateProduct(
+    @Req() req: Request,
+    @Body() updateProductDto: UpdateProductCartDto,
+  ) {
+    const userId = this.getUserId(req);
+    return this.cartService.updateProductCart(userId, updateProductDto);
   }
 }

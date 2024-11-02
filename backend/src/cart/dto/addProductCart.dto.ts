@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class AddProductToCartDto {
+export class AddProductCartDto {
   @ApiProperty({ description: '추가할 제품 ID' })
   productId: string;
 
