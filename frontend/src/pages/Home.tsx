@@ -8,7 +8,6 @@ import { colors } from '@/styles/colors';
 import { useEffect, useState } from 'react';
 import { ProductType } from '@/assets/types/ProductType';
 import { getTopProductList } from '@/apis/getTopProductLis';
-import Card from '@/components/home/Card';
 import { Product } from '@/components/store/Product';
 
 const Home = () => {
@@ -24,6 +23,7 @@ const Home = () => {
       direction="column"
       align="center"
       justify="flex-start"
+      padding="0 0 70px 0"
       // height="fit-content"
     >
       {/* 배너 */}
@@ -36,6 +36,7 @@ const Home = () => {
           ))}
         </Carousel>
       </Flex>
+
 
       {/* TOP10 상품 리스트 */}
       <Flex padding="12px 12px" direction="column" height={360}>
