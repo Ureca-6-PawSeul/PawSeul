@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { CartProduct } from 'src/entity/cart.product.entity';
 import { Food } from 'src/entity/food.entity';
 import { Snack } from 'src/entity/snack.entity';
 import { Supplement } from 'src/entity/supplement.entity';
@@ -54,4 +55,7 @@ export class Product {
 
   @OneToMany(() => Snack, (snack) => snack.product)
   snack?: Snack[];
+
+  @OneToMany(() => CartProduct, (cartProduct) => cartProduct.product)
+  cartProducts?: CartProduct[];
 }
