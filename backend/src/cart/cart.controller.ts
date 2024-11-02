@@ -1,8 +1,17 @@
-import { Controller, Post, Body, Get, UseGuards, Req } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  UseGuards,
+  Req,
+  Delete,
+} from '@nestjs/common';
 import { CartService } from './cart.service';
 import { GetCartsResponseDto } from 'src/cart/dto/getCartsResponse.dto';
 import { AddProductCartDto } from 'src/cart/dto/addProductCart.dto';
 import { UpdateProductCartDto } from 'src/cart/dto/updateProductCart.dto';
+import { DeleteProductDto } from 'src/cart/dto/deleteProduct.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
@@ -59,5 +68,24 @@ export class CartController {
   ) {
     const userId = this.getUserId(req);
     return this.cartService.updateProductCart(userId, updateProductDto);
+  }
+
+  // 장바구니 상품 삭제
+  @UseGuards(AuthGuard('jwt-access'))
+  @Delete('remove')
+  @ApiBearerAuth('accessToken')
+  @ApiResponse({
+    description: '장바구니 상품 삭제 성공',
+    type: GetCartsResponseDto,
+  })
+  async deleteProduct(
+    @Req() req: Request,
+    @Body() deleteProductDto: DeleteProductDto,
+  ) {
+    const userId = this.getUserId(req);
+    return this.cartService.deleteProductCart(
+      userId,
+      deleteProductDto.productId,
+    );
   }
 }
