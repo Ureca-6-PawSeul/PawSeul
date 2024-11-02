@@ -10,14 +10,14 @@ export const Product = ({ product_img, title, price }: ProductType) => {
     <Wrapper
       direction="column"
       widthPer={100}
-      height={252}
+      heightPer={100}
       align="flex-start"
       gap={1}
       padding="2"
       backgroundColor={colors.White}
     >
       <Flex direction="column" align="center">
-        <Img src={product_img} width="100%" />
+        <Img src={product_img} />
       </Flex>
       <Flex height="auto">
         <Title colorCode={colors.Black} typo="Body3">
@@ -71,4 +71,6 @@ const Title = styled(Text)`
 
 export const Img = styled.img`
   border-radius: 10px;
+  width: 80%;
+  height: 100%;
 `;

@@ -16,6 +16,7 @@
     "@emotion/babel-plugin": "^11.12.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@types/react-slick": "^0.23.13",
     "axios": "^1.7.7",
     "emotion-reset": "^3.0.1",
     "react": "^18.3.1",
@@ -23,6 +24,8 @@
     "react-icons": "^5.3.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.27.0",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
     "vite-plugin-svgr": "^4.2.0",
     "zustand": "^5.0.0"
   },

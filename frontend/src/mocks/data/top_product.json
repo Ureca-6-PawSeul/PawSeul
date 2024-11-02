@@ -1,0 +1,44 @@
+[
+  {
+    "product_id": "1",
+    "title": "Product 1",
+    "price": 10000,
+    "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/473983667633694-3cd43bcb-8157-4ade-835a-9862e71bcf44.png"
+  },
+  {
+    "product_id": "2",
+    "title": "Product 2",
+    "price": 20000,
+    "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/473983667633694-3cd43bcb-8157-4ade-835a-9862e71bcf44.png"
+  },
+  {
+    "product_id": "3",
+    "product_img": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/3496183902033534-11fc0aab-ba32-4e00-9939-c0d1b189e416.jpg",
+    "title": "마이베프 생유 베리 마치 반려동물 펫밀크, 크랜베리맛, 200ml, 5개",
+    "price": 30000
+  },
+  {
+    "product_id": "4",
+    "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/601023922640291-adbc3b6a-52de-4947-866a-3ed032fe078d.jpg",
+    "title": "베게브랜드 스마트베게본 스틱 3in1 18p, 혼합맛(클로렐라/밀..., 4개",
+    "price": 30000
+  },
+  {
+    "product_id": "4",
+    "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/601023922640291-adbc3b6a-52de-4947-866a-3ed032fe078d.jpg",
+    "title": "베게브랜드 스마트베게본 스틱 3in1 18p, 혼합맛(클로렐라/밀..., 4개",
+    "price": 30000
+  },
+  {
+    "product_id": "4",
+    "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/601023922640291-adbc3b6a-52de-4947-866a-3ed032fe078d.jpg",
+    "title": "베게브랜드 스마트베게본 스틱 3in1 18p, 혼합맛(클로렐라/밀..., 4개",
+    "price": 30000
+  },
+  {
+    "product_id": "4",
+    "product_img": "https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/601023922640291-adbc3b6a-52de-4947-866a-3ed032fe078d.jpg",
+    "title": "베게브랜드 스마트베게본 스틱 3in1 18p, 혼합맛(클로렐라/밀..., 4개",
+    "price": 30000
+  }
+]
