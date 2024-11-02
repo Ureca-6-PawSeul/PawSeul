@@ -1,3 +1,5 @@
+export { default as CartEmpty } from './CartEmpty';
+export { default as CartEmptyBlack } from './CartEmptyBlack';
 export { default as Check } from './Check';
 export { default as DefaultProfile } from './DefaultProfile';
 export { default as DogProfile } from './DogProfile';

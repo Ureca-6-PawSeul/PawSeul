@@ -5,6 +5,7 @@ import supplement from '@/mocks/data/supplement.json';
 import user_order from '@/mocks/data/user_order.json';
 import user_reviews_done from '@/mocks/data/user_reviews_done.json';
 import user_reviews_remain from '@/mocks/data/user_reviews_remain.json';
+import product_names from '@/mocks/data/product_names.json';
 
 export const handlers = [
   http.get('/api/product', () => {
@@ -35,4 +36,8 @@ export const handlers = [
   http.get('/api/mypage/reviewRemain', () => {
     return HttpResponse.json(user_reviews_remain);
   }),
+
+  http.get('/api/search', () => {
+    return HttpResponse.json(product_names);
+  })
 ];

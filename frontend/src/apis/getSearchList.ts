@@ -6,6 +6,5 @@ export const getSearchList = async (searchQuery: string) => {
   const dataArray = Object.values(response.data) as { title: string }[];
   //각 객체의 title 문자열 속성만 추출하여 문자열 배열로 변환
   const titleArray = dataArray.map(item => item.title);
-  console.log(titleArray);
   return titleArray;
 }

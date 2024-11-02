@@ -5,24 +5,29 @@ import styled from '@emotion/styled';
 import Checkbox from '@/components/cart/Checkbox';
 import { colors } from '@styles/colors';
 
-import CartItem from "@components/cart/CartItem";
+import CartItem from '@components/cart/CartItem';
 import CartCost from '@/components/cart/CartCost';
+import { CartEmptyBlack } from '@/assets/images/svgs';
 
 const Cart = () => {
   const cartList = carts;
-  const totalPrice = cartList.reduce((acc, cart) => acc + (cart.price * cart.quantity), 0);
+  const totalPrice = cartList.reduce(
+    (acc, cart) => acc + cart.price * cart.quantity,
+    0,
+  );
 
   return (
     <Flex
       direction="column"
       backgroundColor={colors.Gray50}
       margin="0 0 62px 0"
-      width='fit-content'
+      justify="flex-start"
     >
       <Flex
         justify="space-between"
         backgroundColor={colors.White}
         padding="20px 16px"
+        height="fit-content"
       >
         <Flex gap={8} justify="flex-start">
           <Label>
@@ -30,20 +35,28 @@ const Cart = () => {
           </Label>
           <Text typo="Label1">전체선택</Text>
         </Flex>
-        <DeleteText typo="Label3" colorCode={colors.Gray500}>
+        <DeleteText typo="Label1" colorCode={colors.Gray500}>
           상품삭제
         </DeleteText>
       </Flex>
       <Flex direction="column">
         <CartListWrapper direction="column" margin="16px 0px">
-          {cartList.map((item, index) => {
-            return (
-              <CartItem key={index} item={item} index={index}/>
-            );
-          })}
+          {cartList.length > 0 ? (
+            cartList.map((item, index) => {
+              return <CartItem key={index} item={item} index={index} />;
+            })
+          ) : (
+            <Flex backgroundColor={colors.White}>
+              <CartEmptyBlack width="180px" />
+            </Flex>
+          )}
         </CartListWrapper>
       </Flex>
-      <CartCost cost={totalPrice}/>
+      {cartList.length > 0 ? (
+        <CartCost cost={totalPrice} />
+      ) : (
+        <CartCost cost={0} />
+      )}
     </Flex>
   );
 };
@@ -63,10 +76,7 @@ const DeleteText = styled(Text)`
 `;
 
 const CartListWrapper = styled(Flex)`
-  /* box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px; */
   position: relative;
 `;
-
-
 
 export default Cart;
