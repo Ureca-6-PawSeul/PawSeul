@@ -1,11 +1,8 @@
 import styled from '@emotion/styled';
 import { Flex } from '@components/common/Flex';
 import { Footer } from '@components/common/Footer';
-import useModal from '@/components/common/Modal/useModal';
 
 const Home = () => {
-  const {isOpen, modalRef, toggleModal} = useModal;
-
   return (
     <Wrapper direction="column" align="center" justify="flex-start">
       <div></div>
