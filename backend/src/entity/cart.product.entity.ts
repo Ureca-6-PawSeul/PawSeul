@@ -24,10 +24,6 @@ export class CartProduct {
   @Column()
   quantity: number;
 
-  @ApiProperty({ description: '장바구니 ID' })
-  @Column()
-  cartId: string;
-
   @ManyToOne(() => User, (user) => user.orders)
   @JoinColumn({ name: 'user_id' })
   user: User;

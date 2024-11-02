@@ -6,7 +6,7 @@ import { CartProduct } from 'src/entity/cart.product.entity';
 import { Product } from 'src/entity/product.entity';
 import { AddProductCartDto } from 'src/cart/dto/addProductCart.dto';
 import { UpdateProductCartDto } from 'src/cart/dto/updateProductCart.dto';
-import { GetCartsResponseDto } from './dto/getCartsResponse.dto';
+import { GetCartsResponseDto } from 'src/cart/dto/getCartsResponse.dto';
 
 @Injectable()
 export class CartService {
@@ -74,5 +74,19 @@ export class CartService {
     // 수량 업데이트
     cartProduct.quantity = updateProductDto.quantity;
     return await this.entityManager.save(cartProduct);
+  }
+
+  // 장바구니 상품 삭제
+  async deleteProductCart(userId: string, productId: string): Promise<void> {
+    const user = await this.findUserId(userId);
+    const cartProduct = await this.entityManager.findOne(CartProduct, {
+      where: { user, product: { productId } },
+    });
+
+    if (!cartProduct) {
+      throw new NotFoundException('장바구니에 해당 상품이 없습니다.');
+    }
+
+    await this.entityManager.remove(cartProduct);
   }
 }
