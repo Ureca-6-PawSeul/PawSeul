@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Product } from 'src/entity/product.entity';
+import { FoodType, SnackType, SupplementType } from 'src/types/category';
 
 import { Repository } from 'typeorm';
 
@@ -13,7 +14,7 @@ export class ProductService {
   ) {}
   async getProducts(
     category: 'food' | 'snack' | 'supplement',
-    subcategory: string,
+    subcategory: SnackType | FoodType | SupplementType | '전체',
     page: number,
     limit: number,
   ) {
@@ -26,7 +27,7 @@ export class ProductService {
       .createQueryBuilder('product')
       .where('product.category = :category', { category });
 
-    if (subcategory !== 'all') {
+    if (subcategory !== '전체') {
       if (category === 'snack') {
         query
           .innerJoinAndSelect('product.snack', 'snack') // Snack 테이블과 조인

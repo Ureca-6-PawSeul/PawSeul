@@ -1,5 +1,10 @@
 export type Category = 'food' | 'supplement' | 'snack';
 
+export enum CategoryType {
+  FOOD = 'food',
+  SUPPLEMENT = 'supplement',
+  SNACK = 'snack',
+}
 export enum SnackType {
   CAN = '캔/파우치',
   DRY = '건조간식',
