@@ -4,7 +4,7 @@ import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 import { IoSearch } from 'react-icons/io5';
 import { TiDelete } from 'react-icons/ti';
-import { useSearchStore } from '@/store/searchStore';
+import { useSearchStore } from '@/stores/searchStore';
 import { useEffect } from 'react';
 import { getSearchList } from '@/apis/getSearchList';
 import SearchResult from '@/components/search/SearchResult';
@@ -84,7 +84,10 @@ const Search = () => {
       {searchQuery ? (
         <SearchResult searchResults={searchResults} />
       ) : (
-        <RecentSearchResult recentSearchQueries={recentSearchQueries} clearRecentSearchQueries={clearRecentSearchQueries}/>
+        <RecentSearchResult
+          recentSearchQueries={recentSearchQueries}
+          clearRecentSearchQueries={clearRecentSearchQueries}
+        />
       )}
     </Flex>
   );
@@ -110,15 +113,13 @@ const Input = styled.input`
   resize: none;
   border: none;
   width: 100%;
-  &::placeholder{
+  &::placeholder {
     line-height: 150%;
     font-size: 15px;
     font-weight: 500;
     color: ${colors.Gray300};
   }
 `;
-
-
 
 const EraseButton = styled(Flex)`
   cursor: pointer;

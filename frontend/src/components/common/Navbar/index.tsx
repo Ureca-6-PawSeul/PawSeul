@@ -9,6 +9,7 @@ import StoreIcon from '@assets/images/svgs/StoreIcon';
 import HealthIcon from '@assets/images/svgs/HealthIcon';
 import SearchIcon from '@assets/images/svgs/SearchIcon';
 import MypageIcon from '@assets/images/svgs/MypageIcon';
+import { useNavbarStore } from '@/stores/navStore';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -19,9 +20,22 @@ const Navbar = () => {
     navigate(path);
   };
 
+  const { isVisible, showNavbar, hideNavbar } = useNavbarStore();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    const hideNavbarPaths = ['/main', '/login', '/cart', '/payment'];
+    const detailPathPattern = /^\/store\/detail\/\d+$/;
+    if (
+      hideNavbarPaths.includes(pathname) ||
+      detailPathPattern.test(pathname)
+    ) {
+      hideNavbar();
+    } else {
+      showNavbar();
+    }
+  }, [pathname, hideNavbar, showNavbar]);
+
+  if (!isVisible) return null;
 
   return (
     <Wrapper>
@@ -41,7 +55,7 @@ const Navbar = () => {
             onClick={() => handleNavigate('/store')}
             iconType="store"
           >
-            <StoreIcon height={24} />
+            <StoreIcon height={20} />
           </NavItem>
           <NavItem
             isActive={pathname === '/health'}
@@ -87,7 +101,7 @@ const TabContainer = styled.div`
   min-width: 360px;
   position: fixed;
   width: 100%;
-  height: 85px;
+  height: 65px;
   display: fixed;
   bottom: 0;
   z-index: 20;
