@@ -19,24 +19,45 @@ export const Header = ({
   onRightIconClick,
 }: HeaderType) => {
   return (
-    <Flex direction="row" align="center" justify="space-between" height={46}>
-      <IconBox onClick={onLeftIconClick}>{LeftIcon}</IconBox>
+    <HeaderWrapper>
+      <FixedHeader
+        direction="row"
+        align="center"
+        justify="space-between"
+        height={56}
+        padding="0 24px"
+      >
+        <IconBox onClick={onLeftIconClick}>{LeftIcon}</IconBox>
 
-      {title && (
-        <Text
-          typo="Heading4"
-          align="center"
-          colorCode={colors.Black}
-          margin="0 auto"
-        >
-          {title}
-        </Text>
-      )}
+        {title && (
+          <Text
+            typo="Heading4"
+            align="center"
+            colorCode={colors.Black}
+            margin="0 auto"
+          >
+            {title}
+          </Text>
+        )}
 
-      <IconBox onClick={onRightIconClick}>{RightIcon}</IconBox>
-    </Flex>
+        <IconBox onClick={onRightIconClick}>{RightIcon}</IconBox>
+      </FixedHeader>
+    </HeaderWrapper>
   );
 };
+
+const HeaderWrapper = styled(Flex)`
+  position: relative;
+  height: fit-content;
+`;
+
+const FixedHeader = styled(Flex)`
+  position: absolute;
+  top: 0;
+  background-color: ${colors.White};
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+`;
 
 const IconBox = styled.div`
   display: flex;
@@ -44,4 +65,6 @@ const IconBox = styled.div`
   height: 100%;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 `;

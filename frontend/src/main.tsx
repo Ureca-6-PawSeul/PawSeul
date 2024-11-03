@@ -1,6 +1,5 @@
 import { createRoot } from 'react-dom/client';
 import App from './App';
-
 import { setupWorker } from 'msw/browser';
 import { handlers } from './mocks/handler';
 
