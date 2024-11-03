@@ -7,7 +7,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { FiPlusCircle } from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
 import { CartType } from '@assets/types/CartType';
-import useCartStore from '@/store/cartStore';
+import useCartStore from '@/stores/cartStore';
 
 interface CartItemProps {
   item: CartType;

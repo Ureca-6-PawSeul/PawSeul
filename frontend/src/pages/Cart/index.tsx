@@ -8,7 +8,7 @@ import CartItem from '@components/cart/CartItem';
 import CartCost from '@/components/cart/CartCost';
 import { CartEmptyBlack } from '@/assets/images/svgs';
 
-import useCartStore from '@/store/cartStore';
+import useCartStore from '@/stores/cartStore';
 import { useEffect } from 'react';
 
 const Cart = () => {
