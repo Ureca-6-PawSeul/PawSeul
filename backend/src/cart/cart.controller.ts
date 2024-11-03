@@ -5,6 +5,7 @@ import {
   Get,
   UseGuards,
   Req,
+  Patch,
   Delete,
 } from '@nestjs/common';
 import { CartService } from './cart.service';
@@ -56,7 +57,7 @@ export class CartController {
 
   // 장바구니 상품 수정
   @UseGuards(AuthGuard('jwt-access'))
-  @Post('update')
+  @Patch('update')
   @ApiBearerAuth('accessToken')
   @ApiResponse({
     description: '장바구니에 상품 수정 성공',

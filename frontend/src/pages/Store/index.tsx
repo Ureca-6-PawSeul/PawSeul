@@ -114,7 +114,7 @@ const Store = () => {
       </Flex>
 
       {/* 상품 리스트 */}
-      <Wrapper direction="row" justify="center" gap={30}>
+      <Wrapper direction="row" justify="space-evenly" gap={35}>
         {productDataList?.map((item, index) => (
           <ProductWrapper
             key={index}
@@ -145,6 +145,6 @@ const Wrapper = styled(Flex)`
 
 const ProductWrapper = styled.div`
   /* width: calc(33.33% - 8px); */
-  width: calc(50% - 30px);
+  width: calc(50% - 35px);
   box-sizing: border-box;
 `;
