@@ -8,7 +8,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiCookieAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { Request, Response } from 'express';
 
@@ -20,6 +20,7 @@ export class AuthController {
 
   @Get('kakao')
   @ApiOperation({ summary: '카카오 로그인' })
+  @ApiCookieAuth('accessToken')
   @UseGuards(AuthGuard('kakao'))
   async kakaoLogin(@Req() req: Request, @Res() res: Response) {
     this.logger.log('kakaoLogin');
@@ -50,6 +51,7 @@ export class AuthController {
   }
 
   @Post('logout')
+  @ApiCookieAuth('accessToken')
   @ApiOperation({ summary: '로그아웃' })
   async logout(@Res() res: Response) {
     res.clearCookie('accessToken');

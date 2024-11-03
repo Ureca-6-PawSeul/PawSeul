@@ -11,6 +11,7 @@ import {
 import { ReviewService } from './review.service';
 import {
   ApiBody,
+  ApiCookieAuth,
   ApiCreatedResponse,
   ApiOperation,
   ApiTags,
@@ -36,6 +37,7 @@ export class ReviewController {
   }
 
   @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
   @Post('/:productId')
   @ApiBody({
     type: CreateReviewRequestDto,
@@ -59,6 +61,7 @@ export class ReviewController {
 
   @UseGuards(AuthGuard('jwt-access'))
   @ApiOperation({ summary: '상품 리뷰 삭제' })
+  @ApiCookieAuth('accessToken')
   @Delete('/:productReviewId')
   async deleteProductReview(
     @Req() req: Request,
@@ -69,6 +72,7 @@ export class ReviewController {
   }
 
   @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
   @ApiOperation({ summary: '자신의 리뷰' })
   @Get('/me')
   async getMyReview(@Req() req: Request) {

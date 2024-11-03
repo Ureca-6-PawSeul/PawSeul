@@ -1,6 +1,11 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
 import { OrderService } from './order.service';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiCookieAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { orderListResponseDto } from 'src/order/dto/orderListResponse.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
@@ -11,6 +16,7 @@ export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
   @Get('/list')
+  @ApiCookieAuth('accessToken')
   @UseGuards(AuthGuard('jwt-access'))
   @ApiOperation({ summary: '주문 목록 조회' })
   @ApiResponse({
@@ -24,6 +30,8 @@ export class OrderController {
     return this.orderService.getOrderList(userId);
   }
 
+  @Get('/review')
+  @ApiCookieAuth('accessToken')
   @Post('/confirm')
   @ApiOperation({ summary: '결제 승인 요청' })
   async confirmOrder(
@@ -35,6 +43,8 @@ export class OrderController {
   }
 
   @Post('/temp-order')
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
   @ApiOperation({
     summary: '임시 주문(order table에 BEFORE_PAYMENT 상태로 insert)',
   })
