@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Order } from 'src/entity/order.entity';
 import { orderListResponseDto } from 'src/order/dto/orderListResponse.dto';
@@ -17,6 +17,12 @@ export class OrderService {
   // async tempOrder(products: any) {}
 
   async getOrderList(userId: string): Promise<orderListResponseDto[]> {
+    if (!userId) {
+      throw new HttpException(
+        '사용자를 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
     const orderProduct = await this.orderRepository.find({
       where: {
         user: { userId },
