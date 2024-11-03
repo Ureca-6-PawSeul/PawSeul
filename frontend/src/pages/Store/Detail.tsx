@@ -55,9 +55,8 @@ const Detail = () => {
             </DetailText>
           </Flex>
         </Flex>
-        <Hr />
-        <Flex justify="flex-end">
-          <Text typo="Heading3">{mock.price}</Text>
+        <Flex justify="flex-end" padding="0px 16px">
+          <Text typo="Heading3" >{mock.price}</Text>
         </Flex>
       </Flex>
       <Flex
@@ -67,6 +66,7 @@ const Detail = () => {
         padding="32px 16px 48px 16px"
         margin="16px 0 0"
         backgroundColor={colors.White}
+        align='flex-start'
       >
         <DetailText typo="Heading3" justify="flex-start">
           상품 설명
