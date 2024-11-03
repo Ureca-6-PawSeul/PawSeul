@@ -3,6 +3,8 @@ import { Global } from '@emotion/react';
 import { globalStyle } from '@styles/globals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from '@components/common/Layout';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import Main from '@/pages/Main';
 import Home from '@pages/Home';
@@ -19,27 +21,32 @@ import SignUp from './pages/Signup/SignUp';
 import SignUpResult from './pages/Signup/Result';
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <BrowserRouter>
-      <Layout>
-        <Global styles={globalStyle} />
-        <Routes>
-          <Route path="/main" element={<Main />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/signup/result" element={<SignUpResult />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/health" element={<Health />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/mypage" element={<Mypage />} />
-          <Route path="/mypage/order" element={<OrderHistoryPage />} />
-          <Route path="/mypage/review" element={<ReviewHistoryPage />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/store/detail/:productId" element={<Detail />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Layout>
+          <Global styles={globalStyle} />
+          <Routes>
+            <Route path="/main" element={<Main />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signup/result" element={<SignUpResult />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/store" element={<Store />} />
+            <Route path="/health" element={<Health />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/mypage/order" element={<OrderHistoryPage />} />
+            <Route path="/mypage/review" element={<ReviewHistoryPage />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/store/detail/:productId" element={<Detail />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={true} />
+    </QueryClientProvider>
   );
 }
 
