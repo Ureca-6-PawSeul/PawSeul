@@ -1,52 +1,104 @@
 import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
-import carts from '@/mocks/data/cart.json';
 import styled from '@emotion/styled';
 import Checkbox from '@/components/cart/Checkbox';
 import { colors } from '@styles/colors';
 
-import CartItem from "@components/cart/CartItem";
+import CartItem from '@components/cart/CartItem';
 import CartCost from '@/components/cart/CartCost';
+import { CartEmptyBlack } from '@/assets/images/svgs';
+
+import useCartStore from '@/stores/cartStore';
+import { useEffect } from 'react';
 
 const Cart = () => {
-  const cartList = carts;
-  const totalPrice = cartList.reduce((acc, cart) => acc + (cart.price * cart.quantity), 0);
+  const {
+    cartItems,
+    selectedItems,
+    totalPrice,
+    toggleSelectItem,
+    toggleSelectAll,
+    deleteItem,
+    deleteSelectedItems,
+    calculateTotalPrice,
+  } = useCartStore();
+
+  const allSelected = cartItems.length > 0 && selectedItems.length === cartItems.length;
+
+  //selectedItems가 바뀔 때 마다 총 가격을 계산함
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [selectedItems]);
+  
+  const handleAllItemSelect = () => {
+    toggleSelectAll();
+  }
 
   return (
     <Flex
       direction="column"
       backgroundColor={colors.Gray50}
       margin="0 0 62px 0"
-      width='fit-content'
+      justify="flex-start"
     >
-      <Flex
+      <CartHeader
         justify="space-between"
         backgroundColor={colors.White}
-        padding="20px 16px"
+        padding="16px 16px"
+        height={64}
       >
         <Flex gap={8} justify="flex-start">
           <Label>
-            <Checkbox isChecked={false} size={24} />
+            <Checkbox
+              isChecked={allSelected}
+              handleSelect={handleAllItemSelect}
+              size={24}
+            />
           </Label>
           <Text typo="Label1">전체선택</Text>
         </Flex>
-        <DeleteText typo="Label3" colorCode={colors.Gray500}>
+        <DeleteText typo="Label1" colorCode={colors.Gray500} onClick={deleteSelectedItems}>
           상품삭제
         </DeleteText>
-      </Flex>
+      </CartHeader>
       <Flex direction="column">
-        <CartListWrapper direction="column" margin="16px 0px">
-          {cartList.map((item, index) => {
-            return (
-              <CartItem key={index} item={item} index={index}/>
-            );
-          })}
+        <CartListWrapper direction="column" margin="16px 0px" justify='flex-start'>
+          {cartItems.length > 0 ? (
+            cartItems.map((item, index) => {
+              return (
+                <CartItem
+                  key={index}
+                  item={item}
+                  index={index}
+                />
+              );
+            })
+          ) : (
+            <Flex backgroundColor={colors.White}>
+              <CartEmptyBlack width="180px" />
+            </Flex>
+          )}
         </CartListWrapper>
       </Flex>
-      <CartCost cost={totalPrice}/>
+      {cartItems.length > 0 ? (
+        <CartCost cost={totalPrice} />
+      ) : (
+        <CartCost cost={0} />
+      )}
     </Flex>
   );
 };
+
+const CartWrapper = styled(Flex)`
+  position: relative;
+`; 
+
+const CartHeader = styled(Flex)`
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+  border-bottom: 1px solid ${colors.Gray50};
+`;
 
 const Label = styled.label<{
   margin?: string;
@@ -60,13 +112,12 @@ const Label = styled.label<{
 
 const DeleteText = styled(Text)`
   white-space: nowrap;
+  cursor: pointer;
 `;
 
 const CartListWrapper = styled(Flex)`
-  /* box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 8px 0px; */
   position: relative;
+  top: 0;
 `;
-
-
 
 export default Cart;

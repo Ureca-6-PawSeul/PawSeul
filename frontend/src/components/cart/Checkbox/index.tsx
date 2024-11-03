@@ -4,19 +4,18 @@ import { colors } from '@styles/colors';
 
 interface CheckboxProps {
   isChecked: boolean;
+  handleSelect:React.ChangeEventHandler<HTMLInputElement>
   size?: number;
 }
 
-const Checkbox = ({ isChecked, size = 12 }: CheckboxProps) => {
+const Checkbox = ({ isChecked, handleSelect, size = 12 }: CheckboxProps) => {
   return (
     <>
-      <CheckInput type="checkbox" />
+      <CheckInput type="checkbox" onChange={handleSelect}/>
       {isChecked ? <FaCheckSquare size={size} color={colors.MainColor}/> : <FaRegSquare size={size} />}
     </>
   );
 };
-
-
 
 const CheckInput = styled.input`
   position: absolute;

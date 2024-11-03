@@ -7,6 +7,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { FiPlusCircle } from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
 import { CartType } from '@assets/types/CartType';
+import useCartStore from '@/stores/cartStore';
 
 interface CartItemProps {
   item: CartType;
@@ -14,20 +15,30 @@ interface CartItemProps {
 }
 
 const CartItem = ({item, index}: CartItemProps) => {
+  const toggleSelectItem = useCartStore((state) => state.toggleSelectItem);
+  const deleteItem = useCartStore((state) => state.deleteItem);
+  const isChecked = useCartStore((state) => 
+    state.selectedItems.some((selectedItem) => selectedItem.productId === item.productId));
+  const increaseQuantity = useCartStore((state) => state.increaseQuantity);
+  const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+
+  const itemPrice = (item.price * item.quantity).toLocaleString('ko-kR');
+
   return (
-    <Flex>
       <CartItemWrapper
         backgroundColor={colors.White}
         padding="24px 0"
         direction="column"
+        height='fit-content'
+        justify='flex-start'
       >
         <Flex align="flex-start" padding="0 16px">
           <Label margin="0 10px 0 0">
-            <Checkbox isChecked={true} size={20} />
+            <Checkbox isChecked={isChecked} handleSelect={() => toggleSelectItem(item)} size={20} />
           </Label>
           <Flex direction="column">
             <Flex justify="space-between" align="flex-start">
-              <Image src={item.product_img} />
+              <Image src={item.productImg} />
               <Flex
                 direction="column"
                 align="flex-start"
@@ -41,27 +52,40 @@ const CartItem = ({item, index}: CartItemProps) => {
                     justify="flex-start"
                     gap={12}
                   >
-                    <FiPlusCircle color={colors.Gray400} size={20} />
+                    <CartItemButton
+                      width='auto'
+                      height='auto'
+                      onClick={() => increaseQuantity(item.productId)}
+                    >
+                      <FiPlusCircle color={colors.Gray400} size={20} />
+                    </CartItemButton>
                     <Text typo="Label2" colorCode={colors.Gray600}>{item.quantity}</Text>
-                    <FiMinusCircle color={colors.Gray400} size={20} />
+                    <CartItemButton
+                      width='auto'
+                      height='auto'
+                      onClick={() => decreaseQuantity(item.productId)}
+                    >
+                      <FiMinusCircle color={colors.Gray400} size={20} />
+                    </CartItemButton>
                   </Flex>
               </Flex>
-              <Flex
+              <CartItemButton
                 justify="flex-end"
                 width="auto"
+                height="auto"
                 margin="0 0 0 20px"
                 align='flex-start'
+                onClick={() => deleteItem(item.productId)}
               >
                 <IoCloseOutline size={20} color={colors.Gray400} />
-              </Flex>
+              </CartItemButton>
             </Flex>
             <Flex justify="flex-end" padding='12px 0 0'>
-              <CartText typo="Heading4">{item.price.toLocaleString('ko-KR')}원</CartText>
+              <CartText typo="Heading4">{itemPrice}원</CartText>
             </Flex>
           </Flex>
         </Flex>
       </CartItemWrapper>
-    </Flex>
   );
 }
 
@@ -96,6 +120,10 @@ const CartText = styled(Text)<{
   white-space: nowrap;
   margin: ${({ margin }) => (margin ? margin : 'none')};
   padding: ${({ padding }) => (padding ? padding : 'none')};
+`;
+
+const CartItemButton = styled(Flex)`
+  cursor: pointer;
 `;
 
 export default CartItem;
