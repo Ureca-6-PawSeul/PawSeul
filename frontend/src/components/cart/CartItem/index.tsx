@@ -11,9 +11,12 @@ import { CartType } from '@assets/types/CartType';
 interface CartItemProps {
   item: CartType;
   index: number | string;
+  handleSelect:React.ChangeEventHandler<HTMLInputElement>;
+  handleDelete:React.MouseEventHandler<HTMLDivElement>;
+  isChecked: boolean;
 }
 
-const CartItem = ({item, index}: CartItemProps) => {
+const CartItem = ({item, index, handleSelect, handleDelete, isChecked}: CartItemProps) => {
   return (
     <Flex>
       <CartItemWrapper
@@ -23,7 +26,7 @@ const CartItem = ({item, index}: CartItemProps) => {
       >
         <Flex align="flex-start" padding="0 16px">
           <Label margin="0 10px 0 0">
-            <Checkbox isChecked={true} size={20} />
+            <Checkbox isChecked={isChecked} handleSelect={handleSelect} size={20} />
           </Label>
           <Flex direction="column">
             <Flex justify="space-between" align="flex-start">
@@ -46,14 +49,15 @@ const CartItem = ({item, index}: CartItemProps) => {
                     <FiMinusCircle color={colors.Gray400} size={20} />
                   </Flex>
               </Flex>
-              <Flex
+              <DeleteButton
                 justify="flex-end"
                 width="auto"
                 margin="0 0 0 20px"
                 align='flex-start'
+                onClick={handleDelete}
               >
                 <IoCloseOutline size={20} color={colors.Gray400} />
-              </Flex>
+              </DeleteButton>
             </Flex>
             <Flex justify="flex-end" padding='12px 0 0'>
               <CartText typo="Heading4">{item.price.toLocaleString('ko-KR')}원</CartText>
@@ -97,5 +101,9 @@ const CartText = styled(Text)<{
   margin: ${({ margin }) => (margin ? margin : 'none')};
   padding: ${({ padding }) => (padding ? padding : 'none')};
 `;
+
+const DeleteButton = styled(Flex)`
+  cursor: pointer;
+` 
 
 export default CartItem;
