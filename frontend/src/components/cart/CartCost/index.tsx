@@ -14,7 +14,7 @@ const CartCost = ({cost}:CartCostProps) => {
     justify="space-between"
     backgroundColor={colors.White}
     padding="20px 16px"
-    height='fit-content'
+    height={176}
   >
     <CostWrapper direction="column" align="flex-start">
       <Flex justify="space-between" padding="0 0 14px">
