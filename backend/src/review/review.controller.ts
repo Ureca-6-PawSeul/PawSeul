@@ -38,6 +38,7 @@ export class ReviewController {
 
   @UseGuards(AuthGuard('jwt-access'))
   @ApiCookieAuth('accessToken')
+  @ApiOperation({ summary: '상품 리뷰 생성' })
   @Post('/:productId')
   @ApiBody({
     type: CreateReviewRequestDto,

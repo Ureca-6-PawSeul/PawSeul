@@ -99,4 +99,21 @@ export class ProductService {
 
     return products;
   }
+
+  async getProductsWithMyReview(userId: string, page: number, limit: number) {
+    const options = {
+      take: limit,
+      skip: (page - 1) * limit,
+    };
+
+    const products = await this.productRepository
+      .createQueryBuilder('product')
+      .innerJoin('product.reviews', 'review')
+      .where('review.user.userId = :userId', { userId })
+      .skip(options.skip)
+      .take(options.take)
+      .getMany();
+
+    return products;
+  }
 }

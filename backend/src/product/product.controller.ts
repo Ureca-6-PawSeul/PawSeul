@@ -5,6 +5,8 @@ import {
   HttpStatus,
   Param,
   Query,
+  Req,
+  UseGuards,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import {
@@ -13,9 +15,17 @@ import {
   SnackType,
   SupplementType,
 } from 'src/types/category';
-import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiCookieAuth,
+  ApiOperation,
+  ApiQuery,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { GetProductResponseDto } from 'src/product/dto/getProductResponse.dto';
 import { SnackDto } from 'src/product/dto/snack.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { Request } from 'express';
 
 @Controller('product')
 @ApiTags('상품 api')
@@ -130,6 +140,33 @@ export class ProductController {
     } catch (error) {
       throw new HttpException(
         error.message || '상품을 검색하는데 실패했어요!',
+        error.status || HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
+  @UseGuards(AuthGuard('jwt-access'))
+  @Get('/with-reviews')
+  @ApiOperation({ summary: '자신이 구매 후기를 작성한 상품 조회' })
+  @ApiCookieAuth('accessToken')
+  @ApiResponse({
+    status: 200,
+    description: '자신이 작성한 구매 후기가 있는 상품 조회 성공',
+    type: [GetProductResponseDto],
+  })
+  async getProductsWithReviews(
+    @Req() req: Request,
+    @Query('page') page: number = 1,
+    @Query('limit') limit: number = 15,
+  ) {
+    try {
+      const { userId } = req.user;
+      const productsWithReviews =
+        await this.productService.getProductsWithMyReview(userId, page, limit);
+      return { data: productsWithReviews, total: productsWithReviews.length };
+    } catch (error) {
+      throw new HttpException(
+        error.message || '구매 후기가 있는 상품을 불러오는데 실패했어요!',
         error.status || HttpStatus.INTERNAL_SERVER_ERROR,
       );
     }
