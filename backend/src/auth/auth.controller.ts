@@ -1,4 +1,12 @@
-import { Controller, Get, Logger, Req, Res, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Logger,
+  Post,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiOperation } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
@@ -38,5 +46,12 @@ export class AuthController {
 
     //홈페이지
     return res.redirect('http://localhost:3000');
+  }
+
+  @Post('logout')
+  @ApiOperation({ summary: '로그아웃' })
+  async logout(@Res() res: Response) {
+    res.clearCookie('accessToken');
+    res.send('logout');
   }
 }
