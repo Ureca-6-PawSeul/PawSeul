@@ -67,4 +67,12 @@ export class ReviewController {
     const userId = req.user?.userId;
     return this.reviewService.deleteProductReview(productReviewId, userId);
   }
+
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiOperation({ summary: '자신의 리뷰' })
+  @Get('/me')
+  async getMyReview(@Req() req: Request) {
+    const userId = req.user?.userId;
+    return this.reviewService.getMyReview(userId);
+  }
 }

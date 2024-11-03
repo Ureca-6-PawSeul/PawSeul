@@ -69,4 +69,19 @@ export class ReviewService {
 
     return result;
   }
+
+  async getMyReview(userId: string) {
+    const result = await this.productReviewRepository.find({
+      where: { user: { userId } },
+    });
+
+    if (result.length === 0) {
+      throw new HttpException(
+        '리뷰를 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    return result;
+  }
 }
