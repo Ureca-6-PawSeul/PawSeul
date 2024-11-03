@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import { ProductType } from '@/assets/types/ProductType';
 import { getTopProductList } from '@/apis/getTopProductLis';
 import { Product } from '@/components/store/Product';
+import { useNavbarStore } from '@/stores/navStore';
 
 const Home = () => {
   const imageList = [Banner1, Banner2, Banner3, Banner4];
@@ -37,7 +38,6 @@ const Home = () => {
         </Carousel>
       </Flex>
 
-
       {/* TOP10 상품 리스트 */}
       <Flex padding="12px 12px" direction="column" height={360}>
         <Flex gap={5} justify="flex-start" height="fit-content">
@@ -48,7 +48,7 @@ const Home = () => {
             TOP 10
           </Text>
         </Flex>
-        <ProductContainer gap={10} justify="flex-start" padding='5px'>
+        <ProductContainer gap={10} justify="flex-start" padding="5px">
           {productList.length > 0 &&
             productList.map((product: ProductType) => (
               <ProductWrapper key={product.product_id}>
@@ -69,7 +69,6 @@ const Home = () => {
 
 export default Home;
 
-
 const ProductContainer = styled(Flex)`
   overflow-x: scroll;
   overflow-y: hidden;
@@ -79,5 +78,5 @@ const ProductContainer = styled(Flex)`
 `;
 
 const ProductWrapper = styled(Flex)`
-  flex : 0 0 33.33%
-`
+  flex: 0 0 33.33%;
+`;

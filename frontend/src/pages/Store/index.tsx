@@ -141,6 +141,12 @@ const Wrapper = styled(Flex)`
   height: calc(100vh - 256px);
   flex-wrap: wrap;
   width: 100%;
+
+  -ms-overflow-style: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const ProductWrapper = styled.div`
