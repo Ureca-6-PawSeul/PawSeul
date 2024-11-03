@@ -101,6 +101,7 @@ const Home = () => {
         </button>
       </Flex>
       <Footer />
+      {/* 토스트 메시지 적용 예시 ! 바깥에 놔주면 됌*/}
       <Toast />
     </Flex>
   );

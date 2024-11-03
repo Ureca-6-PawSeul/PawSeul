@@ -1,4 +1,4 @@
-import { ToastContainer, Zoom, toast } from 'react-toastify';
+import { ToastContainer, Zoom } from 'react-toastify';
 import styled from '@emotion/styled';
 import { colors } from '@/styles/colors';
 
