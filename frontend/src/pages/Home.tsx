@@ -38,7 +38,6 @@ const Home = () => {
     if (data) {
       setUserInfo(data);
     }
-    console.log(data);
   }, [data, setUserInfo]);
 
   //토스트 메시지 설정하는 방법!

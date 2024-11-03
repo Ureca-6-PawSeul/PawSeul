@@ -4,23 +4,14 @@ import { colors } from '@styles/colors';
 import Profile from '@components/mypage/profile';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { PetType } from '@/assets/types/ProfileType';
-import { getMypageInfo } from '@/apis/getMypageInfo';
+import { useUserStore } from '@/stores/userStore';
 const Mypage = () => {
-  const [petInfo, setPetInfo] = useState<PetType>();
   const navigate = useNavigate();
   const handleClickOrderHistory = () => navigate('order');
   const handleClickReviewHistory = () => navigate('review');
 
-  useEffect(() => {
-    getMypageInfo(setPetInfo);
-    console.log(petInfo)
-  }, []);
-
-  useEffect(() => {
-    console.log("Updated petInfo:", petInfo);
-  }, [petInfo]); 
+  const user = useUserStore((state) => state.user);
+  console.log(user);
 
   return (
     <Flex
@@ -43,14 +34,14 @@ const Mypage = () => {
         </Text>
         {/* 반려견 정보 컴포넌트 */}
       </Flex>
-      {petInfo &&       <Profile
-        petId={petInfo.petId}
-        petname={petInfo.petname}
-        age={petInfo.age}
-        breed={petInfo.breed}
-        weight={petInfo.weight}
-        gender={petInfo.gender}
-        isNeutered={petInfo.isNeutered}
+      {user &&       <Profile
+        petId={user.pet.petId}
+        petname={user.pet.petname}
+        age={user.pet.age}
+        breed={user.pet.breed}
+        weight={user.pet.weight}
+        gender={user.pet.gender}
+        isNeutered={user.pet.isNeutered}
       />}
 
       <BottomBtn
