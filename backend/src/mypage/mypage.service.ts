@@ -19,11 +19,9 @@ export class MypageService {
       where: { userId: userId },
       relations: ['pet'],
     });
-
     if (!user || !user.pet) {
       throw new NotFoundException('펫 정보를 찾을 수 없습니다.');
     }
-
     return user.pet;
   }
 
@@ -36,11 +34,9 @@ export class MypageService {
       where: { userId: userId },
       relations: ['pet'],
     });
-
     if (!user || !user.pet) {
       throw new NotFoundException('펫 정보를 찾을 수 없습니다.');
     }
-
     Object.assign(user.pet, updatePetDto);
     await this.entityManager.save(user.pet);
 

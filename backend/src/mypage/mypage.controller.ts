@@ -21,6 +21,7 @@ export class MypageController {
   })
   async getPetInfo(@Req() req: Request): Promise<Pet> {
     const userId = req.user?.userId;
+
     return this.userService.getPetInfo(userId);
   }
 
@@ -37,6 +38,7 @@ export class MypageController {
     @Body() updatePetDto: UpdatePetRequestDto,
   ): Promise<Pet> {
     const userId = req.user?.userId;
+
     return this.userService.updatePetInfo(userId, updatePetDto);
   }
 }
