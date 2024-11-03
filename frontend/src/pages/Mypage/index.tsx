@@ -10,8 +10,8 @@ const Mypage = () => {
   const handleClickOrderHistory = () => navigate('order');
   const handleClickReviewHistory = () => navigate('review');
 
+  // 전역상태 user. user와 그 펫 정보를 담고있음.
   const user = useUserStore((state) => state.user);
-  console.log(user);
 
   return (
     <Flex
