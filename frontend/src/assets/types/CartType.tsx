@@ -1,8 +1,8 @@
 export interface CartType {
-  cart_id: number | string;
-  product_id: number | string;
+  cartProductId: string;
+  productId: string;
   quantity: number;
-  product_img: string;
+  productImg: string;
   title: string;
   price: number;
 }
