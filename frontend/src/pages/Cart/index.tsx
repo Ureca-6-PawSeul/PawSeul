@@ -9,55 +9,30 @@ import CartCost from '@/components/cart/CartCost';
 import { CartEmptyBlack } from '@/assets/images/svgs';
 
 import useCartStore from '@/store/cartStore';
+import { useEffect } from 'react';
 
 const Cart = () => {
-  // const cartList = carts;
+  const {
+    cartItems,
+    selectedItems,
+    totalPrice,
+    toggleSelectItem,
+    toggleSelectAll,
+    deleteItem,
+    deleteSelectedItems,
+    calculateTotalPrice,
+  } = useCartStore();
 
-  // // 전체 cartItem 관리
-  // const [cartItems, setCartItems] = useState([]);
-  // // cartItem의 id 관리
-  // const [selectedItemIds, setSelectedItemIds] = useState([]);
+  const allSelected = cartItems.length > 0 && selectedItems.length === cartItems.length;
 
-  // useEffect(() => {
-  //   setCartItems(carts);
-  // }, []);
-
-  // const totalPrice = cartItems.reduce(
-  //   (acc, cart) => acc + cart.price * cart.quantity,
-  //   0,
-  // );
-
-  // // 개별 선택 체크박스 핸들러
-  // const handleItemSelect = (product_id) => {
-  //   setSelectedItemIds((prevSelected) =>
-  //     prevSelected.includes(product_id)
-  //       ? prevSelected.filter((id) => id !== product_id)
-  //       : [...prevSelected, product_id],
-  //   );
-  // };
-
-  // // 전체 선택 체크박스 핸들러
-  // const handleAllItemSelect = () => {
-  //   if (selectedItemIds.length === cartItems.length) {
-  //     setSelectedItemIds([]);
-  //   } else {
-  //     setSelectedItemIds(cartItems.map((item) => item.product_id));
-  //   }
-  // };
-
-  // // 개별 아이템 삭제 핸들러
-  // const handleItemDelete = (product_id) => {
-  //   setCartItems((prevItems) => prevItems.filter((item) => item.product_id !== product_id));
-  //   setSelectedItemIds((prevSelected) => prevSelected.filter((id) => id !== product_id));
-  // }
-
-  // // 선택된 아이템 삭제 핸들러
-  // const handleSelectedItemDelete = () => {
-  //   setCartItems((prevItems) =>
-  //     prevItems.filter((item) => !selectedItemIds.includes(item.product_id)),
-  //   );
-  //   setSelectedItemIds([]);
-  // };
+  //selectedItems가 바뀔 때 마다 총 가격을 계산함
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [selectedItems]);
+  
+  const handleAllItemSelect = () => {
+    toggleSelectAll();
+  }
 
   return (
     <Flex
@@ -66,29 +41,28 @@ const Cart = () => {
       margin="0 0 62px 0"
       justify="flex-start"
     >
-      <Flex
+      <CartHeader
         justify="space-between"
         backgroundColor={colors.White}
-        padding="20px 16px"
-        height="fit-content"
+        padding="16px 16px"
+        height={64}
       >
         <Flex gap={8} justify="flex-start">
           <Label>
-            {/* 장바구니가 비었을 경우 경고 메세지 날리기 */}
             <Checkbox
-              isChecked={selectedItemIds.length === cartItems.length && cartItems.length > 0}
+              isChecked={allSelected}
               handleSelect={handleAllItemSelect}
               size={24}
             />
           </Label>
           <Text typo="Label1">전체선택</Text>
         </Flex>
-        <DeleteText typo="Label1" colorCode={colors.Gray500} onClick={handleSelectedItemDelete}>
+        <DeleteText typo="Label1" colorCode={colors.Gray500} onClick={deleteSelectedItems}>
           상품삭제
         </DeleteText>
-      </Flex>
+      </CartHeader>
       <Flex direction="column">
-        <CartListWrapper direction="column" margin="16px 0px">
+        <CartListWrapper direction="column" margin="16px 0px" justify='flex-start'>
           {cartItems.length > 0 ? (
             cartItems.map((item, index) => {
               return (
@@ -96,9 +70,6 @@ const Cart = () => {
                   key={index}
                   item={item}
                   index={index}
-                  handleSelect={handleItemSelect}
-                  handleDelete={handleItemDelete}
-                  isChecked={selectedItemIds.includes(item.product_id)}
                 />
               );
             })
@@ -118,6 +89,17 @@ const Cart = () => {
   );
 };
 
+const CartWrapper = styled(Flex)`
+  position: relative;
+`; 
+
+const CartHeader = styled(Flex)`
+  position: sticky;
+  top: 0px;
+  z-index: 5;
+  border-bottom: 1px solid ${colors.Gray50};
+`;
+
 const Label = styled.label<{
   margin?: string;
 }>`
@@ -135,6 +117,7 @@ const DeleteText = styled(Text)`
 
 const CartListWrapper = styled(Flex)`
   position: relative;
+  top: 0;
 `;
 
 export default Cart;

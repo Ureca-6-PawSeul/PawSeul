@@ -17,8 +17,6 @@ const Checkbox = ({ isChecked, handleSelect, size = 12 }: CheckboxProps) => {
   );
 };
 
-
-
 const CheckInput = styled.input`
   position: absolute;
   top: 0px;
