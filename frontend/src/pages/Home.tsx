@@ -9,7 +9,8 @@ import { useEffect, useState } from 'react';
 import { ProductType } from '@/assets/types/ProductType';
 import { getTopProductList } from '@/apis/getTopProductLis';
 import { Product } from '@/components/store/Product';
-import { useNavbarStore } from '@/stores/navStore';
+import { useUserStore } from '@/stores/userStore';
+import { useGetUserInfo } from '@/apis/hooks/user';
 
 const Home = () => {
   const imageList = [Banner1, Banner2, Banner3, Banner4];
@@ -18,6 +19,16 @@ const Home = () => {
   useEffect(() => {
     getTopProductList(setProductList);
   }, []);
+
+  const { data } = useGetUserInfo();
+  const setUserInfo = useUserStore((state) => state.setUserInfo);
+
+  useEffect(() => {
+    if (data) {
+      setUserInfo(data);
+    }
+    console.log(data);
+  }, [data, setUserInfo]);
 
   return (
     <Flex
