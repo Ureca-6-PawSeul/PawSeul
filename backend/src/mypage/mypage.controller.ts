@@ -1,7 +1,6 @@
 import { Controller, Get, UseGuards, Req, Body, Patch } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { MypageService } from 'src/mypage/mypage.service';
-import { GetUserResponseDto } from 'src/mypage/dto/getUserResponse.dto';
 import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { Pet } from 'src/entity/pet.entity';
@@ -12,42 +11,34 @@ import { UpdatePetRequestDto } from 'src/mypage/dto/updatePetRequest.dto';
 export class MypageController {
   constructor(private readonly userService: MypageService) {}
 
+  // 펫 정보 조회
   @UseGuards(AuthGuard('jwt-access'))
-  @Get('/me')
+  @Get('/me/pet')
   @ApiBearerAuth('accessToken')
   @ApiResponse({
-    status: 200,
-    description: 'User information retrieved successfully.',
-    type: GetUserResponseDto,
+    description: '펫 정보 조회 성공.',
+    type: Pet,
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  async getMe(@Req() req: Request): Promise<GetUserResponseDto> {
+  async getPetInfo(@Req() req: Request): Promise<Pet> {
     const userId = req.user?.userId;
 
-    // 유저 정보 로그 출력
-    await this.userService.logUserInfo(req.user?.userId);
-
-    // 펫 정보 로그 출력
-    await this.userService.logPetInfo(req.user?.userId);
-
-    return this.userService.findUserById(userId);
+    return this.userService.getPetInfo(userId);
   }
 
+  // 펫 정보 업데이트
   @UseGuards(AuthGuard('jwt-access'))
   @Patch('/me/pet')
   @ApiBearerAuth('accessToken')
   @ApiResponse({
-    status: 200,
-    description: 'Pet information updated successfully.',
+    description: '펫 정보가 성공적으로 업데이트되었습니다.',
     type: Pet,
   })
-  @ApiResponse({ status: 401, description: 'Unauthorized' })
-  @ApiResponse({ status: 404, description: 'Pet not found' })
   async updatePetInfo(
     @Req() req: Request,
     @Body() updatePetDto: UpdatePetRequestDto,
   ): Promise<Pet> {
     const userId = req.user?.userId;
+
     return this.userService.updatePetInfo(userId, updatePetDto);
   }
 }
