@@ -1,12 +1,15 @@
-import { Header } from '@/components/common/Header';
 import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
 import { Flex } from '@components/common/Flex';
 import styled from '@emotion/styled';
 import { useLocation, useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from '@/components/common/Toast';
+import { usePostPetInfo } from '@/apis/hooks/signup';
+import { PetInfoType } from '@/apis/signup';
 
 const SignUpResult = () => {
-  const location = useLocation();
+  const location = useLocation<{ state: PetInfoType }>();
   const formData = location.state;
 
   console.log('전달된 데이터:', formData);
@@ -25,7 +28,7 @@ const SignUpResult = () => {
       case 'age':
         return `${value}세`;
       case 'isNeutered':
-        return value == 'yes' ? '중성화 했어요' : '하지 않았어요';
+        return value === 'yes' ? '중성화 했어요' : '하지 않았어요';
       case 'weight':
         return `${value}kg`;
       default:
@@ -34,15 +37,26 @@ const SignUpResult = () => {
   };
 
   const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate('/home');
+  const { mutate: signUpMutate } = usePostPetInfo(() => {
+    navigate('/');
+  });
+
+  const handleSignUp = () => {
+    const petData = {
+      ...formData,
+      age: parseInt(formData.age),
+      weight: parseFloat(formData.weight),
+      gender: formData.gender === '남자' ? '수컷' : '암컷',
+    };
+    console.log('petData:', petData);
+    signUpMutate(petData);
   };
 
   return (
     <Flex
       direction="column"
       gap={32}
-      padding="40px"
+      padding="40px 40px 32px 40px"
       justify="flex-start"
       align="flex-start"
       backgroundColor={colors.Gray50}
@@ -63,9 +77,10 @@ const SignUpResult = () => {
           </InfoLine>
         ))}
       </Flex>
-      <SignUpBtn borderRadius={10} onClick={handleNavigate}>
-        회원가입
+      <SignUpBtn borderRadius={10} onClick={handleSignUp}>
+        회원가입 완료하기
       </SignUpBtn>
+      <Toast />
     </Flex>
   );
 };
@@ -83,7 +98,7 @@ const SignUpBtn = styled(Flex)`
   padding: 14px 20px;
   border: none;
   height: fit-content;
-  bottom: 32px;
+  bottom: 24px;
   position: sticky;
 
   cursor: pointer;

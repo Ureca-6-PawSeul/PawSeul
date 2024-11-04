@@ -48,6 +48,10 @@ const PetInfo = () => {
     }
   }, [step]);
 
+  const isFormComplete = Object.values(formData).every(
+    (value) => value !== '' && value !== '성별' && value !== '중성화 여부',
+  );
+
   return (
     <>
       <Header title="반려견 정보 입력" />
@@ -55,7 +59,7 @@ const PetInfo = () => {
         direction="column"
         justify="flex-start"
         gap={48}
-        padding="0 32px 60px"
+        padding="0 32px 32px"
       >
         <Flex direction="column" justify="flex-start" gap={32}>
           {step >= 0 && (
@@ -100,17 +104,17 @@ const PetInfo = () => {
                 <Text typo="Body2">반려견이 몇살인가요?</Text>
                 <Guide>연령별 필요한 식품을 제공해드릴게요</Guide>
               </Flex>
-              <AgeSelect
-                value={formData.age}
-                onChange={(e) =>
-                  handleAnswerChanged('age', parseInt(e.target.value))
-                }
-              >
-                <option value="">나이를 선택하세요</option>
-                <option value="0">0~1세</option>
-                <option value="1">1~7세</option>
-                <option value="7">7세 이상</option>
-              </AgeSelect>
+              <Flex gap={4}>
+                <Input
+                  type="text"
+                  placeholder="나이"
+                  value={formData.age}
+                  onChange={(e) => handleAnswerChanged('age', e.target.value)}
+                />
+                <Text typo="Body3" colorCode={colors.Gray400}>
+                  세
+                </Text>
+              </Flex>
             </InfoBox>
           )}
 
@@ -126,7 +130,7 @@ const PetInfo = () => {
                   placeholder="몸무게"
                   value={formData.weight}
                   onChange={(e) =>
-                    handleAnswerChanged('weight', parseFloat(e.target.value))
+                    handleAnswerChanged('weight', e.target.value)
                   }
                 />
                 <Text typo="Body3" colorCode={colors.Gray400}>
@@ -177,6 +181,7 @@ const PetInfo = () => {
             padding="12px 20px"
             borderRadius={10}
             onClick={handleNextClicked}
+            disabled={step >= 5 && !isFormComplete}
           >
             {step < 5 ? '다음으로' : '회원가입'}
           </NextButton>
@@ -236,18 +241,6 @@ const InfoBtn = styled.button<{ active: boolean }>`
   }
 `;
 
-const AgeSelect = styled.select`
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid ${colors.Gray300};
-  border-radius: 10px;
-
-  &:focus {
-    border-color: ${colors.MainColor};
-    outline: none;
-  }
-`;
-
 const Guide = styled.p`
   text-align: left;
   margin-bottom: 10px;
@@ -255,21 +248,20 @@ const Guide = styled.p`
   font-size: 12px;
 `;
 
-const NextButton = styled(Flex)`
+const NextButton = styled(Flex)<{ disabled?: boolean }>`
   color: ${colors.White};
   padding: 14px 20px;
   border: none;
   height: fit-content;
-
   margin-top: 50px;
-
-  cursor: pointer;
-
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   flex-shrink: 0;
+
   font-family: 'Pretendard';
   font-size: 0.9rem;
   font-weight: 800;
-  color: ${colors.White};
+  background-color: ${colors.MainColor};
 `;
 
 const InfoBox = styled(Flex)`
@@ -282,5 +274,5 @@ const BtnWrapper = styled(Flex)`
   height: fit-content;
   position: sticky;
   left: 32px;
-  bottom: 32px;
+  bottom: 24px;
 `;
