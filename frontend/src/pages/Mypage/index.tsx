@@ -22,6 +22,7 @@ const Mypage = () => {
         align="center"
         padding="0px 12px"
         justify="flex-start"
+        margin="60px 0 0 0"
       >
         {' '}
         <Flex direction="row" justify="flex-start" height={40}>

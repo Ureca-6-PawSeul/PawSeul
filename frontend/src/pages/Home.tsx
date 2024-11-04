@@ -8,7 +8,6 @@ import {
   Banner2,
   Banner3,
   Banner4,
-  CheckIcon,
   CartIcon,
   MiniLogo,
 } from '@/assets/images/svgs';
