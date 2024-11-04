@@ -1,4 +1,3 @@
-// Allergy.tsx
 import React from 'react';
 import styled from '@emotion/styled';
 import { Flex } from '@/components/common/Flex';
@@ -30,12 +29,12 @@ const Allergies = [
   { id: 12, name: '벼룩' },
 ];
 
-const Allergy: React.FC<AllergyProps> = ({
+const Allergy = ({
   hasAllergy,
   selectedAllergies,
   handleAllergyClick,
   handleTagClick,
-}) => {
+}: AllergyProps) => {
   return (
     <>
       <HeightFitFlex direction="column" align="flex-start">
