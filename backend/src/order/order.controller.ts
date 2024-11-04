@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Post,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { OrderService } from './order.service';
 import {
   ApiCookieAuth,
@@ -27,6 +36,9 @@ export class OrderController {
   })
   async getOrderList(@Req() req: Request): Promise<orderListResponseDto[]> {
     const { userId } = req.user;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
     return this.orderService.getOrderList(userId);
   }
 
@@ -35,10 +47,15 @@ export class OrderController {
   @Post('/confirm')
   @ApiOperation({ summary: '결제 승인 요청' })
   async confirmOrder(
+    @Req() req: Request,
     @Body('paymentKey') paymentKey: string,
     @Body('orderId') orderId: string,
     @Body('amount') amount: string,
   ) {
+    const { userId } = req.user;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
     return this.orderService.confirmOrder();
   }
 

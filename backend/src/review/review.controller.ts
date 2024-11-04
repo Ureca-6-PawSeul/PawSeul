@@ -3,6 +3,8 @@ import {
   Controller,
   Delete,
   Get,
+  HttpException,
+  HttpStatus,
   Param,
   Post,
   Req,
@@ -50,6 +52,9 @@ export class ReviewController {
     @Body('score') score: number,
   ) {
     const userId = req.user?.userId;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
     const review: CreateReviewRequestDto = {
       userId,
       productId,
@@ -69,6 +74,9 @@ export class ReviewController {
     @Param('productReviewId') productReviewId: string,
   ) {
     const userId = req.user?.userId;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
     return this.reviewService.deleteProductReview(productReviewId, userId);
   }
 
@@ -78,6 +86,9 @@ export class ReviewController {
   @Get('/me')
   async getMyReview(@Req() req: Request) {
     const userId = req.user?.userId;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
     return this.reviewService.getMyReview(userId);
   }
 }
