@@ -5,7 +5,12 @@ import { colors } from '@styles/colors';
 import StarRating from '@components/store/Star';
 import { ProductType } from '@assets/types/ProductType';
 
-export const Product = ({ productImg, title, price }: ProductType) => {
+export const Product = ({
+  productId,
+  productImg,
+  title,
+  price,
+}: ProductType) => {
   return (
     <Wrapper
       direction="column"
@@ -17,7 +22,7 @@ export const Product = ({ productImg, title, price }: ProductType) => {
       backgroundColor={colors.White}
     >
       <Flex direction="column" align="center">
-        <Img src={productImg} width="80%" height="100%"/>
+        <Img src={productImg} width="80%" height="100%" />
       </Flex>
       <Flex height="auto">
         <Title colorCode={colors.Black} typo="Body3">
@@ -69,8 +74,8 @@ const Title = styled(Text)`
   white-space: normal;
 `;
 
-export const Img = styled.img<{width : string, height : string}>`
+export const Img = styled.img<{ width: string; height: string }>`
   border-radius: 10px;
-  width: ${({width}) => width ? width : "70%"};
-  height: ${({width}) => width ? width : "100%"};
+  width: ${({ width }) => (width ? width : '70%')};
+  height: ${({ width }) => (width ? width : '100%')};
 `;
