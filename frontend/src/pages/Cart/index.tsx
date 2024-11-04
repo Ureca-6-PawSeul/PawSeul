@@ -11,22 +11,29 @@ import { CartEmptyBlack } from '@/assets/images/svgs';
 import useCartStore from '@/stores/cartStore';
 import useCartQuery from '@/apis/hooks/useCartQuery';
 
+import { useEffect } from 'react';
+
 const Cart = () => {
-  const {
-    cartItems,
-    selectedItems,
-    totalPrice,
-    toggleSelectItem,
-    toggleSelectAll,
-    deleteItem,
-    deleteSelectedItems,
-    calculateTotalPrice,
-  } = useCartStore();
+  const data = useCartQuery();
+  const setCartItems = useCartStore((state) => state.setCartItems);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const selectedItems = useCartStore((state) => state.selectedItems);
+  const totalPrice = useCartStore((state) => state.totalPrice);
+  const toggleSelectAll = useCartStore((state) => state.toggleSelectAll);
+  const deleteSelectedItems = useCartStore((state) => state.deleteSelectedItems);
+  const calculateTotalPrice = useCartStore((state) => state.calculateTotalPrice);
 
-  const { isLoading, isError } = useCartQuery();
+  // useEffect에서 cartItems나 selectedItems가 바뀔 때마다 실행
+  useEffect(() => {
+    if (data) {
+      setCartItems(data);
+    }
+  }, [data]);
 
-  if (isLoading) return <Flex>Loading...</Flex>;
-  if (isError) return <Flex>Error loading cart items</Flex>;
+  // 수량이 변경될 때 총 가격을 다시 계산
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [cartItems, selectedItems]);
 
   const allSelected =
     cartItems.length > 0 && selectedItems.length === cartItems.length;
