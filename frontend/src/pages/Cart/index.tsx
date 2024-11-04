@@ -9,7 +9,7 @@ import CartCost from '@/components/cart/CartCost';
 import { CartEmptyBlack } from '@/assets/images/svgs';
 
 import useCartStore from '@/stores/cartStore';
-import { useEffect } from 'react';
+import useCartQuery from '@/apis/hooks/useCartQuery';
 
 const Cart = () => {
   const {
@@ -23,16 +23,17 @@ const Cart = () => {
     calculateTotalPrice,
   } = useCartStore();
 
-  const allSelected = cartItems.length > 0 && selectedItems.length === cartItems.length;
+  const { isLoading, isError } = useCartQuery();
 
-  //selectedItems가 바뀔 때 마다 총 가격을 계산함
-  useEffect(() => {
-    calculateTotalPrice();
-  }, [selectedItems]);
-  
+  if (isLoading) return <Flex>Loading...</Flex>;
+  if (isError) return <Flex>Error loading cart items</Flex>;
+
+  const allSelected =
+    cartItems.length > 0 && selectedItems.length === cartItems.length;
+
   const handleAllItemSelect = () => {
     toggleSelectAll();
-  }
+  };
 
   return (
     <Flex
@@ -57,21 +58,23 @@ const Cart = () => {
           </Label>
           <Text typo="Label1">전체선택</Text>
         </Flex>
-        <DeleteText typo="Label1" colorCode={colors.Gray500} onClick={deleteSelectedItems}>
+        <DeleteText
+          typo="Label1"
+          colorCode={colors.Gray500}
+          onClick={deleteSelectedItems}
+        >
           상품삭제
         </DeleteText>
       </CartHeader>
       <Flex direction="column">
-        <CartListWrapper direction="column" margin="16px 0px" justify='flex-start'>
+        <CartListWrapper
+          direction="column"
+          margin="16px 0px"
+          justify="flex-start"
+        >
           {cartItems.length > 0 ? (
             cartItems.map((item, index) => {
-              return (
-                <CartItem
-                  key={index}
-                  item={item}
-                  index={index}
-                />
-              );
+              return <CartItem key={index} item={item} index={index} />;
             })
           ) : (
             <Flex backgroundColor={colors.White}>
@@ -88,10 +91,6 @@ const Cart = () => {
     </Flex>
   );
 };
-
-const CartWrapper = styled(Flex)`
-  position: relative;
-`; 
 
 const CartHeader = styled(Flex)`
   position: sticky;
