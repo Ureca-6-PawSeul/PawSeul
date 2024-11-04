@@ -4,6 +4,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  Param,
   Post,
   Req,
   UseGuards,
@@ -12,12 +13,14 @@ import { OrderService } from './order.service';
 import {
   ApiCookieAuth,
   ApiOperation,
+  ApiParam,
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
 import { orderListResponseDto } from 'src/order/dto/orderListResponse.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
+import { ProductDto } from 'src/product/dto/product.dto';
 
 @Controller('order')
 @ApiTags('order/결제 api')
@@ -66,4 +69,16 @@ export class OrderController {
     summary: '임시 주문(order table에 BEFORE_PAYMENT 상태로 insert)',
   })
   async tempOrder(@Body('products') products: any) {}
+
+  // 리뷰하지 않은 상품 목록 조회
+  @Get('/unreviewed/:userId')
+  @ApiParam({ name: 'userId', required: true, description: '사용자의 고유 ID' })
+  @ApiResponse({
+    status: 200,
+    description: '리뷰하지 않은 제품 목록',
+    type: [ProductDto],
+  })
+  async getUnreviewedProducts(@Param('userId') userId: string) {
+    return this.orderService.getUnreviewed(userId);
+  }
 }
