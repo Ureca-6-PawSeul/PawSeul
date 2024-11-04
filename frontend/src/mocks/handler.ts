@@ -14,7 +14,11 @@ export const handlers = [
   }),
 
   http.get('/api/product/top', () => {
-    const data = [...food.slice(30,35), ...snack.slice(20,25), ...supplement.slice(12,15)];
+    const data = [
+      ...food.slice(30, 35),
+      ...snack.slice(20, 25),
+      ...supplement.slice(12, 15),
+    ];
     return HttpResponse.json(data);
   }),
 
@@ -44,5 +48,5 @@ export const handlers = [
 
   http.get('/api/search', () => {
     return HttpResponse.json(product_names);
-  })
+  }),
 ];
