@@ -69,6 +69,7 @@ const Home = () => {
         align="center"
         justify="flex-start"
         // height="fit-content"
+        margin='0 0 60px 0'
       >
         {/* 배너 */}
         <Flex direction="column" height="fit-content" margin="56px 0 0 0">
