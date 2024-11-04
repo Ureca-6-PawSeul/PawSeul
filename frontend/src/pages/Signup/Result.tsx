@@ -1,3 +1,4 @@
+import { Header } from '@/components/common/Header';
 import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
 import { Flex } from '@components/common/Flex';
@@ -11,19 +12,20 @@ const SignUpResult = () => {
   console.log('전달된 데이터:', formData);
 
   const fieldLabels: Record<string, string> = {
-    name: '이름',
-    gender: '성별',
+    petname: '이름',
     age: '나이',
     weight: '몸무게',
-    neutered: '중성화 여부',
+    gender: '성별',
+    isNeutered: '중성화 여부',
+    breed: '견종',
   };
 
   const formatValue = (key: string, value: any) => {
     switch (key) {
       case 'age':
         return `${value}세`;
-      case 'neutered':
-        return value ? '중성화 했어요' : '하지 않았어요';
+      case 'isNeutered':
+        return value == 'yes' ? '중성화 했어요' : '하지 않았어요';
       case 'weight':
         return `${value}kg`;
       default:
@@ -33,14 +35,14 @@ const SignUpResult = () => {
 
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate('/main');
+    navigate('/home');
   };
 
   return (
     <Flex
       direction="column"
       gap={32}
-      padding="40px 40px"
+      padding="40px"
       justify="flex-start"
       align="flex-start"
       backgroundColor={colors.Gray50}
