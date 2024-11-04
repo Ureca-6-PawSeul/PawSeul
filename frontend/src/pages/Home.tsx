@@ -30,7 +30,7 @@ const Home = () => {
   const [productList, setProductList] = useState<ProductType[]>([]);
 
   useEffect(() => {
-    getTopProductList(setProductList);
+    // getTopProductList(setProductList);
     console.log(productList);
   }, []);
 
