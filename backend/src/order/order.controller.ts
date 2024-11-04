@@ -71,14 +71,19 @@ export class OrderController {
   async tempOrder(@Body('products') products: any) {}
 
   // 리뷰하지 않은 상품 목록 조회
-  @Get('/unreviewed/:userId')
-  @ApiParam({ name: 'userId', required: true, description: '사용자의 고유 ID' })
+  @Get('/unreviewed')
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({
+    summary: '리뷰해야 할 상품 목록 조회',
+  })
   @ApiResponse({
     status: 200,
     description: '리뷰하지 않은 제품 목록',
     type: [ProductDto],
   })
-  async getUnreviewedProducts(@Param('userId') userId: string) {
+  async getUnreviewedProducts(@Req() req: Request) {
+    const userId = req.user.userId;
     return this.orderService.getUnreviewed(userId);
   }
 }
