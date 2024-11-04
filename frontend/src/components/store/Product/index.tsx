@@ -33,7 +33,7 @@ export const Product = ({
         </Title>
       </Flex>
       <Text colorCode={colors.Black} typo="Label1">
-        {priceString}
+        {priceString}원
       </Text>
       <Flex
         direction="row"
