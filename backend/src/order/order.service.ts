@@ -108,13 +108,13 @@ export class OrderService {
       await this.productRepository.findByIds(unreviewedProductIds);
 
     // 5단계: 결과를 반환
-    return orders
-      .map((order) => {
+    return {
+      reviews: orders.flatMap((order) => {
         // 리뷰하지 않은 제품이 포함된 경우만 반환
         const orderItems = order.orderItems
           .filter((item) =>
             unreviewedProductIds.includes(item.product.productId),
-          ) // 리뷰하지 않은 제품만 필터링
+          )
           .map((item) => {
             const productDetail = unreviewedProducts.find(
               (product) => product.productId === item.product.productId,
@@ -125,21 +125,13 @@ export class OrderService {
               price: productDetail.price,
               quantity: item.quantity,
               productImg: productDetail.productImg,
+              state: order.orderState,
             };
           });
 
-        // 주문 정보가 있고, 리뷰하지 않은 제품이 있는 경우에만 반환
-        if (orderItems.length > 0) {
-          return {
-            orderId: order.orderId,
-            totalPrice: order.totalPrice,
-            orderCreatedAt: order.createdAt,
-            orderState: order.orderState,
-            orderItems,
-          };
-        }
-        return null;
-      })
-      .filter((order) => order !== null);
+        // orderItems가 비어 있지 않은 경우에만 해당 아이템을 반환
+        return orderItems.length > 0 ? orderItems : [];
+      }),
+    };
   }
 }
