@@ -109,7 +109,7 @@ const Analysis = () => {
           align="flex-start"
           padding="0 0px 32px 0"
         >
-          <Text typo="Heading3">정보를 다시 한번 확인해주세요.</Text>
+          <Text typo="Heading2">정보를 다시 한번 확인해주세요.</Text>
           <Flex
             direction="column"
             gap={18}
