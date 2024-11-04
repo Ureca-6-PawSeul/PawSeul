@@ -11,7 +11,6 @@ const DetailTable = ({ tableData }: DetailTableProps ) => {
     <Table>
       <TableBody>
         {
-          /* tableData를 [key, value]의 배열 형태로 변환 */
           Object.entries(tableData).map(([key, value]) => (
             <TableRow key={key}>
               <TableData bgColor={colors.Gray50} width="30%">
@@ -55,7 +54,7 @@ const TableData = styled.td<{
 }>`
   width: ${({ width }) => width ?? `${width}`};
   border-width: 1px;
-  padding: 8px;
+  padding: 8px 12px;
   background-color: ${({ bgColor }) => bgColor ?? `${bgColor}`};
 `;
 

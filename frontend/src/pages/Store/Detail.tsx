@@ -2,45 +2,40 @@ import styled from '@emotion/styled';
 import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
-import { Hr } from '@components/store/Hr';
-import foodDetail from '@/mocks/data/foodDetail.json';
 import tableData from '@/utils/tableData';
 import DetailTable from '@components/store/detail/DetailTable';
 import DetailImageList from '@components/store/detail/DetailImageList';
 import StarRating from '@components/store/Star';
 import ProductReview from '@components/store/detail/ProductReview';
 import reviews from '@/mocks/data/review.json';
-import { useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useRef, useState } from 'react';
 import useProductDetailQuery from '@/apis/hooks/useProductDetailQuery';
-import useProductDetailStore from '@/stores/productDetailStore';
 import { useEffect } from 'react';
 
 const Detail = () => {
-  // const mock = foodDetail;
-  // id가 항상 존재함
-  const { data, isLoading, isError } = useProductDetailQuery();
-
-  // zustand에서 productDetail 상태 가져오기
-  const { productDetail, setProductDetail } = useProductDetailStore();
+  // tanstack query 사용
+  const { data } = useProductDetailQuery();
+  // const { reviewData } = useProductReviewQuery();
+  const [descriptionData, setDescriptionData] = useState(null);
+  const [productPrice, setProductPrice] = useState('');
 
   useEffect(() => {
     if (data) {
-      setProductDetail(data);
+      setDescriptionData(tableData(data));
+      setProductPrice(data.price.toLocaleString('ko-KR'));
     }
-  }, [data, setProductDetail]);
+  }, [data]);
 
-  if (isLoading) return <Flex>Loading...</Flex>;
-  if (isError) return <Flex>Error loading product details</Flex>;
-
-  const descriptionData = tableData(productDetail);
-  const productPrice = productDetail.price.toLocaleString('ko-KR');
   const reviewCount = reviews.length;
   const reviewRef = useRef<HTMLDivElement>(null);
 
   const handleRefClick = () => {
     reviewRef.current.scrollIntoView({ behavior: 'smooth' });
   };
+
+  if (!data) {
+    return <div>로딩중...</div>;
+  }
 
   return (
     <Wrapper
@@ -50,7 +45,7 @@ const Detail = () => {
       backgroundColor={colors.Gray50}
       height="fit-content"
     >
-      <Image src={productDetail.productImg} alt="product_img" />
+      <Image src={data.productImg} alt="product_img" />
       <Flex
         direction="column"
         gap={12}
@@ -59,11 +54,11 @@ const Detail = () => {
       >
         <Flex direction="column" align="flex-start" gap={7} padding="0px 16px">
           <Text typo="Heading3" align="flex-start">
-            {productDetail.title}
+            {data.title}
           </Text>
           <Flex gap={8} justify="flex-start">
             <StarRating
-              score={productDetail.averageScore}
+              score={data.averageScore}
               size={14}
               width={74}
               gap={1}
@@ -96,14 +91,14 @@ const Detail = () => {
         <DetailText typo="Heading3" justify="flex-start">
           상품 설명
         </DetailText>
-        <DetailTable tableData={descriptionData} />
+        {descriptionData && <DetailTable tableData={descriptionData} />}
       </Flex>
       <Flex
         direction="column"
         padding="0 0 32px"
         backgroundColor={colors.White}
       >
-        <DetailImageList images={productDetail.descriptionImg} />
+        <DetailImageList images={data.descriptionImg} />
       </Flex>
       <ProductReview ref={reviewRef} />
     </Wrapper>
