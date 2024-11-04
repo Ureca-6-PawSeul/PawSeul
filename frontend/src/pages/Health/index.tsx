@@ -19,7 +19,7 @@ const Health = () => {
       margin="60px 0 0 0"
     >
       <HealthGuideBanner width="90%" />
-      <Flex width="auto" height="auto" padding="56px 0 120px 0">
+      <Flex width="auto" height="auto" padding="40px 0 120px 0">
         <Button width="370px" height="50px" onClick={handleNavigate}>
           <Text typo="Body1">영양분석 하러가기</Text>
         </Button>

@@ -47,18 +47,26 @@ const Analysis = () => {
       <Flex direction="column" gap={24} justify="flex-start">
         <HeightFitFlex direction="column" gap={16}>
           <StyledButton
-            height="50px"
+            bg={colors.White}
+            hoverBg={colors.White}
+            fontColor={colors.Black}
+            hoverFontColor={colors.Black}
+            border={`1px solid ${colors.Gray700}`}
             selected={hasAllergy === true}
             onClick={() => handleAllergyClick(true)}
           >
-            <Text typo="Body1">알러지가 있어요</Text>
+            <Text typo="Body2">알러지가 있어요</Text>
           </StyledButton>
           <StyledButton
-            height="50px"
+            bg={colors.White}
+            hoverBg={colors.White}
+            fontColor={colors.Black}
+            hoverFontColor={colors.Black}
+            border={`1px solid ${colors.Gray700}`}
             selected={hasAllergy === false}
             onClick={() => handleAllergyClick(false)}
           >
-            <Text typo="Body1">알러지가 없어요</Text>
+            <Text typo="Body2">알러지가 없어요</Text>
           </StyledButton>
         </HeightFitFlex>
 
@@ -80,7 +88,7 @@ const Analysis = () => {
 export default Analysis;
 
 const StyledButton = styled(Button)<{ selected: boolean }>`
-  opacity: ${({ selected }) => (selected ? 1 : 0.5)};
+  opacity: ${({ selected }) => (selected ? 1 : 0.3)};
   font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 `;
 
@@ -91,6 +99,7 @@ export const HeightFitFlex = styled(Flex)`
 const TagBox = styled(HeightFitFlex)`
   flex-wrap: wrap;
   gap: 10px;
+  width: 98%;
 `;
 
 const GuideText = styled(Text)`
@@ -98,7 +107,7 @@ const GuideText = styled(Text)`
 `;
 
 const ContinueBtn = styled(Button)`
-  padding: 14px 20px;
+  padding: 16px 20px;
   border: none;
   bottom: 48px;
   position: sticky;
