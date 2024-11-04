@@ -141,6 +141,7 @@ export class ReviewService {
       state: item.order.orderState,
       quantity: item.quantity,
     }));
+
     return reviews;
   }
 }

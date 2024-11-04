@@ -133,6 +133,7 @@ export class ProductService {
         'product.price AS price',
         'product.productImg AS productImg',
         'AVG(review.score) AS averageScore',
+
       ])
       .groupBy('product.productId')
       .orderBy('average_score', 'DESC')

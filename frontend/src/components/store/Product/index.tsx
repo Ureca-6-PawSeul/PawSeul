@@ -13,6 +13,7 @@ export const Product = ({
   averageScore
 }: ProductType) => {
   const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   return (
     <Wrapper
       direction="column"

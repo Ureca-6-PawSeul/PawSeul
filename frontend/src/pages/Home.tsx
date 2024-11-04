@@ -21,6 +21,7 @@ import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
 import { useGetTopProduct } from '@/apis/hooks/product';
 
+
 const Home = () => {
   const imageList = [Banner1, Banner2, Banner3, Banner4];
   const [productList, setProductList] = useState<ProductType[]>([]);
