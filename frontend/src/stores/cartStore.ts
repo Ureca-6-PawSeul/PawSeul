@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { CartType } from '@/assets/types/CartType';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface CartStore {
   cartItems: CartType[];
@@ -16,7 +17,9 @@ interface CartStore {
   decreaseQuantity: (productId: string) => void;
 }
 
-const useCartStore = create<CartStore>((set) => ({
+const useCartStore = create<CartStore>()(
+  persist(
+  (set) => ({
   //state 변수들 초기값
   cartItems: [],
   selectedItems: [],
@@ -115,6 +118,13 @@ const useCartStore = create<CartStore>((set) => ({
           : item,
       ),
     })),
-}));
+    }),
+    {
+      name: 'cart-store',
+      storage: createJSONStorage(() => sessionStorage),
+      partialize: (state) => ({ selectedItems: state.selectedItems }), // 'selectedItems'로 수정
+    }
+  ),
+);
 
 export default useCartStore;
