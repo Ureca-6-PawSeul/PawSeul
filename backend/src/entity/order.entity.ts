@@ -28,7 +28,7 @@ export class Order extends BaseEntity {
   totalPrice: number;
 
   @ApiProperty({ description: '주문 상태' })
-  @Column({ type: 'enum', enum: OrderStateType, default: 'BEFORE_PAYMENT' })
+  @Column({ type: 'enum', enum: OrderStateType, default: '결제 전' })
   orderState: OrderStateType;
 
   @ApiProperty({ description: 'Toss 주문 키' })
