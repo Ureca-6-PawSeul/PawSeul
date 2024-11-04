@@ -22,7 +22,7 @@ export const DefaultProfile: Story = {
     age:4,
     weight:5.4,
     gender: "남자",
-    breedname: "골든 리트리버",
-    is_neutered: "완료"
+    breed: "골든 리트리버",
+    isNeutered: "완료"
 },
 };
