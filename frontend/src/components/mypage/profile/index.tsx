@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import { Text } from '@components/common/Typo';
 import DogProfile from '@/assets/images/svgs/DogProfile';
 import KeyboardArrowRight from '@assets/images/svgs/KeyboardArrowRight';
-import { CardProfileType } from '@assets/types/ProfileType';
+import { PetType } from '@assets/types/ProfileType';
 
 const Profile = (
-  { petname, breedname, age, weight, gender, is_neutered }: CardProfileType,
+  { petId, petname, breed, age, weight, gender, isNeutered }: PetType,
   handleClick: () => void,
 ) => {
   return (
@@ -25,7 +25,7 @@ const Profile = (
             {petname}
           </Text>
           <Text typo="Label3" colorCode={colors.Black}>
-            {breedname}
+            {breed}
           </Text>
           <Flex justify="flex-start" align="flex-start" height={12} gap={5}>
             <Text typo="Label3">{age}살</Text>
@@ -35,7 +35,7 @@ const Profile = (
             {gender}
           </Text>
           <Text typo="Label3" colorCode={colors.Black}>
-            중성화 {is_neutered}
+            중성화 {isNeutered}
           </Text>
         </Flex>
       </Flex>

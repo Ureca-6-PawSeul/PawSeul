@@ -8,6 +8,7 @@ import Check from '@assets/images/svgs/Check';
 import StickyFooter from '@components/store/StickyFooter';
 import Select from '@components/store/Select';
 import { Button } from '@/components/common/Button';
+import { TossPayment } from './TossPayment';
 import { TossLogo } from '@/assets/images/svgs';
 
 const SHIPMENT_MESSAGE = [
@@ -27,12 +28,19 @@ const CARD_MESSAGE = [
   '농협카드',
 ];
 
+
+//Order table에 현재 주문내역을 저장시키고, 결제 상태는 "결제 전"으로 post요청
 const Payment = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
+  const [isClickedBtn, setIsClickedBtn] = useState(null);
 
   const handleCheckClick = () => {
     setIsCheck(!isCheck);
+  };
+  const handleClickBtn = (method: number) => {
+    setIsClickedBtn(method);
+    console.log(method);
   };
 
   useEffect(() => {
@@ -85,10 +93,10 @@ const Payment = () => {
             .map((_, index) => (
               <ProductHorizontal
                 key={index}
-                product_id={1}
+                productId={1}
                 price="3,900원"
                 title="강아지 촉촉뼈껌 22종 모음"
-                product_img="https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg"
+                productImg="https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg"
               />
             ))}
         </Flex>
@@ -99,6 +107,28 @@ const Payment = () => {
             <Text typo="Heading3">결제 방법</Text>
           </Flex>
           <Flex height="50px">
+            {isClickedBtn === 1 ? (
+              <Button height="50px">신용·체크카드</Button>
+            ) : (
+              <Button
+                bg={colors.White}
+                fontColor={colors.Gray500}
+                border="solid 1px #AEAEB2"
+                height="50px"
+                hoverBg={colors.Gray400}
+                hoverFontColor={colors.White}
+                onClick={() => handleClickBtn(1)}
+              >
+                신용·체크카드
+              </Button>
+            )}
+          </Flex>
+
+          {isClickedBtn === 2 ? (
+            <Button height="50px">
+              <TossLogo width={100} height={30} />
+            </Button>
+          ) : (
             <Button
               bg={colors.White}
               fontColor={colors.Gray500}
@@ -106,20 +136,12 @@ const Payment = () => {
               height="50px"
               hoverBg={colors.Gray400}
               hoverFontColor={colors.White}
+              onClick={() => handleClickBtn(2)}
             >
-              신용·체크카드
+              <TossLogo width={100} height={30} />
             </Button>
-          </Flex>
-          <Button
-            bg={colors.White}
-            fontColor={colors.Gray500}
-            border="solid 1px #AEAEB2"
-            height="50px"
-            hoverBg={colors.Gray400}
-            hoverFontColor={colors.White}
-          >
-            <TossLogo width={100} height={30} />
-          </Button>
+          )}
+
           <Select optionList={CARD_MESSAGE} />
           <Text typo="Body4" colorCode={colors.Gray400}>
             삼성 앱카드 5만원 이상 결제 시 1,000원 할인
@@ -156,7 +178,15 @@ const Payment = () => {
             </Text>
           </TouchableFlex>
           <Flex>
-            <Button>24,800원 결제하기</Button>
+            {isCheck && isClickedBtn === 1 && (
+              <Button height="50px">19800원 결제하기</Button>
+            )}
+            {isCheck && isClickedBtn === 2 && <TossPayment price={19800} />}
+            {(!isCheck || !isClickedBtn) && (
+              <Button height="50px" disabled={true} bg={colors.Gray400}>
+                19800원 결제하기
+              </Button>
+            )}
           </Flex>
         </Flex>
       </StickyFooter>
@@ -178,6 +208,6 @@ const TouchableFlex = styled(Flex)`
   transition: background-color 0.2s ease;
 
   &:active {
-    background-color: rgba(0, 0, 0, 0.1); // 클릭 시 살짝 어두워지는 효과
+    background-color: rgba(0, 0, 0, 0.03); // 클릭 시 살짝 어두워지는 효과
   }
 `;

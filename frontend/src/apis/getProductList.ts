@@ -1,9 +1,9 @@
-import { Category } from '@assets/types/CategoryType';
 import client from "./client";
 
-export const getProductList = async (category, setProduct ) => {
+export const getProductList = async (category, subCategory, setProductDataList ) => {
     // console.log(`api/product/${category}`)
-    const {data} = await client.get(`api/product/${category}`)
-
-    setProduct(data)
+    const {data} = await client.get(`/product?category=${category}&subcategory=${subCategory}`)
+    console.log(`/product?category=${category}&subcategory=${subCategory}`)
+    // console.log(data.data)
+    setProductDataList(data.data)
 }

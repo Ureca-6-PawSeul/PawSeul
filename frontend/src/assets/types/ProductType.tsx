@@ -1,19 +1,20 @@
 export interface ProductType {
-  product_id: number | string;
-  product_img: string;
+  productId: number | string;
+  category?: string;
+  productImg: string;
   title: string;
   price: string | number;
-  // score: number;
+  averageScore?: number;
 }
 
 export interface ProductDetailType extends ProductType {
   category: string;
-  description_img: string[];
-  main_ingredient?: string;
-  food_function?: string;
-  target_age?: string;
-  food_type?: string;
-  supplement_type?: string;
-  target_size?: string;
-  is_grainfree?: boolean;
+  descriptionImg: string[];
+  mainIngredient?: string;
+  foodFunction?: string;
+  targetAge?: string;
+  foodType?: string;
+  supplementType?: string;
+  targetSize?: string;
+  isGrainfree?: boolean;
 }

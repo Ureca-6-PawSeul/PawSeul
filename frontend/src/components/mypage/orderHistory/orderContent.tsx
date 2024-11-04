@@ -26,7 +26,7 @@ export const OrderContent = ({
       gap={12}
       height="fit-content"
     >
-      <Img src={productImg} width={90} height={90} />
+      <Img src={productImg} width="80px" height="80px" />
       <Flex direction="column" align="flex-start" gap={3}>
         <Text typo="Body3" colorCode={colors.Black}>
           {title}

@@ -1,14 +1,27 @@
 import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
-import ProfileData from '@/mocks/data/profile.json';
 import Profile from '@components/mypage/profile';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { PetType } from '@/assets/types/ProfileType';
+import { getMypageInfo } from '@/apis/getMypageInfo';
 const Mypage = () => {
+  const [petInfo, setPetInfo] = useState<PetType>();
   const navigate = useNavigate();
   const handleClickOrderHistory = () => navigate('order');
   const handleClickReviewHistory = () => navigate('review');
+
+  useEffect(() => {
+    getMypageInfo(setPetInfo);
+    console.log(petInfo)
+  }, []);
+
+  useEffect(() => {
+    console.log("Updated petInfo:", petInfo);
+  }, [petInfo]); 
+
   return (
     <Flex
       direction="column"
@@ -18,7 +31,7 @@ const Mypage = () => {
     >
       <Flex direction="row" justify="flex-start" height={40}>
         <Text colorCode={colors.Black} typo="Label1" align="flex-start">
-          {ProfileData.username}
+          김찬별
         </Text>
         <Text colorCode={colors.Black} typo="Body3" align="flex-start">
           님
@@ -30,14 +43,16 @@ const Mypage = () => {
         </Text>
         {/* 반려견 정보 컴포넌트 */}
       </Flex>
-      <Profile
-        petname={ProfileData.petname}
-        age={ProfileData.age}
-        breedname={ProfileData.breedname}
-        weight={ProfileData.weight}
-        gender={ProfileData.gender}
-        is_neutered={ProfileData.is_neutered}
-      />
+      {petInfo &&       <Profile
+        petId={petInfo.petId}
+        petname={petInfo.petname}
+        age={petInfo.age}
+        breed={petInfo.breed}
+        weight={petInfo.weight}
+        gender={petInfo.gender}
+        isNeutered={petInfo.isNeutered}
+      />}
+
       <BottomBtn
         direction="column"
         align="flex-start"
@@ -48,7 +63,12 @@ const Mypage = () => {
           찜한 목록
         </Text>
       </BottomBtn>
-      <BottomBtn direction="column" align="flex-start" padding="19px 11px">
+      <BottomBtn
+        direction="column"
+        align="flex-start"
+        padding="19px 11px"
+        onClick={handleClickOrderHistory}
+      >
         <Text colorCode={colors.Black} typo="Body3" align="flex-start">
           주문 내역
         </Text>

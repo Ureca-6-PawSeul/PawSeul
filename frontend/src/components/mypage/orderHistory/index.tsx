@@ -85,7 +85,7 @@ export const OrderHistory = ({
             // </Flex>
 
             <OrderContent
-              productImg={item.product_img}
+              productImg={item.productImg}
               title={item.title}
               price={item.price}
               quantity={item.quantity}
