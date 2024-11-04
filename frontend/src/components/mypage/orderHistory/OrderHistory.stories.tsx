@@ -16,9 +16,10 @@ export default meta;
 /**
  * `DefaultOrderHistory`는 'OrderHistory' 컴포넌트의 기본 스토리입니다.
  */
+const date = new Date('2024-01-01T00:00:00');
 export const DefaultOrderHistory: Story = {
   args: {
-    date : "24.10.12",
+    date : date,
     children : 'Children Components'
 },
 };

@@ -1,46 +1,49 @@
 import { Flex } from '@/components/common/Flex';
 import { OrderHistory } from '@components/mypage/orderHistory';
-import { SetStateAction, useEffect, useState } from 'react';
-import { getUserOrder } from '@/apis/getUserOrder';
-import { OrderHistoryType } from '@/assets/types/OrderType';
 import styled from '@emotion/styled';
+import { useGetUserOrder } from '@/apis/hooks/order';
+import { Header } from '@/components/common/Header';
+import { LeftArrow } from '@/assets/images/svgs';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 // 나중엔 날짜가 Date객체로 올거니까 date-fns 라이브러리 사용해서 포맷 변경해줘야 함
 export const OrderHistoryPage = () => {
   const [userOrder, setUserOrder] = useState([]);
-  const fetch = async (
-    user_id: string,
-    setUserOrder: React.Dispatch<SetStateAction<OrderHistoryType[]>>,
-  ) => {
-    try {
-      await getUserOrder('1', setUserOrder);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const orderHistory = useGetUserOrder();
+  const navigate = useNavigate();
+  const handleNavigateToMypage = () => {
+    navigate('/mypage')
+  }
 
-  useEffect(() => {
-    fetch('1', setUserOrder);
-  }, []);
+  useEffect(()=>{
+    if(orderHistory){
+      setUserOrder(orderHistory)
+    }
+  },[orderHistory])
 
   return (
+    <>
+    <Header title="주문내역" LeftIcon={<LeftArrow height={24}/>} onLeftIconClick={handleNavigateToMypage}/>
     <Wrapper
       direction="column"
       justify="flex-start"
       align="flex-start"
       padding="0 12px"
+      margin="60px 0 0 0"
     >
       {userOrder?.map((order,) => (
         <Flex direction="column" justify="flex-start" height="fit-content">
           <OrderHistory
-            date={order.order_created_at}
-            state={order.order_state}
-            items={order.order_items}
-            bottomContent={`${order.order_created_at} + 3일 후 발송 예정`}
+            date={order.orderCreatedAt}
+            state={order.orderState}
+            items={order.orderItems}
+            bottomContent=' 에 발송 예정'
           />
         </Flex>
       ))}
     </Wrapper>
+    </>
   );
 };
 

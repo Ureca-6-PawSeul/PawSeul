@@ -1,7 +1,10 @@
 import client from "./client";
 
-export const getTopProductList = async (setProductList ) => {
+export const getTopProductList = async ( ) => {
     // console.log(`api/product/${category}`)
-    const {data} = await client.get(`api/v1/product/top`)
-    setProductList(data)
+    const {data} = await client.get(`product/topTen`, {
+        withCredentials: true,
+    })
+
+    return data.data;
 }

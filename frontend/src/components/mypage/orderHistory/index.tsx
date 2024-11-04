@@ -7,6 +7,7 @@ import { ClickBtn } from '../profile';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@/assets/images/svgs';
 import { OrderItemType } from '@/assets/types/OrderType';
 import { OrderContent } from './orderContent';
+import { addDays, format } from 'date-fns';
 export const OrderHistory = ({
   date,
   state,
@@ -14,12 +15,14 @@ export const OrderHistory = ({
   bottomContent,
   children,
 }: {
-  date: string;
+  date: Date;
   state: string;
   items: OrderItemType[];
   bottomContent: string;
   children?: React.ReactNode;
 }) => {
+  const dateString = format(date, 'yyyy-MM-dd / hh:mm:ss')
+  const shipDateString = format(addDays(dateString, 3),'yyyy-MM-dd')
   const [isOpen, setisOpen] = useState(false);
   const handleClick = () => {
     setisOpen(!isOpen);
@@ -35,7 +38,7 @@ export const OrderHistory = ({
       // margin="12px 0 0 0"
     >
       <Text typo="Label1" colorCode={colors.Black}>
-        {date}
+        {dateString}
       </Text>
 
       <OrderWrapper
@@ -49,11 +52,13 @@ export const OrderHistory = ({
           <Text typo="Label1" colorCode={colors.MainColor}>
             {state}
           </Text>
-          {isOpen ? (
-            <KeyboardArrowUp width={20} height={20} />
-          ) : (
-            <KeyboardArrowDown width={20} height={20} />
-          )}
+          {items.length > 1 ? (
+            isOpen ? (
+              <KeyboardArrowUp width={20} height={20} />
+            ) : (
+              <KeyboardArrowDown width={20} height={20} />
+            )
+          ) : null}
         </ClickBtn>
 
         {items?.map((item, index) =>
@@ -89,7 +94,7 @@ export const OrderHistory = ({
               title={item.title}
               price={item.price}
               quantity={item.quantity}
-              bottomContent={bottomContent}
+              bottomContent={shipDateString+bottomContent}
               children={children}
             />
           ) : null,

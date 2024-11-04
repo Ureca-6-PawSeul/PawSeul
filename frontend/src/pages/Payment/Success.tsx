@@ -1,3 +1,4 @@
+import { patchUserOrder } from '@/apis/order';
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -15,7 +16,8 @@ export const PaymentSuccess = () => {
     console.log(orderId, paymentKey, amount);
 
     //patch : 결제 상태를 "결제 완료"로 변경 요청
-
+    const patchData = {orderId : orderId, state : "결제 완료"}
+    const response = patchUserOrder(patchData);
 
     alert(successMessage);
     navigate('/mypage/order');

@@ -10,7 +10,10 @@ export const Product = ({
   productImg,
   title,
   price,
+  averageScore
 }: ProductType) => {
+  const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
   return (
     <Wrapper
       direction="column"
@@ -30,7 +33,7 @@ export const Product = ({
         </Title>
       </Flex>
       <Text colorCode={colors.Black} typo="Label1">
-        {price}
+        {priceString}원
       </Text>
       <Flex
         direction="row"
@@ -39,9 +42,9 @@ export const Product = ({
         align="flex-end"
         gap={1}
       >
-        <StarRating score={4.5} />
+        <StarRating score={averageScore} />
         <Text colorCode={colors.Black} typo="Body4">
-          {4}
+          {averageScore}
         </Text>
         <Text colorCode={colors.Gray400} typo="Body4">
           /
