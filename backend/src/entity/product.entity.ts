@@ -62,4 +62,7 @@ export class Product {
 
   @OneToMany(() => ProductReview, (review) => review.product)
   reviews: ProductReview[];
+
+  @OneToMany(() => ProductReview, (review) => review.product)
+  productReviews: ProductReview[];
 }
