@@ -35,7 +35,6 @@ const Store = () => {
     navigate(`detail/${productId}`);
   };
 
-
   useEffect(() => {
     if (data) {
       setProductDataList(data);
