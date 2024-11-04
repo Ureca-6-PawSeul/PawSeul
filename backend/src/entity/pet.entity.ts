@@ -21,7 +21,7 @@ export class Pet extends BaseEntity {
   petId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
-  @OneToOne(() => User, (user) => user.pet)
+  @OneToOne(() => User, (user) => user.pet, { cascade: true })
   @JoinColumn({ name: 'user_id' })
   user: User;
 
