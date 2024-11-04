@@ -1,7 +1,8 @@
-import { useQuery, UseQueryOptions } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 import { getCartList } from '@/apis/getCartList';
 import { CartType } from '@/assets/types/CartType';
 import useCartStore from '@/stores/cartStore';
+import { useEffect } from 'react';
 
 const useCartQuery = () => {
   // const setCartItems = useCartStore((state) => state.setCartItems);

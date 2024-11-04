@@ -43,7 +43,7 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/fail" element={<PaymentFail />} />"
-          <Route path="/store/detail/:productId" element={<Detail />} />
+          <Route path="/store/detail/:id" element={<Detail />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Layout>
