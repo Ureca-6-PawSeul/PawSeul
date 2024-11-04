@@ -78,10 +78,13 @@ export class CartService {
   async updateProductCart(
     userId: string,
     updateProductDto: UpdateProductCartDto,
-  ): Promise<CartProduct> {
+  ): Promise<GetCartsResponseDto> {
     const user = await this.findUserId(userId);
     const cartProduct = await this.entityManager.findOne(CartProduct, {
-      where: { user, product: { productId: updateProductDto.productId } },
+      where: {
+        user: { userId },
+        product: { productId: updateProductDto.productId },
+      },
     });
 
     if (!cartProduct) {
@@ -90,14 +93,20 @@ export class CartService {
 
     // 수량 업데이트
     cartProduct.quantity = updateProductDto.quantity;
-    return await this.entityManager.save(cartProduct);
+    await this.entityManager.save(cartProduct);
+
+    // 업데이트 후 장바구니 정보 반환
+    return this.getCartsUserId(userId);
   }
 
   // 장바구니 상품 삭제
-  async deleteProductCart(userId: string, productId: string): Promise<void> {
+  async deleteProductCart(
+    userId: string,
+    productId: string,
+  ): Promise<GetCartsResponseDto> {
     const user = await this.findUserId(userId);
     const cartProduct = await this.entityManager.findOne(CartProduct, {
-      where: { user, product: { productId } },
+      where: { user: { userId }, product: { productId } },
     });
 
     if (!cartProduct) {
@@ -105,5 +114,8 @@ export class CartService {
     }
 
     await this.entityManager.remove(cartProduct);
+
+    // 삭제 후 장바구니 정보 반환
+    return this.getCartsUserId(userId);
   }
 }
