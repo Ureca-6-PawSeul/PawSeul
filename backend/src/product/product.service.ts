@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Product } from 'src/entity/product.entity';
+import { ProductReview } from 'src/entity/productReview.entity';
 import { FoodType, SnackType, SupplementType } from 'src/types/category';
 
 import { Repository } from 'typeorm';
@@ -11,6 +12,8 @@ export class ProductService {
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
+    @InjectRepository(ProductReview)
+    private readonly productReviewRepository: Repository<ProductReview>, // 추가
   ) {}
   async getProducts(
     category: 'food' | 'snack' | 'supplement',
@@ -115,5 +118,25 @@ export class ProductService {
       .getMany();
 
     return products;
+  }
+
+  // 평균 점수를 기준으로 상위 10개 상품 조회
+  async getTop10Products(): Promise<
+    { product_id: string; title: string; price: number; product_img: string }[]
+  > {
+    return this.productRepository
+      .createQueryBuilder('product')
+      .leftJoin('product.productReviews', 'review')
+      .select([
+        'product.productId AS product_id',
+        'product.title AS title',
+        'product.price AS price',
+        'product.productImg AS product_img',
+        'AVG(review.score) AS average_score',
+      ])
+      .groupBy('product.productId')
+      .orderBy('average_score', 'DESC')
+      .limit(10)
+      .getRawMany();
   }
 }
