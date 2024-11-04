@@ -6,7 +6,7 @@ import { Text } from '@/components/common/Typo';
 
 const Health = () => {
   return (
-    <Wrapper direction="column" justify="flex-start" align="center">
+    <Wrapper direction="column" justify="flex-start" align="center" margin="60px 0 0 0">
       <Flex direction="column" justify="flex-start" height="fit-content">
         <HealthGuideBanner width="100%" heigh="80%" />
       </Flex>

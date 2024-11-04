@@ -8,7 +8,8 @@ import {
   Banner2,
   Banner3,
   Banner4,
-  CheckIcon,
+  CartIcon,
+  MiniLogo,
 } from '@/assets/images/svgs';
 import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
@@ -17,6 +18,8 @@ import { getTopProductList } from '@/apis/getTopProductLis';
 import { Product } from '@/components/store/Product';
 import { useUserStore } from '@/stores/userStore';
 import { useGetUserInfo } from '@/apis/hooks/user';
+import { Header } from '@/components/common/Header';
+import { useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,74 +41,69 @@ const Home = () => {
     if (data) {
       setUserInfo(data);
     }
-    console.log(data);
   }, [data, setUserInfo]);
 
-  //토스트 메시지 설정하는 방법!
-  const notify = (msg: string) => {
-    toast(
-      <Flex justify="space-between">
-        <span>{msg}</span>
-        <CheckIcon width={24} height={24} style={{ marginLeft: '8px' }} />
-      </Flex>,
-      {
-        position: 'bottom-center',
-      },
-    );
+  const navigate = useNavigate();
+  const handleNavigateToHome = () => {
+    navigate('/');
+  };
+  const handleNavigateToCart = () => {
+    navigate('/cart');
   };
 
   return (
-    <Flex
-      direction="column"
-      align="center"
-      justify="flex-start"
-      padding="0 0 70px 0"
-      // height="fit-content"
-    >
-      {/* 배너 */}
-      <Flex direction="column">
-        <Carousel>
-          {imageList.map((ImageComponent, index) => (
-            <Flex key={index}>
-              <ImageComponent />
-            </Flex>
-          ))}
-        </Carousel>
-      </Flex>
-
-      {/* TOP10 상품 리스트 */}
-      <Flex padding="12px 12px" direction="column" height={360}>
-        <Flex gap={5} justify="flex-start" height="fit-content">
-          <Text typo="Heading3" colorCode={colors.Black}>
-            요즘 포슬 트렌드는?
-          </Text>
-          <Text typo="Heading3" colorCode={colors.MainColor}>
-            TOP 10
-          </Text>
-        </Flex>
-        <ProductContainer gap={10} justify="flex-start" padding="5px">
-          {productList.length > 0 &&
-            productList.map((product: ProductType) => (
-              <ProductWrapper key={product.productId}>
-                <Product
-                  productId={product.productId}
-                  title={product.title}
-                  price={product.price}
-                  productImg={product.productImg}
-                  averageScore={product.averageScore}
-                />
-              </ProductWrapper>
+    <>
+      <Header
+        LeftIcon={<MiniLogo height={26} />}
+        RightIcon={<CartIcon height={24} />}
+        onLeftIconClick={handleNavigateToHome}
+        onRightIconClick={handleNavigateToCart}
+      />
+      <Flex
+        direction="column"
+        align="center"
+        justify="flex-start"
+        padding="0 0 70px 0"
+        // height="fit-content"
+      >
+        {/* 배너 */}
+        <Flex direction="column">
+          <Carousel>
+            {imageList.map((ImageComponent, index) => (
+              <Flex key={index}>
+                <ImageComponent />
+              </Flex>
             ))}
-        </ProductContainer>
+          </Carousel>
+        </Flex>
 
-        <button onClick={() => notify('성공적으로 로그인되었습니다.')}>
-          토스트메시지 예시
-        </button>
+        {/* TOP10 상품 리스트 */}
+        <Flex padding="12px 12px" direction="column" height={360}>
+          <Flex gap={5} justify="flex-start" height="fit-content">
+            <Text typo="Heading3" colorCode={colors.Black}>
+              요즘 포슬 트렌드는?
+            </Text>
+            <Text typo="Heading3" colorCode={colors.MainColor}>
+              TOP 10
+            </Text>
+          </Flex>
+          <ProductContainer gap={10} justify="flex-start" padding="5px">
+            {productList.length > 0 &&
+              productList.map((product: ProductType) => (
+                <ProductWrapper key={product.productId}>
+                  <Product
+                    productId={product.productId}
+                    title={product.title}
+                    price={product.price}
+                    productImg={product.productImg}
+                  />
+                </ProductWrapper>
+              ))}
+          </ProductContainer>
+        </Flex>
+        <Footer />
       </Flex>
-      <Footer />
-      {/* 토스트 메시지 적용 예시 ! 바깥에 놔주면 됌*/}
-      <Toast />
-    </Flex>
+    </>
   );
 };
 

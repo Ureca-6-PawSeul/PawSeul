@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { Flex } from '../Flex';
+import { Text } from '../Typo';
+import { colors } from '@/styles/colors';
 
 interface HeaderType {
   title?: string;
@@ -17,14 +19,52 @@ export const Header = ({
   onRightIconClick,
 }: HeaderType) => {
   return (
-    <Flex direction="row" align="center" justify="space-between" height={56}>
-      <Flex width={24} height={24} onClick={() => onLeftIconClick}>
-        {LeftIcon}
-      </Flex>
+    <HeaderWrapper>
+      <FixedHeader
+        direction="row"
+        align="center"
+        justify="space-between"
+        height={56}
+        padding="0 24px"
+      >
+        <IconBox onClick={onLeftIconClick}>{LeftIcon}</IconBox>
 
-      <Flex width={24} height={24} onClick={() => onRightIconClick}>
-        {RightIcon}
-      </Flex>
-    </Flex>
+        {title && (
+          <Text
+            typo="Heading4"
+            align="center"
+            colorCode={colors.Black}
+            margin="0 auto"
+          >
+            {title}
+          </Text>
+        )}
+
+        <IconBox onClick={onRightIconClick}>{RightIcon}</IconBox>
+      </FixedHeader>
+    </HeaderWrapper>
   );
 };
+
+const HeaderWrapper = styled(Flex)`
+  position: relative;
+  height: fit-content;
+`;
+
+const FixedHeader = styled(Flex)`
+  position: absolute;
+  top: 0;
+  background-color: ${colors.White};
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+`;
+
+const IconBox = styled.div`
+  display: flex;
+  width: 48px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+`;

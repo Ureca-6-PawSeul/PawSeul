@@ -2,7 +2,7 @@ export interface PetType {
   petId: string
   petname: string;
   age: number;
-  weight: number;
+  weight: string | number;
   gender: string;
   breed: string;
   isNeutered: string;
