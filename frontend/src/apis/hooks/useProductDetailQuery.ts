@@ -1,20 +1,19 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getProductDetail } from '../getProductDetail';
-import useProductDetailStore from '@/stores/productDetailStore';
+import { getProductDetail } from '@/apis/getProductDetail';
 import { ProductDetailType } from '@/assets/types/ProductType';
-import { useEffect } from 'react';
 
 const useProductDetailQuery = () => {
   const { id } = useParams<{ id: string }>();
 
-  const { data, isLoading, isError } = useQuery<ProductDetailType, Error>({
+  const { data } = useQuery({
     queryKey: ['productDetail', id],
     queryFn: () => getProductDetail(id!),
     staleTime: 1000 * 60 * 5,
+    enabled: !!id,
   });
 
-  return { data, isLoading, isError };
+  return { data };
 };
 
 export default useProductDetailQuery;
