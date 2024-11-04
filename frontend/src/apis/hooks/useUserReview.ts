@@ -4,8 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 export const useGetReviewDone = () => {
     const {data} = useQuery({
         queryKey: ['getUserReviewDone'],
-        queryFn: () => getUserReviewDone(),
-        staleTime : 1000 * 60 * 5,
+        queryFn: () => getUserReviewDone()
     })
     return data
 };
@@ -13,10 +12,9 @@ export const useGetReviewDone = () => {
 export const useGetReviewRemain = () => {
     const {data} = useQuery({
         queryKey: ['getUserReviewRemain'],
-        queryFn: () => getUserReviewRemain(),
-        staleTime : 1000 * 60 * 5,
+        queryFn: () => getUserReviewRemain()
     })
-    console.log(data)
+    // console.log(data)
 
     return data;
 };

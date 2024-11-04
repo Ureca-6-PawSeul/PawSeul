@@ -32,23 +32,14 @@ export const ReviewHistoryPage = () => {
     setActiveTab(tabIndex);
   };
 
-  // useEffect(() => {
-  //   if (reviewDone) {
-  //     setUserReviewList(reviewDone);
-  //   }
-  // }, [reviewDone]);
-
   useEffect(() => {
-    if (reviewRemain) {
+    if (activeTab === 1) {
       setUserReviewList(reviewRemain);
+    } else if (activeTab === 2) {
+      setUserReviewList(reviewDone);
+      // console.log(reviewDone)
     }
-  }, [reviewRemain]);
-
-  useEffect(() => {
-    if (activeTab === 2) setUserReviewList(reviewDone);
-    else if (activeTab === 1) setUserReviewList(reviewRemain);
-
-  }, [activeTab]);
+  }, [activeTab, reviewDone, reviewRemain]);
 
   return (
     <>
@@ -109,36 +100,46 @@ export const ReviewHistoryPage = () => {
             </Tab>
           </Flex>
           <Flex direction="column" padding="0 12px">
-            {userReviewList?.map((review) => (
-              <Wrapper align="flex-start" padding="12px 12px">
-                <OrderContent
-                  price={review.price}
-                  title={review.title}
-                  bottomContent={review.state}
-                  quantity={review.quantity}
-                  productImg={review.productImg}
-                >
-                  <Flex width="120px">
-                    {activeTab === 1 ? (
-                      <Button width="103px" height="30px" borderRadius="25px">
-                        <Text typo="Label2">리뷰 작성하기</Text>
-                      </Button>
-                    ) : (
-                      <Button
-                        width="103px"
-                        height="30px"
-                        borderRadius="25px"
-                        bg={colors.Gray300}
-                        fontColor={colors.White}
-                        disabled={true}
-                      >
-                        <Text typo="Label2">작성 완료</Text>
-                      </Button>
-                    )}
-                  </Flex>
-                </OrderContent>
-              </Wrapper>
-            ))}
+            {userReviewList?.length > 0 ? (
+              userReviewList?.map((review) => (
+                <Wrapper align="flex-start" padding="12px 12px">
+                  <OrderContent
+                    price={review.price}
+                    title={review.title}
+                    bottomContent={review.state}
+                    quantity={review.quantity}
+                    productImg={review.productImg}
+                  >
+                    <Flex width="120px">
+                      {activeTab === 1 ? (
+                        <Button width="103px" height="30px" borderRadius="25px">
+                          <Text typo="Label2">리뷰 작성하기</Text>
+                        </Button>
+                      ) : (
+                        <Button
+                          width="103px"
+                          height="30px"
+                          borderRadius="25px"
+                          bg={colors.Gray300}
+                          fontColor={colors.White}
+                          disabled={true}
+                        >
+                          <Text typo="Label2">작성 완료</Text>
+                        </Button>
+                      )}
+                    </Flex>
+                  </OrderContent>
+                </Wrapper>
+              ))
+            ) : activeTab === 1 ? (
+              <Flex direction="column" margin="50px 0">
+                <Text>작성할 리뷰가 없습니다.</Text>
+              </Flex>
+            ) : (
+              <Flex direction="column" margin="50px 0">
+                <Text>작성한 리뷰가 없습니다.</Text>
+              </Flex>
+            )}
           </Flex>
         </Flex>
       </Flex>

@@ -128,11 +128,11 @@ export class ProductService {
       .createQueryBuilder('product')
       .leftJoin('product.productReviews', 'review')
       .select([
-        'product.productId AS product_id',
+        'product.productId AS productId',
         'product.title AS title',
         'product.price AS price',
-        'product.productImg AS product_img',
-        'AVG(review.score) AS average_score',
+        'product.productImg AS productImg',
+        'AVG(review.score) AS averageScore',
       ])
       .groupBy('product.productId')
       .orderBy('average_score', 'DESC')

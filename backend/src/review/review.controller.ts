@@ -47,6 +47,8 @@ export class ReviewController {
       throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
     }
     const reviews = await this.reviewService.getOrderItemsWithReviews(userId);
+    this.logger.log('reviews:', reviews.length);
+    this.logger.log('reviews', reviews);
     return { reviews };
   }
 
