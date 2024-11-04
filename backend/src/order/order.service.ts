@@ -40,7 +40,7 @@ export class OrderService {
         user: { userId },
         orderState: OrderStateType.PAYMENT_COMPLETED,
       },
-      relations: ['orderItems'],
+      relations: ['orderItems', 'orderItems.product'],
     });
 
     return orderProduct.map((order) => {
@@ -79,6 +79,7 @@ export class OrderService {
         'o.orderState',
         'oi.orderItemId',
         'product.productId',
+        'oi.quantity',
       ])
       .getMany();
 

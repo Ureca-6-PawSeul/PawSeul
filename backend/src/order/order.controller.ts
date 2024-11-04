@@ -21,6 +21,7 @@ import { orderListResponseDto } from 'src/order/dto/orderListResponse.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import { ProductDto } from 'src/product/dto/product.dto';
+import { MyReviewsRequestDto } from './dto/myReviewsRequest.dto';
 
 @Controller('order')
 @ApiTags('order/결제 api')
@@ -80,7 +81,7 @@ export class OrderController {
   @ApiResponse({
     status: 200,
     description: '리뷰하지 않은 제품 목록',
-    type: [ProductDto],
+    type: [MyReviewsRequestDto],
   })
   async getUnreviewedProducts(@Req() req: Request) {
     const userId = req.user.userId;
