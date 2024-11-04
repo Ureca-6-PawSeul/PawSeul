@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { Flex } from '@/components/common/Flex';
 import { Text } from '@/components/common/Typo';
@@ -13,7 +12,7 @@ interface AllergyProps {
   handleTagClick: (id: number) => void;
 }
 
-const Allergies = [
+export const Allergies = [
   { id: 0, name: '소고기' },
   { id: 1, name: '콩' },
   { id: 2, name: '닭고기' },

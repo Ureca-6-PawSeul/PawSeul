@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { Flex } from '@components/common/Flex';
 import { HealthGuideBanner } from '@/assets/images/svgs';
 import { Button } from '@/components/common/Button';
@@ -12,7 +11,7 @@ const Health = () => {
   };
 
   return (
-    <Wrapper
+    <Flex
       direction="column"
       justify="flex-start"
       align="center"
@@ -20,14 +19,12 @@ const Health = () => {
     >
       <HealthGuideBanner width="90%" />
       <Flex width="auto" height="auto" padding="40px 0 120px 0">
-        <Button width="370px" height="50px" onClick={handleNavigate}>
+        <Button width="90%" height="50px" onClick={handleNavigate}>
           <Text typo="Body1">영양분석 하러가기</Text>
         </Button>
       </Flex>
-    </Wrapper>
+    </Flex>
   );
 };
 
 export default Health;
-
-const Wrapper = styled(Flex)``;

@@ -85,7 +85,7 @@ const SignUpResult = () => {
 
 export default SignUpResult;
 
-const InfoLine = styled(Flex)`
+export const InfoLine = styled(Flex)`
   height: fit-content;
   padding: 14px 20px;
 
