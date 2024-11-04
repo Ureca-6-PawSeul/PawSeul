@@ -24,9 +24,18 @@ const Analysis = () => {
   ];
 
   const [hasAllergy, setHasAllergy] = useState<boolean | null>(null);
+  const [selectedAllergies, setSelectedAllergies] = useState<number[]>([]);
 
   const handleAllergyClick = (allergyStatus: boolean) => {
     setHasAllergy(allergyStatus);
+  };
+
+  const handleTagClick = (id: number) => {
+    setSelectedAllergies((prevSelected) =>
+      prevSelected.includes(id)
+        ? prevSelected.filter((item) => item !== id)
+        : [...prevSelected, id],
+    );
   };
 
   return (
@@ -35,7 +44,7 @@ const Analysis = () => {
       justify="flex-start"
       align="center"
       padding="60px 32px 0 32px"
-      gap={55}
+      gap={40}
     >
       <HeightFitFlex direction="column" align="flex-start">
         <Text typo="Heading2">알러지가 있나요?</Text>
@@ -73,8 +82,16 @@ const Analysis = () => {
         {hasAllergy && (
           <TagBox justify="flex-start">
             {Allergies.map((item) => (
-              <Tag key={item.id} colorCode="BorderGray">
-                {item.name}
+              <Tag
+                key={item.id}
+                colorCode={
+                  selectedAllergies.includes(item.id)
+                    ? 'FilledBlack'
+                    : 'BorderBlack'
+                }
+                onClick={() => handleTagClick(item.id)}
+              >
+                <Text typo="Label3">{item.name}</Text>
               </Tag>
             ))}
           </TagBox>
