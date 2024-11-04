@@ -35,7 +35,7 @@ export class User {
   @OneToMany(() => CartProduct, (cartProduct) => cartProduct.user) // CartProduct와의 관계를 추가합니다.
   cartProducts: CartProduct[];
 
-  @OneToOne(() => Pet, (pet) => pet.user, { cascade: true })
+  @OneToOne(() => Pet, (pet) => pet.user)
   @JoinColumn({ name: 'pet_id' })
   pet: Pet;
 }
