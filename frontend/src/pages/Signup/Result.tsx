@@ -6,10 +6,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { Toast } from '@/components/common/Toast';
 import { usePostPetInfo } from '@/apis/hooks/signup';
-import { PetInfoType } from '@/apis/signup';
 
 const SignUpResult = () => {
-  const location = useLocation<{ state: PetInfoType }>();
+  const location = useLocation();
   const formData = location.state;
 
   console.log('전달된 데이터:', formData);
