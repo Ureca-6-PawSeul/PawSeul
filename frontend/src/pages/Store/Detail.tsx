@@ -11,10 +11,30 @@ import StarRating from '@components/store/Star';
 import ProductReview from '@components/store/detail/ProductReview';
 import reviews from '@/mocks/data/review.json';
 import { useRef } from 'react';
+import { useParams } from 'react-router-dom';
+import useProductDetailQuery from '@/apis/hooks/useProductDetailQuery';
+import useProductDetailStore from '@/stores/productDetailStore';
+import { useEffect } from 'react';
 
 const Detail = () => {
-  const mock = foodDetail;
-  const descriptionData = tableData(mock);
+  // const mock = foodDetail;
+  // id가 항상 존재함
+  const { data, isLoading, isError } = useProductDetailQuery();
+
+  // zustand에서 productDetail 상태 가져오기
+  const { productDetail, setProductDetail } = useProductDetailStore();
+
+  useEffect(() => {
+    if (data) {
+      setProductDetail(data);
+    }
+  }, [data, setProductDetail]);
+
+  if (isLoading) return <Flex>Loading...</Flex>;
+  if (isError) return <Flex>Error loading product details</Flex>;
+
+  const descriptionData = tableData(productDetail);
+  const productPrice = productDetail.price.toLocaleString('ko-KR');
   const reviewCount = reviews.length;
   const reviewRef = useRef<HTMLDivElement>(null);
 
@@ -30,7 +50,7 @@ const Detail = () => {
       backgroundColor={colors.Gray50}
       height="fit-content"
     >
-      <Image src={mock.product_img} alt="product_img" />
+      <Image src={productDetail.productImg} alt="product_img" />
       <Flex
         direction="column"
         gap={12}
@@ -39,10 +59,15 @@ const Detail = () => {
       >
         <Flex direction="column" align="flex-start" gap={7} padding="0px 16px">
           <Text typo="Heading3" align="flex-start">
-            {mock.title}
+            {productDetail.title}
           </Text>
           <Flex gap={8} justify="flex-start">
-            <StarRating score={mock.score} size={14} width={74} gap={1} />
+            <StarRating
+              score={productDetail.averageScore}
+              size={14}
+              width={74}
+              gap={1}
+            />
             <DetailText
               typo="Body3"
               colorCode={colors.Gray500}
@@ -56,7 +81,7 @@ const Detail = () => {
           </Flex>
         </Flex>
         <Flex justify="flex-end" padding="0px 16px">
-          <Text typo="Heading3" >{mock.price}</Text>
+          <Text typo="Heading3">{productPrice}원</Text>
         </Flex>
       </Flex>
       <Flex
@@ -66,7 +91,7 @@ const Detail = () => {
         padding="32px 16px 48px 16px"
         margin="16px 0 0"
         backgroundColor={colors.White}
-        align='flex-start'
+        align="flex-start"
       >
         <DetailText typo="Heading3" justify="flex-start">
           상품 설명
@@ -78,7 +103,7 @@ const Detail = () => {
         padding="0 0 32px"
         backgroundColor={colors.White}
       >
-        <DetailImageList images={mock.description_img} />
+        <DetailImageList images={productDetail.descriptionImg} />
       </Flex>
       <ProductReview ref={reviewRef} />
     </Wrapper>

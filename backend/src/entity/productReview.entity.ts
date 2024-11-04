@@ -12,13 +12,14 @@ import { ApiProperty } from '@nestjs/swagger';
 @Entity()
 export class ProductReview {
   @ApiProperty({ description: '리뷰의 고유 ID' })
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   productReviewId: string;
 
   @ApiProperty({ description: '제품 ID', type: () => Product })
   @JoinColumn({ name: 'product_id' })
   @ManyToOne(() => Product, (product) => product.productId, {
     onDelete: 'CASCADE',
+    eager: true,
   })
   product: Product;
 
