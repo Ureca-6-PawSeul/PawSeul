@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Order } from 'src/entity/order.entity';
 import { OrderItem } from 'src/entity/orderItem.entity';
@@ -9,6 +9,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class ReviewService {
+  private readonly logger = new Logger(ReviewService.name);
   constructor(
     @InjectRepository(ProductReview)
     private productReviewRepository: Repository<ProductReview>,
@@ -126,19 +127,19 @@ export class ReviewService {
   async getOrderItemsWithReviews(userId: string) {
     const orderItems = await this.orderItemRepository
       .createQueryBuilder('orderItem')
-      .leftJoinAndSelect('orderItem.order', 'order') // Order 조인
-      .leftJoinAndSelect('order.user', 'user') // User 조인
-      .leftJoinAndSelect('orderItem.product', 'product') // Product 조인
-      .leftJoinAndSelect('product.reviews', 'reviews') // Product와 리뷰 조인
-      .where('user.userId = :userId', { userId }) // 사용자 ID 필터링
+      .innerJoinAndSelect('orderItem.order', 'order') // INNER JOIN으로 변경
+      .innerJoinAndSelect('orderItem.product', 'product') // Product 조인
+      .innerJoinAndSelect('product.reviews', 'reviews') // Product와 리뷰 조인
+      .where('order.user_id = :userId', { userId })
       .getMany();
 
-    const reviews = orderItems.map((review) => ({
-      productImg: review.product.productImg,
-      title: review.product.title,
-      price: review.product.price,
-      state: review.order.orderState, // Changed to match the desired state
-      quantity: review.quantity,
+    const reviews = orderItems.map((item) => ({
+      productId: item.product.productId,
+      productImg: item.product.productImg,
+      title: item.product.title,
+      price: item.product.price,
+      state: item.order.orderState,
+      quantity: item.quantity,
     }));
 
     return reviews;

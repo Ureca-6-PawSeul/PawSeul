@@ -1,3 +1,5 @@
+import { ProductType } from "./ProductType"
+
 export interface OrderHistoryType {
     order_id : number | string,
     product_img : string,
@@ -16,10 +18,13 @@ export interface OrderItemType {
 }
 
 export interface OrderType {
-    orderId: string,
-    orderItem: number[],
-    totalPrice: number,
-    orderState: string,
-    orderCreatedAt: Date,
+    orderId?: string,
+    orderItems: ProductType[]
+    price: number,
     tossOrderKey: string
+}
+
+export interface PatchOrderType {
+    orderId: string,
+    state: string
 }

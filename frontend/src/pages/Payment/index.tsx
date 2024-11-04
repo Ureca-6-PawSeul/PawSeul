@@ -10,6 +10,7 @@ import Select from '@components/store/Select';
 import { Button } from '@/components/common/Button';
 import { TossPayment } from './TossPayment';
 import { TossLogo } from '@/assets/images/svgs';
+import useCartStore from '@/stores/cartStore';
 
 const SHIPMENT_MESSAGE = [
   '배송 요청 사항을 선택해주세요 (선택)',
@@ -31,6 +32,9 @@ const CARD_MESSAGE = [
 
 //Order table에 현재 주문내역을 저장시키고, 결제 상태는 "결제 전"으로 post요청
 const Payment = () => {
+  const orderItems = useCartStore((state)=>state.selectedItems);
+  const totalPrice = useCartStore((state)=>state.totalPrice);
+  const totalPriceString = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
   const [isClickedBtn, setIsClickedBtn] = useState(null);
@@ -57,8 +61,8 @@ const Payment = () => {
   }, []);
 
   return (
-    <Container direction="column" heightPer={100} padding="0 12px">
-      <Flex direction="column" gap={20}>
+    <Container direction="column" height="auto" padding="60px 24px">
+      <Flex direction="column" gap={30}>
         {/* 배송지 정보 */}
         <Flex direction="row" justify="space-between">
           <Text typo="Heading3">배송지 정보</Text>
@@ -88,15 +92,15 @@ const Payment = () => {
           <Flex direction="column" align="flex-start" margin="12px 0 0 0">
             <Text typo="Heading3">상품 정보</Text>
           </Flex>
-          {Array(6)
-            .fill(0)
-            .map((_, index) => (
+          {orderItems
+            .map((item, index) => (
               <ProductHorizontal
                 key={index}
-                productId={1}
-                price="3,900원"
-                title="강아지 촉촉뼈껌 22종 모음"
-                productImg="https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg"
+                productId={item.productId}
+                price={item.price}
+                title={item.title}
+                productImg={item.productImg}
+                quantity={item.quantity}
               />
             ))}
         </Flex>
@@ -157,7 +161,7 @@ const Payment = () => {
               최종 결제 금액
             </Text>
             <Text typo="Heading3" colorCode={colors.MainColor}>
-              24,800원
+              {}
             </Text>
           </Flex>
           <TouchableFlex
@@ -179,12 +183,12 @@ const Payment = () => {
           </TouchableFlex>
           <Flex>
             {isCheck && isClickedBtn === 1 && (
-              <Button height="50px">19800원 결제하기</Button>
+              <Button height="50px">{totalPriceString}원 결제하기</Button>
             )}
-            {isCheck && isClickedBtn === 2 && <TossPayment price={19800} />}
+            {isCheck && isClickedBtn === 2 && <TossPayment price={totalPrice} orderItems={orderItems} />}
             {(!isCheck || !isClickedBtn) && (
               <Button height="50px" disabled={true} bg={colors.Gray400}>
-                19800원 결제하기
+                {totalPriceString}원 결제하기
               </Button>
             )}
           </Flex>

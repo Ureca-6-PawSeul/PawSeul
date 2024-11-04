@@ -1,10 +1,11 @@
 export interface ProductType {
-  productId: number | string;
+  productId: string;
   category?: string;
   productImg: string;
   title: string;
-  price: string | number;
+  price: number;
   averageScore?: number;
+  quantity?: number;
 }
 
 export interface ProductDetailType extends ProductType {

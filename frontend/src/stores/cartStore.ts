@@ -122,7 +122,8 @@ const useCartStore = create<CartStore>()(
     {
       name: 'cart-store',
       storage: createJSONStorage(() => sessionStorage),
-      partialize: (state) => ({ selectedItems: state.selectedItems }), // 'selectedItems'로 수정
+      partialize: (state) => ({ selectedItems: state.selectedItems, totalPrice: state.totalPrice }), // 'selectedItems'로 수정
+
     }
   ),
 );

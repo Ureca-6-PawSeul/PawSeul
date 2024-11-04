@@ -19,9 +19,9 @@ export default meta;
  */
 export const DefaultProduct: Story = {
   args: {
-    "productId": 0,
+    "productId": "0",
     "productImg": "https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/9dc1/40b1e13b5495b578b95a05980070c5f392dfff722303d78e126f328c7833.jpg",
     "title": "수제명가 애견용 셰프시리즈 건강 한입 간식, 리얼황태, 2개",
-    "price": "5,900원",
+    "price": 5900,
 },
 };

@@ -1,60 +1,16 @@
-[
-  {
-    "orderId": "1",
-    "totalPrice": 43000,
-    "orderCreated_at": "2024-10-27 20:13",
-    "orderState": "결제 완료",
-    "orderItems": [
-      {
-        "productId": "1",
-        "title": "마이펫닥터 전연령 시그니처 티어스컨트롤 유기농 강아지사료, 눈물 개선/눈건강, 1kg, 3개",
-        "price": 30000,
-        "productImg": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg",
-        "quantity": 1
-      },
-      {
-        "productId": "2",
-        "title": "일동 후디스 후디스펫 반려동물 영양제, 군고구마맛, 눈물개선/눈건강, 1개",
-        "price": 12700,
-        "productImg": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2513352496784952-3363d7ec-1150-40db-97d3-22ceccee63bd.jpg",
-        "quantity": 2
-      },
-      {
-        "productId": "1",
-        "title": "마이펫닥터 전연령 시그니처 티어스컨트롤 유기농 강아지사료, 눈물 개선/눈건강, 1kg, 3개",
-        "price": 30000,
-        "productImg": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg",
-        "quantity": 1
-      },
-      {
-        "productId": "2",
-        "title": "일동 후디스 후디스펫 반려동물 영양제, 군고구마맛, 눈물개선/눈건강, 1개",
-        "price": 12700,
-        "productImg": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2513352496784952-3363d7ec-1150-40db-97d3-22ceccee63bd.jpg",
-        "quantity": 2
-      }
-    ]
-  },
-  {
-    "order_id": "1",
-    "total_price": 43000,
-    "order_created_at": "2024-10-24 12:07",
-    "order_state": "결제 완료",
-    "order_items": [
-      {
-        "productId": "11",
-        "title": "마이펫닥터 전연령 시그니처 티어스컨트롤 유기농 강아지사료, 눈물 개선/눈건강, 1kg, 3개",
-        "price": 30000,
-        "productImg": "https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg",
-        "quantity": 1
-      },
-      {
-        "productId": "166",
-        "title": "일동 후디스 후디스펫 반려동물 영양제, 군고구마맛, 눈물개선/눈건강, 1개",
-        "price": 12700,
-        "productImg": "https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2513352496784952-3363d7ec-1150-40db-97d3-22ceccee63bd.jpg",
-        "quantity": 2
-      }
-    ]
-  }
-]
+{
+  "orderId": "respnse받고 나서 생김",
+  "totalPrice": 43000,
+  "orderItems": [
+    {
+      "productId": "1",
+      "price": 30000,
+      "quantity": 1
+    },
+    {
+      "productId": "1",
+      "price": 30000,
+      "quantity": 1
+    }
+  ]
+}

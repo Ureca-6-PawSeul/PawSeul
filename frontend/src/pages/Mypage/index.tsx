@@ -6,17 +6,19 @@ import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '@/stores/userStore';
 import { Header } from '@/components/common/Header';
+import { LeftArrow } from '@/assets/images/svgs';
 const Mypage = () => {
   const navigate = useNavigate();
   const handleClickOrderHistory = () => navigate('order');
   const handleClickReviewHistory = () => navigate('review');
+  const handleNavigateToHome = () => navigate('/')
 
   // 전역상태 user. user와 그 펫 정보를 담고있음.
   const user = useUserStore((state) => state.user);
 
   return (
     <>
-      <Header title="마이페이지" />
+      <Header title="마이페이지" LeftIcon={<LeftArrow height={24}/>} onLeftIconClick={handleNavigateToHome}/>
       <Flex
         direction="column"
         align="center"
@@ -26,28 +28,30 @@ const Mypage = () => {
       >
         <Flex direction="row" justify="flex-start" height={40}>
           <Text colorCode={colors.Black} typo="Label1" align="flex-start">
-            {user ? (user.username) : "-"}
+            {user ? user.username : '-'}
           </Text>
           <Text colorCode={colors.Black} typo="Body3" align="flex-start">
             님
           </Text>
         </Flex>
-        <Flex direction="row" justify="flex-start" height={40}>
-          <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
-            반려견 정보
-          </Text>
-          {/* 반려견 정보 컴포넌트 */}
-        </Flex>
-        {user && (
-          <Profile
-            petId={user.pet.petId}
-            petname={user.pet.petname}
-            age={user.pet.age}
-            breed={user.pet.breed}
-            weight={user.pet.weight}
-            gender={user.pet.gender}
-            isNeutered={user.pet.isNeutered}
-          />
+        {user.pet && (
+          <>
+            <Flex direction="row" justify="flex-start" height={40}>
+              <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
+                반려견 정보
+              </Text>
+              {/* 반려견 정보 컴포넌트 */}
+            </Flex>
+            <Profile
+              petId={user.pet.petId}
+              petname={user.pet.petname}
+              age={user.pet.age}
+              breed={user.pet.breed}
+              weight={user.pet.weight}
+              gender={user.pet.gender}
+              isNeutered={user.pet.isNeutered}
+            />
+          </>
         )}
         <BottomBtn direction="column" align="flex-start" padding="19px 11px">
           <Text colorCode={colors.Black} typo="Body3" align="flex-start">
