@@ -21,16 +21,12 @@ import { useGetUserInfo } from '@/apis/hooks/user';
 import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { Toast } from '@/components/common/Toast';
-
 const Home = () => {
   const imageList = [Banner1, Banner2, Banner3, Banner4];
   const [productList, setProductList] = useState<ProductType[]>([]);
 
   useEffect(() => {
-    getTopProductList(setProductList);
+    // getTopProductList(setProductList);
     console.log(productList);
   }, []);
 

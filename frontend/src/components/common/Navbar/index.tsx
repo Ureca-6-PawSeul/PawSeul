@@ -23,7 +23,13 @@ const Navbar = () => {
   const { isVisible, showNavbar, hideNavbar } = useNavbarStore();
 
   useEffect(() => {
-    const hideNavbarPaths = ['/main', '/login', '/cart', '/payment'];
+    const hideNavbarPaths = [
+      '/main',
+      '/signup',
+      '/signup/result',
+      '/cart',
+      '/payment',
+    ];
     const detailPathPattern = /^\/store\/detail\/\d+$/;
     if (
       hideNavbarPaths.includes(pathname) ||
