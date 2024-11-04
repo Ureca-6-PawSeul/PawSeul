@@ -8,10 +8,13 @@ import { Supplement } from 'src/entity/supplement.entity';
 // import { SupplementInitService } from 'src/product/init/supplementInit.service';
 // import { FoodInitService } from 'src/product/init/foodInit.service';
 import { Product } from 'src/entity/product.entity';
+import { ProductReview } from 'src/entity/productReview.entity';
 // import { SnackInitService } from 'src/product/init/snackInit.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Food, Snack, Supplement, Product])],
+  imports: [
+    TypeOrmModule.forFeature([Food, Snack, Supplement, Product, ProductReview]),
+  ],
   controllers: [ProductController],
   providers: [
     ProductService,

@@ -171,4 +171,16 @@ export class ProductController {
       );
     }
   }
+
+  // 평균 점수를 기준으로 상위 10개 상품 조회
+  @Get('/topTen')
+  @ApiOperation({ summary: '평균 리뷰 점수가 높은 상위 10개 상품 조회' })
+  @ApiResponse({
+    description: '상위 10개 상품 조회 성공',
+    type: [GetProductResponseDto],
+  })
+  async getTop10Products() {
+    const topProducts = await this.productService.getTop10Products();
+    return { data: topProducts, total: topProducts.length };
+  }
 }
