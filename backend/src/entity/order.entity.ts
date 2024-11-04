@@ -9,9 +9,11 @@ import {
 import { User } from './user.entity';
 import { ApiProperty } from '@nestjs/swagger';
 import { OrderItem } from 'src/entity/orderItem.entity';
+import { OrderStateType } from 'src/types/order';
+import { BaseEntity } from 'src/entity/base.entity';
 
 @Entity()
-export class Order {
+export class Order extends BaseEntity {
   @ApiProperty({ description: '주문의 고유 ID' })
   @PrimaryGeneratedColumn()
   orderId: string;
@@ -26,13 +28,14 @@ export class Order {
   totalPrice: number;
 
   @ApiProperty({ description: '주문 상태' })
-  @Column()
-  orderState: string;
+  @Column({ type: 'enum', enum: OrderStateType, default: '결제 전' })
+  orderState: OrderStateType;
 
   @ApiProperty({ description: 'Toss 주문 키' })
   @Column()
   tossOrderKey: string;
 
   @OneToMany(() => OrderItem, (orderItem) => orderItem.order)
+  @JoinColumn({ name: 'order_id' })
   orderItems: OrderItem[];
 }
