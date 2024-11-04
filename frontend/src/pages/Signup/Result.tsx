@@ -3,6 +3,9 @@ import { colors } from '@/styles/colors';
 import { Flex } from '@components/common/Flex';
 import styled from '@emotion/styled';
 import { useLocation, useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from '@/components/common/Toast';
+import { usePostPetInfo } from '@/apis/hooks/signup';
 
 const SignUpResult = () => {
   const location = useLocation();
@@ -11,19 +14,20 @@ const SignUpResult = () => {
   console.log('전달된 데이터:', formData);
 
   const fieldLabels: Record<string, string> = {
-    name: '이름',
-    gender: '성별',
+    petname: '이름',
     age: '나이',
     weight: '몸무게',
-    neutered: '중성화 여부',
+    gender: '성별',
+    isNeutered: '중성화 여부',
+    breed: '견종',
   };
 
   const formatValue = (key: string, value: any) => {
     switch (key) {
       case 'age':
         return `${value}세`;
-      case 'neutered':
-        return value ? '중성화 했어요' : '하지 않았어요';
+      case 'isNeutered':
+        return value === 'yes' ? '중성화 했어요' : '하지 않았어요';
       case 'weight':
         return `${value}kg`;
       default:
@@ -32,15 +36,26 @@ const SignUpResult = () => {
   };
 
   const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate('/main');
+  const { mutate: signUpMutate } = usePostPetInfo(() => {
+    navigate('/');
+  });
+
+  const handleSignUp = () => {
+    const petData = {
+      ...formData,
+      age: parseInt(formData.age),
+      weight: parseFloat(formData.weight),
+      gender: formData.gender === '남자' ? '수컷' : '암컷',
+    };
+    console.log('petData:', petData);
+    signUpMutate(petData);
   };
 
   return (
     <Flex
       direction="column"
       gap={32}
-      padding="40px 40px"
+      padding="40px 40px 32px 40px"
       justify="flex-start"
       align="flex-start"
       backgroundColor={colors.Gray50}
@@ -61,9 +76,10 @@ const SignUpResult = () => {
           </InfoLine>
         ))}
       </Flex>
-      <SignUpBtn borderRadius={10} onClick={handleNavigate}>
-        회원가입
+      <SignUpBtn borderRadius={10} onClick={handleSignUp}>
+        회원가입 완료하기
       </SignUpBtn>
+      <Toast />
     </Flex>
   );
 };
@@ -81,7 +97,7 @@ const SignUpBtn = styled(Flex)`
   padding: 14px 20px;
   border: none;
   height: fit-content;
-  bottom: 32px;
+  bottom: 24px;
   position: sticky;
 
   cursor: pointer;

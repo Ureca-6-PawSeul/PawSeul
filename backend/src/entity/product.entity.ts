@@ -4,6 +4,7 @@ import { CartProduct } from 'src/entity/cart.product.entity';
 import { Food } from 'src/entity/food.entity';
 import { Snack } from 'src/entity/snack.entity';
 import { Supplement } from 'src/entity/supplement.entity';
+import { ProductReview } from 'src/entity/productReview.entity';
 
 @Entity()
 export class Product {
@@ -58,4 +59,10 @@ export class Product {
 
   @OneToMany(() => CartProduct, (cartProduct) => cartProduct.product)
   cartProducts?: CartProduct[];
+
+  @OneToMany(() => ProductReview, (review) => review.product)
+  reviews: ProductReview[];
+
+  @OneToMany(() => ProductReview, (review) => review.product)
+  productReviews: ProductReview[];
 }

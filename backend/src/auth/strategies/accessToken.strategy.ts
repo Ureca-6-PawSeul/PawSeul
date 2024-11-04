@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-jwt';
 import { UserPayload } from 'src/types/payload';
@@ -21,7 +21,7 @@ export class AccessTokenStrategy extends PassportStrategy(
 
   async validate(payload: UserPayload) {
     if (!payload.userId)
-      throw new UnauthorizedException('토큰이 유효하지 않습니다.');
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
 
     return {
       userId: payload.userId,

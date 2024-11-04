@@ -19,6 +19,7 @@ export class ProductReview {
   @JoinColumn({ name: 'product_id' })
   @ManyToOne(() => Product, (product) => product.productId, {
     onDelete: 'CASCADE',
+    eager: true,
   })
   product: Product;
 
