@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { ProductDetailType } from '@/assets/types/ProductType';
 
 interface ProductDetailStore {
-  productDetail: ProductDetailType | null;
+  productDetail: ProductDetailType;
   setProductDetail: (product: ProductDetailType) => void;
 }
 
