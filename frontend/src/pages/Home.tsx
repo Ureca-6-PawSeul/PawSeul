@@ -1,16 +1,26 @@
 import styled from '@emotion/styled';
+import { useEffect, useState } from 'react';
 import { Flex } from '@components/common/Flex';
 import { Footer } from '@components/common/Footer';
 import { Carousel } from '@/components/home/Carousel';
-import { Banner1, Banner2, Banner3, Banner4 } from '@/assets/images/svgs';
+import {
+  Banner1,
+  Banner2,
+  Banner3,
+  Banner4,
+  CheckIcon,
+} from '@/assets/images/svgs';
 import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
-import { useEffect, useState } from 'react';
 import { ProductType } from '@/assets/types/ProductType';
 import { getTopProductList } from '@/apis/getTopProductLis';
 import { Product } from '@/components/store/Product';
 import { useUserStore } from '@/stores/userStore';
 import { useGetUserInfo } from '@/apis/hooks/user';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from '@/components/common/Toast';
 
 const Home = () => {
   const imageList = [Banner1, Banner2, Banner3, Banner4];
@@ -29,6 +39,19 @@ const Home = () => {
     }
     console.log(data);
   }, [data, setUserInfo]);
+
+  //토스트 메시지 설정하는 방법!
+  const notify = (msg: string) => {
+    toast(
+      <Flex justify="space-between">
+        <span>{msg}</span>
+        <CheckIcon width={24} height={24} style={{ marginLeft: '8px' }} />
+      </Flex>,
+      {
+        position: 'bottom-center',
+      },
+    );
+  };
 
   return (
     <Flex
@@ -72,8 +95,14 @@ const Home = () => {
               </ProductWrapper>
             ))}
         </ProductContainer>
+
+        <button onClick={() => notify('성공적으로 로그인되었습니다.')}>
+          토스트메시지 예시
+        </button>
       </Flex>
       <Footer />
+      {/* 토스트 메시지 적용 예시 ! 바깥에 놔주면 됌*/}
+      <Toast />
     </Flex>
   );
 };
