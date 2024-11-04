@@ -91,6 +91,7 @@ const InfoLine = styled(Flex)`
 
   border: 1px solid ${colors.Gray200};
 `;
+
 const SignUpBtn = styled(Flex)`
   background-color: ${colors.MainColor};
   padding: 14px 20px;
