@@ -9,9 +9,9 @@ import { Category, subCategories } from '@assets/types/CategoryType';
 import { foodTypeMapping } from '@assets/types/CategoryType';
 import Tag from '@components/common/Tag';
 import { useNavigate } from 'react-router-dom';
-import { getProductList } from '@/apis/getProductList';
 import { Header } from '@/components/common/Header';
 import { CartIcon, MiniLogo } from '@/assets/images/svgs';
+import { useGetProductList } from '@/apis/hooks/useProductList';
 
 const categoryMapping = {
   사료: 'food',
@@ -20,24 +20,15 @@ const categoryMapping = {
 };
 
 const Store = () => {
-  const fetch = async (category: string, subCategory: string) => {
-    try {
-      await getProductList(
-        categoryMapping[category],
-        subCategory,
-        setProductDataList,
-      );
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   const [selectedCategory, setSelectedCategory] = useState<Category>('사료');
   const [selectedSubCategory, setSelectedSubCategory] =
     useState<string>('전체');
   const [productDataList, setProductDataList] = useState<ProductDetailType[]>(
     [],
   );
+  const data = useGetProductList(categoryMapping[selectedCategory], 
+    foodTypeMapping[selectedCategory][selectedSubCategory]);
+
   const navigate = useNavigate();
   const handleClick = (productId: number | string) => {
     console.log(`Navigating to detail/${productId}`);
@@ -45,42 +36,10 @@ const Store = () => {
   };
 
   useEffect(() => {
-    fetch('food', '전체');
-  }, []);
-
-  useEffect(() => {
-    fetch(selectedCategory, '전체');
-  }, [selectedCategory]);
-
-  useEffect(() => {
-    //productDataList가 업데이트될 때 재렌더링
-    // let filteredItems = productDataList;
-
-    // 사료 세부 카테고리
-    if (selectedCategory === '영양제' && selectedSubCategory !== '전체') {
-      //api -> 세부 카테고리 데이터
-      getProductList(
-        'supplement',
-        foodTypeMapping['영양제'][selectedSubCategory],
-        setProductDataList,
-      );
-    } else if (selectedCategory === '사료' && selectedSubCategory !== '전체') {
-      ///api -> 세부 카테고리 데이터
-      console.log(selectedSubCategory);
-      getProductList(
-        'food',
-        foodTypeMapping['사료'][selectedSubCategory],
-        setProductDataList,
-      );
-    } else if (selectedCategory === '간식' && selectedSubCategory !== '전체') {
-      ///api -> 세부 카테고리 데이터
-      getProductList(
-        'snack',
-        foodTypeMapping['간식'][selectedSubCategory],
-        setProductDataList,
-      );
+    if (data) {
+      setProductDataList(data);
     }
-  }, [selectedSubCategory]);
+  }, [data]);
 
   const handleNavigateToHome = () => {
     navigate('/');

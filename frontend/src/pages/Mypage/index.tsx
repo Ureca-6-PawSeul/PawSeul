@@ -24,10 +24,9 @@ const Mypage = () => {
         justify="flex-start"
         margin="60px 0 0 0"
       >
-        {' '}
         <Flex direction="row" justify="flex-start" height={40}>
           <Text colorCode={colors.Black} typo="Label1" align="flex-start">
-            김찬별
+            {user ? (user.username) : "-"}
           </Text>
           <Text colorCode={colors.Black} typo="Body3" align="flex-start">
             님
