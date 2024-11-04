@@ -5,6 +5,7 @@ export interface ProductType {
   title: string;
   price: string | number;
   averageScore?: number;
+  quantity?: number;
 }
 
 export interface ProductDetailType extends ProductType {

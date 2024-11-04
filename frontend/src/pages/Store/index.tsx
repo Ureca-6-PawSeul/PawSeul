@@ -11,7 +11,7 @@ import Tag from '@components/common/Tag';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '@/components/common/Header';
 import { CartIcon, MiniLogo } from '@/assets/images/svgs';
-import { useGetProductList } from '@/apis/hooks/useProductList';
+import { useGetProductList } from '@/apis/hooks/product';
 
 const categoryMapping = {
   사료: 'food',
@@ -26,7 +26,7 @@ const Store = () => {
   const [productDataList, setProductDataList] = useState<ProductDetailType[]>(
     [],
   );
-  const data = useGetProductList(categoryMapping[selectedCategory], 
+  const data = useGetProductList(categoryMapping[selectedCategory],
     foodTypeMapping[selectedCategory][selectedSubCategory]);
 
   const navigate = useNavigate();
@@ -35,11 +35,15 @@ const Store = () => {
     navigate(`detail/${productId}`);
   };
 
+
   useEffect(() => {
     if (data) {
       setProductDataList(data);
     }
   }, [data]);
+  useEffect(()=>{
+    setSelectedSubCategory('전체')
+  }, [selectedCategory])
 
   const handleNavigateToHome = () => {
     navigate('/');
