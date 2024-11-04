@@ -19,34 +19,35 @@ import { OrderHistoryPage } from '@pages/Mypage/Order';
 import { ReviewHistoryPage } from '@pages/Mypage/Review';
 import SignUp from './pages/Signup/SignUp';
 import SignUpResult from './pages/Signup/Result';
+import { PaymentFail } from './pages/Payment/Fail';
+import { PaymentSuccess } from './pages/Payment/Success';
 
 function App() {
-  const queryClient = new QueryClient();
+  // const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Layout>
-          <Global styles={globalStyle} />
-          <Routes>
-            <Route path="/main" element={<Main />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signup/result" element={<SignUpResult />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Store />} />
-            <Route path="/health" element={<Health />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/mypage" element={<Mypage />} />
-            <Route path="/mypage/order" element={<OrderHistoryPage />} />
-            <Route path="/mypage/review" element={<ReviewHistoryPage />} />
-            <Route path="/payment" element={<Payment />} />
-            <Route path="/store/detail/:productId" element={<Detail />} />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-      <ReactQueryDevtools initialIsOpen={true} />
-    </QueryClientProvider>
+    <BrowserRouter>
+      <Layout>
+        <Global styles={globalStyle} />
+        <Routes>
+          <Route path="/main" element={<Main />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup/result" element={<SignUpResult />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/health" element={<Health />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage/order" element={<OrderHistoryPage />} />
+          <Route path="/mypage/review" element={<ReviewHistoryPage />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/payment/success" element={<PaymentSuccess />} />
+          <Route path="/payment/fail" element={<PaymentFail />} />"
+          <Route path="/store/detail/:productId" element={<Detail />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

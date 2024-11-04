@@ -7,6 +7,9 @@ import { colors } from '@styles/colors';
 import Check from '@assets/images/svgs/Check';
 import StickyFooter from '@components/store/StickyFooter';
 import Select from '@components/store/Select';
+import { Button } from '@/components/common/Button';
+import { TossPayment } from './TossPayment';
+import { TossLogo } from '@/assets/images/svgs';
 
 const SHIPMENT_MESSAGE = [
   '배송 요청 사항을 선택해주세요 (선택)',
@@ -25,12 +28,19 @@ const CARD_MESSAGE = [
   '농협카드',
 ];
 
+
+//Order table에 현재 주문내역을 저장시키고, 결제 상태는 "결제 전"으로 post요청
 const Payment = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
+  const [isClickedBtn, setIsClickedBtn] = useState(null);
 
   const handleCheckClick = () => {
     setIsCheck(!isCheck);
+  };
+  const handleClickBtn = (method: number) => {
+    setIsClickedBtn(method);
+    console.log(method);
   };
 
   useEffect(() => {
@@ -47,12 +57,22 @@ const Payment = () => {
   }, []);
 
   return (
-    <Container direction="column" heightPer={100}>
-      <Flex direction="column" gap={10}>
+    <Container direction="column" heightPer={100} padding="0 12px">
+      <Flex direction="column" gap={20}>
         {/* 배송지 정보 */}
         <Flex direction="row" justify="space-between">
           <Text typo="Heading3">배송지 정보</Text>
-          <button>배송지 입력</button>
+          <Flex width="fit-content">
+            <Button
+              height="30px"
+              borderRadius="25px"
+              bg={colors.Gray100}
+              fontColor="#AEAEB2"
+              fontSize="12px"
+            >
+              배송지 입력
+            </Button>
+          </Flex>
         </Flex>
         <Flex direction="column" align="flex-start" gap={10}>
           <Flex direction="row" justify="flex-start" gap={10}>
@@ -65,16 +85,18 @@ const Payment = () => {
 
         {/* 상품 정보! */}
         <Flex direction="column" align="flex-start" gap={10}>
-          <Text typo="Heading3">상품 정보</Text>
+          <Flex direction="column" align="flex-start" margin="12px 0 0 0">
+            <Text typo="Heading3">상품 정보</Text>
+          </Flex>
           {Array(6)
             .fill(0)
             .map((_, index) => (
               <ProductHorizontal
                 key={index}
-                product_id={1}
+                productId={1}
                 price="3,900원"
                 title="강아지 촉촉뼈껌 22종 모음"
-                product_img="https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg"
+                productImg="https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2024/03/21/14/0/1b080f58-7903-45cc-b500-47fdcce960ce.jpg"
               />
             ))}
         </Flex>
@@ -84,8 +106,42 @@ const Payment = () => {
           <Flex justify="flex-start">
             <Text typo="Heading3">결제 방법</Text>
           </Flex>
-          <button>신용·체크카드</button>
-          <button>TOSS</button>
+          <Flex height="50px">
+            {isClickedBtn === 1 ? (
+              <Button height="50px">신용·체크카드</Button>
+            ) : (
+              <Button
+                bg={colors.White}
+                fontColor={colors.Gray500}
+                border="solid 1px #AEAEB2"
+                height="50px"
+                hoverBg={colors.Gray400}
+                hoverFontColor={colors.White}
+                onClick={() => handleClickBtn(1)}
+              >
+                신용·체크카드
+              </Button>
+            )}
+          </Flex>
+
+          {isClickedBtn === 2 ? (
+            <Button height="50px">
+              <TossLogo width={100} height={30} />
+            </Button>
+          ) : (
+            <Button
+              bg={colors.White}
+              fontColor={colors.Gray500}
+              border="solid 1px #AEAEB2"
+              height="50px"
+              hoverBg={colors.Gray400}
+              hoverFontColor={colors.White}
+              onClick={() => handleClickBtn(2)}
+            >
+              <TossLogo width={100} height={30} />
+            </Button>
+          )}
+
           <Select optionList={CARD_MESSAGE} />
           <Text typo="Body4" colorCode={colors.Gray400}>
             삼성 앱카드 5만원 이상 결제 시 1,000원 할인
@@ -106,9 +162,10 @@ const Payment = () => {
           </Flex>
           <TouchableFlex
             direction="row"
-            width={400}
+            justify="flex-start"
             onClick={handleCheckClick}
             borderRadius={10}
+            gap={5}
           >
             {isCheck && (
               <Check width={24} height={57} color={colors.MainColor} />
@@ -120,7 +177,17 @@ const Payment = () => {
               [필수] 결제 서비스 이용약관, 개인정보 처리 동의
             </Text>
           </TouchableFlex>
-          <button>24,800원 결제하기</button>
+          <Flex>
+            {isCheck && isClickedBtn === 1 && (
+              <Button height="50px">19800원 결제하기</Button>
+            )}
+            {isCheck && isClickedBtn === 2 && <TossPayment price={19800} />}
+            {(!isCheck || !isClickedBtn) && (
+              <Button height="50px" disabled={true} bg={colors.Gray400}>
+                19800원 결제하기
+              </Button>
+            )}
+          </Flex>
         </Flex>
       </StickyFooter>
     </Container>
@@ -132,6 +199,7 @@ export default Payment;
 const Container = styled(Flex)`
   overflow-y: auto;
   padding-bottom: 200px;
+  position: relative;
 `;
 
 // 터치 효과가 있는 Flex 컴포넌트
@@ -140,6 +208,6 @@ const TouchableFlex = styled(Flex)`
   transition: background-color 0.2s ease;
 
   &:active {
-    background-color: rgba(0, 0, 0, 0.1); // 클릭 시 살짝 어두워지는 효과
+    background-color: rgba(0, 0, 0, 0.03); // 클릭 시 살짝 어두워지는 효과
   }
 `;

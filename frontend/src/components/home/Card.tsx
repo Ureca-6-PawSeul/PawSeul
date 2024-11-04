@@ -23,12 +23,12 @@ function Card({ productList }: { productList: ProductType[] }) {
     <div className="slider-container">
       <Slider {...settings}>
         {productList.map((product) => (
-            <SlideWrapper key={product.product_id}>
+            <SlideWrapper key={product.productId}>
           <Product
-            product_id={product.product_id}
+            productId={product.productId}
             title={product.title}
             price={product.price}
-            product_img={product.product_img}
+            productImg={product.productImg}
           />
              </SlideWrapper>
         ))}

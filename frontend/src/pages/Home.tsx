@@ -28,6 +28,7 @@ const Home = () => {
 
   useEffect(() => {
     getTopProductList(setProductList);
+    console.log(productList);
   }, []);
 
   const { data } = useGetUserInfo();
@@ -85,12 +86,13 @@ const Home = () => {
         <ProductContainer gap={10} justify="flex-start" padding="5px">
           {productList.length > 0 &&
             productList.map((product: ProductType) => (
-              <ProductWrapper key={product.product_id}>
+              <ProductWrapper key={product.productId}>
                 <Product
-                  product_id={product.product_id}
+                  productId={product.productId}
                   title={product.title}
                   price={product.price}
-                  product_img={product.product_img}
+                  productImg={product.productImg}
+                  averageScore={product.averageScore}
                 />
               </ProductWrapper>
             ))}

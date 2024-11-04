@@ -4,6 +4,7 @@ export { default as Banner3 } from './Banner3';
 export { default as Banner4 } from './Banner4';
 export { default as CartEmpty } from './CartEmpty';
 export { default as CartEmptyBlack } from './CartEmptyBlack';
+export { default as TossLogo } from './TossLogo';
 export { default as Check } from './Check';
 export { default as CheckIcon } from './CheckIcon';
 export { default as DefaultProfile } from './DefaultProfile';

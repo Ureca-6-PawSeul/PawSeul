@@ -1,13 +1,16 @@
-export interface CardProfileType {
+export interface PetType {
+  petId: string
   petname: string;
   age: number;
   weight: number;
   gender: string;
-  breedname: string;
-  is_neutered: string;
+  breed: string;
+  isNeutered: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
-export interface ProfileType extends CardProfileType {
+export interface UserType {
   user_id: number | string;
   username: string;
-  pet_id: number;
+  email: string;
 }

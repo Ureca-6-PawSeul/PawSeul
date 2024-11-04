@@ -8,9 +8,18 @@ export interface OrderHistoryType {
 }
 
 export interface OrderItemType {
-    product_id :  string,
-    product_img : string,
+    productId :  string,
+    productImg : string,
     title : string,
     price: number,
     quantity: number
+}
+
+export interface OrderType {
+    orderId: string,
+    orderItem: number[],
+    totalPrice: number,
+    orderState: string,
+    orderCreatedAt: Date,
+    tossOrderKey: string
 }

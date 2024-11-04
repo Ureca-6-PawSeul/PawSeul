@@ -33,7 +33,8 @@ export default Select;
 const SelectHolder = styled.select<{ color: string }>`
   border-color: ${({ color }) => (color ? color : colors.Gray400)};
   border-radius: 10px;
-  padding: 0.8rem;
+  padding: 12px;
   color: ${({ color }) => (color ? color : colors.Gray400)};
   width: 100%;
+  font-size: 1rem;
 `;
