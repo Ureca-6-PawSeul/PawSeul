@@ -1,16 +1,26 @@
-import { Controller, Get, Logger, Req, Res, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Logger,
+  Post,
+  Req,
+  Res,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiCookieAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { Request, Response } from 'express';
 
 @Controller('auth')
+@ApiTags('인증/로그인 관련 api')
 export class AuthController {
   private readonly logger = new Logger(AuthController.name);
   constructor(private readonly authService: AuthService) {}
 
   @Get('kakao')
   @ApiOperation({ summary: '카카오 로그인' })
+  @ApiCookieAuth('accessToken')
   @UseGuards(AuthGuard('kakao'))
   async kakaoLogin(@Req() req: Request, @Res() res: Response) {
     this.logger.log('kakaoLogin');
@@ -38,5 +48,13 @@ export class AuthController {
 
     //홈페이지
     return res.redirect('http://localhost:3000');
+  }
+
+  @Post('logout')
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({ summary: '로그아웃' })
+  async logout(@Res() res: Response) {
+    res.clearCookie('accessToken');
+    res.send('logout');
   }
 }
