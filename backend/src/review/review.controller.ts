@@ -1,7 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  HttpException,
+  HttpStatus,
   Param,
   Post,
   Req,
@@ -10,6 +13,7 @@ import {
 import { ReviewService } from './review.service';
 import {
   ApiBody,
+  ApiCookieAuth,
   ApiCreatedResponse,
   ApiOperation,
   ApiTags,
@@ -35,6 +39,8 @@ export class ReviewController {
   }
 
   @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({ summary: '상품 리뷰 생성' })
   @Post('/:productId')
   @ApiBody({
     type: CreateReviewRequestDto,
@@ -46,6 +52,9 @@ export class ReviewController {
     @Body('score') score: number,
   ) {
     const userId = req.user?.userId;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
     const review: CreateReviewRequestDto = {
       userId,
       productId,
@@ -54,5 +63,32 @@ export class ReviewController {
     };
 
     return this.reviewService.createProductReview(userId, review);
+  }
+
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiOperation({ summary: '상품 리뷰 삭제' })
+  @ApiCookieAuth('accessToken')
+  @Delete('/:productReviewId')
+  async deleteProductReview(
+    @Req() req: Request,
+    @Param('productReviewId') productReviewId: string,
+  ) {
+    const userId = req.user?.userId;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
+    return this.reviewService.deleteProductReview(productReviewId, userId);
+  }
+
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({ summary: '자신의 리뷰' })
+  @Get('/me')
+  async getMyReview(@Req() req: Request) {
+    const userId = req.user?.userId;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
+    return this.reviewService.getMyReview(userId);
   }
 }

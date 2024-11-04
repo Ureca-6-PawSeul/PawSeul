@@ -22,7 +22,7 @@ export class OrderItem {
 
   @ApiProperty({ description: '제품 ID', type: () => Product })
   @JoinColumn({ name: 'product_id' })
-  @ManyToOne(() => Product, (product) => product.productId)
+  @ManyToOne(() => Product, (product) => product.productId, { eager: true })
   product: Product;
 
   @ApiProperty({ description: '제품 수량' })

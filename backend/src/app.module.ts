@@ -12,6 +12,7 @@ import { PetModule } from './pet/pet.module';
 import * as cookieParser from 'cookie-parser';
 import { ReviewModule } from 'src/review/review.module';
 import { CartModule } from './cart/cart.module';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { CartModule } from './cart/cart.module';
     PetModule,
     ReviewModule,
     CartModule,
+    OrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],

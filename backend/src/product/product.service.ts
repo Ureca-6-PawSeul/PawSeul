@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Product } from 'src/entity/product.entity';
+import { FoodType, SnackType, SupplementType } from 'src/types/category';
 
 import { Repository } from 'typeorm';
 
@@ -13,7 +14,7 @@ export class ProductService {
   ) {}
   async getProducts(
     category: 'food' | 'snack' | 'supplement',
-    subcategory: string,
+    subcategory: SnackType | FoodType | SupplementType | '전체',
     page: number,
     limit: number,
   ) {
@@ -26,7 +27,7 @@ export class ProductService {
       .createQueryBuilder('product')
       .where('product.category = :category', { category });
 
-    if (subcategory !== 'all') {
+    if (subcategory !== '전체') {
       if (category === 'snack') {
         query
           .innerJoinAndSelect('product.snack', 'snack') // Snack 테이블과 조인
@@ -94,6 +95,23 @@ export class ProductService {
       .where('product.title LIKE :keywordStart', { keywordStart })
       .orWhere('product.title LIKE :keywordMiddle', { keywordMiddle })
       .limit(5) // 최대 5개 결과
+      .getMany();
+
+    return products;
+  }
+
+  async getProductsWithMyReview(userId: string, page: number, limit: number) {
+    const options = {
+      take: limit,
+      skip: (page - 1) * limit,
+    };
+
+    const products = await this.productRepository
+      .createQueryBuilder('product')
+      .innerJoin('product.reviews', 'review')
+      .where('review.user.userId = :userId', { userId })
+      .skip(options.skip)
+      .take(options.take)
       .getMany();
 
     return products;
