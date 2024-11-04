@@ -5,6 +5,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  Logger,
   Param,
   Post,
   Req,
@@ -22,11 +23,32 @@ import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import { CreateReviewResponseDto } from 'src/review/dto/createReviewResponse.dto';
 import { CreateReviewRequestDto } from 'src/review/dto/createReviewRequest.dto';
+import { getMyReviewsResponseDto } from 'src/review/dto/getMyReviewsResponse.dto';
 
 @Controller('/review')
 @ApiTags('상품 리뷰 api')
 export class ReviewController {
+  private readonly logger = new Logger(ReviewController.name);
   constructor(private readonly reviewService: ReviewService) {}
+
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({ summary: '자신의 리뷰' })
+  @ApiCreatedResponse({
+    description: '자신의 리뷰 조회 성공',
+    type: getMyReviewsResponseDto,
+  })
+  @Get('/me')
+  async getMyReview(@Req() req: Request) {
+    const userId = req.user?.userId;
+    this.logger.log('userId');
+    this.logger.log('userId', userId);
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
+    const reviews = await this.reviewService.getOrderItemsWithReviews(userId);
+    return { reviews };
+  }
 
   @ApiOperation({ summary: '상품 리뷰 조회' })
   @ApiCreatedResponse({
@@ -74,21 +96,10 @@ export class ReviewController {
     @Param('productReviewId') productReviewId: string,
   ) {
     const userId = req.user?.userId;
+    this.logger.log('userId', userId);
     if (!userId) {
       throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
     }
     return this.reviewService.deleteProductReview(productReviewId, userId);
-  }
-
-  @UseGuards(AuthGuard('jwt-access'))
-  @ApiCookieAuth('accessToken')
-  @ApiOperation({ summary: '자신의 리뷰' })
-  @Get('/me')
-  async getMyReview(@Req() req: Request) {
-    const userId = req.user?.userId;
-    if (!userId) {
-      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
-    }
-    return this.reviewService.getMyReview(userId);
   }
 }

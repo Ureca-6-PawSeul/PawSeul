@@ -66,7 +66,7 @@ export class OrderController {
   @UseGuards(AuthGuard('jwt-access'))
   @ApiCookieAuth('accessToken')
   @ApiOperation({
-    summary: '임시 주문(order table에 BEFORE_PAYMENT 상태로 insert)',
+    summary: '임시 주문(order table에 결제 전 상태로 insert)',
   })
   async tempOrder(@Body('products') products: any) {}
 

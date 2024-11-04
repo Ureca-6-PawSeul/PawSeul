@@ -26,7 +26,7 @@ export class OrderService {
 
   async confirmOrder() {}
 
-  // async tempOrder(products: any) {}
+  async tempOrder(userId: string, products: any) {}
 
   async getOrderList(userId: string): Promise<orderListResponseDto[]> {
     if (!userId) {
