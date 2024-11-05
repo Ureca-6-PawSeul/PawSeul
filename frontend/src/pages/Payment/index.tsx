@@ -13,7 +13,7 @@ import { TossLogo } from '@/assets/images/svgs';
 import useCartStore from '@/stores/cartStore';
 import useModal from '@/components/common/Modal/useModal';
 import { Modal } from '@/components/common/Modal';
-import Address from '@/components/Address';
+import Address from '@/components/payment/Address';
 
 const SHIPMENT_MESSAGE = [
   '배송 요청 사항을 선택해주세요 (선택)',
