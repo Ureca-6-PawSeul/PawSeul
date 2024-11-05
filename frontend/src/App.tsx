@@ -15,11 +15,12 @@ import Health from '@pages/Health';
 import Cart from '@pages/Cart';
 import { OrderHistoryPage } from '@pages/Mypage/Order';
 import { ReviewHistoryPage } from '@pages/Mypage/Review';
-import SignUp from './pages/Signup/SignUp';
-import SignUpResult from './pages/Signup/Result';
-import { PaymentFail } from './pages/Payment/Fail';
-import { PaymentSuccess } from './pages/Payment/Success';
-import Analysis from './pages/Health/Analysis';
+import SignUp from '@pages/Signup/SignUp';
+import SignUpResult from '@pages/Signup/Result';
+import { PaymentFail } from '@pages/Payment/Fail';
+import { PaymentSuccess } from '@pages/Payment/Success';
+import Analysis from '@pages/Health/Analysis';
+import ErrorPage from '@pages/404';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/payment/fail" element={<PaymentFail />} />"
           <Route path="/store/detail/:id" element={<Detail />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/404" element={<ErrorPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
