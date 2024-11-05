@@ -159,7 +159,7 @@ const PetInfoModify = () => {
             padding="12px 20px"
             borderRadius={10}
             onClick={handleBtnClicked}
-          ></NextButton>
+          >수정하기</NextButton>
         </BtnWrapper>
       </Container>
     </>
@@ -170,6 +170,7 @@ const Container = styled(Flex)`
   overflow-y: auto;
   height: 100%;
   padding-top: 72px;
+  margin-bottom: 30px;
 `;
 
 const Input = styled.input`
