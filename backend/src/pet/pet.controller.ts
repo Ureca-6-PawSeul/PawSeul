@@ -11,7 +11,13 @@ import { PetService } from './pet.service';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import { CreatePetDto } from 'src/pet/dto/createPet.dto';
-import { ApiBody, ApiCookieAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBody,
+  ApiCookieAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
 @Controller('pet')
 @ApiTags('펫 api')
@@ -28,6 +34,7 @@ export class PetController {
     description: '펫 생성 성공',
   })
   @Post('/')
+  @ApiOperation({ summary: '펫 등록' })
   async createPet(@Req() req: Request, @Body() createPetDto: CreatePetDto) {
     try {
       const userId = req.user?.userId;
