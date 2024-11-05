@@ -46,7 +46,7 @@ const SignUpResult = () => {
       weight: parseFloat(formData.weight),
       gender: formData.gender === '남자' ? '수컷' : '암컷',
     };
-    console.log('petData:', petData);
+    // console.log('petData:', petData);
     signUpMutate(petData);
   };
 

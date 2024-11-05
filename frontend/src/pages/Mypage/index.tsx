@@ -12,6 +12,7 @@ const Mypage = () => {
   const handleClickOrderHistory = () => navigate('order');
   const handleClickReviewHistory = () => navigate('review');
   const handleNavigateToHome = () => navigate('/')
+  const handleNavigateToModify = () => navigate('/mypage/pet');
 
   // 전역상태 user. user와 그 펫 정보를 담고있음.
   const user = useUserStore((state) => state.user);
@@ -50,6 +51,7 @@ const Mypage = () => {
               weight={user.pet.weight}
               gender={user.pet.gender}
               isNeutered={user.pet.isNeutered}
+              onClick={handleNavigateToModify}
             />
           </>
         )}

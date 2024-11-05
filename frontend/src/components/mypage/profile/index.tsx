@@ -6,13 +6,16 @@ import DogProfile from '@/assets/images/svgs/DogProfile';
 import KeyboardArrowRight from '@assets/images/svgs/KeyboardArrowRight';
 import { PetType } from '@assets/types/ProfileType';
 
+type ProfileProps = PetType & {
+  onClick: () => void;
+};
+
 const Profile = (
-  { petId, petname, breed, age, weight, gender, isNeutered }: PetType,
-  handleClick: () => void,
-) => {
+  { petId, petname, breed, age, weight, gender, isNeutered, onClick }: ProfileProps) => {
+  
   return (
     <ProfileWrapper direction="column" justify='flex-start' padding="10px 10px" borderRadius={10}>
-      <ClickBtn justify="flex-end" direction="row" onClick={handleClick}>
+      <ClickBtn justify="flex-end" direction="row" onClick={onClick}>
         <Text align="flex-end" typo="Label3" colorCode={colors.Gray400}>
           정보 수정하기
         </Text>
@@ -32,10 +35,10 @@ const Profile = (
             <Text typo="Label3">{weight}KG</Text>
           </Flex>
           <Text typo="Label3" colorCode={colors.Black}>
-            {gender}
+            {gender === '수컷' ? '남자' : '여자'}
           </Text>
           <Text typo="Label3" colorCode={colors.Black}>
-            중성화 {isNeutered}
+            중성화 {isNeutered === 'yes' ? '완료' : '미완료'}
           </Text>
         </Flex>
       </Flex>
