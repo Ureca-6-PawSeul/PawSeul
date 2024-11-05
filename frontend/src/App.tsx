@@ -21,6 +21,7 @@ import { PaymentFail } from '@pages/Payment/Fail';
 import { PaymentSuccess } from '@pages/Payment/Success';
 import Analysis from '@pages/Health/Analysis';
 import ErrorPage from '@pages/404';
+import PetInfoModify from './pages/Mypage/Modify';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/mypage/order" element={<OrderHistoryPage />} />
           <Route path="/mypage/review" element={<ReviewHistoryPage />} />
+          <Route path="/mypage/pet" element={<PetInfoModify />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/fail" element={<PaymentFail />} />"
