@@ -10,6 +10,8 @@ import {
   Post,
   Req,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ReviewService } from './review.service';
 import {
@@ -66,6 +68,7 @@ export class ReviewController {
   @ApiCookieAuth('accessToken')
   @ApiOperation({ summary: '상품 리뷰 생성' })
   @Post('/:productId')
+  @UsePipes(new ValidationPipe())
   @ApiBody({
     type: CreateReviewRequestDto,
   })

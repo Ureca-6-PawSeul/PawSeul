@@ -6,6 +6,8 @@ import {
   Post,
   Req,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { PetService } from './pet.service';
 import { AuthGuard } from '@nestjs/passport';
@@ -34,6 +36,7 @@ export class PetController {
     description: '펫 생성 성공',
   })
   @Post('/')
+  @UsePipes(new ValidationPipe())
   @ApiOperation({ summary: '펫 등록' })
   async createPet(@Req() req: Request, @Body() createPetDto: CreatePetDto) {
     try {

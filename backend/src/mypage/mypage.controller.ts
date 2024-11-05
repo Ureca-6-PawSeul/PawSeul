@@ -1,4 +1,13 @@
-import { Controller, Get, UseGuards, Req, Body, Patch } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  UseGuards,
+  Req,
+  Body,
+  Patch,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { MypageService } from 'src/mypage/mypage.service';
 import { GetUserResponseDto } from 'src/mypage/dto/getUserResponse.dto';
@@ -39,6 +48,7 @@ export class MypageController {
 
   @UseGuards(AuthGuard('jwt-access'))
   @Patch('/me/pet')
+  @UsePipes(new ValidationPipe())
   @ApiOperation({ summary: '펫 정보 수정' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
