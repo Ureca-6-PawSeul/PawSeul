@@ -6,35 +6,61 @@ import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '@/stores/userStore';
 import { Header } from '@/components/common/Header';
-import { LeftArrow } from '@/assets/images/svgs';
+import { CheckIcon, LeftArrow } from '@/assets/images/svgs';
+import { HeightFitFlex } from '../Health/Analysis';
+import { toast } from 'react-toastify';
+import { Toast } from '@/components/common/Toast';
+
 const Mypage = () => {
   const navigate = useNavigate();
   const handleClickOrderHistory = () => navigate('order');
   const handleClickReviewHistory = () => navigate('review');
-  const handleNavigateToHome = () => navigate('/')
+  const handleNavigateToHome = () => navigate('/');
   const handleNavigateToModify = () => navigate('/mypage/pet');
+  const handleClickLogout = () => {
+    const notify = () => {
+      toast(
+        <Flex justify="space-between">
+          <span>로그아웃이 완료되었습니다.</span>
+          <CheckIcon width={24} height={24} />
+        </Flex>,
+        { position: 'bottom-center' },
+      );
+    };
+
+    notify();
+    setTimeout(() => {
+      // sessionStorage.removeItem("user-storage");
+      navigate('/main');
+    }, 1800);
+  };
 
   // 전역상태 user. user와 그 펫 정보를 담고있음.
   const user = useUserStore((state) => state.user);
 
   return (
     <>
-      <Header title="마이페이지" LeftIcon={<LeftArrow height={24}/>} onLeftIconClick={handleNavigateToHome}/>
+      <Header
+        title="마이페이지"
+        LeftIcon={<LeftArrow height={24} />}
+        onLeftIconClick={handleNavigateToHome}
+      />
       <Flex
         direction="column"
         align="center"
-        padding="0px 12px"
+        padding="12px 24px"
         justify="flex-start"
-        margin="60px 0 0 0"
+        margin="60px 0 60px 0"
+        // style={{ flex: 1 }}
       >
-        <Flex direction="row" justify="flex-start" height={40}>
+        <HeightFitFlex direction="row" justify="flex-start" gap={3}>
           <Text colorCode={colors.Black} typo="Label1" align="flex-start">
             {user ? user.username : '-'}
           </Text>
           <Text colorCode={colors.Black} typo="Body3" align="flex-start">
-            님
+            님의
           </Text>
-        </Flex>
+        </HeightFitFlex>
         {user.pet && (
           <>
             <Flex direction="row" justify="flex-start" height={40}>
@@ -80,6 +106,19 @@ const Mypage = () => {
             구매 후기
           </Text>
         </BottomBtn>
+        <BottomBtn
+          direction="column"
+          align="flex-start"
+          padding="19px 11px"
+          onClick={handleClickLogout}
+        >
+          <Text colorCode={colors.Black} typo="Body3" align="flex-start">
+            로그아웃
+          </Text>
+        </BottomBtn>
+        <Flex align='flex-end'>
+          <Toast />
+        </Flex>
       </Flex>
     </>
   );

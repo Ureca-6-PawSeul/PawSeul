@@ -16,12 +16,12 @@ const Profile = (
   return (
     <ProfileWrapper direction="column" justify='flex-start' padding="10px 10px" borderRadius={10}>
       <ClickBtn justify="flex-end" direction="row" onClick={onClick}>
-        <Text align="flex-end" typo="Label3" colorCode={colors.Gray400}>
+        <Text align="flex-end" typo="Label3" colorCode={colors.Gray600}>
           정보 수정하기
         </Text>
         <KeyboardArrowRight width={13} />
       </ClickBtn>
-      <Flex direction="row">
+      <Flex direction="row" padding="0 0 13px 0">
         <DogProfile width={200} />
         <Flex direction="column" justify="center" align="flex-start" gap={5}>
           <Text typo="Body2" colorCode={colors.Black}>
