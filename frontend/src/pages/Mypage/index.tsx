@@ -30,7 +30,7 @@ const Mypage = () => {
 
     notify();
     setTimeout(() => {
-      // sessionStorage.removeItem("user-storage");
+      sessionStorage.removeItem("user-storage");
       navigate('/main');
     }, 1800);
   };
