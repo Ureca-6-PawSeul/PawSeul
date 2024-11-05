@@ -10,9 +10,9 @@ export const Product = ({
   productImg,
   title,
   price,
-  averageScore
+  averageScore,
 }: ProductType) => {
-  const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   return (
     <Wrapper
@@ -25,9 +25,9 @@ export const Product = ({
       backgroundColor={colors.White}
     >
       <Flex direction="column" align="center">
-        <Img src={productImg} width="80%" height="100%" />
+        <Img src={productImg} width="100%" />
       </Flex>
-      <Flex height="auto">
+      <Flex height="auto" margin="8px 0 0 0">
         <Title colorCode={colors.Black} typo="Body3">
           {title}
         </Title>
@@ -77,8 +77,10 @@ const Title = styled(Text)`
   white-space: normal;
 `;
 
-export const Img = styled.img<{ width: string; height: string }>`
+export const Img = styled.img<{ width: string }>`
+  display: flex;
   border-radius: 10px;
   width: ${({ width }) => (width ? width : '70%')};
-  height: ${({ width }) => (width ? width : '100%')};
+  flex: 1;
+  object-fit: fill;
 `;
