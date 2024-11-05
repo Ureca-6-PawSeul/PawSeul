@@ -12,6 +12,8 @@ import useCartStore from '@/stores/cartStore';
 import useCartQuery from '@/apis/hooks/useCartQuery';
 
 import { useEffect } from 'react';
+import StickyFooter from '@/components/store/StickyFooter';
+import { Button } from '@/components/common/Button';
 
 const Cart = () => {
   const data = useCartQuery();
@@ -20,8 +22,12 @@ const Cart = () => {
   const selectedItems = useCartStore((state) => state.selectedItems);
   const totalPrice = useCartStore((state) => state.totalPrice);
   const toggleSelectAll = useCartStore((state) => state.toggleSelectAll);
-  const deleteSelectedItems = useCartStore((state) => state.deleteSelectedItems);
-  const calculateTotalPrice = useCartStore((state) => state.calculateTotalPrice);
+  const deleteSelectedItems = useCartStore(
+    (state) => state.deleteSelectedItems,
+  );
+  const calculateTotalPrice = useCartStore(
+    (state) => state.calculateTotalPrice,
+  );
 
   // useEffect에서 cartItems나 selectedItems가 바뀔 때마다 실행
   useEffect(() => {
@@ -95,6 +101,16 @@ const Cart = () => {
       ) : (
         <CartCost cost={0} />
       )}
+      <StickyFooter isScrolledToBottom={false}>
+        <Button
+          bg={colors.MainColor}
+          onClick={() => {
+            window.location.href = '/payment';
+          }}
+        >
+          결제하기
+        </Button>
+      </StickyFooter>
     </Flex>
   );
 };
