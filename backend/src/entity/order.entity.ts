@@ -15,12 +15,12 @@ import { BaseEntity } from 'src/entity/base.entity';
 @Entity()
 export class Order extends BaseEntity {
   @ApiProperty({ description: '주문의 고유 ID' })
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   orderId: string;
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
   @JoinColumn({ name: 'user_id' })
-  @ManyToOne(() => User, (user) => user.orders)
+  @ManyToOne(() => User, (user) => user.orders, { onDelete: 'CASCADE' })
   user: User;
 
   @ApiProperty({ description: '총 가격' })
@@ -33,7 +33,7 @@ export class Order extends BaseEntity {
 
   @ApiProperty({ description: 'Toss 주문 키' })
   @Column()
-  tossOrderKey: string;
+  tossOrderKey?: string;
 
   @OneToMany(() => OrderItem, (orderItem) => orderItem.order)
   @JoinColumn({ name: 'order_id' })

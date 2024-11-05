@@ -4,7 +4,9 @@ import { Order } from 'src/entity/order.entity';
 import { OrderItem } from 'src/entity/orderItem.entity';
 import { Product } from 'src/entity/product.entity';
 import { ProductReview } from 'src/entity/productReview.entity';
+import { User } from 'src/entity/user.entity';
 import { orderListResponseDto } from 'src/order/dto/orderListResponse.dto';
+import { TempOrderRequestDto } from 'src/order/dto/tempOrderRequest.dto';
 import { OrderStateType } from 'src/types/order';
 import { Repository } from 'typeorm';
 
@@ -22,11 +24,106 @@ export class OrderService {
 
     @InjectRepository(OrderItem)
     private orderItemRepository: Repository<OrderItem>,
+
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
   ) {}
 
-  async confirmOrder() {}
+  async tempOrder(
+    tempOrderRequestDto: TempOrderRequestDto,
+    userId: string,
+  ): Promise<string> {
+    const user = await this.userRepository.findOneBy({ userId });
+    if (!user) {
+      throw new HttpException(
+        '사용자를 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
 
-  async tempOrder(userId: string, products: any) {}
+    const order = this.orderRepository.create({
+      user: user,
+      orderState: OrderStateType.BEFORE_PAYMENT,
+      totalPrice: tempOrderRequestDto.totalPrice,
+      orderItems: tempOrderRequestDto.orderItems.map((orderItem) => {
+        return {
+          product: { productId: orderItem.productId },
+          quantity: orderItem.quantity,
+          price: orderItem.price,
+        };
+      }),
+    });
+
+    tempOrderRequestDto.orderItems.forEach((orderItem) => {
+      this.orderItemRepository.save({
+        order: order,
+        product: { productId: orderItem.productId },
+        quantity: orderItem.quantity,
+        price: orderItem.price,
+      });
+    });
+
+    await this.orderRepository.save(order);
+
+    return order.orderId;
+  }
+
+  async confirmOrder(tossOrderKey: string, orderId: string, price: number) {
+    const order = await this.orderRepository.findOne({
+      where: { orderId },
+      relations: ['user'],
+    });
+
+    if (!order) {
+      throw new HttpException(
+        '주문을 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    if (order.totalPrice !== price) {
+      throw new HttpException(
+        '결제 금액이 일치하지 않습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    try {
+      const response = await fetch(
+        'https://api.tosspayments.com/v1/payments/confirm',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${process.env.TOSS_SECRET_KEY}`,
+          },
+          body: JSON.stringify({
+            orderId: tossOrderKey,
+            amount: price,
+            paymentKey: tossOrderKey,
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        throw new HttpException(
+          '결제 승인에 실패했습니다.',
+          HttpStatus.BAD_REQUEST,
+        );
+      }
+      const result = await response.json();
+
+      order.tossOrderKey = tossOrderKey;
+
+      order.orderState = OrderStateType.PAYMENT_COMPLETED;
+
+      await this.orderRepository.save(order);
+
+      return result;
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
 
   async getOrderList(userId: string): Promise<orderListResponseDto[]> {
     if (!userId) {

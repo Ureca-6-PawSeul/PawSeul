@@ -1,4 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectEntityManager } from '@nestjs/typeorm';
 import { EntityManager } from 'typeorm';
 import { User } from 'src/entity/user.entity';
@@ -7,6 +12,7 @@ import { Product } from 'src/entity/product.entity';
 import { AddProductCartDto } from 'src/cart/dto/addProductCart.dto';
 import { UpdateProductCartDto } from 'src/cart/dto/updateProductCart.dto';
 import { GetCartsResponseDto } from 'src/cart/dto/getCartsResponse.dto';
+import { PartialOrderItemDto } from 'src/order/dto/PartialOrderItem.dto';
 
 @Injectable()
 export class CartService {
@@ -79,7 +85,6 @@ export class CartService {
     userId: string,
     updateProductDto: UpdateProductCartDto,
   ): Promise<GetCartsResponseDto> {
-    const user = await this.findUserId(userId);
     const cartProduct = await this.entityManager.findOne(CartProduct, {
       where: {
         user: { userId },
@@ -99,12 +104,45 @@ export class CartService {
     return this.getCartsUserId(userId);
   }
 
+  async deleteProductAfterOrder(
+    userId: string,
+    orderItems: PartialOrderItemDto[],
+  ) {
+    const user = await this.findUserId(userId);
+
+    if (!user) {
+      throw new HttpException(
+        '사용자를 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    orderItems.forEach(async (orderItem) => {
+      const product = await this.findProductId(orderItem.productId);
+
+      const cartProduct = await this.entityManager.findOne(CartProduct, {
+        where: { user, product },
+      });
+
+      if (!cartProduct) {
+        throw new NotFoundException('장바구니에 해당 상품이 없습니다.');
+      }
+
+      cartProduct.quantity -= orderItem.quantity;
+
+      if (cartProduct.quantity <= 0) {
+        await this.entityManager.remove(cartProduct);
+      }
+
+      await this.entityManager.save(cartProduct);
+    });
+  }
+
   // 장바구니 상품 삭제
   async deleteProductCart(
     userId: string,
     productId: string,
   ): Promise<GetCartsResponseDto> {
-    const user = await this.findUserId(userId);
     const cartProduct = await this.entityManager.findOne(CartProduct, {
       where: { user: { userId }, product: { productId } },
     });

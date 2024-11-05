@@ -5,6 +5,7 @@ import { OrderItem } from 'src/entity/orderItem.entity';
 import { ProductReview } from 'src/entity/productReview.entity';
 import { User } from 'src/entity/user.entity';
 import { CreateReviewRequestDto } from 'src/review/dto/createReviewRequest.dto';
+import { ReviewDto } from 'src/review/dto/review.dto';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -21,21 +22,36 @@ export class ReviewService {
     private orderItemRepository: Repository<OrderItem>,
   ) {}
 
-  async getProductReviewById(productId: string) {
+  async getProductReviewById(productId: string): Promise<ReviewDto[]> {
     const result = await this.productReviewRepository.find({
       where: { product: { productId } },
-      relations: ['user'],
+      relations: ['user', 'user.pet'],
     });
 
     if (result.length === 0) {
       throw new HttpException(
-        '리뷰를 찾을 수 없습니다dd.',
+        '리뷰를 찾을 수 없습니다.',
         HttpStatus.BAD_REQUEST,
       );
     }
 
-    return result;
+    const reviews = result.map((review) => ({
+      productReviewId: review.productReviewId,
+      productId: review.product.productId,
+      userId: review.user.userId,
+      text: review.text,
+      score: review.score,
+      pet: {
+        petname: review.user.pet?.petname || '',
+        age: review.user.pet?.age || 0,
+        weight: review.user.pet?.weight || 0,
+      },
+      createdAt: review.createdAt,
+    }));
+
+    return reviews;
   }
+
   async createProductReview(userId: string, content: CreateReviewRequestDto) {
     const review = this.productReviewRepository.create({
       user: { userId },
