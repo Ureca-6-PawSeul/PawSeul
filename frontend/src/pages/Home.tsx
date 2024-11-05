@@ -20,7 +20,7 @@ import { useGetUserInfo } from '@/apis/hooks/user';
 import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
 import { useGetTopProduct } from '@/apis/hooks/product';
-
+import { HeightFitFlex } from './Health/Analysis';
 
 const Home = () => {
   const imageList = [Banner1, Banner2, Banner3, Banner4];
@@ -40,7 +40,7 @@ const Home = () => {
       setUserInfo(data);
     }
 
-    if(productListData) {
+    if (productListData) {
       setProductList(productListData);
     }
   }, [data, setUserInfo, productListData]);
@@ -52,7 +52,7 @@ const Home = () => {
   const handleNavigateToCart = () => {
     navigate('/cart');
   };
-  const handleNavigateToProduct = (productId : string) => {
+  const handleNavigateToProduct = (productId: string) => {
     navigate(`/store/detail/${productId}`);
   };
 
@@ -69,7 +69,7 @@ const Home = () => {
         align="center"
         justify="flex-start"
         // height="fit-content"
-        margin='0 0 60px 0'
+        margin="0 0 60px 0"
       >
         {/* 배너 */}
         <Flex direction="column" height="fit-content" margin="56px 0 0 0">
@@ -83,7 +83,7 @@ const Home = () => {
         </Flex>
 
         {/* TOP10 상품 리스트 */}
-        <Flex padding="12px 12px" direction="column">
+        <HeightFitFlex padding="12px 12px" direction="column">
           <Flex gap={5} justify="flex-start" height="fit-content">
             <Text typo="Heading3" colorCode={colors.Black}>
               요즘 포슬 트렌드는?
@@ -92,10 +92,18 @@ const Home = () => {
               TOP 10
             </Text>
           </Flex>
-          <ProductContainer gap={35} justify="flex-start" padding="10px 0" height={300}>
+          <ProductContainer
+            gap={35}
+            justify="flex-start"
+            padding="10px 0"
+            height="auto"
+          >
             {productList.length > 0 &&
               productList?.map((product: ProductType) => (
-                <ProductWrapper key={product.productId} onClick={()=>handleNavigateToProduct(product.productId)}>
+                <ProductWrapper
+                  key={product.productId}
+                  onClick={() => handleNavigateToProduct(product.productId)}
+                >
                   <Product
                     productId={product.productId}
                     title={product.title}
@@ -105,8 +113,8 @@ const Home = () => {
                 </ProductWrapper>
               ))}
           </ProductContainer>
-        </Flex>
-        <Footer/>
+        </HeightFitFlex>
+        <Footer />
       </Flex>
     </>
   );
