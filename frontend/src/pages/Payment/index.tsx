@@ -11,6 +11,9 @@ import { Button } from '@/components/common/Button';
 import { TossPayment } from './TossPayment';
 import { TossLogo } from '@/assets/images/svgs';
 import useCartStore from '@/stores/cartStore';
+import useModal from '@/components/common/Modal/useModal';
+import { Modal } from '@/components/common/Modal';
+import Address from '@/components/Address';
 
 const SHIPMENT_MESSAGE = [
   '배송 요청 사항을 선택해주세요 (선택)',
@@ -29,12 +32,15 @@ const CARD_MESSAGE = [
   '농협카드',
 ];
 
-
 //Order table에 현재 주문내역을 저장시키고, 결제 상태는 "결제 전"으로 post요청
 const Payment = () => {
-  const orderItems = useCartStore((state)=>state.selectedItems);
-  const totalPrice = useCartStore((state)=>state.totalPrice);
-  const totalPriceString = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const { isOpen, modalRef, openModal, closeModal } = useModal();
+  const [location, setLocation] = useState();
+  const orderItems = useCartStore((state) => state.selectedItems);
+  const totalPrice = useCartStore((state) => state.totalPrice);
+  const totalPriceString = totalPrice
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
   const [isCheck, setIsCheck] = useState(false);
   const [isClickedBtn, setIsClickedBtn] = useState(null);
@@ -73,9 +79,15 @@ const Payment = () => {
               bg={colors.Gray100}
               fontColor="#AEAEB2"
               fontSize="12px"
+              onClick={openModal}
             >
               배송지 입력
             </Button>
+            {isOpen && (
+              <AddressModal isOpen={isOpen} toggleModal={closeModal}>
+                <Address setLocation={setLocation} closeModal={closeModal}/>
+              </AddressModal>
+            )}
           </Flex>
         </Flex>
         <Flex direction="column" align="flex-start" gap={10}>
@@ -83,7 +95,7 @@ const Payment = () => {
             <Text typo="Body2">김찬별</Text>
             <Text typo="Body2">010-1234-5678</Text>
           </Flex>
-          <Text>경기도 수원시 XX구 XX로</Text>
+          <Text>{location}</Text>
           <Select optionList={SHIPMENT_MESSAGE} />
         </Flex>
 
@@ -92,17 +104,16 @@ const Payment = () => {
           <Flex direction="column" align="flex-start" margin="12px 0 0 0">
             <Text typo="Heading3">상품 정보</Text>
           </Flex>
-          {orderItems
-            .map((item, index) => (
-              <ProductHorizontal
-                key={index}
-                productId={item.productId}
-                price={item.price}
-                title={item.title}
-                productImg={item.productImg}
-                quantity={item.quantity}
-              />
-            ))}
+          {orderItems.map((item, index) => (
+            <ProductHorizontal
+              key={index}
+              productId={item.productId}
+              price={item.price}
+              title={item.title}
+              productImg={item.productImg}
+              quantity={item.quantity}
+            />
+          ))}
         </Flex>
 
         {/* 결제 방법 */}
@@ -185,7 +196,9 @@ const Payment = () => {
             {isCheck && isClickedBtn === 1 && (
               <Button height="50px">{totalPriceString}원 결제하기</Button>
             )}
-            {isCheck && isClickedBtn === 2 && <TossPayment price={totalPrice} orderItems={orderItems} />}
+            {isCheck && isClickedBtn === 2 && (
+              <TossPayment price={totalPrice} orderItems={orderItems} />
+            )}
             {(!isCheck || !isClickedBtn) && (
               <Button height="50px" disabled={true} bg={colors.Gray400}>
                 {totalPriceString}원 결제하기
@@ -214,4 +227,8 @@ const TouchableFlex = styled(Flex)`
   &:active {
     background-color: rgba(0, 0, 0, 0.03); // 클릭 시 살짝 어두워지는 효과
   }
+`;
+
+const AddressModal = styled(Modal)`
+  height: auto;
 `;
