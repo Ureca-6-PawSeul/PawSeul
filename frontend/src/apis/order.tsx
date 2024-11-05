@@ -4,17 +4,17 @@ import client from './client';
 export const getUserOrder = async () => {
   const { data } = await client.get(`order/list`);
 
-  return data
+  return data;
 };
 
-export const postUserOrder = async (orderData : OrderType) => {
+export const postUserOrder = async (orderData: OrderType) => {
   const { data } = await client.post(`order/temp-order`, orderData);
 
-  return data
-}
+  return data;
+};
 
-export const patchUserOrder = async (patchData : PatchOrderType) => {
-  const { data } = await client.patch(`order/change`, patchData);
+export const patchUserOrder = async (patchData: PatchOrderType) => {
+  const { data } = await client.patch(`order/confirm`, patchData);
 
-  return data
-}
+  return data;
+};

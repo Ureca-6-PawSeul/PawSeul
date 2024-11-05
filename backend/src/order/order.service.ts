@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { CartProduct } from 'src/entity/cart.product.entity';
 import { Order } from 'src/entity/order.entity';
 import { OrderItem } from 'src/entity/orderItem.entity';
 import { Product } from 'src/entity/product.entity';
@@ -27,6 +28,9 @@ export class OrderService {
 
     @InjectRepository(User)
     private userRepository: Repository<User>,
+
+    @InjectRepository(CartProduct)
+    private cartProductRepository: Repository<CartProduct>,
   ) {}
 
   async tempOrder(
@@ -41,18 +45,35 @@ export class OrderService {
       );
     }
 
-    const order = this.orderRepository.create({
-      user: user,
-      orderState: OrderStateType.BEFORE_PAYMENT,
-      totalPrice: tempOrderRequestDto.totalPrice,
-      orderItems: tempOrderRequestDto.orderItems.map((orderItem) => {
-        return {
-          product: { productId: orderItem.productId },
+    const orderItems = await Promise.all(
+      tempOrderRequestDto.orderItems.map(async (orderItem) => {
+        const product = await this.productRepository.findOneBy({
+          productId: orderItem.productId,
+        });
+        console.log('ewfwefewfw', product);
+        if (!product) {
+          console.log('wevawvdvvwe');
+          throw new HttpException(
+            `상품이 존재하지 않습니다: ${orderItem.productId}`,
+            HttpStatus.BAD_REQUEST,
+          );
+        }
+        return this.orderItemRepository.create({
+          product,
           quantity: orderItem.quantity,
           price: orderItem.price,
-        };
+        });
       }),
+    );
+
+    const order = this.orderRepository.create({
+      user,
+      orderState: OrderStateType.BEFORE_PAYMENT,
+      totalPrice: tempOrderRequestDto.totalPrice,
+      orderItems,
     });
+
+    await this.orderRepository.save(order);
 
     tempOrderRequestDto.orderItems.forEach((orderItem) => {
       this.orderItemRepository.save({
@@ -63,11 +84,8 @@ export class OrderService {
       });
     });
 
-    await this.orderRepository.save(order);
-
     return order.orderId;
   }
-
   async confirmOrder(tossOrderKey: string, orderId: string, price: number) {
     const order = await this.orderRepository.findOne({
       where: { orderId },
@@ -88,41 +106,87 @@ export class OrderService {
       );
     }
 
-    try {
-      const response = await fetch(
-        'https://api.tosspayments.com/v1/payments/confirm',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Basic ${process.env.TOSS_SECRET_KEY}`,
-          },
-          body: JSON.stringify({
-            orderId: tossOrderKey,
-            amount: price,
-            paymentKey: tossOrderKey,
-          }),
-        },
-      );
+    const result = await this.confirmPayment(tossOrderKey, orderId, price);
+    order.tossOrderKey = tossOrderKey;
+    order.orderState = OrderStateType.PAYMENT_COMPLETED;
 
-      if (!response.ok) {
+    await this.orderRepository.save(order);
+    return result;
+  }
+
+  async deleteProductAfterOrder(userId: string, orderId: string) {
+    const user = await this.userRepository.findOneBy({ userId });
+    if (!user) {
+      throw new HttpException(
+        '사용자를 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    const order = await this.orderRepository.findOne({
+      where: { orderId },
+      relations: ['orderItems'],
+    });
+
+    if (!order) {
+      throw new HttpException(
+        '주문을 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    for (const orderItem of order.orderItems) {
+      const product = orderItem.product;
+      const cartProduct = await this.cartProductRepository.findOne({
+        where: { user: { userId }, product: { productId: product.productId } },
+      });
+      console.log('cartProduct', cartProduct);
+
+      if (!cartProduct) {
         throw new HttpException(
-          '결제 승인에 실패했습니다.',
+          '장바구니에 해당 상품이 없습니다.',
           HttpStatus.BAD_REQUEST,
         );
       }
-      const result = await response.json();
 
-      order.tossOrderKey = tossOrderKey;
-
-      order.orderState = OrderStateType.PAYMENT_COMPLETED;
-
-      await this.orderRepository.save(order);
-
-      return result;
-    } catch (error) {
-      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+      cartProduct.quantity -= orderItem.quantity;
+      if (cartProduct.quantity <= 0) {
+        await this.cartProductRepository.remove(cartProduct);
+      } else {
+        await this.cartProductRepository.save(cartProduct);
+      }
     }
+  }
+
+  private async confirmPayment(
+    tossOrderKey: string,
+    orderId: string,
+    price: number,
+  ) {
+    const response = await fetch(
+      'https://api.tosspayments.com/v1/payments/confirm',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${Buffer.from(process.env.TOSS_SECRET_KEY + ':').toString('base64')}`,
+        },
+        body: JSON.stringify({
+          orderId,
+          amount: price,
+          paymentKey: tossOrderKey,
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new HttpException(
+        '결제 승인에 실패했습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    return await response.json();
   }
 
   async getOrderList(userId: string): Promise<orderListResponseDto[]> {
