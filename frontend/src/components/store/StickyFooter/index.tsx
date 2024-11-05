@@ -3,15 +3,17 @@ import { colors } from '@styles/colors';
 
 export const StickyFooter = ({
   isScrolledToBottom,
+  isBottomSheetOpen = false,
   children,
 }: {
   isScrolledToBottom: boolean;
   children: React.ReactNode;
+  isBottomSheetOpen?: boolean;
 }) => {
-  return <Wrapper isScrolledToBottom={isScrolledToBottom}>{children}</Wrapper>;
+  return <Wrapper isScrolledToBottom={isScrolledToBottom} isBottomSheetOpen={isBottomSheetOpen}>{children}</Wrapper>;
 };
 
-const Wrapper = styled.div<{ isScrolledToBottom: boolean }>`
+const Wrapper = styled.div<{ isScrolledToBottom: boolean, isBottomSheetOpen: boolean }>`
   position: fixed;
   bottom: ${({ isScrolledToBottom }) => (isScrolledToBottom ? '85px' : '0')};
   border-radius: 10px;
@@ -23,6 +25,7 @@ const Wrapper = styled.div<{ isScrolledToBottom: boolean }>`
   max-width: 480px;
   width: 100%;
   box-sizing: border-box;
+  /* height: ${({ isBottomSheetOpen }) => (isBottomSheetOpen ? '100%' : 'auto')}; */
 `;
 
 export default StickyFooter;
