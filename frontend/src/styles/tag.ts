@@ -39,4 +39,19 @@ export const tag = {
     padding: 8px 12px;
     height: fit-content;
   `,
+  BorderBlack: css`
+    outline: solid 1px ${colors.Gray500};
+    border-radius: 30px;
+    color: ${colors.Gray600};
+    padding: 8px 12px;
+    height: fit-content;
+  `,
+  FilledBlack: css`
+    border: solid 1px ${colors.Gray600};
+    border-radius: 30px;
+    color: ${colors.White};
+    background-color: ${colors.Gray600};
+    padding: 7px 11px;
+    height: fit-content;
+  `,
 } as const;

@@ -1,11 +1,10 @@
+import { usePostPetInfo } from '@/apis/hooks/signup';
+import { Toast } from '@/components/common/Toast';
 import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
 import { Flex } from '@components/common/Flex';
 import styled from '@emotion/styled';
 import { useLocation, useNavigate } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
-import { Toast } from '@/components/common/Toast';
-import { usePostPetInfo } from '@/apis/hooks/signup';
 
 const SignUpResult = () => {
   const location = useLocation();
@@ -86,12 +85,13 @@ const SignUpResult = () => {
 
 export default SignUpResult;
 
-const InfoLine = styled(Flex)`
+export const InfoLine = styled(Flex)`
   height: fit-content;
   padding: 14px 20px;
 
   border: 1px solid ${colors.Gray200};
 `;
+
 const SignUpBtn = styled(Flex)`
   background-color: ${colors.MainColor};
   padding: 14px 20px;
