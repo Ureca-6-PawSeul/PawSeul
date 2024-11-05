@@ -18,6 +18,7 @@ import { FiMinusCircle } from 'react-icons/fi';
 import { useNavigate, useParams } from 'react-router-dom';
 import { queryOptions } from '@tanstack/react-query';
 import { createCartItem } from '@/apis/hooks/cart';
+import { Modal } from '@/components/common/Modal';
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();
@@ -30,6 +31,8 @@ const Detail = () => {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const { mutateAsync } = createCartItem();
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
 
   useEffect(() => {
     if (data) {
@@ -59,6 +62,14 @@ const Detail = () => {
     setCartPrice((prev) => Math.max(0, prev + value * data.price));
   };
 
+  const toggleAddModal = () => {
+    setIsAddModalOpen((prev) => !prev);
+  };
+
+  const toggleMoveModal = () => {
+    setIsMoveModalOpen((prev) => !prev);
+  }
+
   const handleAddToCart = () => {
     const cartData = {
       productId: id,
@@ -69,8 +80,7 @@ const Detail = () => {
       const response = mutateAsync(cartData);
       if (response) {
         setIsBottomSheetOpen(false);
-        alert('장바구니로 이동합니다.');
-        window.location.href = '/cart';
+        toggleMoveModal();
       }
     } catch (error) {
       console.error(error);
@@ -187,7 +197,7 @@ const Detail = () => {
             </Flex>
           </Flex>
           <Flex justify="center">
-          <Button bg={colors.MainColor} onClick={handleAddToCart}>
+          <Button bg={colors.MainColor} onClick={toggleAddModal}>
             장바구니에 추가하기
           </Button>
         </Flex>
@@ -199,7 +209,38 @@ const Detail = () => {
           </Button>
         </Flex>
         )}
-
+        { isAddModalOpen &&
+          <Modal isOpen={isAddModalOpen} toggleModal={toggleAddModal}>
+            <Flex direction='column' padding="32px 0 0" gap={12}>
+            <Text typo="Heading4">장바구니에 상품을 추가하시겠습니까?</Text>
+            <Flex padding="0px 52px" margin='20px 0 10px' gap={20}>
+            <Button height='40px' bg={colors.Gray400} onClick={toggleAddModal}>취소</Button>
+            <Button 
+            height='40px'
+            onClick={() => {
+              handleAddToCart();
+              toggleAddModal();
+            }}>추가</Button>
+            </Flex>
+            </Flex>
+          </Modal>
+        }
+        { isMoveModalOpen &&
+          <Modal isOpen={isMoveModalOpen} toggleModal={toggleMoveModal}>
+            <Flex direction='column' padding="32px 0 0" gap={12}>
+            <Text typo="Heading4">장바구니에 상품이 추가되었습니다.</Text>
+            <Text typo="Body2">장바구니로 이동하시겠습니까?</Text>
+            <Flex padding="0px 52px" margin='20px 0 10px' gap={20}>
+            <Button height='40px' bg={colors.Gray400} onClick={toggleMoveModal}>취소</Button>
+            <Button 
+            height='40px'
+            onClick={() => {
+              window.location.href = '/cart';
+            }}>이동</Button>
+            </Flex>
+            </Flex>
+          </Modal>
+        }
       </StickyFooter>
     </Wrapper>
   );
