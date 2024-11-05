@@ -10,40 +10,19 @@ import { forwardRef, useState } from 'react';
 import { Modal } from '@/components/common/Modal';
 import { Button } from '@/components/common/Button';
 import { Text } from '@/components/common/Typo';
-import { useMutation } from '@tanstack/react-query';
-import client from '@/apis/client';
-import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { FaStar } from 'react-icons/fa';
-
-
-interface ReviewData {
-  productId: string;
-  score: number;
-  text: string;
-}
+import { createReview } from '@/apis/hooks/review';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { CheckIcon } from '@/assets/images/svgs';
 
 const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [reviewScore, setReviewScore] = useState(0);
   const [review, setReview] = useState('');
-
   const { id } = useParams<{ id: string }>();
-
-
-  // 후기를 생성하는 Mutation 훅
-  const mutation = useMutation<void, Error, ReviewData>({
-    mutationFn: async (reviewData) => {
-      return await client.post(`/review/${id}`, reviewData);
-    },
-    onSuccess: () => {
-      alert('후기가 성공적으로 작성되었습니다.');
-    },
-    onError: (error) => {
-      console.error(error);
-      alert('후기 작성에 실패했습니다. 다시 시도해주세요.');
-    },
-  });
+  const { mutate } = createReview();
 
   const reviewCount = reviews.length;
   const score = reviews.reduce((acc, cur) => acc + cur.score, 0) / reviewCount;
@@ -70,11 +49,23 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
   
   const handleSubmit = () => {
     if (reviewScore < 1) {
-      alert('별점을 입력해주세요.');
+      toast(
+        <Flex justify="space-between">
+          <span>별점을 입력해주세요</span>
+          <CheckIcon width={24} height={24} />
+        </Flex>,
+        { position: 'bottom-center' },
+      );
       return;
     }
     if (review.trim() === '') {
-      alert('후기 내용을 입력해주세요.');
+      toast(
+        <Flex justify="space-between">
+          <span>후기 내용을 입력해주세요</span>
+          <CheckIcon width={24} height={24} />
+        </Flex>,
+        { position: 'bottom-center' },
+      );
       return;
     }
 
@@ -85,7 +76,7 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
       text: review,
     };
 
-    mutation.mutate(reviewData); // useMutation으로 후기를 서버에 요청
+    mutate(reviewData); // useMutation으로 후기를 서버에 요청
   };
 
   return (

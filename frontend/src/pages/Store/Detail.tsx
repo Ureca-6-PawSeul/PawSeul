@@ -11,18 +11,31 @@ import reviews from '@/mocks/data/review.json';
 import { useRef, useState } from 'react';
 import useProductDetailQuery from '@/apis/hooks/useProductDetailQuery';
 import { useEffect } from 'react';
+import StickyFooter from '@/components/store/StickyFooter';
+import { Button } from '@/components/common/Button';
+import { FiPlusCircle } from 'react-icons/fi';
+import { FiMinusCircle } from 'react-icons/fi';
+import { useNavigate, useParams } from 'react-router-dom';
+import { queryOptions } from '@tanstack/react-query';
+import { createCartItem } from '@/apis/hooks/cart';
 
 const Detail = () => {
+  const { id } = useParams<{ id: string }>();
   // tanstack query 사용
   const { data } = useProductDetailQuery();
   // const { reviewData } = useProductReviewQuery();
   const [descriptionData, setDescriptionData] = useState(null);
   const [productPrice, setProductPrice] = useState('');
+  const [cartPrice, setCartPrice] = useState(0);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const { mutateAsync } = createCartItem();
 
   useEffect(() => {
     if (data) {
       setDescriptionData(tableData(data));
       setProductPrice(data.price.toLocaleString('ko-KR'));
+      setCartPrice(data.price);
     }
   }, [data]);
 
@@ -31,6 +44,37 @@ const Detail = () => {
 
   const handleRefClick = () => {
     reviewRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const toggleBottomSheetOpen = () => {
+    setIsBottomSheetOpen((prev) => !prev);
+  };
+
+  const handleBottomSheetClose = () => {
+    setIsBottomSheetOpen(false);
+  };
+
+  const handleQuantityChange = (value) => {
+    setQuantity((prev) => Math.max(1, prev + value));
+    setCartPrice((prev) => Math.max(0, prev + value * data.price));
+  };
+
+  const handleAddToCart = () => {
+    const cartData = {
+      productId: id,
+      quantity: quantity,
+    }
+
+    try {
+      const response = mutateAsync(cartData);
+      if (response) {
+        setIsBottomSheetOpen(false);
+        alert('장바구니로 이동합니다.');
+        window.location.href = '/cart';
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   if (!data) {
@@ -44,6 +88,7 @@ const Detail = () => {
       padding="0 0 80px 0"
       backgroundColor={colors.Gray50}
       height="fit-content"
+      // isBottomSheetOpen={isBottomSheetOpen} onClick={handleBottomSheetClose}
     >
       <Image src={data.productImg} alt="product_img" />
       <Flex
@@ -101,6 +146,61 @@ const Detail = () => {
         <DetailImageList images={data.descriptionImg} />
       </Flex>
       <ProductReview ref={reviewRef} />
+      <StickyFooter
+        isScrolledToBottom={false}
+        isBottomSheetOpen={isBottomSheetOpen}
+      >
+        {isBottomSheetOpen ? (
+          <>
+          <Flex direction="column" gap={16} justify="flex-start">
+            <BottomItemWrapper justify="flex-start">
+              <Flex backgroundColor={colors.Gray100} padding="16px 0" margin='0 0 16px'>
+                
+                <Flex>
+                  <CartText typo="Label1">수량</CartText>
+                  <Flex justify="flex-start" gap={12}>
+                    <CartItemButton
+                      width="auto"
+                      height="auto"
+                      onClick={() => handleQuantityChange(1)}
+                    >
+                      <FiPlusCircle color={colors.Gray400} size={20} />
+                    </CartItemButton>
+                    <Text typo="Label2" colorCode={colors.Gray600}>
+                      {quantity}
+                    </Text>
+                    <CartItemButton
+                      width="auto"
+                      height="auto"
+                      onClick={() => handleQuantityChange(-1)}
+                    >
+                      <FiMinusCircle color={colors.Gray400} size={20} />
+                    </CartItemButton>
+                  </Flex>
+                </Flex>
+                <CartText typo="Label1">{`1개 (${productPrice})원`}</CartText>
+              </Flex>
+            </BottomItemWrapper>
+            <Flex justify='space-between' margin="0 0 16px">
+              <CartText typo="Body2">총 수량 {quantity}개</CartText>
+              <CartText typo="Heading3">{Number(cartPrice).toLocaleString('ko-KR')}원</CartText>
+            </Flex>
+          </Flex>
+          <Flex justify="center">
+          <Button bg={colors.MainColor} onClick={handleAddToCart}>
+            장바구니에 추가하기
+          </Button>
+        </Flex>
+          </>
+        ): (
+          <Flex justify="center">
+          <Button bg={colors.MainColor} onClick={toggleBottomSheetOpen}>
+            장바구니에 추가하기
+          </Button>
+        </Flex>
+        )}
+
+      </StickyFooter>
     </Wrapper>
   );
 };
@@ -129,5 +229,31 @@ const DetailText = styled(Text)<{
 const PriceText = styled(Text)`
   letter-spacing: -0.5px;
 `;
+
+const BottomItemWrapper = styled(Flex)`
+  border-bottom: 1px solid ${colors.Gray50};
+`;
+
+const CartItemButton = styled(Flex)`
+  cursor: pointer;
+`;
+
+const CartText = styled(Text)` 
+  white-space: nowrap;
+  padding: 0 16px;
+`;
+
+// const BottomSheetWrapper = styled(Flex)<{ isBottomSheetOpen: boolean }>`
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background-color: ${({ isBottomSheetOpen }) => (isBottomSheetOpen ? 'rgba(0, 0, 0, 0.5)' : 'transparent')};
+//   display: flex;
+//   align-items: flex-end;
+//   justify-content: center;
+//   position: ${({ isBottomSheetOpen }) => (isBottomSheetOpen ? 'fixed' : 'relative')};
+//   z-index: ${({ isBottomSheetOpen }) => (isBottomSheetOpen ? '20' : 'none')};
+// `;
 
 export default Detail;
