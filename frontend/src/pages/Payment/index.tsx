@@ -15,7 +15,6 @@ import useModal from '@/components/common/Modal/useModal';
 import { Modal } from '@/components/common/Modal';
 import Address from '@/components/payment/Address';
 
-
 const SHIPMENT_MESSAGE = [
   '배송 요청 사항을 선택해주세요 (선택)',
   '문 앞에 놓아주세요.',
