@@ -14,7 +14,12 @@ import { AddProductCartDto } from 'src/cart/dto/addProductCart.dto';
 import { UpdateProductCartDto } from 'src/cart/dto/updateProductCart.dto';
 import { DeleteProductDto } from 'src/cart/dto/deleteProduct.dto';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { Request } from 'express';
 
 @Controller('cart')
@@ -29,6 +34,7 @@ export class CartController {
   // 장바구니 조회
   @UseGuards(AuthGuard('jwt-access'))
   @Get()
+  @ApiOperation({ summary: '장바구니 상품 조회' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
     description: '장바구니 정보 조회 성공',
@@ -42,6 +48,7 @@ export class CartController {
   // 장바구니 상품 추가
   @UseGuards(AuthGuard('jwt-access'))
   @Post('add')
+  @ApiOperation({ summary: '장바구니 상품 추가' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
     description: '장바구니에 상품 추가 성공',
@@ -58,6 +65,7 @@ export class CartController {
   // 장바구니 상품 수정
   @UseGuards(AuthGuard('jwt-access'))
   @Patch('update')
+  @ApiOperation({ summary: '장바구니 상품 수정' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
     description: '장바구니에 상품 수정 성공',
@@ -74,6 +82,7 @@ export class CartController {
   // 장바구니 상품 삭제
   @UseGuards(AuthGuard('jwt-access'))
   @Delete('remove')
+  @ApiOperation({ summary: '장바구니 상품 삭제' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
     description: '장바구니 상품 삭제 성공',
