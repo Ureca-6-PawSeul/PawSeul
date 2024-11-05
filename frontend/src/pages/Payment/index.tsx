@@ -14,6 +14,7 @@ import useCartStore from '@/stores/cartStore';
 import useModal from '@/components/common/Modal/useModal';
 import { Modal } from '@/components/common/Modal';
 import Address from '@/components/payment/Address';
+import { StyledButton } from '@/components/health/Allergy';
 
 const SHIPMENT_MESSAGE = [
   '배송 요청 사항을 선택해주세요 (선택)',
@@ -67,7 +68,7 @@ const Payment = () => {
   }, []);
 
   return (
-    <Container direction="column" height="auto" padding="60px 24px">
+    <Container direction="column" height="auto" padding="8px 24px">
       <Flex direction="column" gap={30}>
         {/* 배송지 정보 */}
         <Flex direction="row" justify="space-between">
@@ -85,7 +86,7 @@ const Payment = () => {
             </Button>
             {isOpen && (
               <AddressModal isOpen={isOpen} toggleModal={closeModal}>
-                <Address setLocation={setLocation} closeModal={closeModal}/>
+                <Address setLocation={setLocation} closeModal={closeModal} />
               </AddressModal>
             )}
           </Flex>
@@ -123,26 +124,45 @@ const Payment = () => {
           </Flex>
           <Flex height="50px">
             {isClickedBtn === 1 ? (
-              <Button height="50px">신용·체크카드</Button>
-            ) : (
-              <Button
-                bg={colors.White}
-                fontColor={colors.Gray500}
-                border="solid 1px #AEAEB2"
+              <StyledButton
                 height="50px"
-                hoverBg={colors.Gray400}
-                hoverFontColor={colors.White}
+                bg={colors.White}
+                hoverBg={colors.White}
+                fontColor={colors.Black}
+                hoverFontColor={colors.Black}
+                border={`1px solid ${colors.Gray700}`}
+                selected={isClickedBtn === 1}
+              >
+                신용·체크카드
+              </StyledButton>
+            ) : (
+              <StyledButton
+                height="50px"
+                bg={colors.White}
+                hoverBg={colors.White}
+                fontColor={colors.Black}
+                hoverFontColor={colors.Black}
+                border={`1px solid ${colors.Gray700}`}
+                selected={isClickedBtn === 1}
                 onClick={() => handleClickBtn(1)}
               >
                 신용·체크카드
-              </Button>
+              </StyledButton>
             )}
           </Flex>
 
           {isClickedBtn === 2 ? (
-            <Button height="50px">
+            <StyledButton
+              height="50px"
+              bg={colors.White}
+              hoverBg={colors.White}
+              fontColor={colors.Black}
+              hoverFontColor={colors.Black}
+              border={`1px solid ${colors.Gray700}`}
+              selected={isClickedBtn === 2}
+            >
               <TossLogo width={100} height={30} />
-            </Button>
+            </StyledButton>
           ) : (
             <Button
               bg={colors.White}
@@ -153,7 +173,7 @@ const Payment = () => {
               hoverFontColor={colors.White}
               onClick={() => handleClickBtn(2)}
             >
-              <TossLogo width={100} height={30} />
+              <TossLogo width={100} height={30} opacity={0.3} />
             </Button>
           )}
 
