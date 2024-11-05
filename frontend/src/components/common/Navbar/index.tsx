@@ -29,6 +29,7 @@ const Navbar = () => {
       '/signup/result',
       '/cart',
       '/payment',
+      '/health/analysis',
     ];
     const detailPathPattern = /^\/store\/detail\/\d+$/;
     if (
