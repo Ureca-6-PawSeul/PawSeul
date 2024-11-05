@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { setupSwagger } from 'src/configs/setupSwagger';
 import { Logger } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const logger = new Logger();
@@ -16,6 +17,8 @@ async function bootstrap() {
   });
   app.setGlobalPrefix('api/v1'); // 모든 경로에 'api/v1'을 추가합니다.
   setupSwagger(app);
+
+  app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(port);
 
