@@ -7,6 +7,8 @@ import {
   Post,
   Req,
   UseGuards,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { OrderService } from './order.service';
 import {
@@ -75,6 +77,7 @@ export class OrderController {
   }
 
   @Post('/temp-order')
+  @UsePipes(new ValidationPipe())
   @UseGuards(AuthGuard('jwt-access'))
   @ApiCookieAuth('accessToken')
   @ApiOperation({

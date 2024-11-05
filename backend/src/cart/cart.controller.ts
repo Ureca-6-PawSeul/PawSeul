@@ -7,6 +7,8 @@ import {
   Req,
   Patch,
   Delete,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CartService } from './cart.service';
 import { GetCartsResponseDto } from 'src/cart/dto/getCartsResponse.dto';
@@ -48,6 +50,7 @@ export class CartController {
   // 장바구니 상품 추가
   @UseGuards(AuthGuard('jwt-access'))
   @Post('add')
+  @UsePipes(new ValidationPipe())
   @ApiOperation({ summary: '장바구니 상품 추가' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
@@ -65,6 +68,7 @@ export class CartController {
   // 장바구니 상품 수정
   @UseGuards(AuthGuard('jwt-access'))
   @Patch('update')
+  @UsePipes(new ValidationPipe())
   @ApiOperation({ summary: '장바구니 상품 수정' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
@@ -82,6 +86,7 @@ export class CartController {
   // 장바구니 상품 삭제
   @UseGuards(AuthGuard('jwt-access'))
   @Delete('remove')
+  @UsePipes(new ValidationPipe())
   @ApiOperation({ summary: '장바구니 상품 삭제' })
   @ApiBearerAuth('accessToken')
   @ApiResponse({
