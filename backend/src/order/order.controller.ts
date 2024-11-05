@@ -4,29 +4,34 @@ import {
   Get,
   HttpException,
   HttpStatus,
-  Param,
   Post,
   Req,
   UseGuards,
 } from '@nestjs/common';
 import { OrderService } from './order.service';
 import {
+  ApiBody,
   ApiCookieAuth,
   ApiOperation,
-  ApiParam,
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
 import { orderListResponseDto } from 'src/order/dto/orderListResponse.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
-import { ProductDto } from 'src/product/dto/product.dto';
 import { MyReviewsRequestDto } from './dto/myReviewsRequest.dto';
+import { TempOrderRequestDto } from 'src/order/dto/tempOrderRequest.dto';
+import { PartialOrderItemDto } from 'src/order/dto/PartialOrderItem.dto';
+import { CartService } from 'src/cart/cart.service';
+import { ConfirmOrderResponseDto } from 'src/order/dto/confirmOrderResponse.dto';
 
 @Controller('order')
 @ApiTags('order/결제 api')
 export class OrderController {
-  constructor(private readonly orderService: OrderService) {}
+  constructor(
+    private readonly orderService: OrderService,
+    private readonly cartService: CartService,
+  ) {}
 
   @Get('/list')
   @ApiCookieAuth('accessToken')
@@ -46,21 +51,27 @@ export class OrderController {
     return this.orderService.getOrderList(userId);
   }
 
-  @Get('/review')
   @ApiCookieAuth('accessToken')
   @Post('/confirm')
   @ApiOperation({ summary: '결제 승인 요청' })
+  @ApiBody({
+    type: ConfirmOrderResponseDto,
+  })
   async confirmOrder(
     @Req() req: Request,
-    @Body('paymentKey') paymentKey: string,
+    @Body('tossOrderKey') tossOrderKey: string,
     @Body('orderId') orderId: string,
-    @Body('amount') amount: string,
+    @Body('price') price: number,
+    @Body('orderItems') orderItems: PartialOrderItemDto[],
   ) {
     const { userId } = req.user;
     if (!userId) {
       throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
     }
-    return this.orderService.confirmOrder();
+
+    this.orderService.confirmOrder(tossOrderKey, orderId, price);
+
+    this.cartService.deleteProductAfterOrder(userId, orderItems);
   }
 
   @Post('/temp-order')
@@ -69,7 +80,19 @@ export class OrderController {
   @ApiOperation({
     summary: '임시 주문(order table에 결제 전 상태로 insert)',
   })
-  async tempOrder(@Body('products') products: any) {}
+  @ApiBody({
+    type: TempOrderRequestDto,
+  })
+  async tempOrder(
+    @Req() req: Request,
+    @Body() tempOrderRequestDto: TempOrderRequestDto,
+  ) {
+    const { userId } = req.user;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
+    return this.orderService.tempOrder(tempOrderRequestDto, userId);
+  }
 
   // 리뷰하지 않은 상품 목록 조회
   @Get('/unreviewed')

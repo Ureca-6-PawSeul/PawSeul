@@ -17,7 +17,7 @@ export class OrderItem {
 
   @ApiProperty({ description: '주문 ID', type: () => Order })
   @JoinColumn({ name: 'order_id' })
-  @ManyToOne(() => Order, (order) => order.orderItems)
+  @ManyToOne(() => Order, (order) => order.orderItems, { onDelete: 'CASCADE' })
   order: Order;
 
   @ApiProperty({ description: '제품 ID', type: () => Product })

@@ -21,9 +21,9 @@ import {
 } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
-import { CreateReviewResponseDto } from 'src/review/dto/createReviewResponse.dto';
 import { CreateReviewRequestDto } from 'src/review/dto/createReviewRequest.dto';
 import { getMyReviewsResponseDto } from 'src/review/dto/getMyReviewsResponse.dto';
+import { ReviewDto } from 'src/review/dto/review.dto';
 
 @Controller('/review')
 @ApiTags('상품 리뷰 api')
@@ -39,7 +39,7 @@ export class ReviewController {
     type: getMyReviewsResponseDto,
   })
   @Get('/me')
-  async getMyReview(@Req() req: Request) {
+  async getMyReview(@Req() req: Request): Promise<getMyReviewsResponseDto> {
     const userId = req.user?.userId;
     this.logger.log('userId');
     this.logger.log('userId', userId);
@@ -54,7 +54,8 @@ export class ReviewController {
   @ApiOperation({ summary: '상품 리뷰 조회' })
   @ApiCreatedResponse({
     description: '상품 리뷰 조회 성공',
-    type: CreateReviewResponseDto,
+    type: ReviewDto,
+    isArray: true,
   })
   @Get('/:productId')
   async getProductReviewById(@Param('productId') productId: string) {

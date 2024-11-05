@@ -8,9 +8,10 @@ import {
 import { Product } from './product.entity';
 import { User } from './user.entity';
 import { ApiProperty } from '@nestjs/swagger';
+import { BaseEntity } from 'src/entity/base.entity';
 
 @Entity()
-export class ProductReview {
+export class ProductReview extends BaseEntity {
   @ApiProperty({ description: '리뷰의 고유 ID' })
   @PrimaryGeneratedColumn('uuid')
   productReviewId: string;
@@ -25,7 +26,7 @@ export class ProductReview {
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
   @JoinColumn({ name: 'user_id' })
-  @ManyToOne(() => User, (user) => user.reviews)
+  @ManyToOne(() => User, (user) => user.reviews, { onDelete: 'CASCADE' })
   user: User;
 
   @ApiProperty({ description: '리뷰 내용' })
