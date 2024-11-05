@@ -26,7 +26,7 @@ export class ProductReview extends BaseEntity {
 
   @ApiProperty({ description: '사용자 ID', type: () => User })
   @JoinColumn({ name: 'user_id' })
-  @ManyToOne(() => User, (user) => user.reviews)
+  @ManyToOne(() => User, (user) => user.reviews, { onDelete: 'CASCADE' })
   user: User;
 
   @ApiProperty({ description: '리뷰 내용' })
