@@ -52,7 +52,8 @@ const Backdrop = styled.div`
 
 const ModalBox = styled.div`
   width: 346px;
-  height: 404px;
+  /* height: 404px; */
+  height: fit-content;
   padding: 1.25rem;
   position: relative;
   background-color: ${colors.White};
