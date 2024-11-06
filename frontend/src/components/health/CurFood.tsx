@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { Flex } from '@/components/common/Flex';
+import { Flex, HeightFitFlex } from '@/components/common/Flex';
 import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
 import healthFood from '@/mocks/data/healthFood.json';
 import healthSnack from '@/mocks/data/healthSnack.json';
-import { HeightFitFlex } from './Allergy';
 
 const CurFood = ({
   selectedFood,

@@ -11,8 +11,11 @@ import healthSnack from '@/mocks/data/healthSnack.json';
 import { InfoLine } from '../Signup/Result';
 import { colors } from '@/styles/colors';
 import { AllergyItem, FoodItem, SnackItem } from '@/assets/types/AnalysisType';
+import { useNavigate } from 'react-router-dom';
+import { useUserStore } from '@/stores/userStore';
 
 const Analysis = () => {
+  const navigate = useNavigate();
   // 현재 단계 확인용
   const [step, setStep] = useState(1);
 
@@ -53,6 +56,8 @@ const Analysis = () => {
     setSelectedSnack(snackId);
   };
 
+  const user = useUserStore((state) => state.user);
+
   // 단계별 설정
   const handleContinue = () => {
     if (step < 3) {
@@ -73,8 +78,16 @@ const Analysis = () => {
         allergy: selectedAllergiesItems,
         food: selectedFoodItem,
         snack: selectedSnackItem,
+        pet: {
+          age: user.pet.age,
+          breed: user.pet.breed,
+          weight: user.pet.weight,
+          gender: user.pet.gender,
+        },
       };
       console.log('전송할 데이터:', selectedData);
+
+      navigate('/health/result');
     }
   };
 
@@ -165,10 +178,6 @@ const Analysis = () => {
 };
 
 export default Analysis;
-
-export const HeightFitFlex = styled(Flex)`
-  height: fit-content;
-`;
 
 const ContinueBtn = styled(Button)`
   padding: 16px 20px;

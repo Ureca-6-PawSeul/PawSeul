@@ -1,4 +1,4 @@
-import { Flex } from '@/components/common/Flex';
+import { Flex, HeightFitFlex } from '@/components/common/Flex';
 import { Text } from '@/components/common/Typo';
 import { ClickBtn } from '@/components/mypage/profile';
 import { colors } from '@/styles/colors';
@@ -15,7 +15,6 @@ import { useNavigate } from 'react-router-dom';
 import { Header } from '@/components/common/Header';
 import { LeftArrow } from '@/assets/images/svgs';
 import { useUserStore } from '@/stores/userStore';
-import { HeightFitFlex } from '@/components/health/Allergy';
 
 export const ReviewHistoryPage = () => {
   const navigate = useNavigate();

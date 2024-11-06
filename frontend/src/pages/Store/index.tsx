@@ -13,7 +13,6 @@ import { Header } from '@/components/common/Header';
 import { CartIcon, MiniLogo } from '@/assets/images/svgs';
 import { useGetProductList } from '@/apis/hooks/product';
 import { useUserStore } from '@/stores/userStore';
-import { HeightFitFlex } from '../Health/Analysis';
 
 const categoryMapping = {
   사료: 'food',
@@ -29,8 +28,10 @@ const Store = () => {
   const [productDataList, setProductDataList] = useState<ProductDetailType[]>(
     [],
   );
-  const data = useGetProductList(categoryMapping[selectedCategory],
-    foodTypeMapping[selectedCategory][selectedSubCategory]);
+  const data = useGetProductList(
+    categoryMapping[selectedCategory],
+    foodTypeMapping[selectedCategory][selectedSubCategory],
+  );
 
   const navigate = useNavigate();
   const handleClick = (productId: number | string) => {
@@ -43,9 +44,9 @@ const Store = () => {
       setProductDataList(data);
     }
   }, [data]);
-  useEffect(()=>{
-    setSelectedSubCategory('전체')
-  }, [selectedCategory])
+  useEffect(() => {
+    setSelectedSubCategory('전체');
+  }, [selectedCategory]);
 
   const handleNavigateToHome = () => {
     navigate('/');
@@ -68,7 +69,7 @@ const Store = () => {
         align="center"
         gap={5}
         padding="72px 12px 0 12px"
-        >
+      >
         {/* 카테고리 버튼 */}
         <Flex
           direction="row"
@@ -93,13 +94,18 @@ const Store = () => {
           ))}
         </Flex>
 
-
         <Flex justify="flex-start" height={24} margin="4px 0px 4px 0">
           <Text colorCode={colors.Black} typo="Heading4" align="flex-start">
             {user.username.slice(1)}님의 맞춤 상품 찾기
           </Text>
         </Flex>
-        <Flex direction="row" justify="flex-start" height={40} gap={8} margin='0 0 16px 0'>
+        <Flex
+          direction="row"
+          justify="flex-start"
+          height={40}
+          gap={8}
+          margin="0 0 16px 0"
+        >
           {subCategories[selectedCategory]?.map((subCategory, index) => (
             <Tag
               key={index}
@@ -116,7 +122,13 @@ const Store = () => {
         </Flex>
 
         {/* 상품 리스트 */}
-        <Wrapper direction="row" justify="flex-start" align='flex-start' gap={35} padding='0 0 0 35px'>
+        <Wrapper
+          direction="row"
+          justify="flex-start"
+          align="flex-start"
+          gap={35}
+          padding="0 0 0 35px"
+        >
           {productDataList?.map((item, index) => (
             <ProductWrapper
               key={index}
@@ -158,4 +170,3 @@ const ProductWrapper = styled.div`
   width: calc(50% - 35px);
   box-sizing: border-box;
 `;
-

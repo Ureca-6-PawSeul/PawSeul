@@ -8,9 +8,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignUpResult = () => {
   const location = useLocation();
-  const formData = location.state;
+  const formData: Record<string, string> = location.state as Record<
+    string,
+    string
+  >;
 
-  console.log('전달된 데이터:', formData);
+  // console.log('전달된 데이터:', formData);
 
   const fieldLabels: Record<string, string> = {
     petname: '이름',
@@ -21,7 +24,7 @@ const SignUpResult = () => {
     breed: '견종',
   };
 
-  const formatValue = (key: string, value: any) => {
+  const formatValue = (key: string, value: string) => {
     switch (key) {
       case 'age':
         return `${value}세`;
@@ -41,10 +44,12 @@ const SignUpResult = () => {
 
   const handleSignUp = () => {
     const petData = {
-      ...formData,
       age: parseInt(formData.age),
       weight: parseFloat(formData.weight),
       gender: formData.gender === '남자' ? '수컷' : '암컷',
+      petname: formData.petname,
+      isNeutered: formData.isNeutered,
+      breed: formData.breed,
     };
     // console.log('petData:', petData);
     signUpMutate(petData);

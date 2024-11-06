@@ -28,7 +28,11 @@ export const Flex = styled.div<{
   box-sizing: border-box;
   border-radius: ${({ borderRadius }) =>
     borderRadius ? `${borderRadius}px` : '0px'};
-  
+
   background-color: ${({ backgroundColor }) =>
     backgroundColor ?? `transparent`};
+`;
+
+export const HeightFitFlex = styled(Flex)`
+  height: fit-content;
 `;
