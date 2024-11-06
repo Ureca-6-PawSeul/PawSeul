@@ -42,7 +42,11 @@ const ReviewStats = ({ score, scoreCounts }: ReviewStatsProps) => {
             </ReviewText>
             <StatusBarWrapper>
               <StatusBarBase />
-              <StatusBarFill ratio={(count / totalReviewCount) * 100} />
+              {count > 0 ? (
+                <StatusBarFill ratio={(count / totalReviewCount) * 100} />
+              ) : (
+                <StatusBarFill ratio={0} />
+              )}
             </StatusBarWrapper>
             <ReviewText typo="Body3" colorCode={colors.Gray200} width="20%">
               {count}

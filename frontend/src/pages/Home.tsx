@@ -21,6 +21,7 @@ import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
 import { useGetTopProduct } from '@/apis/hooks/product';
 
+
 const Home = () => {
   const imageList = [Banner1, Banner2, Banner3, Banner4];
   const [productList, setProductList] = useState<ProductType[]>([]);
@@ -39,7 +40,7 @@ const Home = () => {
       setUserInfo(data);
     }
 
-    if (productListData) {
+    if(productListData) {
       setProductList(productListData);
     }
   }, [data, setUserInfo, productListData]);
@@ -51,7 +52,7 @@ const Home = () => {
   const handleNavigateToCart = () => {
     navigate('/cart');
   };
-  const handleNavigateToProduct = (productId: string) => {
+  const handleNavigateToProduct = (productId : string) => {
     navigate(`/store/detail/${productId}`);
   };
 
@@ -68,7 +69,7 @@ const Home = () => {
         align="center"
         justify="flex-start"
         // height="fit-content"
-        margin="0 0 60px 0"
+        margin='0 0 60px 0'
       >
         {/* 배너 */}
         <Flex direction="column" height="fit-content" margin="56px 0 0 0">
@@ -91,18 +92,10 @@ const Home = () => {
               TOP 10
             </Text>
           </Flex>
-          <ProductContainer
-            gap={35}
-            justify="flex-start"
-            padding="10px 0"
-            height="auto"
-          >
+          <ProductContainer gap={35} justify="flex-start" padding="10px 0" height="auto">
             {productList.length > 0 &&
               productList?.map((product: ProductType) => (
-                <ProductWrapper
-                  key={product.productId}
-                  onClick={() => handleNavigateToProduct(product.productId)}
-                >
+                <ProductWrapper key={product.productId} onClick={()=>handleNavigateToProduct(product.productId)}>
                   <Product
                     productId={product.productId}
                     title={product.title}
@@ -113,7 +106,7 @@ const Home = () => {
               ))}
           </ProductContainer>
         </HeightFitFlex>
-        <Footer />
+        <Footer/>
       </Flex>
     </>
   );

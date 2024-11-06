@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import { Header } from '@/components/common/Header';
 import { LeftArrow } from '@/assets/images/svgs';
 import { useUserStore } from '@/stores/userStore';
+import { HeightFitFlex } from '@/components/health/Allergy';
 
 export const ReviewHistoryPage = () => {
   const navigate = useNavigate();
@@ -53,9 +54,9 @@ export const ReviewHistoryPage = () => {
           direction="column"
           justify="flex-start"
           // width="auto"
-          height="auto"
+          // height="auto"
         >
-          <Flex
+          <HeightFitFlex
             direction="row"
             justify="flex-start"
             gap={12}
@@ -65,7 +66,7 @@ export const ReviewHistoryPage = () => {
             <IoPersonCircleSharp size={60} color={colors.Gray300} />
             <Flex
               direction="column"
-              justify="flex-start"
+              justify="center"
               align="flex-start"
               width="auto"
             >
@@ -76,9 +77,9 @@ export const ReviewHistoryPage = () => {
                 {user.email}
               </ProfileText>
             </Flex>
-          </Flex>
+          </HeightFitFlex>
           <Hr />
-          <Flex
+          <HeightFitFlex
             justify="flex-start"
             gap={10}
             margin="3px 0 8px 0"
@@ -98,7 +99,7 @@ export const ReviewHistoryPage = () => {
             >
               <Text typo="Label1">작성한 구매후기</Text>
             </Tab>
-          </Flex>
+          </HeightFitFlex>
           <Flex direction="column" padding="0 12px">
             {userReviewList?.length > 0 ? (
               userReviewList?.map((review) => (

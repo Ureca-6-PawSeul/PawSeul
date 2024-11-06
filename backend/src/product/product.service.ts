@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Product } from 'src/entity/product.entity';
-import { ProductReview } from 'src/entity/productReview.entity';
 import { FoodType, SnackType, SupplementType } from 'src/types/category';
 
 import { Repository } from 'typeorm';
@@ -12,8 +11,6 @@ export class ProductService {
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
-    @InjectRepository(ProductReview)
-    private readonly productReviewRepository: Repository<ProductReview>, // 추가
   ) {}
   async getProducts(
     category: 'food' | 'snack' | 'supplement',
@@ -126,14 +123,13 @@ export class ProductService {
   > {
     return this.productRepository
       .createQueryBuilder('product')
-      .leftJoin('product.productReviews', 'review')
+      .leftJoin('product.reviews', 'review')
       .select([
         'product.productId AS productId',
         'product.title AS title',
         'product.price AS price',
         'product.productImg AS productImg',
         'AVG(review.score) AS averageScore',
-
       ])
       .groupBy('product.productId')
       .orderBy('average_score', 'DESC')

@@ -1,7 +1,7 @@
 import '@styles/global.css';
 import { Global } from '@emotion/react';
 import { globalStyle } from '@styles/globals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from '@components/common/Layout';
 
 import Main from '@/pages/Main';
@@ -34,20 +34,119 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup/result" element={<SignUpResult />} />
           <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
-          <Route path="/health" element={<Health />} />
-          <Route path="/health/analysis" element={<Analysis />} />
-          <Route path="/health/result" element={<HealthResult />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/mypage" element={<Mypage />} />
-          <Route path="/mypage/order" element={<OrderHistoryPage />} />
-          <Route path="/mypage/review" element={<ReviewHistoryPage />} />
-          <Route path="/mypage/pet" element={<PetInfoModify />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/payment/success" element={<PaymentSuccess />} />
-          <Route path="/payment/fail" element={<PaymentFail />} />"
-          <Route path="/store/detail/:id" element={<Detail />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/store"
+            element={
+              <PrivateRoute>
+                <Store />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/health"
+            element={
+              <PrivateRoute>
+                <Health />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/health/analysis"
+            element={
+              <PrivateRoute>
+                <Analysis />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/health/result"
+            element={
+              <PrivateRoute>
+                <HealthResult />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <PrivateRoute>
+                <Search />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage"
+            element={
+              <PrivateRoute>
+                <Mypage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage/order"
+            element={
+              <PrivateRoute>
+                <OrderHistoryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage/review"
+            element={
+              <PrivateRoute>
+                <ReviewHistoryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage/pet"
+            element={
+              <PrivateRoute>
+                <PetInfoModify />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/payment"
+            element={
+              <PrivateRoute>
+                <Payment />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/payment/success"
+            element={
+              <PrivateRoute>
+                <PaymentSuccess />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/payment/fail"
+            element={
+              <PrivateRoute>
+                <PaymentFail />
+              </PrivateRoute>
+            }
+          />
+          "
+          <Route
+            path="/store/detail/:id"
+            element={
+              <PrivateRoute>
+                <Detail />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute>
+                <Cart />
+              </PrivateRoute>
+            }
+          />
           <Route path="/404" element={<ErrorPage />} />
         </Routes>
       </Layout>

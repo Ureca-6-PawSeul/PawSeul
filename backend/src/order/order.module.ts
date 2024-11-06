@@ -7,12 +7,19 @@ import { ProductReview } from 'src/entity/productReview.entity';
 import { Order } from 'src/entity/order.entity';
 import { OrderItem } from 'src/entity/orderItem.entity';
 import { User } from 'src/entity/user.entity';
-import { CartService } from 'src/cart/cart.service';
+import { CartProduct } from 'src/entity/cart.product.entity';
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Product, ProductReview, Order, OrderItem, User]),
+    TypeOrmModule.forFeature([
+      Product,
+      ProductReview,
+      Order,
+      OrderItem,
+      User,
+      CartProduct,
+    ]),
   ],
   controllers: [OrderController],
-  providers: [OrderService, CartService],
+  providers: [OrderService],
 })
 export class OrderModule {}
