@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   HttpException,
   HttpStatus,
   Post,
@@ -50,5 +51,22 @@ export class HealthController {
 
     await this.healthService.saveHealthData(answer, userId);
     return answer;
+  }
+
+  @Get('/')
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({ summary: '건강 정보 조회' })
+  @ApiResponse({
+    status: 200,
+    description: '건강 정보 조회 성공',
+    type: AiHealthResponseDto,
+  })
+  async getRecentHealthData(@Req() req: Request) {
+    const userId = req.user?.userId;
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
+    return await this.healthService.getRecentHealthData(userId);
   }
 }

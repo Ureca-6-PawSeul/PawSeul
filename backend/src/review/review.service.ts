@@ -161,25 +161,66 @@ export class ReviewService {
     // return formattedReviews;
   }
 
-  async getOrderItemsWithReviews(userId: string) {
-    const orderItems = await this.orderItemRepository
-      .createQueryBuilder('orderItem')
-      .innerJoinAndSelect('orderItem.order', 'order') // INNER JOIN으로 변경
-      .innerJoinAndSelect('orderItem.product', 'product') // Product 조인
-      .innerJoinAndSelect('product.reviews', 'reviews') // Product와 리뷰 조인
-      .where('order.user_id = :userId', { userId })
+  async getReviewed(userId: string) {
+    // 1단계: 유저가 작성한 리뷰에서 제품 ID 가져오기
+    const reviewedProducts = await this.productReviewRepository.find({
+      where: { user: { userId } },
+      relations: ['product'],
+      select: ['product'],
+    });
+
+    const reviewedProductIds = reviewedProducts.map(
+      (review) => review.product.productId,
+    );
+
+    // 2단계: "결제 완료" 상태의 주문에서 리뷰가 있는 제품을 가져오기
+    const orders = await this.orderRepository
+      .createQueryBuilder('o')
+      .leftJoinAndSelect('o.orderItems', 'oi')
+      .leftJoinAndSelect('oi.product', 'product')
+      .where('o.user.userId = :userId', { userId })
+      .andWhere('o.orderState = :orderState', { orderState: '결제 완료' })
+      .andWhere('product.productId IN (:...reviewedProductIds)', {
+        reviewedProductIds,
+      })
+      .select([
+        'o.orderId',
+        'o.totalPrice',
+        'o.createdAt',
+        'o.orderState',
+        'oi.orderItemId',
+        'product.productId',
+        'oi.quantity',
+      ])
       .getMany();
 
-    const reviews = orderItems.map((item) => ({
-      productId: item.product.productId,
-      productImg: item.product.productImg,
-      title: item.product.title,
-      price: item.product.price,
-      state: item.order.orderState,
-      quantity: item.quantity,
-    }));
+    // 3단계: 제품 상세 정보 가져오기
+    const reviewedProductsDetails =
+      await this.productRepository.findByIds(reviewedProductIds);
 
-    return reviews;
+    // 4단계: 결과를 반환
+    return {
+      reviews: orders.flatMap((order) => {
+        const orderItems = order.orderItems
+          .filter((item) => reviewedProductIds.includes(item.product.productId))
+          .map((item) => {
+            const productDetail = reviewedProductsDetails.find(
+              (product) => product.productId === item.product.productId,
+            );
+            return {
+              productId: item.product.productId,
+              title: productDetail.title,
+              price: productDetail.price,
+              quantity: item.quantity,
+              productImg: productDetail.productImg,
+              state: order.orderState,
+            };
+          });
+
+        // orderItems가 비어 있지 않은 경우에만 해당 아이템을 반환
+        return orderItems.length > 0 ? orderItems : [];
+      }),
+    };
   }
 
   async getProductById(productId: string): Promise<Product> {
