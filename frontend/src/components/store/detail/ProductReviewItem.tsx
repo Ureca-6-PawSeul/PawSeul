@@ -55,7 +55,7 @@ const ProductReviewItem = ({ review }: ProductReviewItemProps) => {
             whiteSpace="nowrap"
             fontWeight="lighter"
           >
-            {review.created_at.slice(0, 10)}
+            {review.createdAt.slice(0, 10)}
           </ReviewText>
         </Flex>
         <ReviewText
