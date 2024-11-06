@@ -9,9 +9,17 @@ import { FiMinusCircle } from 'react-icons/fi';
 import { CartType } from '@assets/types/CartType';
 import useCartStore from '@/stores/cartStore';
 import { useChangeQuantityMutation } from '@/apis/hooks/useCartQuery';
-import { toast } from 'react-toastify';
+
 import { ErrorIcon } from '@/assets/images/svgs';
 import client from '@/apis/client';
+import { debounce } from 'lodash';
+import { useCallback, useState } from 'react';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from '@/components/common/Toast';
+import { Modal } from '@/components/common/Modal';
+import { Button } from '@/components/common/Button';
 
 interface CartItemProps {
   item: CartType;
@@ -26,16 +34,46 @@ const CartItem = ({ item, index }: CartItemProps) => {
       (selectedItem) => selectedItem.productId === item.productId,
     ),
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   const { mutate: changeQuantity } = useChangeQuantityMutation();
 
   const itemPrice = (item.price * item.quantity).toLocaleString('ko-kR');
 
-  const handleChangeQuantity = (diff: number) => () => {
-    if (item.quantity + diff <= 0 || item.quantity + diff > 99) {
-      return;
-    }
-    changeQuantity({ productId: item.productId, quantity: item.quantity + diff });
-  }
+  const debouncedChangeQuantity = debounce(
+    (changeQuantity, productId, quantity) => {
+      changeQuantity({ productId, quantity });
+    },
+    150, // 150ms 후에 마지막 호출만 실행
+  );
+
+  const notify = (msg: string) => {
+    toast(
+      <Flex justify="space-between">
+        <span>{msg}</span>
+        <ErrorIcon width={24} height={24} style={{ marginLeft: '8px' }} />
+      </Flex>,
+      {
+        position: 'bottom-center',
+      },
+    );
+  };
+
+  const handleChangeQuantity = useCallback(
+    (diff: number) => () => {
+      const newQuantity = item.quantity + diff;
+      if (newQuantity <= 0 || newQuantity > 99) {
+        return;
+      }
+      // 디바운스 적용된 changeQuantity 호출
+      debouncedChangeQuantity(changeQuantity, item.productId, newQuantity);
+    },
+    [item, changeQuantity], // 디펜던시 배열에 필요한 값 추가
+  );
 
   const handleDeleteItem = (productId: string) => async () => {
     deleteItem(productId); // 상태에서 아이템 삭제
@@ -45,9 +83,10 @@ const CartItem = ({ item, index }: CartItemProps) => {
         data: deleteData, // 요청 본문에 데이터 포함
       });
       if (response) {
-        alert('상품이 삭제되었습니다.');
+        notify('상품이 삭제되었습니다.');
       }
     } catch (error) {
+      notify('상품 삭제에 실패했습니다.');
       console.error(error);
     }
   };
@@ -107,14 +146,42 @@ const CartItem = ({ item, index }: CartItemProps) => {
               margin="0 0 0 20px"
               align="flex-start"
               // onClick={() => deleteItem(item.productId)}
-              onClick={handleDeleteItem(item.productId)}
+              onClick={toggleModal}
             >
               <IoCloseOutline size={20} color={colors.Gray400} />
             </CartItemButton>
+            {isModalOpen && (
+              <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+                <Flex direction="column" padding="32px 0 0" gap={12}>
+                  <Text typo="Heading4">해당 상품을 삭제하시겠습니까?</Text>
+                  <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
+                    <Button
+                      height="40px"
+                      bg={colors.Gray400}
+                      onClick={() => {
+                        toggleModal();
+                      }}
+                    >
+                      취소
+                    </Button>
+                    <Button
+                      height="40px"
+                      onClick={() => {
+                        handleDeleteItem(item.productId)();
+                        toggleModal();
+                      }}
+                    >
+                      삭제
+                    </Button>
+                  </Flex>
+                </Flex>
+              </Modal>
+            )}
           </Flex>
           <Flex justify="flex-end" padding="12px 0 0">
             <CartText typo="Heading4">{itemPrice}원</CartText>
           </Flex>
+          {/* <Toast /> */}
         </Flex>
       </Flex>
     </CartItemWrapper>
