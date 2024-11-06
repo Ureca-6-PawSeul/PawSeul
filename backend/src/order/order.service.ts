@@ -9,7 +9,7 @@ import { User } from 'src/entity/user.entity';
 import { orderListResponseDto } from 'src/order/dto/orderListResponse.dto';
 import { TempOrderRequestDto } from 'src/order/dto/tempOrderRequest.dto';
 import { OrderStateType } from 'src/types/order';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 
 @Injectable()
 export class OrderService {
@@ -199,7 +199,10 @@ export class OrderService {
     const orderProduct = await this.orderRepository.find({
       where: {
         user: { userId },
-        orderState: OrderStateType.PAYMENT_COMPLETED || OrderStateType.CANCELED,
+        orderState: In([
+          OrderStateType.PAYMENT_COMPLETED,
+          OrderStateType.CANCELED,
+        ]),
       },
       relations: ['orderItems', 'orderItems.product'],
     });
