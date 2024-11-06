@@ -25,7 +25,8 @@ export const OrderHistoryPage = () => {
   return (
     <>
     <Header title="주문내역" LeftIcon={<LeftArrow height={24}/>} onLeftIconClick={handleNavigateToMypage}/>
-    <Wrapper
+    {userOrder?.length > 0 ?
+    (<Wrapper
       direction="column"
       justify="flex-start"
       align="flex-start"
@@ -42,7 +43,12 @@ export const OrderHistoryPage = () => {
           />
         </Flex>
       ))}
-    </Wrapper>
+    </Wrapper>)
+    :
+    (<Flex>
+        주문한 내역이 없습니다.
+    </Flex>)
+  }
     </>
   );
 };

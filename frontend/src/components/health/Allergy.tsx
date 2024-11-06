@@ -92,7 +92,7 @@ const Allergy = ({
 
 export default Allergy;
 
-const StyledButton = styled(Button)<{ selected: boolean }>`
+export const StyledButton = styled(Button)<{ selected: boolean }>`
   opacity: ${({ selected }) => (selected ? 1 : 0.3)};
   font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 `;

@@ -11,7 +11,7 @@ const Select = ({
 }) => {
   return (
     <Flex height={50} align="center" justify="center">
-      <SelectHolder color={color || colors.Gray400}>
+      <SelectHolder color={color || colors.Gray800}>
         {optionList.map((option, index) =>
           index == 0 ? (
             <option key={index} value={option} selected>
@@ -31,10 +31,10 @@ const Select = ({
 export default Select;
 
 const SelectHolder = styled.select<{ color: string }>`
-  border-color: ${({ color }) => (color ? color : colors.Gray400)};
+  border-color: ${colors.Gray600};
   border-radius: 10px;
   padding: 12px;
-  color: ${({ color }) => (color ? color : colors.Gray400)};
+  color: ${({ color }) => (color ? color : colors.Gray700)};
   width: 100%;
   font-size: 1rem;
 `;
