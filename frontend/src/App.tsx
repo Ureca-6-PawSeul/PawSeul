@@ -25,6 +25,11 @@ import HealthResult from './pages/Health/Result';
 import PetInfoModify from './pages/Mypage/Modify';
 
 function App() {
+  const PrivateRoute = ({ children }) => {
+    const token = sessionStorage.getItem('user-storage');
+    return token ? children : <Navigate to="/main" />;
+  };
+
   return (
     <BrowserRouter>
       <Layout>
