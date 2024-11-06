@@ -47,7 +47,7 @@ const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 10000;
 `;
 
 const ModalBox = styled.div`
