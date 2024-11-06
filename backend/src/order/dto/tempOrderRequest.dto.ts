@@ -8,7 +8,11 @@ export class TempOrderRequestDto {
   @IsNumber({}, { message: '총 가격은 숫자여야 합니다.' })
   totalPrice: number;
 
-  @ApiProperty({ description: '주문 물품' })
+  @ApiProperty({
+    description: '주문 물품',
+    type: () => PartialOrderItemDto,
+    isArray: true,
+  })
   @IsNotEmpty({ message: '주문 항목은 필수입니다.' })
   @IsArray({ message: '주문 항목은 배열이어야 합니다.' })
   orderItems: PartialOrderItemDto[];

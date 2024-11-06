@@ -4,20 +4,22 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { InjectEntityManager } from '@nestjs/typeorm';
-import { EntityManager } from 'typeorm';
+import { InjectEntityManager, InjectRepository } from '@nestjs/typeorm';
+import { EntityManager, Repository } from 'typeorm';
 import { User } from 'src/entity/user.entity';
 import { CartProduct } from 'src/entity/cart.product.entity';
 import { Product } from 'src/entity/product.entity';
 import { AddProductCartDto } from 'src/cart/dto/addProductCart.dto';
 import { UpdateProductCartDto } from 'src/cart/dto/updateProductCart.dto';
 import { GetCartsResponseDto } from 'src/cart/dto/getCartsResponse.dto';
-import { PartialOrderItemDto } from 'src/order/dto/PartialOrderItem.dto';
+import { Order } from 'src/entity/order.entity';
 
 @Injectable()
 export class CartService {
   constructor(
     @InjectEntityManager() private readonly entityManager: EntityManager,
+    @InjectRepository(Order)
+    private orderRepository: Repository<Order>,
   ) {}
 
   // 유저ID로 유저 조회
@@ -104,22 +106,22 @@ export class CartService {
     return this.getCartsUserId(userId);
   }
 
-  async deleteProductAfterOrder(
-    userId: string,
-    orderItems: PartialOrderItemDto[],
-  ) {
+  async deleteProductAfterOrder(userId: string, orderId: string) {
     const user = await this.findUserId(userId);
+    const order = await this.orderRepository.findOne({
+      where: { orderId, user },
+      relations: ['orderItems'],
+    });
 
-    if (!user) {
+    if (!order) {
       throw new HttpException(
-        '사용자를 찾을 수 없습니다.',
+        '주문을 찾을 수 없습니다.',
         HttpStatus.BAD_REQUEST,
       );
     }
 
-    orderItems.forEach(async (orderItem) => {
-      const product = await this.findProductId(orderItem.productId);
-
+    for (const orderItem of order.orderItems) {
+      const product = orderItem.product;
       const cartProduct = await this.entityManager.findOne(CartProduct, {
         where: { user, product },
       });
@@ -132,12 +134,13 @@ export class CartService {
 
       if (cartProduct.quantity <= 0) {
         await this.entityManager.remove(cartProduct);
+      } else {
+        await this.entityManager.save(cartProduct);
       }
+    }
 
-      await this.entityManager.save(cartProduct);
-    });
+    await this.orderRepository.save(order);
   }
-
   // 장바구니 상품 삭제
   async deleteProductCart(
     userId: string,

@@ -6,15 +6,15 @@ import { useEffect, useState } from 'react';
 
 // ------  SDK 초기화 ------
 // @docs https://docs.tosspayments.com/sdk/v2/js#토스페이먼츠-초기화
-const clientKey = 'test_ck_Poxy1XQL8RmDzlJNYZX9r7nO5Wml';
+const clientKey = 'test_ck_E92LAa5PVbvwObBw0bWzV7YmpXyJ';
 const customerKey = 'HGuVDqQX_LwPcLpsdVLY9';
 
 interface TossPaymentProps {
   price: number;
-  orderItems: ProductType[]
+  orderItems: ProductType[];
 }
 
-export const TossPayment = ({price, orderItems}: TossPaymentProps) => {
+export const TossPayment = ({ price, orderItems }: TossPaymentProps) => {
   const [payment, setPayment] = useState(null);
   // const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
   const [amount] = useState({
@@ -41,21 +41,24 @@ export const TossPayment = ({price, orderItems}: TossPaymentProps) => {
       }
     }
     fetchPayment();
-  }, [clientKey, customerKey]);
+  }, []);
 
   // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
   // @docs https://docs.tosspayments.com/sdk/v2/js#paymentrequestpayment
   async function requestPayment() {
     // 결제를 요청하기 전에 orderId, amount를 서버에 저장하세요.
     //아이템 보내면 orderId reponse로 받아와
-    const orderData = {price, orderItems, tossOrderKey : customerKey};
-    const orderId = postUserOrder(orderData);
-
+    const orderData = {
+      totalPrice: price,
+      orderItems,
+    };
+    console.log(orderData);
+    const orderId = await postUserOrder(orderData);
 
     // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.
     await payment.requestPayment({
       method: 'CARD', // 카드 및 간편결제
-      amount: amount.value,
+      amount,
       orderId: orderId, // 고유 주분번호
       orderName: `${orderItems[0].title} 외 ${orderItems.length - 1}건`,
       successUrl: window.location.origin + '/payment/success', // 결제 요청이 성공하면 리다이렉트되는 URL
@@ -74,6 +77,8 @@ export const TossPayment = ({price, orderItems}: TossPaymentProps) => {
   }
 
   return (
-    <Button height="50px" onClick={() => requestPayment()}>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원 결제하기</Button>
+    <Button height="50px" onClick={() => requestPayment()}>
+      {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원 결제하기
+    </Button>
   );
 };
