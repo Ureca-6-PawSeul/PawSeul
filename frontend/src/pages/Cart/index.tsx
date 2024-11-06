@@ -9,11 +9,13 @@ import CartCost from '@/components/cart/CartCost';
 import { CartEmptyBlack } from '@/assets/images/svgs';
 
 import useCartStore from '@/stores/cartStore';
-import useCartQuery from '@/apis/hooks/useCartQuery';
+import {useCartQuery} from '@/apis/hooks/useCartQuery';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import StickyFooter from '@/components/store/StickyFooter';
 import { Button } from '@/components/common/Button';
+import { set } from 'date-fns';
+import { CartType } from '@/assets/types/CartType';
 
 const Cart = () => {
   const data = useCartQuery();
@@ -28,13 +30,29 @@ const Cart = () => {
   const calculateTotalPrice = useCartStore(
     (state) => state.calculateTotalPrice,
   );
+  const setSelectedItems = useCartStore((state) => state.setSelectedItems);
 
   // useEffect에서 cartItems나 selectedItems가 바뀔 때마다 실행
   useEffect(() => {
     if (data) {
       setCartItems(data);
+      
+      // data를 기반으로 selectedItems의 수량을 업데이트한 배열
+      const updatedSelectedItems = useCartStore.getState().selectedItems.map((selectedItem) => {
+        const updatedItem = data.find(
+          (item) => item.productId === selectedItem.productId
+        );
+        return updatedItem
+          ? { ...selectedItem, quantity: updatedItem.quantity }
+          : selectedItem;
+      });
+  
+      // updatedSelectedItems로 selectedItems 업데이트
+      setSelectedItems(updatedSelectedItems);
+  
+      calculateTotalPrice();
     }
-  }, [data]);
+  }, [data, setCartItems, setSelectedItems, calculateTotalPrice]);
 
   // 수량이 변경될 때 총 가격을 다시 계산
   useEffect(() => {
