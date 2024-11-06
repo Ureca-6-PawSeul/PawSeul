@@ -106,7 +106,7 @@ export class OrderController {
   })
   @ApiResponse({
     status: 200,
-    description: '리뷰하지 않은 제품 목록',
+    description: '리뷰해야 할 상품 목록',
     type: [MyReviewsRequestDto],
   })
   async getUnreviewedProducts(@Req() req: Request) {

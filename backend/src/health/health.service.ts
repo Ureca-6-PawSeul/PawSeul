@@ -2,10 +2,13 @@ import {
   Injectable,
   Logger,
   InternalServerErrorException,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import OpenAI from 'openai';
 import { Health } from 'src/entity/health.entity';
+import { Pet } from 'src/entity/pet.entity';
 import { AiHealthRequestDto } from 'src/health/dto/aiHealthRequest.dto';
 import { Repository } from 'typeorm';
 
@@ -16,6 +19,9 @@ export class HealthService {
   constructor(
     @InjectRepository(Health)
     private healthRepository: Repository<Health>,
+
+    @InjectRepository(Pet)
+    private petRepository: Repository<Pet>,
   ) {}
 
   async aiHealth(aiHealthDto: AiHealthRequestDto) {
@@ -80,5 +86,50 @@ export class HealthService {
         '요청을 처리하는 중에 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.',
       );
     }
+  }
+
+  async saveHealthData(data: AiHealthRequestDto, userId: string) {
+    const userPet = await this.petRepository.findOne({
+      where: { user: { userId } },
+    });
+
+    if (!userPet) {
+      throw new HttpException(
+        '펫 정보를 찾을 수 없어요!',
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    const health = this.healthRepository.create({
+      pet: userPet,
+      description: data,
+    });
+    return await this.healthRepository.save(health);
+  }
+
+  async getRecentHealthData(userId: string) {
+    const userPet = await this.petRepository.findOne({
+      where: { user: { userId } },
+    });
+
+    if (!userPet) {
+      throw new HttpException(
+        '펫 정보를 찾을 수 없어요!',
+        HttpStatus.NOT_FOUND,
+      );
+    }
+
+    const health = await this.healthRepository.findOne({
+      where: { pet: userPet },
+      order: { createdAt: 'DESC' },
+    });
+
+    if (!health) {
+      throw new HttpException(
+        '건강 정보를 찾을 수 없어요!',
+        HttpStatus.NOT_FOUND,
+      );
+    }
+
+    return health;
   }
 }
