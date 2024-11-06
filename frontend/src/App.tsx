@@ -21,6 +21,7 @@ import { PaymentFail } from '@pages/Payment/Fail';
 import { PaymentSuccess } from '@pages/Payment/Success';
 import Analysis from '@pages/Health/Analysis';
 import ErrorPage from '@pages/404';
+import HealthResult from './pages/Health/Result';
 import PetInfoModify from './pages/Mypage/Modify';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/store" element={<Store />} />
           <Route path="/health" element={<Health />} />
           <Route path="/health/analysis" element={<Analysis />} />
+          <Route path="/health/result" element={<HealthResult />} />
           <Route path="/search" element={<Search />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/mypage/order" element={<OrderHistoryPage />} />

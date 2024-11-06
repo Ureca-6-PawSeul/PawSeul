@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Flex } from '@/components/common/Flex';
+import { Flex, HeightFitFlex } from '@/components/common/Flex';
 import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
 import Tag from '@/components/common/Tag';
@@ -95,10 +95,6 @@ export default Allergy;
 const StyledButton = styled(Button)<{ selected: boolean }>`
   opacity: ${({ selected }) => (selected ? 1 : 0.3)};
   font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
-`;
-
-export const HeightFitFlex = styled(Flex)`
-  height: fit-content;
 `;
 
 const TagBox = styled(HeightFitFlex)`
