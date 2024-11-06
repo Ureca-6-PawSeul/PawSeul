@@ -21,8 +21,9 @@ import { PaymentFail } from '@pages/Payment/Fail';
 import { PaymentSuccess } from '@pages/Payment/Success';
 import Analysis from '@pages/Health/Analysis';
 import ErrorPage from '@pages/404';
-import HealthResult from './pages/Health/Result';
-import PetInfoModify from './pages/Mypage/Modify';
+import HealthResult from '@pages/Health/Result';
+import PetInfoModify from '@pages/Mypage/Modify';
+import NotFound from '@pages/NotFound';
 
 function App() {
   const PrivateRoute = ({ children }) => {
@@ -153,6 +154,7 @@ function App() {
             }
           />
           <Route path="/404" element={<ErrorPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </BrowserRouter>
