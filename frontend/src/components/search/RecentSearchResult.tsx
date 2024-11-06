@@ -6,12 +6,12 @@ import { IoCloseOutline } from 'react-icons/io5';
 
 interface RecentSearchResultProps {
   recentSearchQueries: string[];
-  clearRecentSearchQueries: () => void;
+  setRecentSearchQueries: (queries: string[]) => void;
 }
 
 const RecentSearchResult = ({
   recentSearchQueries,
-  clearRecentSearchQueries
+  setRecentSearchQueries,
 }: RecentSearchResultProps) => {
   return (
     <Flex
@@ -24,7 +24,7 @@ const RecentSearchResult = ({
       <Flex width="auto" height="auto" justify="flex-start" gap={12}>
         <Text typo="Heading4">최근 검색어</Text>
         {recentSearchQueries.length > 0 && (
-          <ClearButton onClick={clearRecentSearchQueries}>
+          <ClearButton onClick={() => setRecentSearchQueries([])}>
             <IoCloseOutline size={20} color={colors.Gray400} />
           </ClearButton>
         )}

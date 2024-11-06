@@ -2,9 +2,10 @@ import { Flex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 import styled from '@emotion/styled';
+import { ProductType } from '@/assets/types/ProductType';
 
 interface SearchResultProps {
-  searchResults: string[];
+  searchResults: ProductType[];
 }
 
 const SearchResult = ({searchResults}: SearchResultProps) => {
@@ -21,7 +22,7 @@ const SearchResult = ({searchResults}: SearchResultProps) => {
             direction="column"
           >
             <ResultText typo="Body2" colorCode={colors.Gray700}>
-              {result}
+              {result.title}
             </ResultText>
           </ResultWrapper>
         ))}
