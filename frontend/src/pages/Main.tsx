@@ -39,6 +39,7 @@ const LoginButton = styled(Flex)`
   position: relative;
   flex: 1;
 `;
+
 const KaKaoLogin = styled.img`
   display: flex;
   width: 320px;

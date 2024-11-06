@@ -10,22 +10,29 @@ import { Text } from '@/components/common/Typo';
 import { colors } from '@/styles/colors';
 import { Flex, HeightFitFlex } from '@components/common/Flex';
 import { Status } from '@/components/health';
+import HealthBackground from '@assets/images/pngs/health_background.png';
+import { Button } from '@/components/common/Button';
 
 const HealthResult = () => {
   const navigate = useNavigate();
   const [curCal, setCurCal] = useState<number>(240);
   const [needCal, setNeedCal] = useState<number>(300);
 
+  const handleNavigateToHome = () => {
+    navigate('/');
+  };
+
   return (
-    <>
+    <Flex direction="column">
       <Header title="분석 결과" />
       <Wrapper
         direction="column"
-        gap={32}
-        padding="70px 24px"
+        gap={16}
+        padding="72px 24px 40px 24px"
         justify="flex-start"
         align="flex-start"
       >
+        <BackgroundImg src={HealthBackground} />
         <HeightFitFlex gap={15}>
           <CircularProgressBar
             progress={Math.floor((curCal / needCal) * 100)}
@@ -84,7 +91,12 @@ const HealthResult = () => {
 
         <Status />
       </Wrapper>
-    </>
+      <HeightFitFlex margin="12px 0 56px 0" widthPer={80}>
+        <Button height="48px" onClick={handleNavigateToHome}>
+          <Text>홈으로 돌아가기</Text>
+        </Button>
+      </HeightFitFlex>
+    </Flex>
   );
 };
 
@@ -92,4 +104,10 @@ export default HealthResult;
 
 const Wrapper = styled(Flex)`
   overflow-y: auto;
+`;
+
+const BackgroundImg = styled.img`
+  display: flex;
+  width: 100%;
+  margin-bottom: 12px;
 `;
