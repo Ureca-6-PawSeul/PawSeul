@@ -2,32 +2,45 @@ import { Flex } from '@components/common/Flex';
 import { colors } from '@styles/colors';
 import ReviewStats from '@components/store/detail/ReviewStats';
 import DetailButton from '@components/store/detail/DetailButton';
-import reviews from '@/mocks/data/review.json';
 import ProductReviewItem from './ProductReviewItem';
 import { ReviewText } from '@components/store/detail/ReviewText';
 import { calculateScoreCounts } from '@/utils/scoreCounts';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import { Modal } from '@/components/common/Modal';
 import { Button } from '@/components/common/Button';
 import { Text } from '@/components/common/Typo';
 import styled from '@emotion/styled';
 import { FaStar } from 'react-icons/fa';
-import { createReview } from '@/apis/hooks/review';
+import { createReview, getReviews } from '@/apis/hooks/review';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { CheckIcon } from '@/assets/images/svgs';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from '@/components/common/Toast';
+import { ErrorIcon } from '@/assets/images/svgs';
 
 const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [reviewScore, setReviewScore] = useState(0);
-  const [review, setReview] = useState('');
-  const { id } = useParams<{ id: string }>();
+  const [newReview, setNewReview] = useState('');
+  const [reviews, setReviews] = useState([]);
+
   const { mutate } = createReview();
 
-  const reviewCount = reviews.length;
-  const score = reviews.reduce((acc, cur) => acc + cur.score, 0) / reviewCount;
+  const { id } = useParams<{ id: string }>();
+  const data = getReviews(id);
 
-  const scoreCounts = calculateScoreCounts(reviews);
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      setReviews(data);
+    }
+  }, [data]);
+
+  const reviewCount = reviews ? reviews.length : 0;
+  // 소수점 첫째 자리까지 평균 계산 나타내기
+  const score = reviews.length > 0 ? Number((reviews.reduce((acc, cur) => acc + cur.score, 0) / reviewCount).toFixed(1)) : 0;
+
+  const scoreCounts = reviews ? calculateScoreCounts(reviews) : calculateScoreCounts([]);
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
@@ -38,34 +51,34 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
   };
 
   const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setReview(e.target.value);
+    setNewReview(e.target.value);
   };
   
   const handleExit = () => {
     setReviewScore(0);
-    setReview('');
+    setNewReview('');
     toggleModal();
   }
+
+  const notify = (msg: string) => {
+    toast(
+      <Flex justify='space-between'>
+        <span>{msg}</span>
+        <ErrorIcon width={24} height={24} style={{ marginLeft: '8px'}}/>
+      </Flex>,
+      {
+        position: 'bottom-center',
+      },
+    );
+  };
   
   const handleSubmit = () => {
     if (reviewScore < 1) {
-      toast(
-        <Flex justify="space-between">
-          <span>별점을 입력해주세요</span>
-          <CheckIcon width={24} height={24} />
-        </Flex>,
-        { position: 'bottom-center' },
-      );
+      notify('리뷰 점수를 입력해주세요');
       return;
     }
-    if (review.trim() === '') {
-      toast(
-        <Flex justify="space-between">
-          <span>후기 내용을 입력해주세요</span>
-          <CheckIcon width={24} height={24} />
-        </Flex>,
-        { position: 'bottom-center' },
-      );
+    if (newReview.trim() === '') {
+      notify('리뷰 내용을 입력해주세요');
       return;
     }
 
@@ -73,7 +86,7 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
     const reviewData = {
       productId: id,
       score: reviewScore,
-      text: review,
+      text: newReview,
     };
 
     mutate(reviewData); // useMutation으로 후기를 서버에 요청
@@ -117,7 +130,7 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
               <Text typo="Heading4" colorCode={colors.Gray600}>자세한 후기를 알려주세요</Text>
               <Textarea 
                 placeholder='후기를 작성해주세요'
-                value={review}
+                value={newReview}
                 onChange={handleReviewChange}
                 onKeyDown={(e) => {
                   if (e.key === ' ') {
@@ -140,9 +153,10 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
         </Modal>
       </DetailButton>
       <div />
-      {reviews.map((review, index) => (
+      {reviews && reviews.map((review, index) => (
         <ProductReviewItem review={review} key={index} />
       ))}
+      <Toast/>
     </Flex>
   );
 });
@@ -160,7 +174,4 @@ const Textarea = styled.textarea`
 `;
 
 export default ProductReview;
-function useEffect(arg0: () => () => void, arg1: boolean[]) {
-  throw new Error('Function not implemented.');
-}
 
