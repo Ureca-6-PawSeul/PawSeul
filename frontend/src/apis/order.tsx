@@ -18,3 +18,9 @@ export const patchUserOrder = async (patchData: PatchOrderType) => {
 
   return data;
 };
+
+export const deleteUserOrder = async (orderId: string) => {
+  const { data } = await client.delete(`order/${orderId}`);
+
+  return data;
+};
