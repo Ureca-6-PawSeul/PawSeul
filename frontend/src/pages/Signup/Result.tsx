@@ -13,8 +13,6 @@ const SignUpResult = () => {
     string
   >;
 
-  // console.log('전달된 데이터:', formData);
-
   const fieldLabels: Record<string, string> = {
     petname: '이름',
     age: '나이',
@@ -51,7 +49,7 @@ const SignUpResult = () => {
       isNeutered: formData.isNeutered,
       breed: formData.breed,
     };
-    // console.log('petData:', petData);
+
     signUpMutate(petData);
   };
 
