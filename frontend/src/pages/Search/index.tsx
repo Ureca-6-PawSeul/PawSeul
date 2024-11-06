@@ -117,6 +117,7 @@ const Search = () => {
         <RecentSearchResult
           recentSearchQueries={recentSearchQueries}
           setRecentSearchQueries={setRecentSearchQueries}
+          setSearchQuery={setSearchQuery}
         />
       )}
     </Flex>

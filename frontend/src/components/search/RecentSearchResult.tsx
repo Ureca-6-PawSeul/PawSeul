@@ -7,12 +7,18 @@ import { IoCloseOutline } from 'react-icons/io5';
 interface RecentSearchResultProps {
   recentSearchQueries: string[];
   setRecentSearchQueries: (queries: string[]) => void;
+  setSearchQuery: (query: string) => void;
 }
 
 const RecentSearchResult = ({
   recentSearchQueries,
   setRecentSearchQueries,
+  setSearchQuery,
 }: RecentSearchResultProps) => {
+  const handleRecentClick = (e) => {
+    setSearchQuery(e.target.innerText);
+  }
+
   return (
     <Flex
       padding="40px 24px"
@@ -39,6 +45,7 @@ const RecentSearchResult = ({
               width="fit-content"
               height="fit-content"
               key={index}
+              onClick={handleRecentClick}
             >
               <Text typo="Label2" colorCode={colors.Gray500}>
                 {recent}
@@ -58,6 +65,10 @@ const RecentWrapper = styled(Flex)`
 `;
 const RecentItem = styled(Flex)`
   border-radius: 70px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${colors.Gray100};
+  }
 `;
 
 const ClearButton = styled.button`
