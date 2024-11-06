@@ -22,16 +22,20 @@ const PetInfoModify = () => {
   const navigate = useNavigate();
   const pet = useUserStore((state) => state.user.pet);
   const handleNavigateToMypage = () => navigate('/mypage');
-  const { mutate: modifyMutate } = usePatchMypageInfo(() => { navigate('/mypage') })
+  const { mutateAsync : modifyMutate } = usePatchMypageInfo(() => {
+    navigate('/mypage');
+  });
 
   const handleBtnClicked = () => {
     const petData = {
-        ...formData,
-        age: formData.age,
-        weight: formData.weight,
-        gender: formData.gender === '남자' ? '수컷' : '암컷',
-      };
-      modifyMutate(petData);
+      ...formData,
+      age: parseInt(`${formData.age}`),
+      weight: parseFloat(`${formData.weight}`),
+      gender: formData.gender,
+    };
+
+
+    if(modifyMutate(petData)) window.location.href = "/mypage";
   };
   const [formData, setFormData] = useState<SignupProps>({
     petname: `${pet.petname}`,
@@ -75,13 +79,13 @@ const PetInfoModify = () => {
             <Text typo="Body2">반려견의 성별을 선택해주세요</Text>
             <Flex gap={12} justify="space-between">
               <InfoBtn
-                onClick={() => handleAnswerChanged('gender', '남자')}
+                onClick={() => handleAnswerChanged('gender', '수컷')}
                 active={formData.gender === '수컷'}
               >
                 남자
               </InfoBtn>
               <InfoBtn
-                onClick={() => handleAnswerChanged('gender', '여자')}
+                onClick={() => handleAnswerChanged('gender', '암컷')}
                 active={formData.gender === '암컷'}
               >
                 여자
@@ -159,7 +163,9 @@ const PetInfoModify = () => {
             padding="12px 20px"
             borderRadius={10}
             onClick={handleBtnClicked}
-          >수정하기</NextButton>
+          >
+            수정하기
+          </NextButton>
         </BtnWrapper>
       </Container>
     </>
@@ -168,9 +174,8 @@ const PetInfoModify = () => {
 
 const Container = styled(Flex)`
   overflow-y: auto;
-  height: 100%;
   padding-top: 72px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 `;
 
 const Input = styled.input`
@@ -249,6 +254,7 @@ const BtnWrapper = styled(Flex)`
   position: sticky;
   left: 32px;
   bottom: 24px;
+  z-index: 1;
 `;
 
 export default PetInfoModify;

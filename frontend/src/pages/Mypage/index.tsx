@@ -10,8 +10,13 @@ import { CheckIcon, LeftArrow } from '@/assets/images/svgs';
 import { HeightFitFlex } from '../Health/Analysis';
 import { toast } from 'react-toastify';
 import { Toast } from '@/components/common/Toast';
+import { useGetUserInfo } from '@/apis/hooks/user';
+import { useEffect } from 'react';
 
 const Mypage = () => {
+  const { data } = useGetUserInfo();
+  const setUserInfo = useUserStore((state) => state.setUserInfo);
+  const user = useUserStore((state) => state.user);
   const navigate = useNavigate();
   const handleClickOrderHistory = () => navigate('order');
   const handleClickReviewHistory = () => navigate('review');
@@ -35,8 +40,11 @@ const Mypage = () => {
     }, 1800);
   };
 
-  // 전역상태 user. user와 그 펫 정보를 담고있음.
-  const user = useUserStore((state) => state.user);
+  useEffect(()=>{
+    if (data) {
+      setUserInfo(data);
+    }
+  }, [data])
 
   return (
     <>
