@@ -296,4 +296,26 @@ export class OrderService {
       }),
     };
   }
+
+  async deleteOrder(orderId: string, userId: string) {
+    const user = await this.userRepository.findOneBy({ userId });
+    const order = await this.orderRepository.findOne({
+      where: { orderId, user },
+      relations: ['orderItems'],
+    });
+    if (!order) {
+      throw new HttpException(
+        '주문을 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    if (order.orderState === OrderStateType.PAYMENT_COMPLETED) {
+      throw new HttpException(
+        '이미 결제된 주문입니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    order.orderState = OrderStateType.PAYMENT_FAIL;
+    await this.orderRepository.save(order);
+  }
 }
