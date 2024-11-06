@@ -199,7 +199,7 @@ export class OrderService {
     const orderProduct = await this.orderRepository.find({
       where: {
         user: { userId },
-        orderState: OrderStateType.PAYMENT_COMPLETED,
+        orderState: OrderStateType.PAYMENT_COMPLETED || OrderStateType.CANCELED,
       },
       relations: ['orderItems', 'orderItems.product'],
     });
@@ -297,7 +297,7 @@ export class OrderService {
     };
   }
 
-  async deleteOrder(orderId: string, userId: string) {
+  async failOrder(orderId: string, userId: string) {
     const user = await this.userRepository.findOneBy({ userId });
     const order = await this.orderRepository.findOne({
       where: { orderId, user },
@@ -316,6 +316,24 @@ export class OrderService {
       );
     }
     order.orderState = OrderStateType.PAYMENT_FAIL;
+    await this.orderRepository.save(order);
+  }
+
+  async cancelOrder(orderId: string, userId: string) {
+    const user = await this.userRepository.findOneBy({ userId });
+    const order = await this.orderRepository.findOne({
+      where: { orderId, user },
+      relations: ['orderItems'],
+    });
+    if (!order) {
+      throw new HttpException(
+        '주문을 찾을 수 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    if (order.orderState === OrderStateType.PAYMENT_COMPLETED) {
+      order.orderState = OrderStateType.CANCELED;
+    }
     await this.orderRepository.save(order);
   }
 }
