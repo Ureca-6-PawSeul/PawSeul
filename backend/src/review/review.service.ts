@@ -7,6 +7,7 @@ import { User } from 'src/entity/user.entity';
 import { CreateReviewRequestDto } from 'src/review/dto/createReviewRequest.dto';
 import { ReviewDto } from 'src/review/dto/review.dto';
 import { Repository } from 'typeorm';
+import { Product } from 'src/entity/product.entity';
 
 @Injectable()
 export class ReviewService {
@@ -20,6 +21,8 @@ export class ReviewService {
     private orderRepository: Repository<Order>,
     @InjectRepository(OrderItem)
     private orderItemRepository: Repository<OrderItem>,
+    @InjectRepository(Product)
+    private productRepository: Repository<Product>,
   ) {}
 
   async getProductReviewById(productId: string): Promise<ReviewDto[]> {
@@ -61,8 +64,26 @@ export class ReviewService {
     });
 
     await this.productReviewRepository.save(review);
+    await this.updateAverageScore(content.productId);
 
     return review;
+  }
+
+  private async updateAverageScore(productId: string) {
+    const reviews = await this.productReviewRepository.find({
+      where: { product: { productId } },
+    });
+
+    // 리뷰가 없을 경우 평균 점수를 0으로 설정
+    if (reviews.length === 0) {
+      await this.productRepository.update(productId, { averageScore: 0 });
+      return;
+    }
+    // 평균 점수 계산
+    const totalScore = reviews.reduce((acc, review) => acc + review.score, 0);
+    const averageScore = totalScore / reviews.length;
+
+    await this.productRepository.update(productId, { averageScore });
   }
 
   async deleteProductReview(productReviewId: string, userId: string) {
@@ -159,5 +180,17 @@ export class ReviewService {
     }));
 
     return reviews;
+  }
+
+  async getProductById(productId: string): Promise<Product> {
+    const product = await this.productRepository.findOne({
+      where: { productId },
+    });
+
+    if (!product) {
+      throw new HttpException('제품을 찾을 수 없습니다.', HttpStatus.NOT_FOUND);
+    }
+
+    return product;
   }
 }
