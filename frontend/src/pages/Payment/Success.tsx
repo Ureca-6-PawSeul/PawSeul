@@ -9,19 +9,28 @@ export const PaymentSuccess = () => {
   const orderId = searchParams.get('orderId');
   const paymentKey = searchParams.get('paymentKey');
   const amount = searchParams.get('amount');
-  const successMessage="결제가 완료되었습니다.";
+  const successMessage = '결제가 완료되었습니다.';
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(orderId, paymentKey, amount);
+    async function fetchPayment() {
+      try {
+        const patchData = {
+          orderId: orderId,
+          tossOrderKey: paymentKey,
+          price: parseInt(amount),
+        };
+        const response = await patchUserOrder(patchData);
+        console.log(response);
 
-    //patch : 결제 상태를 "결제 완료"로 변경 요청
-    const patchData = {orderId : orderId, state : "결제 완료"}
-    const response = patchUserOrder(patchData);
-
-    alert(successMessage);
-    navigate('/mypage/order');
-  });
+        alert(successMessage);
+        navigate('/mypage/order');
+      } catch (error) {
+        console.error('Error fetching payment:', error);
+      }
+    }
+    fetchPayment();
+  }, [amount, navigate, orderId, paymentKey]);
 
   return <></>;
 };

@@ -1,9 +1,12 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpException,
   HttpStatus,
+  Param,
+  Patch,
   Post,
   Req,
   UseGuards,
@@ -23,17 +26,12 @@ import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
 import { MyReviewsRequestDto } from './dto/myReviewsRequest.dto';
 import { TempOrderRequestDto } from 'src/order/dto/tempOrderRequest.dto';
-import { PartialOrderItemDto } from 'src/order/dto/PartialOrderItem.dto';
-import { CartService } from 'src/cart/cart.service';
 import { ConfirmOrderResponseDto } from 'src/order/dto/confirmOrderResponse.dto';
 
 @Controller('order')
 @ApiTags('order/결제 api')
 export class OrderController {
-  constructor(
-    private readonly orderService: OrderService,
-    private readonly cartService: CartService,
-  ) {}
+  constructor(private readonly orderService: OrderService) {}
 
   @Get('/list')
   @ApiCookieAuth('accessToken')
@@ -53,8 +51,9 @@ export class OrderController {
     return this.orderService.getOrderList(userId);
   }
 
+  @UseGuards(AuthGuard('jwt-access'))
   @ApiCookieAuth('accessToken')
-  @Post('/confirm')
+  @Patch('/confirm')
   @ApiOperation({ summary: '결제 승인 요청' })
   @ApiBody({
     type: ConfirmOrderResponseDto,
@@ -64,16 +63,17 @@ export class OrderController {
     @Body('tossOrderKey') tossOrderKey: string,
     @Body('orderId') orderId: string,
     @Body('price') price: number,
-    @Body('orderItems') orderItems: PartialOrderItemDto[],
   ) {
     const { userId } = req.user;
     if (!userId) {
       throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
     }
 
-    this.orderService.confirmOrder(tossOrderKey, orderId, price);
+    await this.orderService.confirmOrder(tossOrderKey, orderId, price);
 
-    this.cartService.deleteProductAfterOrder(userId, orderItems);
+    await this.orderService.deleteProductAfterOrder(userId, orderId);
+
+    return HttpStatus.OK;
   }
 
   @Post('/temp-order')
@@ -112,5 +112,22 @@ export class OrderController {
   async getUnreviewedProducts(@Req() req: Request) {
     const userId = req.user.userId;
     return this.orderService.getUnreviewed(userId);
+  }
+
+  @Delete('/:orderId')
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({
+    summary: '주문 취소',
+  })
+  async deleteOrder(@Req() req: Request, @Param('orderId') orderId: string) {
+    const userId = req.user.userId;
+    if (!userId) {
+      throw new HttpException(
+        '로그인이 만료되었습니다. 다시 로그인해주세요.',
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
+    return this.orderService.deleteOrder(orderId, userId);
   }
 }

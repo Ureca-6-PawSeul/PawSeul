@@ -1,6 +1,6 @@
 // 결제 실패해서 다시 결제 페이지로 돌아가도록 하는 용도
 
-import { patchUserOrder } from '@/apis/order';
+import { deleteUserOrder } from '@/apis/order';
 import { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -15,11 +15,10 @@ export const PaymentFail = () => {
     alert(errorMessage);
 
     //patch: 결제 상태를 "결제 실패"로 변경 요청
-    const patchData = {orderId : orderId, state : "결제 실패"}
-    const response = patchUserOrder(patchData);
+    const response = deleteUserOrder(orderId);
 
-    if(response) navigate('/payment'); // "/payment" 페이지로 이동
-  }, []);
+    if (response) navigate('/payment'); // "/payment" 페이지로 이동
+  }, [navigate, orderId]);
 
-  return (<></>)
+  return <></>;
 };
