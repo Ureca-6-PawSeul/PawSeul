@@ -15,5 +15,5 @@ export class Health extends BaseEntity {
 
   @ApiProperty({ description: '건강 기록 설명 (JSON 형식)' })
   @Column('json')
-  description: string;
+  description: object;
 }
