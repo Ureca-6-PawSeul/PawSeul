@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Type } from 'class-transformer';
 import {
   IsOptional,
   IsString,
@@ -8,8 +9,8 @@ import {
 } from 'class-validator';
 
 enum NeuteredStatus {
-  YES = 'YES',
-  NO = 'NO',
+  YES = 'yes',
+  NO = 'no',
 }
 
 export class UpdatePetRequestDto {
@@ -25,7 +26,8 @@ export class UpdatePetRequestDto {
 
   @ApiProperty({ description: '반려동물 체중 (kg)' })
   @IsOptional()
-  @IsDecimal({ decimal_digits: '2,1' })
+  @Type(() => Number)
+  @IsNumber({ maxDecimalPlaces: 1 })
   weight?: number;
 
   @ApiProperty({ description: '반려동물 성별' })
