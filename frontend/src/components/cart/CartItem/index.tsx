@@ -11,6 +11,7 @@ import useCartStore from '@/stores/cartStore';
 import { useChangeQuantityMutation } from '@/apis/hooks/useCartQuery';
 import { toast } from 'react-toastify';
 import { ErrorIcon } from '@/assets/images/svgs';
+import client from '@/apis/client';
 
 interface CartItemProps {
   item: CartType;
@@ -35,6 +36,21 @@ const CartItem = ({ item, index }: CartItemProps) => {
     }
     changeQuantity({ productId: item.productId, quantity: item.quantity + diff });
   }
+
+  const handleDeleteItem = (productId: string) => async () => {
+    deleteItem(productId); // 상태에서 아이템 삭제
+    const deleteData = { productId };
+    try {
+      const response = await client.delete('/cart/remove', {
+        data: deleteData, // 요청 본문에 데이터 포함
+      });
+      if (response) {
+        alert('상품이 삭제되었습니다.');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <CartItemWrapper
@@ -90,7 +106,8 @@ const CartItem = ({ item, index }: CartItemProps) => {
               height="auto"
               margin="0 0 0 20px"
               align="flex-start"
-              onClick={() => deleteItem(item.productId)}
+              // onClick={() => deleteItem(item.productId)}
+              onClick={handleDeleteItem(item.productId)}
             >
               <IoCloseOutline size={20} color={colors.Gray400} />
             </CartItemButton>
