@@ -12,6 +12,7 @@ import {
   ApiCookieAuth,
   ApiCreatedResponse,
   ApiOperation,
+  ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
 import { AiHealthRequestDto } from 'src/health/dto/aiHealthRequest.dto';
@@ -33,6 +34,10 @@ export class HealthController {
     description: 'AI 건강 진단 성공',
     type: AiHealthResponseDto,
   })
+  @ApiResponse({
+    status: 404,
+    description: '펫 정보를 찾을 수 없어요!',
+  })
   async aiHealth(
     @Req() req: Request,
     @Body() aiHealthRequestDto: AiHealthRequestDto,
@@ -41,6 +46,9 @@ export class HealthController {
     if (!userId) {
       throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
     }
-    return await this.healthService.aiHealth(aiHealthRequestDto);
+    const answer = await this.healthService.aiHealth(aiHealthRequestDto);
+
+    await this.healthService.saveHealthData(answer, userId);
+    return answer;
   }
 }
