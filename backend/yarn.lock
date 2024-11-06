@@ -1079,6 +1079,15 @@
   languageName: node
   linkType: hard
 
+"@types/node@npm:^18.11.18":
+  version: 18.19.64
+  resolution: "@types/node@npm:18.19.64"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/a54009cd222f5751c903e5f4889a0f12e3d3755a1f87ce919455eeaf00a9ba0c9215c4a92bc3d8df585a894fa3e4cf218e5afccced355688624133e1a4b88235
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^20.3.1":
   version: 20.17.6
   resolution: "@types/node@npm:20.17.6"
