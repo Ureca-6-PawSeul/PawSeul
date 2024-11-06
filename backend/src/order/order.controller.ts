@@ -118,9 +118,9 @@ export class OrderController {
   @UseGuards(AuthGuard('jwt-access'))
   @ApiCookieAuth('accessToken')
   @ApiOperation({
-    summary: '주문 취소',
+    summary: '주문 실패',
   })
-  async deleteOrder(@Req() req: Request, @Param('orderId') orderId: string) {
+  async failOrder(@Req() req: Request, @Param('orderId') orderId: string) {
     const userId = req.user.userId;
     if (!userId) {
       throw new HttpException(
@@ -128,6 +128,23 @@ export class OrderController {
         HttpStatus.UNAUTHORIZED,
       );
     }
-    return this.orderService.deleteOrder(orderId, userId);
+    return this.orderService.failOrder(orderId, userId);
+  }
+
+  @Patch('/:orderId')
+  @UseGuards(AuthGuard('jwt-access'))
+  @ApiCookieAuth('accessToken')
+  @ApiOperation({
+    summary: '결제 취소',
+  })
+  async cancelOrder(@Req() req: Request, @Param('orderId') orderId: string) {
+    const userId = req.user.userId;
+    if (!userId) {
+      throw new HttpException(
+        '로그인이 만료되었습니다. 다시 로그인해주세요.',
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
+    return this.orderService.cancelOrder(orderId, userId);
   }
 }
