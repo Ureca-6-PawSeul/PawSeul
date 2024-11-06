@@ -38,6 +38,7 @@ const RecentSearchResult = ({
               backgroundColor={colors.Gray50}
               width="fit-content"
               height="fit-content"
+              key={index}
             >
               <Text typo="Label2" colorCode={colors.Gray500}>
                 {recent}

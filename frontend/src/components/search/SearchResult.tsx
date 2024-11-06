@@ -28,7 +28,7 @@ const SearchResult = ({searchResults}: SearchResultProps) => {
         ))}
       </Flex>
     ) : (
-      <Text>검색한 결과가 없습니다.</Text>
+      <></>
     )
   );
 }
