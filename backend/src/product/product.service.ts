@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Product } from 'src/entity/product.entity';
-import { ProductReview } from 'src/entity/productReview.entity';
 import { FoodType, SnackType, SupplementType } from 'src/types/category';
 
 import { Repository } from 'typeorm';
