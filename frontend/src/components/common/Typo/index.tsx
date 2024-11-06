@@ -14,3 +14,7 @@ export const Text = styled.div<{
   align-items: ${({ align }) => (align ? align : 'center')};
   margin: ${({ margin }) => (margin ? margin : '0')};
 `;
+
+export const HardText = styled(Text)`
+  flex-shrink: 0;
+`;

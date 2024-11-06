@@ -1,3 +1,5 @@
+import { PetInfo } from './UserInfoType';
+
 export interface FoodItem {
   product_id: number;
   title: string;
@@ -30,3 +32,12 @@ export type Allergy = {
 };
 
 export type AllergyItem = Allergy[];
+
+type PartialPetInfo = Pick<PetInfo, 'age' | 'breed' | 'weight' | 'gender'>;
+
+export interface HealthDataType {
+  allergy: AllergyItem;
+  food: FoodItem;
+  snack: SnackItem;
+  pet: PartialPetInfo;
+}
