@@ -16,7 +16,6 @@ import { Modal } from '@/components/common/Modal';
 import Address from '@/components/payment/Address';
 import { StyledButton } from '@/components/health/Allergy';
 import { useUserStore } from '@/stores/userStore';
-import { InfoBox } from '@/components/signup/PetInfo';
 import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
 
