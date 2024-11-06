@@ -1,4 +1,4 @@
-import { Flex } from '@components/common/Flex';
+import { Flex, HeightFitFlex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 import Profile from '@components/mypage/profile';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '@/stores/userStore';
 import { Header } from '@/components/common/Header';
 import { CheckIcon, LeftArrow } from '@/assets/images/svgs';
-import { HeightFitFlex } from '../Health/Analysis';
+
 import { toast } from 'react-toastify';
 import { Toast } from '@/components/common/Toast';
 import { useGetUserInfo } from '@/apis/hooks/user';
@@ -35,16 +35,16 @@ const Mypage = () => {
 
     notify();
     setTimeout(() => {
-      sessionStorage.removeItem("user-storage");
+      sessionStorage.removeItem('user-storage');
       navigate('/main');
     }, 1800);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     if (data) {
       setUserInfo(data);
     }
-  }, [data])
+  }, [data]);
 
   return (
     <>
@@ -124,7 +124,7 @@ const Mypage = () => {
             로그아웃
           </Text>
         </BottomBtn>
-        <Flex align='flex-end'>
+        <Flex align="flex-end">
           <Toast />
         </Flex>
       </Flex>

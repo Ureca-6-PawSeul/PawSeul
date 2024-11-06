@@ -3,7 +3,6 @@ import { HealthGuideBanner } from '@/assets/images/svgs';
 import { Button } from '@/components/common/Button';
 import { Text } from '@/components/common/Typo';
 import { useNavigate } from 'react-router-dom';
-import styled from '@emotion/styled';
 
 const Health = () => {
   const navigate = useNavigate();

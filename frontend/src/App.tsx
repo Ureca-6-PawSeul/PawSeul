@@ -21,14 +21,15 @@ import { PaymentFail } from '@pages/Payment/Fail';
 import { PaymentSuccess } from '@pages/Payment/Success';
 import Analysis from '@pages/Health/Analysis';
 import ErrorPage from '@pages/404';
+import HealthResult from './pages/Health/Result';
 import PetInfoModify from './pages/Mypage/Modify';
 
-const PrivateRoute = ({children}) => {
-  const token = sessionStorage.getItem("user-storage")
-  return token ? children : <Navigate to="/main" />
-}
-
 function App() {
+  const PrivateRoute = ({ children }) => {
+    const token = sessionStorage.getItem('user-storage');
+    return token ? children : <Navigate to="/main" />;
+  };
+
   return (
     <BrowserRouter>
       <Layout>
@@ -38,19 +39,119 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup/result" element={<SignUpResult />} />
           <Route path="/" element={<Home />} />
-          <Route path="/store" element={<PrivateRoute><Store /></PrivateRoute>} />
-          <Route path="/health" element={<PrivateRoute><Health /></PrivateRoute>} />
-          <Route path="/health/analysis" element={<PrivateRoute><Analysis /></PrivateRoute>} />
-          <Route path="/search" element={<PrivateRoute><Search /></PrivateRoute>} />
-          <Route path="/mypage" element={<PrivateRoute><Mypage /></PrivateRoute>} />
-          <Route path="/mypage/order" element={<PrivateRoute><OrderHistoryPage /></PrivateRoute>} />
-          <Route path="/mypage/review" element={<PrivateRoute><ReviewHistoryPage /></PrivateRoute>} />
-          <Route path="/mypage/pet" element={<PrivateRoute><PetInfoModify /></PrivateRoute>} />
-          <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
-          <Route path="/payment/success" element={<PrivateRoute><PaymentSuccess /></PrivateRoute>} />
-          <Route path="/payment/fail" element={<PrivateRoute><PaymentFail /></PrivateRoute>} />"
-          <Route path="/store/detail/:id" element={<PrivateRoute><Detail /></PrivateRoute>} />
-          <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
+          <Route
+            path="/store"
+            element={
+              <PrivateRoute>
+                <Store />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/health"
+            element={
+              <PrivateRoute>
+                <Health />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/health/analysis"
+            element={
+              <PrivateRoute>
+                <Analysis />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/health/result"
+            element={
+              <PrivateRoute>
+                <HealthResult />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <PrivateRoute>
+                <Search />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage"
+            element={
+              <PrivateRoute>
+                <Mypage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage/order"
+            element={
+              <PrivateRoute>
+                <OrderHistoryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage/review"
+            element={
+              <PrivateRoute>
+                <ReviewHistoryPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/mypage/pet"
+            element={
+              <PrivateRoute>
+                <PetInfoModify />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/payment"
+            element={
+              <PrivateRoute>
+                <Payment />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/payment/success"
+            element={
+              <PrivateRoute>
+                <PaymentSuccess />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/payment/fail"
+            element={
+              <PrivateRoute>
+                <PaymentFail />
+              </PrivateRoute>
+            }
+          />
+          "
+          <Route
+            path="/store/detail/:id"
+            element={
+              <PrivateRoute>
+                <Detail />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute>
+                <Cart />
+              </PrivateRoute>
+            }
+          />
           <Route path="/404" element={<ErrorPage />} />
         </Routes>
       </Layout>

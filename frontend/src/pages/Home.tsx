@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
-import { Flex } from '@components/common/Flex';
+import { Flex, HeightFitFlex } from '@components/common/Flex';
 import { Footer } from '@components/common/Footer';
 import { Carousel } from '@/components/home/Carousel';
 import {
@@ -20,7 +20,6 @@ import { useGetUserInfo } from '@/apis/hooks/user';
 import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
 import { useGetTopProduct } from '@/apis/hooks/product';
-import { HeightFitFlex } from './Health/Analysis';
 
 
 const Home = () => {
