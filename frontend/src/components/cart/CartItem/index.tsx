@@ -76,13 +76,13 @@ const CartItem = ({ item, index }: CartItemProps) => {
   );
 
   const handleDeleteItem = (productId: string) => async () => {
-    deleteItem(productId); // 상태에서 아이템 삭제
-    const deleteData = { productId };
+    const deleteData = { productIds: [productId] };
     try {
       const response = await client.delete('/cart/remove', {
         data: deleteData, // 요청 본문에 데이터 포함
       });
       if (response) {
+        deleteItem(productId); // 상태에서 아이템 삭제
         notify('상품이 삭제되었습니다.');
       }
     } catch (error) {
@@ -145,7 +145,6 @@ const CartItem = ({ item, index }: CartItemProps) => {
               height="auto"
               margin="0 0 0 20px"
               align="flex-start"
-              // onClick={() => deleteItem(item.productId)}
               onClick={toggleModal}
             >
               <IoCloseOutline size={20} color={colors.Gray400} />
@@ -181,7 +180,7 @@ const CartItem = ({ item, index }: CartItemProps) => {
           <Flex justify="flex-end" padding="12px 0 0">
             <CartText typo="Heading4">{itemPrice}원</CartText>
           </Flex>
-          {/* <Toast /> */}
+          <Toast />
         </Flex>
       </Flex>
     </CartItemWrapper>
