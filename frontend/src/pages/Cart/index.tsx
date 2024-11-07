@@ -116,7 +116,7 @@ const Cart = () => {
 
   const handleBack = () => {
     navigate(-1);
-  }
+  };
 
   const handleMoveToPayment = () => {
     if (selectedItems.length === 0) {
@@ -124,7 +124,7 @@ const Cart = () => {
       return;
     }
     window.location.href = '/payment';
-  }
+  };
 
   return (
     <Flex
@@ -137,30 +137,36 @@ const Cart = () => {
         justify="flex-start"
         backgroundColor={colors.White}
         padding="16px 16px"
-        direction='column'
+        direction="column"
         gap={24}
+        height={108}
       >
         <Flex justify="flex-start">
-          <IoIosArrowBack size={26} color={colors.Black} onClick={handleBack} style={{ 'cursor': 'pointer'}}/>
+          <IoIosArrowBack
+            size={26}
+            color={colors.Black}
+            onClick={handleBack}
+            style={{ cursor: 'pointer' }}
+          />
         </Flex>
         <Flex>
-        <Flex gap={8} justify="flex-start">
-          <Label>
-            <Checkbox
-              isChecked={allSelected}
-              handleSelect={handleAllItemSelect}
-              size={24}
-            />
-          </Label>
-          <Text typo="Label1">전체선택</Text>
-        </Flex>
-        <DeleteText
-          typo="Label1"
-          colorCode={colors.Gray500}
-          onClick={toggleModal}
-        >
-          상품삭제
-        </DeleteText>
+          <Flex gap={8} justify="flex-start">
+            <Label>
+              <Checkbox
+                isChecked={allSelected}
+                handleSelect={handleAllItemSelect}
+                size={24}
+              />
+            </Label>
+            <Text typo="Label1">전체선택 ({selectedItems.length > 0 ? selectedItems.length : 0 }/{cartItems.length > 0 ? cartItems.length : 0})</Text>
+          </Flex>
+          <DeleteText
+            typo="Label1"
+            colorCode={colors.Gray500}
+            onClick={toggleModal}
+          >
+            상품삭제
+          </DeleteText>
         </Flex>
       </CartHeader>
       <Flex direction="column">
@@ -186,13 +192,7 @@ const Cart = () => {
         <CartCost cost={0} />
       )}
       <StickyFooter isScrolledToBottom={false}>
-        <Button
-          bg={colors.MainColor}
-          // onClick={() => {
-          //   window.location.href = '/payment';
-          // }}
-          onClick={handleMoveToPayment}
-        >
+        <Button bg={colors.MainColor} onClick={handleMoveToPayment}>
           결제하기
         </Button>
       </StickyFooter>

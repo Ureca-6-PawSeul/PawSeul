@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { Flex } from '../Flex';
 import { Text } from '../Typo';
 import { colors } from '@/styles/colors';
+import { CartIcon } from '@/assets/images/svgs';
+import useCartStore from '@/stores/cartStore';
 
 interface HeaderType {
   title?: string;
@@ -20,6 +22,13 @@ export const Header = ({
   onRightIconClick,
   iconWidth = '48px',
 }: HeaderType) => {
+  // RightIcon이 CartIcon일 경우 특정 로직을 실행하도록 조건부 확인
+  const isCartIcon =
+    RightIcon && RightIcon.type === CartIcon && RightIcon.props.height === 24;
+  
+  const cartItems = useCartStore((state) => state.cartItems);
+  
+
   return (
     <HeaderWrapper>
       <FixedHeader
@@ -50,11 +59,25 @@ export const Header = ({
           isLeft={false}
         >
           {RightIcon}
+          {isCartIcon && cartItems.length > 0 && (
+            <RedBadge />
+          )}
         </IconBox>
       </FixedHeader>
     </HeaderWrapper>
   );
 };
+
+const RedBadge = styled.div`
+  position: absolute;
+  top: 15px; /* 위치 조정 */
+  right: -4px; /* 위치 조정 */
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 1; /* RightIcon보다 위에 표시되도록 설정 */
+`;
 
 const HeaderWrapper = styled(Flex)`
   position: relative;
@@ -77,4 +100,6 @@ const IconBox = styled.div<{ iconWidth: string; isLeft?: boolean }>`
   justify-content: ${({ isLeft }) => (isLeft ? 'flex-start' : 'flex-end')};
 
   cursor: pointer;
+
+  position: relative;
 `;
