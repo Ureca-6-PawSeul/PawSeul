@@ -14,5 +14,19 @@ const client = axios.create({
   },
 });
 
+const navigateToLogin = () => {
+  window.location.href = '/main';
+};
+
+client.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      navigateToLogin();
+    }
+    return Promise.reject(error);
+  },
+);
+
 export default client;
 export type { ResponseBody };
