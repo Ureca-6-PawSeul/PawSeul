@@ -29,10 +29,10 @@ const Recommend = ({
         {user.pet.petname}에게 맞는 제품
       </Text>
 
-      <HeightFitFlex justify="flex-start" gap={16}>
+      <HeightFitFlex justify="flex-start" gap={18}>
         {recommandProduct?.map((item) => (
           <Flex
-            width={120}
+            width={124}
             onClick={() => handleNavigateToDetail(item.productId)}
           >
             <Product

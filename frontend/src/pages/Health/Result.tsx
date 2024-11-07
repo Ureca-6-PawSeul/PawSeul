@@ -119,7 +119,7 @@ const HealthResult = () => {
               trackStrokeWidth={20}
             />
             <CenterText direction="column">
-              <InnerText typo="Heading2">
+              <InnerText typo="Heading4">
                 {nutrientData.calories.current} /{' '}
                 {nutrientData.calories.recommended}
               </InnerText>
@@ -237,9 +237,7 @@ export const CenterText = styled(Flex)`
   transform: translate(-50%, -50%);
 `;
 
-
 export const InnerText = styled(Text)`
-  font-size: 1.7rem;
   line-height: 120%;
 `;
 
