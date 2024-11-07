@@ -1,5 +1,5 @@
-import { typo } from './typo';
-import { tag } from './tag';
+import { typo } from './themes/typo';
+import { tag } from './themes/tag';
 
 export interface TypeOfTheme {
   typo: TypeOfTypo;
