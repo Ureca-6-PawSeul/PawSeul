@@ -18,6 +18,8 @@ import {
 } from '@/assets/types/AnalysisType';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '@/stores/userStore';
+import { Header } from '@/components/common/Header';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const Analysis = () => {
   const navigate = useNavigate();
@@ -63,6 +65,10 @@ const Analysis = () => {
 
   const user = useUserStore((state) => state.user);
 
+  const handleNavigateToBack = () => {
+    navigate(-1);
+  };
+
   // 단계별 설정
   const handleContinue = () => {
     if (step < 3) {
@@ -96,88 +102,97 @@ const Analysis = () => {
   };
 
   return (
-    <Flex
-      direction="column"
-      justify="flex-start"
-      align="center"
-      padding="60px 32px 0 32px"
-      gap={40}
-    >
-      {step === 1 && (
-        <Allergy
-          hasAllergy={hasAllergy}
-          selectedAllergies={selectedAllergies}
-          handleAllergyClick={handleAllergyClick}
-          handleTagClick={handleTagClick}
-        />
-      )}
-      {step === 2 && (
-        <CurFood
-          selectedFood={selectedFood}
-          selectedSnack={selectedSnack}
-          handleFoodChange={handleFoodChange}
-          handleSnackChange={handleSnackChange}
-        />
-      )}
-      {step === 3 && (
-        <Flex
-          direction="column"
-          gap={24}
-          align="flex-start"
-          padding="0 0px 32px 0"
-        >
-          <Text typo="Heading2">정보를 다시 한번 확인해주세요.</Text>
+    <>
+      <Header
+        title="영양 분석"
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black} />}
+        onLeftIconClick={handleNavigateToBack}
+      />
+      <Flex
+        direction="column"
+        justify="flex-start"
+        align="center"
+        padding="80px 32px 0 32px"
+        gap={40}
+      >
+        {step === 1 && (
+          <Allergy
+            hasAllergy={hasAllergy}
+            selectedAllergies={selectedAllergies}
+            handleAllergyClick={handleAllergyClick}
+            handleTagClick={handleTagClick}
+          />
+        )}
+        {step === 2 && (
+          <CurFood
+            selectedFood={selectedFood}
+            selectedSnack={selectedSnack}
+            handleFoodChange={handleFoodChange}
+            handleSnackChange={handleSnackChange}
+          />
+        )}
+        {step === 3 && (
           <Flex
             direction="column"
-            gap={18}
-            justify="flex-start"
+            gap={24}
             align="flex-start"
+            padding="0 0px 32px 0"
           >
-            <InfoLine
-              justify="space-between"
-              borderRadius={10}
-              backgroundColor={colors.White}
+            <Text typo="Heading2">정보를 다시 한번 확인해주세요.</Text>
+            <Flex
+              direction="column"
+              gap={18}
+              justify="flex-start"
+              align="flex-start"
             >
-              <HardText typo="Body3" margin="0 24px 0 0">
-                알러지
-              </HardText>
-              <Text typo="Body3" colorCode={colors.Gray400}>
-                {selectedAllergiesItems.length === 0
-                  ? '없음'
-                  : selectedAllergiesItems.map((item) => item.name).join(', ')}
-              </Text>
-            </InfoLine>
-            <InfoLine
-              justify="space-between"
-              borderRadius={10}
-              backgroundColor={colors.White}
-            >
-              <HardText typo="Body3" margin="0 24px 0 0">
-                선택한 사료
-              </HardText>
-              <Text typo="Body3" colorCode={colors.Gray400}>
-                {selectedFoodItem?.title || '선택된 사료 없음'}
-              </Text>
-            </InfoLine>
-            <InfoLine
-              justify="space-between"
-              borderRadius={10}
-              backgroundColor={colors.White}
-            >
-              <HardText typo="Body3" margin="0 24px 0 0">
-                선택한 간식
-              </HardText>
-              <Text typo="Body3" colorCode={colors.Gray400}>
-                {selectedSnackItem?.title || '선택된 간식 없음'}
-              </Text>
-            </InfoLine>
+              <InfoLine
+                justify="space-between"
+                borderRadius={10}
+                backgroundColor={colors.White}
+              >
+                <HardText typo="Body3" margin="0 24px 0 0">
+                  알러지
+                </HardText>
+                <Text typo="Body3" colorCode={colors.Gray400}>
+                  {selectedAllergiesItems.length === 0
+                    ? '없음'
+                    : selectedAllergiesItems
+                        .map((item) => item.name)
+                        .join(', ')}
+                </Text>
+              </InfoLine>
+              <InfoLine
+                justify="space-between"
+                borderRadius={10}
+                backgroundColor={colors.White}
+              >
+                <HardText typo="Body3" margin="0 24px 0 0">
+                  선택한 사료
+                </HardText>
+                <Text typo="Body3" colorCode={colors.Gray400}>
+                  {selectedFoodItem?.title || '선택된 사료 없음'}
+                </Text>
+              </InfoLine>
+              <InfoLine
+                justify="space-between"
+                borderRadius={10}
+                backgroundColor={colors.White}
+              >
+                <HardText typo="Body3" margin="0 24px 0 0">
+                  선택한 간식
+                </HardText>
+                <Text typo="Body3" colorCode={colors.Gray400}>
+                  {selectedSnackItem?.title || '선택된 간식 없음'}
+                </Text>
+              </InfoLine>
+            </Flex>
           </Flex>
-        </Flex>
-      )}
-      <ContinueBtn onClick={handleContinue}>
-        {step < 3 ? '계속하기' : '분석요청'}
-      </ContinueBtn>
-    </Flex>
+        )}
+        <ContinueBtn onClick={handleContinue}>
+          {step < 3 ? '계속하기' : '분석요청'}
+        </ContinueBtn>
+      </Flex>
+    </>
   );
 };
 

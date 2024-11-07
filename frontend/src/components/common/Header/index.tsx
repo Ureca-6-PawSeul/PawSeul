@@ -27,7 +27,7 @@ export const Header = ({
         align="center"
         justify="space-between"
         height={56}
-        padding="0 16px"
+        padding="0 18px"
       >
         <IconBox onClick={onLeftIconClick} iconWidth={iconWidth} isLeft={true}>
           {LeftIcon}

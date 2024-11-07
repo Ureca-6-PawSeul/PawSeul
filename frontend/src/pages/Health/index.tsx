@@ -12,16 +12,16 @@ const Health = () => {
   const handleNavigate = () => {
     navigate('/health/analysis');
   };
-  const handleNavigateToHome = () => {
-    navigate('/');
+  const handleNavigateToBack = () => {
+    navigate(-1);
   };
 
   return (
     <>
-       <Header
+      <Header
         title="건강"
-        LeftIcon={<IoIosArrowBack size={26} color={colors.Black}/>}
-        onLeftIconClick={handleNavigateToHome}
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black} />}
+        onLeftIconClick={handleNavigateToBack}
       />
       <Flex
         direction="column"

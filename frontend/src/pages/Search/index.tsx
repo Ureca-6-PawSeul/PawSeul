@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Flex } from '@components/common/Flex';
+import { Flex, HeightFitFlex } from '@components/common/Flex';
 import { colors } from '@styles/colors';
 import { IoArrowBack, IoSearch } from 'react-icons/io5';
 import { TiDelete } from 'react-icons/ti';
@@ -69,10 +69,6 @@ const Search = () => {
     [], //랜더링 시 매번 새로운 함수가 생성되는 것을 방지
   );
 
-  const handleBackClick = () => {
-    navigate(-1); //
-  };
-
   useEffect(() => {
     if (searchQuery) {
       setIsSearchComplete(false); //검색어 입력 중에는 검색 완료 상태를 false로 변경
@@ -89,18 +85,15 @@ const Search = () => {
     <Flex direction="column" justify="flex-start">
       <SearchWrapper
         justify="space-between"
-        padding="12px 24px 12px 12px"
-        height="fit-content"
-        gap={12}
+        align="flex-end"
+        padding="12px 36px 12px 36px"
+        height="112"
+        gap={16}
       >
-        <BackWrapper onClick={handleBackClick}>
-          <IoIosArrowBack size={24} />
-        </BackWrapper>
         <InputWrapper
-          padding="6px 6px 6px 12px "
+          padding="6px 12px 6px 12px "
           backgroundColor={colors.White}
           justify="space-between"
-          height={40}
         >
           <Input
             type="text"
@@ -140,26 +133,14 @@ const Search = () => {
 };
 
 const SearchWrapper = styled(Flex)`
-  border-bottom: 1px solid ${colors.Gray100};
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 `;
 
-const InputWrapper = styled(Flex)`
+const InputWrapper = styled(HeightFitFlex)`
   border-radius: 52px;
   backdrop-filter: blur(8px);
-  border: 1px solid ${colors.Gray600};
-`;
-
-const InputButton = styled.button`
-  border: none;
-  background-color: transparent;
-`;
-
-const BackWrapper = styled.button`
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: ${colors.Gray100};
 `;
 
 const Input = styled.input`
