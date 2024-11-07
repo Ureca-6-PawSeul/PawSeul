@@ -91,7 +91,7 @@ export class ReviewService {
 
     if (!review) {
       throw new HttpException(
-        '리뷰를 찾을 수 없습니다www.',
+        '리뷰를 찾을 수 없습니다.',
         HttpStatus.BAD_REQUEST,
       );
     }
