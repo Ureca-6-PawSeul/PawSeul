@@ -9,7 +9,7 @@ import RecentSearchResult from '@/components/search/RecentSearchResult';
 import { useState, useEffect, useCallback } from 'react';
 import { ProductType } from '@/assets/types/ProductType';
 import { debounce } from 'lodash';
-import { IoIosArrowRoundBack, IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
