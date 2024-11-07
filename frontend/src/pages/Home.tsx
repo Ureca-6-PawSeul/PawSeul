@@ -37,13 +37,12 @@ const Home = () => {
   useEffect(() => {
     if (data) setUserInfo(data);
     if (productListData) setProductList(productListData);
-
   }, [data, setUserInfo, productListData, healthData]);
 
-  useEffect(()=>{
-    if(healthData) setNutrientData(healthData.data);
-  },[healthData, setNutrientData])
-
+  useEffect(() => {
+    if (healthData) setNutrientData(healthData);
+    console.log(healthData);
+  }, [healthData]);
 
   const navigate = useNavigate();
   const handleNavigateToHome = () => {
@@ -84,7 +83,7 @@ const Home = () => {
 
         {nutrientData && (
           <HealthHistory
-            petname={user.pet.petname}
+            petname={user?.pet.petname}
             nutrientData={nutrientData}
           />
         )}

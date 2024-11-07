@@ -22,10 +22,9 @@ export const usePostHealthInfo = (
 };
 
 export const useGetHealthInfo = () => {
-  const response = useQuery<NutrientType>({
+  const {data} = useQuery({
     queryKey: ['getHealthInfo'],
     queryFn: getHealthInfo,
-    staleTime: Infinity,
   });
-  return response;
+  return data;
 };
