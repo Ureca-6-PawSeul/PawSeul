@@ -41,13 +41,14 @@ const Detail = () => {
   const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    if (data && reviews) {
+    if (data) {
       setDescriptionData(tableData(data));
       setProductPrice(data.price.toLocaleString('ko-KR'));
       setCartPrice(data.price);
-      setReviewData(reviews);
+      if (reviews) {
+        setReviewData(reviews);
+      }
     }
   }, [data, reviews]);
 
@@ -109,9 +110,9 @@ const Detail = () => {
 
   const notify = (msg: string) => {
     toast(
-      <Flex justify='space-between'>
+      <Flex justify="space-between">
         <span>{msg}</span>
-        <ErrorIcon width={24} height={24} style={{ marginLeft: '8px'}}/>
+        <ErrorIcon width={24} height={24} style={{ marginLeft: '8px' }} />
       </Flex>,
       {
         position: 'bottom-center',
