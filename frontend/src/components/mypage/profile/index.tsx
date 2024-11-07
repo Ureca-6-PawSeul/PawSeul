@@ -3,8 +3,8 @@ import { colors } from '@styles/colors';
 import styled from '@emotion/styled';
 import { Text } from '@components/common/Typo';
 import DogProfile from '@/assets/images/svgs/DogProfile';
-import KeyboardArrowRight from '@assets/images/svgs/KeyboardArrowRight';
 import { PetType } from '@assets/types/ProfileType';
+import { KeyboardArrowRight } from '@/assets/images/svgs';
 
 type ProfileProps = PetType & {
   onClick: () => void;

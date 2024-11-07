@@ -1,4 +1,4 @@
-import { LeftArrow } from '@/assets/images/svgs';
+// import { LeftArrow } from '@/assets/images/svgs';
 import { Flex } from '@/components/common/Flex';
 import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { useRef, useState } from 'react';
 import { colors } from '@/styles/colors';
 import { useUserStore } from '@/stores/userStore';
 import { usePatchMypageInfo } from '@/apis/hooks/mypage';
+import { IoIosArrowBack } from 'react-icons/io';
 
 interface SignupProps {
   petname: string;
@@ -54,7 +55,7 @@ const PetInfoModify = () => {
     <>
       <Header
         title="정보 수정"
-        LeftIcon={<LeftArrow height={24} />}
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black}/>}
         onLeftIconClick={handleNavigateToMypage}
       />
       <Container

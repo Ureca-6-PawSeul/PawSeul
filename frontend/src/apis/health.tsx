@@ -31,3 +31,8 @@ export const postHealthInfo = async (
   const { data } = await client.post('/health/ai', healthData);
   return data;
 };
+
+export const getHealthInfo = async (): Promise<NutrientType> => {
+  const { data } = await client.get('/health');
+  return data;
+};

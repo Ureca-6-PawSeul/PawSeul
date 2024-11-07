@@ -8,7 +8,6 @@ import DetailImageList from '@components/store/detail/DetailImageList';
 import StarRating from '@components/store/Star';
 import ProductReview from '@components/store/detail/ProductReview';
 import { useRef, useState } from 'react';
-import useProductDetailQuery from '@/apis/hooks/useProductDetailQuery';
 import { useEffect } from 'react';
 import StickyFooter from '@/components/store/StickyFooter';
 import { Button } from '@/components/common/Button';
@@ -21,6 +20,7 @@ import { getReviews } from '@/apis/hooks/review';
 import { Header } from '@/components/common/Header';
 import { IoIosArrowBack } from 'react-icons/io';
 import { BiShoppingBag } from 'react-icons/bi';
+import useProductDetailQuery from '@/apis/hooks/product';
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();

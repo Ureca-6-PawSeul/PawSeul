@@ -1,6 +1,6 @@
-import { getProductList } from '@/apis/getProductList';
 import { useQuery } from '@tanstack/react-query';
-import { getTopProductList } from '../getTopProductLis';
+import { useParams } from 'react-router-dom';
+import { getProductDetail, getProductList, getTopProductList } from '../product';
 
 export const useGetProductList = (category, subCategory) => {
   console.log(category, subCategory)
@@ -25,3 +25,18 @@ export const useGetTopProduct = () => {
   // console.log(data)
   return data;
 }
+
+const useProductDetailQuery = () => {
+  const { id } = useParams<{ id: string }>();
+
+  const { data } = useQuery({
+    queryKey: ['productDetail', id],
+    queryFn: () => getProductDetail(id!),
+    staleTime: 1000 * 60 * 5,
+    enabled: !!id,
+  });
+
+  return { data };
+};
+
+export default useProductDetailQuery;

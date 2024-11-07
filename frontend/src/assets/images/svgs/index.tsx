@@ -25,7 +25,6 @@ export { default as KeyboardArrowRight } from './KeyboardArrowRight';
 export { default as KeyboardArrowUp } from './KeyboardArrowUp';
 export { default as LeftArrow } from './LeftArrow';
 export { default as MiniLogo } from './MiniLogo';
-export { default as MypageIcon } from './MypageIcon';
 export { default as NotFound } from './NotFound';
 export { default as SearchIcon } from './SearchIcon';
 export { default as SettingIcon } from './SettingIcon';

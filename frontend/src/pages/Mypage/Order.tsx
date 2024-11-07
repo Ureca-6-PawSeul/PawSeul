@@ -1,9 +1,9 @@
-import { Flex } from '@/components/common/Flex';
+import { Flex, HeightFitFlex } from '@/components/common/Flex';
 import { OrderHistory } from '@components/mypage/orderHistory';
 import styled from '@emotion/styled';
 import { useDeleteOrder, useGetUserOrder } from '@/apis/hooks/order';
 import { Header } from '@/components/common/Header';
-import { LeftArrow } from '@/assets/images/svgs';
+// import { LeftArrow } from '@/assets/images/svgs';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/common/Button';
@@ -11,6 +11,8 @@ import { Text } from '@/components/common/Typo';
 import { Modal } from '@/components/common/Modal';
 import { colors } from '@/styles/colors';
 import { Toast } from '@/components/common/Toast';
+import { IoIosArrowBack } from 'react-icons/io';
+
 
 // 나중엔 날짜가 Date객체로 올거니까 date-fns 라이브러리 사용해서 포맷 변경해줘야 함
 export const OrderHistoryPage = () => {
@@ -34,7 +36,7 @@ export const OrderHistoryPage = () => {
     <>
       <Header
         title="주문내역"
-        LeftIcon={<LeftArrow height={24} />}
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black}/>}
         onLeftIconClick={handleNavigateToMypage}
       />
       {userOrder?.length > 0 ? (
@@ -46,8 +48,8 @@ export const OrderHistoryPage = () => {
           margin="60px 0 0 0"
         >
           {userOrder?.map((order) => (
-            <div key={order.orderId}> 
-              <Flex direction="column" justify="flex-start" height="fit-content">
+            <HeightFitFlex key={order.orderId}> 
+              <Flex direction="column" justify="flex-start">
                 <OrderHistory
                   date={order.orderCreatedAt}
                   state={order.orderState}
@@ -91,7 +93,7 @@ export const OrderHistoryPage = () => {
                   </Flex>
                 </Modal>
               )}
-            </div>
+            </HeightFitFlex>
           ))}
         </Wrapper>
       ) : (
