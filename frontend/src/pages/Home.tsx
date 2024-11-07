@@ -37,13 +37,11 @@ const Home = () => {
   useEffect(() => {
     if (data) setUserInfo(data);
     if (productListData) setProductList(productListData);
-
   }, [data, setUserInfo, productListData, healthData]);
 
-  useEffect(()=>{
-    if(healthData) setNutrientData(healthData.data);
-  },[healthData, setNutrientData])
-
+  useEffect(() => {
+    if (healthData) setNutrientData(healthData.data);
+  }, [healthData, setNutrientData]);
 
   const navigate = useNavigate();
   const handleNavigateToHome = () => {
@@ -82,12 +80,12 @@ const Home = () => {
           </Carousel>
         </Flex>
 
-        {nutrientData && (
+        {/* {nutrientData && (
           <HealthHistory
             petname={user.pet.petname}
             nutrientData={nutrientData}
           />
-        )}
+        )} */}
 
         {/* TOP10 상품 리스트 */}
         <HeightFitFlex padding="12px 12px" direction="column">
