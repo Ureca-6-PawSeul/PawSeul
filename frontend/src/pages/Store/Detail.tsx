@@ -256,7 +256,7 @@ const Detail = () => {
                   <Text typo="Heading4">
                     장바구니에 상품을 추가하시겠습니까?
                   </Text>
-                  <Flex padding="0px 24px" margin="16px 0 10px" gap={24}>
+                  <Flex padding="0px 24px" margin="16px 0 16px" gap={24}>
                     <Button
                       height="40px"
                       bg={colors.Gray400}

@@ -2,15 +2,15 @@ import styled from '@emotion/styled';
 import { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 
-const Address = ({setLocation, closeModal}) => {
+const Address = ({ setLocation, closeModal }) => {
   const selectAddress = (data) => {
     // console.log(data)
     setLocation(`${data.zonecode} ${data.address}`);
-    closeModal()
+    closeModal();
   };
-//   const handleClick = () => {
+  //   const handleClick = () => {
 
-//   }
+  //   }
   return (
     <Wrapper>
       <DaumPostcode
@@ -18,7 +18,7 @@ const Address = ({setLocation, closeModal}) => {
         autoClose={false} // 값을 선택할 경우 사용되는 DOM을 제거하여 자동 닫힘 설정
         style={{ height: '360px' }}
       />
-      </Wrapper>
+    </Wrapper>
   );
 };
 
@@ -26,6 +26,7 @@ export default Address;
 
 const Wrapper = styled.div`
   width: 100%;
-  height: '360px';
+  height: 368px;
   overflow: hidden;
+  margin: 4px;
 `;

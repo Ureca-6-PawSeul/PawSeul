@@ -62,7 +62,7 @@ const Payment = () => {
   const handleCheckClick = () => setIsCheck(!isCheck);
   const handleClickBtn = (method: number) => setIsClickedBtn(method);
   const handleChange = (value: string, setFunction) => setFunction(value);
-  const handleAlert = ()=>alert("배송 정보를 모두 입력해주세요.");
+  const handleAlert = () => alert('배송 정보를 모두 입력해주세요.');
   const handleNavigateToHome = () => navigate('/cart');
   const formatPhone = (value) => {
     if (value === undefined) return null;
@@ -145,8 +145,8 @@ const Payment = () => {
                 />
                 <Flex width="fit-content">
                   <Button
-                    height="30px"
-                    borderRadius="25px"
+                    height="36px"
+                    borderRadius="15px"
                     bg={colors.Gray100}
                     fontColor="#AEAEB2"
                     hoverBg={colors.Gray100}
@@ -251,7 +251,7 @@ const Payment = () => {
               </Button>
             )}
 
-            <Select optionList={CARD_MESSAGE} disabled={true}/>
+            <Select optionList={CARD_MESSAGE} disabled={true} />
             <Text typo="Body4" colorCode={colors.Gray400}>
               삼성 앱카드 5만원 이상 결제 시 1,000원 할인
             </Text>
@@ -287,7 +287,12 @@ const Payment = () => {
               {isEnabled ? (
                 <TossPayment price={totalPrice} orderItems={orderItems} />
               ) : (
-                <Button height="50px" disabled={true} bg={colors.Gray400} onClick={handleAlert}>
+                <Button
+                  height="50px"
+                  disabled={true}
+                  bg={colors.Gray400}
+                  onClick={handleAlert}
+                >
                   {totalPriceString}원 결제하기
                 </Button>
               )}
