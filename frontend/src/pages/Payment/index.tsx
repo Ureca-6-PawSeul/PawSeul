@@ -39,7 +39,7 @@ const CARD_MESSAGE = [
 //Order table에 현재 주문내역을 저장시키고, 결제 상태는 "결제 전"으로 post요청
 const Payment = () => {
   const user = useUserStore((state) => state.user);
-  const { isOpen, modalRef, openModal, closeModal } = useModal();
+  const { isOpen, openModal, closeModal } = useModal();
   const navigate = useNavigate();
   const [location, setLocation] = useState(null);
   const [name, setName] = useState(user.username);
@@ -251,7 +251,7 @@ const Payment = () => {
               </Button>
             )}
 
-            <Select optionList={CARD_MESSAGE} />
+            <Select optionList={CARD_MESSAGE} disabled={true}/>
             <Text typo="Body4" colorCode={colors.Gray400}>
               삼성 앱카드 5만원 이상 결제 시 1,000원 할인
             </Text>
@@ -264,9 +264,6 @@ const Payment = () => {
             <Flex direction="row" justify="space-between">
               <Text typo="Heading3" colorCode={colors.Black}>
                 최종 결제 금액
-              </Text>
-              <Text typo="Heading3" colorCode={colors.MainColor}>
-                {}
               </Text>
             </Flex>
             <TouchableFlex
