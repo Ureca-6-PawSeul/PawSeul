@@ -141,6 +141,8 @@ export class HealthService {
       relations: ['healthRecords'],
     });
 
+    console.log('userPet', userPet);
+
     if (!userPet) {
       throw new HttpException(
         '펫 정보를 찾을 수 없어요!',
