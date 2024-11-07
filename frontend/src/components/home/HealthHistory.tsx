@@ -1,6 +1,5 @@
 import CircularProgressBar from 'react-customizable-progressbar';
-import ProgressBar from '@ramonak/react-progress-bar';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { HeightFitFlex } from '@components/common/Flex';
 import { Text } from '@/components/common/Typo';
 import styled from '@emotion/styled';
@@ -57,8 +56,10 @@ const HealthHistory = ({
   nutrientData: NutrientType;
 }) => {
   const [isOpen, setisOpen] = useState<boolean>(false);
-  const [recommendedProductList, setRecommendProductList] =
+  const [recommendedProductList] =
     useState<ProductType[]>(dummy);
+    // const [recommendedProductList, setRecommendProductList] =
+    // useState<>(nutrientData.recommendProducts);
   const handleClick = () => setisOpen(!isOpen);
   const navigate = useNavigate();
   const handleNavigate = (productId: string) =>
