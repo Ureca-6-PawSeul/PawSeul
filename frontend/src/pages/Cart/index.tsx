@@ -11,7 +11,7 @@ import { CartEmptyBlack, ErrorIcon } from '@/assets/images/svgs';
 import useCartStore from '@/stores/cartStore';
 import { useCartQuery } from '@/apis/hooks/useCartQuery';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import StickyFooter from '@/components/store/StickyFooter';
 import { Button } from '@/components/common/Button';
 import client from '@/apis/client';
@@ -19,6 +19,9 @@ import client from '@/apis/client';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Toast } from '@/components/common/Toast';
+import { Modal } from '@/components/common/Modal';
+import { IoIosArrowBack } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const data = useCartQuery();
@@ -34,6 +37,9 @@ const Cart = () => {
     (state) => state.calculateTotalPrice,
   );
   const setSelectedItems = useCartStore((state) => state.setSelectedItems);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   // useEffect에서 cartItems나 selectedItems가 바뀔 때마다 실행
   useEffect(() => {
@@ -82,6 +88,10 @@ const Cart = () => {
     );
   };
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   const handleDeleteSelectedItems = async () => {
     // selectedItems에서 productId 배열 생성
     const deleteSelectedData = {
@@ -96,12 +106,25 @@ const Cart = () => {
       if (response) {
         deleteSelectedItems(); // 상태에서 선택된 아이템 삭제
         setSelectedItems([]); // 선택된 아이템 초기화
+        toggleModal(); // 모달 닫기
         notify('선택한 상품이 삭제되었습니다.');
       }
     } catch (error) {
       notify('선택한 상품 삭제에 실패했습니다.');
     }
   };
+
+  const handleBack = () => {
+    navigate(-1);
+  }
+
+  const handleMoveToPayment = () => {
+    if (selectedItems.length === 0) {
+      notify('상품을 선택해주세요.');
+      return;
+    }
+    window.location.href = '/payment';
+  }
 
   return (
     <Flex
@@ -111,11 +134,16 @@ const Cart = () => {
       justify="flex-start"
     >
       <CartHeader
-        justify="space-between"
+        justify="flex-start"
         backgroundColor={colors.White}
         padding="16px 16px"
-        height={64}
+        direction='column'
+        gap={24}
       >
+        <Flex justify="flex-start">
+          <IoIosArrowBack size={26} color={colors.Black} onClick={handleBack} style={{ 'cursor': 'pointer'}}/>
+        </Flex>
+        <Flex>
         <Flex gap={8} justify="flex-start">
           <Label>
             <Checkbox
@@ -129,10 +157,11 @@ const Cart = () => {
         <DeleteText
           typo="Label1"
           colorCode={colors.Gray500}
-          onClick={handleDeleteSelectedItems}
+          onClick={toggleModal}
         >
           상품삭제
         </DeleteText>
+        </Flex>
       </CartHeader>
       <Flex direction="column">
         <CartListWrapper
@@ -159,14 +188,36 @@ const Cart = () => {
       <StickyFooter isScrolledToBottom={false}>
         <Button
           bg={colors.MainColor}
-          onClick={() => {
-            window.location.href = '/payment';
-          }}
+          // onClick={() => {
+          //   window.location.href = '/payment';
+          // }}
+          onClick={handleMoveToPayment}
         >
           결제하기
         </Button>
       </StickyFooter>
       <Toast />
+      {isModalOpen && ( // 장바구니 추가 모달
+        <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+          <Flex direction="column" padding="16px 0 0" gap={8}>
+            <Text typo="Heading4">선택한 상품을 삭제하시겠습니까?</Text>
+            <Flex padding="0px 24px" margin="16px 0 16px" gap={24}>
+              <Button
+                height="40px"
+                bg={colors.Gray400}
+                onClick={() => {
+                  toggleModal();
+                }}
+              >
+                취소
+              </Button>
+              <Button height="40px" onClick={handleDeleteSelectedItems}>
+                삭제
+              </Button>
+            </Flex>
+          </Flex>
+        </Modal>
+      )}
     </Flex>
   );
 };
@@ -176,6 +227,7 @@ const CartHeader = styled(Flex)`
   top: 0px;
   z-index: 5;
   border-bottom: 1px solid ${colors.Gray50};
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;
 
 const Label = styled.label<{

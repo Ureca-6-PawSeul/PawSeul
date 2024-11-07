@@ -24,6 +24,7 @@ const CheckInput = styled.input`
   opacity: 0;
   width: 24px;
   height: 24px;
+  cursor: pointer;
 `;
 
 export default Checkbox;
