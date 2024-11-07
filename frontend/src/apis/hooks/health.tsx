@@ -20,6 +20,7 @@ export const usePostHealthInfo = (
         // cacheTime: 1000 * 60 * 60 * 24, // 24시간 동안 캐시 유지
         staleTime: 1000 * 60 * 60 * 6, // 1시간 동안 신선한 데이터로 간주
       });
+
     },
     onError: () => {
       window.alert('분석에 실패했습니다.');

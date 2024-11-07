@@ -40,7 +40,6 @@ const HealthResult = () => {
   useEffect(() => {
     if (healthData) {
       healthMutate(healthData);
-      console.log(healthData)
     }
   }, [healthData]);
 
@@ -237,6 +236,7 @@ export const CenterText = styled(Flex)`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
 
 export const InnerText = styled(Text)`
   font-size: 1.7rem;
