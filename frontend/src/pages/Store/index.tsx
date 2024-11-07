@@ -14,6 +14,7 @@ import { CartIcon, MiniLogo } from '@/assets/images/svgs';
 import { useGetProductList } from '@/apis/hooks/product';
 import { useUserStore } from '@/stores/userStore';
 import { Hr } from '@/components/store/Hr';
+import { Hr } from '@/components/store/Hr';
 import { Skeleton } from '@/components/skeleton';
 
 const categoryMapping = {
@@ -98,8 +99,7 @@ const Store = () => {
             {user.pet.petname}의 맞춤 상품 찾기
           </Text>
         </Flex>
-
-        <HeightFitFlex
+        <Flex
           direction="row"
           justify="flex-start"
           gap={10}
@@ -172,4 +172,8 @@ const ProductWrapper = styled.div`
   /* width: calc(33.33% - 8px); */
   width: calc(50% - 35px);
   box-sizing: border-box;
+`;
+
+const ShadowFlex = styled(Flex)`
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;

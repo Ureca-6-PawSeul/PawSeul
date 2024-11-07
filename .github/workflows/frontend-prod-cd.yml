@@ -1,0 +1,104 @@
+name: Paw_Seul 프론트엔드 배포 자동화 워크 플로우(frontend-prod)
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  checks: write
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }} # backend 변경 여부를 출력으로 설정
+      frontend: ${{ steps.filter.outputs.frontend }} # frontend 변경 여부를 출력으로 설정
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 모든 Git 히스토리를 가져옴
+      - name: Get previous tag
+        id: previoustag
+        run: echo "PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ --always)" >> $GITHUB_OUTPUT
+        # 이전 태그를 찾아서 환경 변수로 저장
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          base: ${{ steps.previoustag.outputs.PREVIOUS_TAG }} # 이전 태그 기준
+          ref: ${{ github.ref }} # 현재 GitHub 참조(커밋, 태그 등)
+          filters: |
+            backend:
+              - 'backend/**'
+            frontend:
+              - 'frontend/**'
+  frontend-build:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.frontend == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./frontend
+
+    steps:
+      - name: Pawseul의 코드 가져오기
+        uses: actions/checkout@v4
+      - name: 노드 버전 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: 의존성 캐시 확인
+        uses: actions/cache@v4
+        with:
+          path: "frontend/node_modules"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }} # yarn.lock을 기준으로 캐시 키 생성
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: 의존성 설치
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+      - name: 환경 변수 설정
+        run: |
+          echo "VITE_CLIENT_ID=${{ secrets.VITE_CLIENT_ID }}" >> .env
+          echo "VITE_KAKAO_REDIRECT_URI=${{ secrets.VITE_KAKAO_REDIRECT_URI }}" >> .env
+          echo "VITE_SERVER_API=${{ secrets.VITE_SERVER_API }}" >> .env
+          echo "VITE_TOSS_CLIENT_KEY=${{ secrets.VITE_TOSS_CLIENT_KEY }}" >> .env
+      - name: 프론트엔드 빌드
+        run: yarn build
+
+      - name: 빌드 파일 아티팩트로 저장
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+
+  frontend-deploy:
+    needs: frontend-build
+    if: ${{ needs.detect-changes.outputs.frontend == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 빌드 파일 다운로드
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: ./frontend/dist
+
+      - name: Set up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }} # Replace with your AWS region
+
+      - name: Deploy to S3
+        run: |
+          aws s3 sync ./frontend/dist s3://pawseul --delete
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID_PROD }} --paths "/*"
