@@ -14,6 +14,7 @@ import { CartIcon, MiniLogo } from '@/assets/images/svgs';
 import { useGetProductList } from '@/apis/hooks/product';
 import { useUserStore } from '@/stores/userStore';
 import { Hr } from '@/components/store/Hr';
+import { Skeleton } from '@/components/skeleton';
 
 const categoryMapping = {
   사료: 'food',
@@ -68,7 +69,7 @@ const Store = () => {
         justify="flex-start"
         align="center"
         gap={5}
-        padding="72px 12px 0 12px"
+        padding="72px 12px 80px 12px"
       >
         {/* 카테고리 버튼 */}
         <HeightFitFlex
@@ -127,6 +128,10 @@ const Store = () => {
           gap={35}
           padding="0 0 0 35px"
         >
+          {productDataList.length === 0 &&
+            Array.from({ length: 4 }).map((_, index) => (
+              <Skeleton key={index} />
+            ))}
           {productDataList?.map((item, index) => (
             <ProductWrapper
               key={index}

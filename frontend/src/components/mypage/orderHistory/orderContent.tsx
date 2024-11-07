@@ -25,7 +25,8 @@ export const OrderContent = ({
       justify="flex-start"
       align="flex-start"
       margin="10px 0"
-      gap={12}
+      padding="8px 12px 0 12px"
+      gap={16}
       height="fit-content"
     >
       <Img src={productImg} width="80px" height="80px" />

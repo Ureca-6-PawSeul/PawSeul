@@ -15,7 +15,6 @@ interface PetResponse extends ResponseBody {
 
 export const patchPetInfo = async (pet: PetInfoType): Promise<PetResponse> => {
   const { data } = await client.patch('/user/me/pet', pet);
-  console.log(data);
   return data;
 };
 

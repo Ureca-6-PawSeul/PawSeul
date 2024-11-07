@@ -40,8 +40,8 @@ const Home = () => {
   }, [data, setUserInfo, productListData, healthData]);
 
   useEffect(() => {
-    if (healthData) setNutrientData(healthData.data);
-  }, [healthData, setNutrientData]);
+    if (healthData) setNutrientData(healthData);
+  }, [healthData]);
 
   const navigate = useNavigate();
   const handleNavigateToHome = () => {
