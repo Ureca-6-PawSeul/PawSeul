@@ -1,5 +1,6 @@
 import { IsEnum, IsNumber } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { RecommandProductDto } from 'src/health/dto/recommandProduct.dto';
 
 export enum BodyShape {
   Thin = '마름',
@@ -47,4 +48,11 @@ export class AiHealthResponseDto {
 
   @ApiProperty({ description: '적정 영양소 목록', type: [String] })
   optimalNutrients: string[];
+
+  @ApiProperty({
+    description: '추천 제품 목록',
+    type: RecommandProductDto,
+    isArray: true,
+  })
+  recommendedProducts: RecommandProductDto[];
 }

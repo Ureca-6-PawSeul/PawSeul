@@ -142,21 +142,23 @@ export class CartService {
     await this.orderRepository.save(order);
   }
   // 장바구니 상품 삭제
-  async deleteProductCart(
-    userId: string,
-    productId: string,
-  ): Promise<GetCartsResponseDto> {
+  async deleteProductsCart(userId: string, productIds: string[]) {
+    productIds.map(async (productId) => {
+      await this.deleteProductCart(userId, productId);
+    });
+  }
+
+  async deleteProductCart(userId: string, productId: string) {
     const cartProduct = await this.entityManager.findOne(CartProduct, {
       where: { user: { userId }, product: { productId } },
     });
+
+    await this.entityManager.remove(cartProduct);
 
     if (!cartProduct) {
       throw new NotFoundException('장바구니에 해당 상품이 없습니다.');
     }
 
-    await this.entityManager.remove(cartProduct);
-
     // 삭제 후 장바구니 정보 반환
-    return this.getCartsUserId(userId);
   }
 }

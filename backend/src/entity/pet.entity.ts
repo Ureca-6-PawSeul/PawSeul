@@ -46,11 +46,11 @@ export class Pet extends BaseEntity {
   isNeutered: string;
 
   @ApiProperty({ description: '알레르기 목록' })
-  @OneToMany(() => Allergy, (allergy) => allergy.pet)
+  @OneToMany(() => Allergy, (allergy) => allergy.pet, { eager: true })
   allergies: Allergy[];
 
   @ApiProperty({ description: '건강 기록 목록' })
-  @OneToMany(() => Health, (health) => health.pet)
+  @OneToMany(() => Health, (health) => health.pet, { eager: true })
   healthRecords: Health[];
 
   @ApiProperty({ description: '반려동물 품종' })

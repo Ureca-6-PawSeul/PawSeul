@@ -20,6 +20,8 @@ export class RecommandProduct {
   @JoinColumn({ name: 'product_id' })
   product: Product;
 
+  @ApiProperty({ description: '추천 물품 고유 ID' })
+  @IsNotEmpty()
   @PrimaryGeneratedColumn('uuid')
   recommandProductId: string;
   //   @ApiProperty({ description: '물품 이름' })

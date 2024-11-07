@@ -10,6 +10,7 @@ import OpenAI from 'openai';
 import { Health } from 'src/entity/health.entity';
 import { Pet } from 'src/entity/pet.entity';
 import { RecommandProduct } from 'src/entity/recommandProduct.entity';
+import { User } from 'src/entity/user.entity';
 import { AiHealthRequestDto } from 'src/health/dto/aiHealthRequest.dto';
 import { Repository } from 'typeorm';
 
@@ -26,6 +27,9 @@ export class HealthService {
 
     @InjectRepository(RecommandProduct)
     private recommandProductRepository: Repository<RecommandProduct>,
+
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
   ) {}
 
   async aiHealth(aiHealthDto: AiHealthRequestDto) {
@@ -49,9 +53,9 @@ export class HealthService {
               - Give the current and recommended values (in grams) for carbon, protein, and fat for pet(dog).
               - Identify two deficient nutrients from the following: calories, carbon, protein, fat, vitamin A, vitamin D, vitamin E, and calcium.
               - Select one nutrient in excess and one nutrient within the optimal range.
-              - Recommend a product that meets the pet's nutritional needs. Pick one product in ${JSON.stringify(recommandProduct)}
-              - put the product id,title,price,productImg,averageScore in the recommandProduct field.
-              -
+              - Recommend one or two product that meets the pet's nutritional needs. Pick one product in ${JSON.stringify(recommandProduct)}
+              - you must put the products's id,title,price,productImg,averageScore in the recommandProduct field.
+
               Your answer must always be PetNutrientStatus in JSON format and do not use \`\, I will provide JSON type :
       type NutrientName = '칼로리' | '탄수화물' | '단백질' | '지방' | '비타민A' | '비타민D' | '비타민E' | '칼슘';
       type Nutrient = {
@@ -78,7 +82,7 @@ export class HealthService {
             price:number;
             productImg:string;
             averageScroe:number;
-          }
+          }[]
       };
        `,
           },
@@ -120,12 +124,20 @@ export class HealthService {
       pet: userPet,
       description: data,
     });
-    return await this.healthRepository.save(health);
+
+    await this.healthRepository.save(health);
   }
 
   async getRecentHealthData(userId: string) {
+    const user = await this.userRepository.findOne({ where: { userId } });
+
+    if (!user) {
+      throw new HttpException('사용자를 찾을 수 없어요!', HttpStatus.NOT_FOUND);
+    }
+
     const userPet = await this.petRepository.findOne({
-      where: { user: { userId } },
+      where: { user },
+      relations: ['healthRecords'],
     });
 
     if (!userPet) {
@@ -135,18 +147,17 @@ export class HealthService {
       );
     }
 
-    const health = await this.healthRepository.findOne({
-      where: { pet: userPet },
-      order: { createdAt: 'DESC' },
-    });
+    const healthRecentInfo = userPet.healthRecords.sort(
+      (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
+    );
 
-    if (!health) {
+    if (healthRecentInfo.length === 0) {
       throw new HttpException(
         '건강 정보를 찾을 수 없어요!',
         HttpStatus.NOT_FOUND,
       );
     }
 
-    return health;
+    return healthRecentInfo[0];
   }
 }

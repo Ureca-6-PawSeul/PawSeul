@@ -9,6 +9,8 @@ import {
   Delete,
   UsePipes,
   ValidationPipe,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { CartService } from './cart.service';
 import { GetCartsResponseDto } from 'src/cart/dto/getCartsResponse.dto';
@@ -98,9 +100,20 @@ export class CartController {
     @Body() deleteProductDto: DeleteProductDto,
   ) {
     const userId = this.getUserId(req);
-    return this.cartService.deleteProductCart(
+    if (deleteProductDto.productIds.length === 0) {
+      throw new HttpException(
+        '삭제할 상품이 없습니다.',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    if (!userId) {
+      throw new HttpException('로그인이 필요합니다.', HttpStatus.UNAUTHORIZED);
+    }
+
+    return this.cartService.deleteProductsCart(
       userId,
-      deleteProductDto.productId,
+      deleteProductDto.productIds,
     );
   }
 }
