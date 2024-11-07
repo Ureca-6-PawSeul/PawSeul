@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Flex } from '../../common/Flex';
+import { Flex, HeightFitFlex } from '../../common/Flex';
 import { Text } from '../../common/Typo';
 import { colors } from '@styles/colors';
 import StarRating from '@components/store/Star';
@@ -21,7 +21,7 @@ export const Product = ({
       heightPer={100}
       align="flex-start"
       gap={1}
-      padding="2"
+      padding="2px"
       backgroundColor={colors.White}
     >
       <Flex direction="column" align="center">
@@ -57,7 +57,7 @@ export const Product = ({
   );
 };
 
-const Wrapper = styled(Flex)`
+const Wrapper = styled(HeightFitFlex)`
   box-sizing: border-box;
   border-radius: 10px;
   cursor: pointer;
@@ -82,5 +82,5 @@ export const Img = styled.img<{ width: string }>`
   border-radius: 10px;
   width: ${({ width }) => (width ? width : '70%')};
   flex: 1;
-  object-fit: fill;
+  object-fit: cover;
 `;
