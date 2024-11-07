@@ -21,10 +21,10 @@ export const tag = {
   `,
   FilledGray: css`
     border: solid 1px ${colors.Gray300};
-    border-radius: 15px;
+    border-radius: 30px;
     color: ${colors.White};
     background-color: ${colors.Gray300};
-    padding: 10px;
+    padding: 7px 11px;
     height: fit-content;
   `,
   FilledMainColor: css`

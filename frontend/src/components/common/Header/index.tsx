@@ -27,9 +27,11 @@ export const Header = ({
         align="center"
         justify="space-between"
         height={56}
-        padding="0 24px"
+        padding="0 18px"
       >
-        <IconBox onClick={onLeftIconClick} iconWidth={iconWidth}>{LeftIcon}</IconBox>
+        <IconBox onClick={onLeftIconClick} iconWidth={iconWidth} isLeft={true}>
+          {LeftIcon}
+        </IconBox>
 
         {title && (
           <Text
@@ -42,7 +44,13 @@ export const Header = ({
           </Text>
         )}
 
-        <IconBox onClick={onRightIconClick} iconWidth={iconWidth}>{RightIcon}</IconBox>
+        <IconBox
+          onClick={onRightIconClick}
+          iconWidth={iconWidth}
+          isLeft={false}
+        >
+          {RightIcon}
+        </IconBox>
       </FixedHeader>
     </HeaderWrapper>
   );
@@ -61,12 +69,12 @@ const FixedHeader = styled(Flex)`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;
 
-const IconBox = styled.div<{ iconWidth: string }>`
+const IconBox = styled.div<{ iconWidth: string; isLeft?: boolean }>`
   display: flex;
   width: ${({ iconWidth }) => `${iconWidth}`};
   height: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ isLeft }) => (isLeft ? 'flex-start' : 'flex-end')};
 
   cursor: pointer;
 `;

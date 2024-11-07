@@ -12,6 +12,7 @@ const Footer = () => {
       backgroundColor={colors.Gray100}
       padding="50px 15px"
       gap={10}
+      margin="88px 0 0 0"
     >
       <Text typo="Label2">(주)포슬</Text>
       <FooterText>
