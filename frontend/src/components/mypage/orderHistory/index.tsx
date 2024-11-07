@@ -1,4 +1,4 @@
-import { Flex } from '@/components/common/Flex';
+import { Flex, HeightFitFlex } from '@/components/common/Flex';
 import { Text } from '@/components/common/Typo';
 import styled from '@emotion/styled';
 import { colors } from '@/styles/colors';
@@ -33,12 +33,13 @@ export const OrderHistory = ({
       direction="column"
       justify="flex-start"
       align="flex-start"
-      gap={10}
-      // margin="12px 0 0 0"
+      margin="24px 0 4px 0"
     >
-      <Text typo="Label1" colorCode={colors.Black}>
+      <HeightFitFlex justify='flex-start' margin='0 0 4px 0'>
+      <Text typo="Body2" colorCode={colors.Black}>
         {dateString}
       </Text>
+      </HeightFitFlex>
 
       <OrderWrapper
         isOpen={isOpen}
@@ -47,8 +48,8 @@ export const OrderHistory = ({
         align="flex-start"
         gap={10}
       >
-        <ClickBtn direction="row" justify="space-between" onClick={handleClick}>
-          <Text typo="Label1" colorCode={state === "결제 취소" ? colors.Red : colors.MainColor}>
+        <ClickBtn direction="row" justify="space-between" onClick={handleClick} padding="0 4px">
+          <Text typo="Body2" colorCode={state === "결제 취소" ? colors.Red : colors.MainColor}>
             {state}
           </Text>
           {items.length > 1 ? (

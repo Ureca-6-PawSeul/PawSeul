@@ -6,7 +6,7 @@ export const useGetReviewDone = () => {
         queryKey: ['getUserReviewDone'],
         queryFn: () => getUserReviewDone()
     })
-    // console.log(data)
+
     return data
 };
 
@@ -15,7 +15,6 @@ export const useGetReviewRemain = () => {
         queryKey: ['getUserReviewRemain'],
         queryFn: () => getUserReviewRemain()
     })
-    // console.log(data)
 
     return data;
 };

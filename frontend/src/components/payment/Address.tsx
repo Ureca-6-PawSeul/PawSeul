@@ -4,13 +4,10 @@ import DaumPostcode from 'react-daum-postcode';
 
 const Address = ({setLocation, closeModal}) => {
   const selectAddress = (data) => {
-    // console.log(data)
     setLocation(`${data.zonecode} ${data.address}`);
     closeModal()
   };
-//   const handleClick = () => {
 
-//   }
   return (
     <Wrapper>
       <DaumPostcode
