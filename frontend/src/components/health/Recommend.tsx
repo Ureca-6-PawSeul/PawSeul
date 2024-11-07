@@ -7,15 +7,9 @@ import { Hr } from '../store/Hr';
 import { useNavigate } from 'react-router-dom';
 
 const Recommend = ({
-  recommandProduct: {
-    productId,
-    title = '기본 상품',
-    productImg,
-    price = 19999,
-    averageScore,
-  },
+  recommandProduct,
 }: {
-  recommandProduct: PartialProductType;
+  recommandProduct: PartialProductType[];
 }) => {
   const user = useUserStore((state) => state.user);
   const navigate = useNavigate();
@@ -35,25 +29,21 @@ const Recommend = ({
         {user.pet.petname}에게 맞는 제품
       </Text>
 
-      {/* {recommandProduct?.map((item) => (
-         <Product
-            productId={item.productId}
-            title={item.title || '상품 정보 읽기 실패'} 
-            productImg={item.productImg || ''} 
-            price={item.price || 19999}
-            averageScore={item.averageScore ?? 0}
-          />
-      ))} */}
-      <HeightFitFlex justify="flex-start">
-        <Flex width={120} onClick={() => handleNavigateToDetail(productId)}>
-          <Product
-            productId={productId}
-            title={title}
-            productImg={productImg}
-            price={price}
-            averageScore={averageScore}
-          />
-        </Flex>
+      <HeightFitFlex justify="flex-start" gap={16}>
+        {recommandProduct?.map((item) => (
+          <Flex
+            width={120}
+            onClick={() => handleNavigateToDetail(item.productId)}
+          >
+            <Product
+              productId={item.productId}
+              title={item.title || '상품 정보 읽기 실패'}
+              productImg={item.productImg || ''}
+              price={item.price || 19900}
+              averageScore={item.averageScore ?? 0}
+            />
+          </Flex>
+        ))}
       </HeightFitFlex>
     </HeightFitFlex>
   );
