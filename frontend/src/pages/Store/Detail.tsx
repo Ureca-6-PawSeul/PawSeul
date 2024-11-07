@@ -21,6 +21,9 @@ import { getReviews } from '@/apis/hooks/review';
 import { Header } from '@/components/common/Header';
 import { IoIosArrowBack } from 'react-icons/io';
 import { BiShoppingBag } from 'react-icons/bi';
+import { toast } from 'react-toastify';
+import { Toast } from '@/components/common/Toast';
+import { ErrorIcon } from '@/assets/images/svgs';
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();
@@ -38,9 +41,9 @@ const Detail = () => {
   const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
   const navigate = useNavigate();
 
+
   useEffect(() => {
     if (data && reviews) {
-      console.log(data);
       setDescriptionData(tableData(data));
       setProductPrice(data.price.toLocaleString('ko-KR'));
       setCartPrice(data.price);
@@ -60,6 +63,11 @@ const Detail = () => {
   };
 
   const handleQuantityChange = (value) => {
+    // 1개 이상 100개 이하로 제한
+    if (quantity + value < 1 || quantity + value > 100) {
+      notify('1개 이상 100개 이하로 구매 가능합니다!');
+      return;
+    }
     setQuantity((prev) => Math.max(1, prev + value));
     setCartPrice((prev) => Math.max(0, prev + value * data.price));
   };
@@ -99,6 +107,18 @@ const Detail = () => {
     navigate('/cart');
   };
 
+  const notify = (msg: string) => {
+    toast(
+      <Flex justify='space-between'>
+        <span>{msg}</span>
+        <ErrorIcon width={24} height={24} style={{ marginLeft: '8px'}}/>
+      </Flex>,
+      {
+        position: 'bottom-center',
+      },
+    );
+  };
+
   return (
     <>
       <Header
@@ -106,7 +126,6 @@ const Detail = () => {
         RightIcon={<BiShoppingBag size={28} />}
         onLeftIconClick={handleNavigateToBack}
         onRightIconClick={handleNavigateToCart}
-        iconWidth="36px"
       />
       <Flex
         direction="column"
@@ -179,7 +198,7 @@ const Detail = () => {
             direction="column"
             padding="0 0 32px"
             backgroundColor={colors.White}
-            height='auto'
+            height="auto"
           >
             <DetailImageList images={data.descriptionImg} />
           </Flex>
@@ -190,6 +209,7 @@ const Detail = () => {
           >
             {isBottomSheetOpen ? (
               <>
+                {/* 장바구니 추가시 수량, 가격 변경 바텀 시트*/}
                 <Flex direction="column" gap={16} justify="flex-start">
                   <BottomItemWrapper justify="flex-start">
                     <Flex
@@ -203,9 +223,9 @@ const Detail = () => {
                           <CartItemButton
                             width="auto"
                             height="auto"
-                            onClick={() => handleQuantityChange(1)}
+                            onClick={() => handleQuantityChange(-1)}
                           >
-                            <FiPlusCircle color={colors.Gray400} size={20} />
+                            <FiMinusCircle color={colors.Gray400} size={20} />
                           </CartItemButton>
                           <Text typo="Label2" colorCode={colors.Gray600}>
                             {quantity}
@@ -213,9 +233,9 @@ const Detail = () => {
                           <CartItemButton
                             width="auto"
                             height="auto"
-                            onClick={() => handleQuantityChange(-1)}
+                            onClick={() => handleQuantityChange(1)}
                           >
-                            <FiMinusCircle color={colors.Gray400} size={20} />
+                            <FiPlusCircle color={colors.Gray400} size={20} />
                           </CartItemButton>
                         </Flex>
                       </Flex>
@@ -237,12 +257,13 @@ const Detail = () => {
               </>
             ) : (
               <Flex justify="center">
+                {/* 장바구니 추가 기본 바텀 시트 */}
                 <Button bg={colors.MainColor} onClick={toggleBottomSheetOpen}>
                   장바구니에 추가하기
                 </Button>
               </Flex>
             )}
-            {isAddModalOpen && (
+            {isAddModalOpen && ( // 장바구니 추가 모달
               <Modal isOpen={isAddModalOpen} toggleModal={toggleAddModal}>
                 <Flex direction="column" padding="32px 0 0" gap={12}>
                   <Text typo="Heading4">
@@ -272,7 +293,7 @@ const Detail = () => {
                 </Flex>
               </Modal>
             )}
-            {isMoveModalOpen && (
+            {isMoveModalOpen && ( // 장바구니 이동 모달
               <Modal isOpen={isMoveModalOpen} toggleModal={toggleMoveModal}>
                 <Flex direction="column" padding="32px 0 0" gap={12}>
                   <Text typo="Heading4">장바구니에 상품이 추가되었습니다.</Text>
@@ -299,6 +320,7 @@ const Detail = () => {
             )}
           </StickyFooter>
         </Wrapper>
+        <Toast />
       </Flex>
     </>
   );
