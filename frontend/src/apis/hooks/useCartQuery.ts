@@ -1,9 +1,10 @@
-import { set } from 'date-fns';
+// import { set } from 'date-fns';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { getCartList } from '@/apis/getCartList';
+
 import { CartType } from '@/assets/types/CartType';
 import useCartStore from '@/stores/cartStore';
 import client from '../client';
+import { getCartList } from '../product';
 
 interface ChangeQuantityData {
   productId: string;

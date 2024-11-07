@@ -6,7 +6,8 @@ import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '@/stores/userStore';
 import { Header } from '@/components/common/Header';
-import { CheckIcon, LeftArrow } from '@/assets/images/svgs';
+import { CheckIcon } from '@/assets/images/svgs';
+import { IoIosArrowBack } from "react-icons/io";
 
 import { toast } from 'react-toastify';
 import { Toast } from '@/components/common/Toast';
@@ -50,7 +51,7 @@ const Mypage = () => {
     <>
       <Header
         title="마이페이지"
-        LeftIcon={<LeftArrow height={24} />}
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black}/>}
         onLeftIconClick={handleNavigateToHome}
       />
       <Flex

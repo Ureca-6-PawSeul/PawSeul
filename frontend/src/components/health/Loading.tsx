@@ -41,4 +41,5 @@ const LoadingMsg = styled(Text)`
   text-align: center;
   font-size: 1.25rem;
   font-weight: 600;
+  line-height: 120%;
 `;

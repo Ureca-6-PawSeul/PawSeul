@@ -1,5 +1,5 @@
-import { useMutation } from '@tanstack/react-query';
-import { NutrientType, postHealthInfo } from '../health';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { getHealthInfo, NutrientType, postHealthInfo } from '../health';
 import { HealthDataType } from '@/assets/types/AnalysisType';
 
 export const usePostHealthInfo = (
@@ -19,4 +19,13 @@ export const usePostHealthInfo = (
   });
 
   return mutation;
+};
+
+export const useGetHealthInfo = () => {
+  const response = useQuery<NutrientType>({
+    queryKey: ['getHealthInfo'],
+    queryFn: getHealthInfo,
+    staleTime: Infinity,
+  });
+  return response;
 };

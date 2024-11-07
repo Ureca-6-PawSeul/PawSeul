@@ -5,14 +5,12 @@ import { colors } from '@/styles/colors';
 import { useUserStore } from '@/stores/userStore';
 
 const Status = ({
-  // petname,
   calorieStatus,
   deficientNutrients,
   excessNutrient,
   optimalNutrient,
   totalCalories,
 }: {
-  // petname: string;
   calorieStatus: string;
   deficientNutrients: string[];
   excessNutrient: string;
@@ -42,15 +40,15 @@ const Status = ({
         gap={10}
       >
         <Flex gap={12} justify="flex-start">
-          <Text typo="Body2">부족 영양소:</Text>
+          <Text typo="Body2">부족 영양소 :</Text>
           <Text typo="Body2">{deficientNutrients.join(', ')}</Text>
         </Flex>
         <Flex gap={12} justify="flex-start">
-          <Text typo="Body2">과잉 영양소:</Text>
+          <Text typo="Body2">과잉 영양소 :</Text>
           <Text typo="Body2"> {excessNutrient}</Text>
         </Flex>
         <Flex gap={12} justify="flex-start">
-          <Text typo="Body2">적정 영양소:</Text>
+          <Text typo="Body2">적정 영양소 :</Text>
           <Text typo="Body2"> {optimalNutrient}</Text>
         </Flex>
       </Flex>
