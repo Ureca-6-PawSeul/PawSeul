@@ -27,7 +27,7 @@ export const deleteUserOrder = async (orderId: string) => {
 };
 
 export const cancelUserOrder = async (orderId: string) => {
-  console.log("here:  "+orderId);
+  // console.log("here:  "+orderId);
   const { data } = await client.patch(`order/${orderId}`);
 
   return data;
