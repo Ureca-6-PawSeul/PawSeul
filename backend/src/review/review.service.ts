@@ -1,7 +1,6 @@
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Order } from 'src/entity/order.entity';
-import { OrderItem } from 'src/entity/orderItem.entity';
 import { ProductReview } from 'src/entity/productReview.entity';
 import { User } from 'src/entity/user.entity';
 import { CreateReviewRequestDto } from 'src/review/dto/createReviewRequest.dto';
@@ -19,8 +18,6 @@ export class ReviewService {
     private userRepository: Repository<User>,
     @InjectRepository(Order)
     private orderRepository: Repository<Order>,
-    @InjectRepository(OrderItem)
-    private orderItemRepository: Repository<OrderItem>,
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
   ) {}
@@ -29,6 +26,7 @@ export class ReviewService {
     const result = await this.productReviewRepository.find({
       where: { product: { productId } },
       relations: ['user', 'user.pet'],
+      order: { createdAt: 'DESC' },
     });
 
     if (result.length === 0) {
@@ -183,6 +181,7 @@ export class ReviewService {
       .andWhere('product.productId IN (:...reviewedProductIds)', {
         reviewedProductIds,
       })
+      .orderBy('o.createdAt', 'DESC')
       .select([
         'o.orderId',
         'o.totalPrice',
