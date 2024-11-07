@@ -134,14 +134,11 @@ export class HealthService {
     if (!user) {
       throw new HttpException('사용자를 찾을 수 없어요!', HttpStatus.NOT_FOUND);
     }
-    console.log('user', user);
 
     const userPet = await this.petRepository.findOne({
       where: { user },
       relations: ['healthRecords'],
     });
-
-    console.log('userPet', userPet);
 
     if (!userPet) {
       throw new HttpException(
