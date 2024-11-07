@@ -34,9 +34,9 @@ export interface HealthResponse extends ResponseBody {
 
 export const postHealthInfo = async (
   healthData: HealthDataType,
-): Promise<HealthResponse> => {
-  const response = await client.post('/health/ai', healthData);
-  return response.data;
+): Promise<NutrientType> => {
+  const { data } = await client.post('/health/ai', healthData);
+  return data;
 };
 
 export const getHealthInfo = async (): Promise<NutrientType> => {
