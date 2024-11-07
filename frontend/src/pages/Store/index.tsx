@@ -13,6 +13,7 @@ import { Header } from '@/components/common/Header';
 import { CartIcon, MiniLogo } from '@/assets/images/svgs';
 import { useGetProductList } from '@/apis/hooks/product';
 import { useUserStore } from '@/stores/userStore';
+import { Skeleton } from '@/components/skeleton';
 
 const categoryMapping = {
   사료: 'food',
@@ -128,6 +129,10 @@ const Store = () => {
           gap={35}
           padding="0 0 0 35px"
         >
+          {productDataList.length === 0 &&
+            Array.from({ length: 4 }).map((_, index) => (
+              <Skeleton key={index} />
+            ))}
           {productDataList?.map((item, index) => (
             <ProductWrapper
               key={index}
