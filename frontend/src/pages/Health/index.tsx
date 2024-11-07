@@ -27,7 +27,7 @@ const Health = () => {
         direction="column"
         justify="flex-start"
         align="center"
-        margin="60px 0 0 0"
+        margin="72px 0 0 0"
       >
         <HealthGuideBanner width="90%" />
         <Flex widthPer={80} height="auto" padding="40px 0 120px 0">

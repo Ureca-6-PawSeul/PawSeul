@@ -11,6 +11,7 @@ import { ProductType } from '@/assets/types/ProductType';
 import { debounce } from 'lodash';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
+import { MiniSearchIcon } from '@/assets/images/svgs';
 
 const Search = () => {
   // 현재 검색어
@@ -93,8 +94,12 @@ const Search = () => {
         <InputWrapper
           padding="6px 12px 6px 12px "
           backgroundColor={colors.White}
-          justify="space-between"
+          gap={8}
+          height={40}
         >
+          <ShrinkFlex width={24} height={24}>
+            <MiniSearchIcon height={24} />
+          </ShrinkFlex>
           <Input
             type="text"
             placeholder="검색"
@@ -110,7 +115,9 @@ const Search = () => {
           />
           {searchQuery && (
             <EraseButton onClick={() => setSearchQuery('')} width="fit-content">
-              <TiDelete size={26} color={colors.Gray300} />
+              <ShrinkFlex>
+                <TiDelete size={26} color={colors.Gray300} />
+              </ShrinkFlex>
             </EraseButton>
           )}
         </InputWrapper>
@@ -135,12 +142,15 @@ const Search = () => {
 const SearchWrapper = styled(Flex)`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
+  box-sizing: border-box;
 `;
 
-const InputWrapper = styled(HeightFitFlex)`
+const InputWrapper = styled(Flex)`
   border-radius: 52px;
   backdrop-filter: blur(8px);
   background-color: ${colors.Gray100};
+  flex-shrink: 0;
+  box-sizing: border-box;
 `;
 
 const Input = styled.input`
@@ -149,13 +159,17 @@ const Input = styled.input`
   resize: none;
   border: none;
   width: 100%;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 23px;
 `;
 
 const EraseButton = styled(Flex)`
   cursor: pointer;
+`;
+
+const ShrinkFlex = styled(Flex)`
+  flex-shrink: 0;
 `;
 
 export default Search;
