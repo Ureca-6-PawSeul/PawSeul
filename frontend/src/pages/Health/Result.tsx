@@ -40,6 +40,7 @@ const HealthResult = () => {
   useEffect(() => {
     if (healthData) {
       healthMutate(healthData);
+      console.log(healthData)
     }
   }, [healthData]);
 
@@ -224,20 +225,20 @@ const BackgroundImg = styled.img`
   margin-bottom: 12px;
 `;
 
-const RelativeWrapper = styled.div`
+export const RelativeWrapper = styled.div`
   position: relative;
   width: fit-content;
   height: fit-content;
 `;
 
-const CenterText = styled(Flex)`
+export const CenterText = styled(Flex)`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
 
-const InnerText = styled(Text)`
+export const InnerText = styled(Text)`
   font-size: 1.7rem;
   line-height: 120%;
 `;

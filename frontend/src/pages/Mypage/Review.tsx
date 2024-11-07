@@ -13,13 +13,14 @@ import { OrderContent } from '@/components/mypage/orderHistory/orderContent';
 import { IoPersonCircleSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '@/components/common/Header';
-import { ErrorIcon, LeftArrow } from '@/assets/images/svgs';
+import { ErrorIcon } from '@/assets/images/svgs';
 import { useUserStore } from '@/stores/userStore';
 import { Modal } from '@/components/common/Modal';
 import { FaStar } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { createReview } from '@/apis/hooks/review';
 import { Toast } from '@/components/common/Toast';
+import { IoIosArrowBack } from 'react-icons/io';
 
 
 export const ReviewHistoryPage = () => {
@@ -100,7 +101,7 @@ export const ReviewHistoryPage = () => {
     <>
       <Header
         title="구매후기"
-        LeftIcon={<LeftArrow height={24} />}
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black}/>}
         onLeftIconClick={handleNavigateToMypage}
       />
       <Flex align="flex-start" padding="0 0 60px 0" margin="60px 0 0 0">

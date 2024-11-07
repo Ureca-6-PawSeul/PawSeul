@@ -20,15 +20,24 @@ import { useGetUserInfo } from '@/apis/hooks/user';
 import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
 import { useGetTopProduct } from '@/apis/hooks/product';
-
+import HealthHistory, { MarkText } from '@/components/home/HealthHistory';
+import { NutrientType } from '@/apis/health';
+import { useQueryClient } from '@tanstack/react-query';
 
 const Home = () => {
+  const user = useUserStore((state) => state.user);
+  const [nutrientData, setNutrientData] = useState<NutrientType>();
   const imageList = [Banner1, Banner2, Banner3, Banner4];
   const [productList, setProductList] = useState<ProductType[]>([]);
+  const queryClient = useQueryClient();
+
+  const queryData = queryClient.getQueryData<NutrientType>(['postHealthInfo']);
+  console.log('queryData', queryData);
 
   useEffect(() => {
     // getTopProductList(setProductList);
-    console.log(productList);
+    // console.log(productList);
+    setNutrientData(queryData)
   }, []);
 
   const { data } = useGetUserInfo();
@@ -44,6 +53,8 @@ const Home = () => {
       setProductList(productListData);
     }
   }, [data, setUserInfo, productListData]);
+
+
 
   const navigate = useNavigate();
   const handleNavigateToHome = () => {
@@ -82,14 +93,13 @@ const Home = () => {
           </Carousel>
         </Flex>
 
+        {nutrientData && <HealthHistory petname={user.pet.petname} nutrientData={nutrientData}/>}
+
         {/* TOP10 상품 리스트 */}
         <HeightFitFlex padding="12px 12px" direction="column">
           <Flex gap={5} justify="flex-start" height="fit-content">
             <Text typo="Heading3" colorCode={colors.Black}>
-              요즘 포슬 트렌드는?
-            </Text>
-            <Text typo="Heading3" colorCode={colors.MainColor}>
-              TOP 10
+              요즘 포슬 트렌드는?&nbsp;<MarkText>TOP 10</MarkText>
             </Text>
           </Flex>
           <ProductContainer gap={35} justify="flex-start" padding="10px 0" height="auto">

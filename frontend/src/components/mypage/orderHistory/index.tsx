@@ -23,10 +23,9 @@ export const OrderHistory = ({
 }) => {
   const dateString = format(date, 'yyyy-MM-dd / hh:mm:ss')
   const shipDateString = format(addDays(dateString, 3),'yyyy-MM-dd')
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setisOpen] = useState<boolean>(false);
   const handleClick = () => {
     setisOpen(!isOpen);
-    console.log('버튼 클릭');
   };
 
   return (
@@ -49,7 +48,7 @@ export const OrderHistory = ({
         gap={10}
       >
         <ClickBtn direction="row" justify="space-between" onClick={handleClick}>
-          <Text typo="Label1" colorCode={colors.MainColor}>
+          <Text typo="Label1" colorCode={state === "결제 취소" ? colors.Red : colors.MainColor}>
             {state}
           </Text>
           {items.length > 1 ? (
