@@ -14,10 +14,13 @@ import StickyFooter from '@/components/store/StickyFooter';
 import { Button } from '@/components/common/Button';
 import { FiPlusCircle } from 'react-icons/fi';
 import { FiMinusCircle } from 'react-icons/fi';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { createCartItem } from '@/apis/hooks/cart';
 import { Modal } from '@/components/common/Modal';
 import { getReviews } from '@/apis/hooks/review';
+import { Header } from '@/components/common/Header';
+import { IoIosArrowBack } from 'react-icons/io';
+import { BiShoppingBag } from 'react-icons/bi';
 
 const Detail = () => {
   const { id } = useParams<{ id: string }>();
@@ -33,9 +36,11 @@ const Detail = () => {
   const { mutateAsync } = createCartItem();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (data && reviews) {
+      console.log(data);
       setDescriptionData(tableData(data));
       setProductPrice(data.price.toLocaleString('ko-KR'));
       setCartPrice(data.price);
@@ -86,185 +91,230 @@ const Detail = () => {
     return <div>로딩중...</div>;
   }
 
+  const handleNavigateToBack = () => {
+    navigate(-1);
+  };
+
+  const handleNavigateToCart = () => {
+    navigate('/cart');
+  };
+
   return (
-    <Flex
-      direction="column"
-      justify="flex-start"
-      padding="0 0 80px 0"
-      backgroundColor={colors.Gray50}
-      height="fit-content"
-    >
-      <Image src={data.productImg} alt="product_img" />
+    <>
+      <Header
+        LeftIcon={<IoIosArrowBack size={28} />}
+        RightIcon={<BiShoppingBag size={28} />}
+        onLeftIconClick={handleNavigateToBack}
+        onRightIconClick={handleNavigateToCart}
+        iconWidth="36px"
+      />
       <Flex
         direction="column"
-        gap={12}
-        padding="60px 0 32px 0"
-        backgroundColor={colors.White}
-      >
-        <Flex direction="column" align="flex-start" gap={7} padding="0px 16px">
-          <Text typo="Heading3" align="flex-start">
-            {data.title}
-          </Text>
-          <Flex gap={8} justify="flex-start">
-            <StarRating
-              score={data.averageScore}
-              size={14}
-              width={74}
-              gap={1}
-            />
-            <DetailText
-              typo="Body3"
-              colorCode={colors.Gray500}
-              decorationLine="underline"
-              justify="flex-start"
-              cursor="pointer"
-              onClick={handleRefClick}
-            >
-              {`${reviewCount}개 후기`}
-            </DetailText>
-          </Flex>
-        </Flex>
-        <Flex justify="flex-end" padding="0px 16px">
-          <Text typo="Heading3">{productPrice}원</Text>
-        </Flex>
-      </Flex>
-      <Flex
-        direction="column"
-        gap={16}
         justify="flex-start"
-        padding="32px 16px 48px 16px"
-        margin="16px 0 0"
-        backgroundColor={colors.White}
-        align="flex-start"
+        align="center"
+        gap={5}
+        padding="56px 0 0"
       >
-        <DetailText typo="Heading3" justify="flex-start">
-          상품 설명
-        </DetailText>
-        {descriptionData && <DetailTable tableData={descriptionData} />}
-      </Flex>
-      <Flex
-        direction="column"
-        padding="0 0 32px"
-        backgroundColor={colors.White}
-      >
-        <DetailImageList images={data.descriptionImg} />
-      </Flex>
-      <ProductReview ref={reviewRef}/>
-      <StickyFooter
-        isScrolledToBottom={false}
-        isBottomSheetOpen={isBottomSheetOpen}
-      >
-        {isBottomSheetOpen ? (
-          <>
-            <Flex direction="column" gap={16} justify="flex-start">
-              <BottomItemWrapper justify="flex-start">
-                <Flex
-                  backgroundColor={colors.Gray50}
-                  padding="16px 0"
-                  margin="0 0 16px"
+        <Wrapper
+          direction="column"
+          justify="flex-start"
+          padding="0 0 80px 0"
+          backgroundColor={colors.Gray50}
+          height="fit-content"
+        >
+          <Image src={data.productImg} alt="product_img" />
+          <Flex
+            direction="column"
+            gap={12}
+            padding="60px 0 32px 0"
+            backgroundColor={colors.White}
+          >
+            <Flex
+              direction="column"
+              align="flex-start"
+              gap={7}
+              padding="0px 16px"
+            >
+              <Text typo="Heading3" align="flex-start">
+                {data.title}
+              </Text>
+              <Flex gap={8} justify="flex-start">
+                <StarRating
+                  score={data.averageScore}
+                  size={14}
+                  width={74}
+                  gap={1}
+                />
+                <DetailText
+                  typo="Body3"
+                  colorCode={colors.Gray500}
+                  decorationLine="underline"
+                  justify="flex-start"
+                  cursor="pointer"
+                  onClick={handleRefClick}
                 >
-                  <Flex>
-                    <CartText typo="Label1">수량</CartText>
-                    <Flex justify="flex-start" gap={12}>
-                      <CartItemButton
-                        width="auto"
-                        height="auto"
-                        onClick={() => handleQuantityChange(1)}
-                      >
-                        <FiPlusCircle color={colors.Gray400} size={20} />
-                      </CartItemButton>
-                      <Text typo="Label2" colorCode={colors.Gray600}>
-                        {quantity}
-                      </Text>
-                      <CartItemButton
-                        width="auto"
-                        height="auto"
-                        onClick={() => handleQuantityChange(-1)}
-                      >
-                        <FiMinusCircle color={colors.Gray400} size={20} />
-                      </CartItemButton>
-                    </Flex>
-                  </Flex>
-                  <CartText typo="Label1">{`1개 (${productPrice})원`}</CartText>
-                </Flex>
-              </BottomItemWrapper>
-              <Flex justify="space-between" margin="0 0 16px">
-                <CartText typo="Body2">총 수량 {quantity}개</CartText>
-                <CartText typo="Heading3">
-                  {Number(cartPrice).toLocaleString('ko-KR')}원
-                </CartText>
+                  {`${reviewCount}개 후기`}
+                </DetailText>
               </Flex>
             </Flex>
-            <Flex justify="center">
-              <Button bg={colors.MainColor} onClick={toggleAddModal}>
-                장바구니에 추가하기
-              </Button>
+            <Flex justify="flex-end" padding="0px 16px">
+              <Text typo="Heading3">{productPrice}원</Text>
             </Flex>
-          </>
-        ) : (
-          <Flex justify="center">
-            <Button bg={colors.MainColor} onClick={toggleBottomSheetOpen}>
-              장바구니에 추가하기
-            </Button>
           </Flex>
-        )}
-        {isAddModalOpen && (
-          <Modal isOpen={isAddModalOpen} toggleModal={toggleAddModal}>
-            <Flex direction="column" padding="32px 0 0" gap={12}>
-              <Text typo="Heading4">장바구니에 상품을 추가하시겠습니까?</Text>
-              <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
-                <Button
-                  height="40px"
-                  bg={colors.Gray400}
-                  onClick={() => {
-                    toggleAddModal();
-                    toggleBottomSheetOpen();
-                  }}
-                >
-                  취소
-                </Button>
-                <Button
-                  height="40px"
-                  onClick={() => {
-                    handleAddToCart();
-                    toggleAddModal();
-                  }}
-                >
-                  추가
+          <Flex
+            direction="column"
+            gap={16}
+            justify="flex-start"
+            padding="32px 16px 48px 16px"
+            margin="16px 0 0"
+            backgroundColor={colors.White}
+            align="flex-start"
+          >
+            <DetailText typo="Heading3" justify="flex-start">
+              상품 설명
+            </DetailText>
+            {descriptionData && <DetailTable tableData={descriptionData} />}
+          </Flex>
+          <Flex
+            direction="column"
+            padding="0 0 32px"
+            backgroundColor={colors.White}
+            height='auto'
+          >
+            <DetailImageList images={data.descriptionImg} />
+          </Flex>
+          <ProductReview ref={reviewRef} />
+          <StickyFooter
+            isScrolledToBottom={false}
+            isBottomSheetOpen={isBottomSheetOpen}
+          >
+            {isBottomSheetOpen ? (
+              <>
+                <Flex direction="column" gap={16} justify="flex-start">
+                  <BottomItemWrapper justify="flex-start">
+                    <Flex
+                      backgroundColor={colors.Gray50}
+                      padding="16px 0"
+                      margin="0 0 16px"
+                    >
+                      <Flex>
+                        <CartText typo="Label1">수량</CartText>
+                        <Flex justify="flex-start" gap={12}>
+                          <CartItemButton
+                            width="auto"
+                            height="auto"
+                            onClick={() => handleQuantityChange(1)}
+                          >
+                            <FiPlusCircle color={colors.Gray400} size={20} />
+                          </CartItemButton>
+                          <Text typo="Label2" colorCode={colors.Gray600}>
+                            {quantity}
+                          </Text>
+                          <CartItemButton
+                            width="auto"
+                            height="auto"
+                            onClick={() => handleQuantityChange(-1)}
+                          >
+                            <FiMinusCircle color={colors.Gray400} size={20} />
+                          </CartItemButton>
+                        </Flex>
+                      </Flex>
+                      <CartText typo="Label1">{`1개 (${productPrice})원`}</CartText>
+                    </Flex>
+                  </BottomItemWrapper>
+                  <Flex justify="space-between" margin="0 0 16px">
+                    <CartText typo="Body2">총 수량 {quantity}개</CartText>
+                    <CartText typo="Heading3">
+                      {Number(cartPrice).toLocaleString('ko-KR')}원
+                    </CartText>
+                  </Flex>
+                </Flex>
+                <Flex justify="center">
+                  <Button bg={colors.MainColor} onClick={toggleAddModal}>
+                    장바구니에 추가하기
+                  </Button>
+                </Flex>
+              </>
+            ) : (
+              <Flex justify="center">
+                <Button bg={colors.MainColor} onClick={toggleBottomSheetOpen}>
+                  장바구니에 추가하기
                 </Button>
               </Flex>
-            </Flex>
-          </Modal>
-        )}
-        {isMoveModalOpen && (
-          <Modal isOpen={isMoveModalOpen} toggleModal={toggleMoveModal}>
-            <Flex direction="column" padding="32px 0 0" gap={12}>
-              <Text typo="Heading4">장바구니에 상품이 추가되었습니다.</Text>
-              <Text typo="Body2">장바구니로 이동하시겠습니까?</Text>
-              <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
-                <Button
-                  height="40px"
-                  bg={colors.Gray400}
-                  onClick={toggleMoveModal}
-                >
-                  취소
-                </Button>
-                <Button
-                  height="40px"
-                  onClick={() => {
-                    window.location.href = '/cart';
-                  }}
-                >
-                  이동
-                </Button>
-              </Flex>
-            </Flex>
-          </Modal>
-        )}
-      </StickyFooter>
-    </Flex>
+            )}
+            {isAddModalOpen && (
+              <Modal isOpen={isAddModalOpen} toggleModal={toggleAddModal}>
+                <Flex direction="column" padding="32px 0 0" gap={12}>
+                  <Text typo="Heading4">
+                    장바구니에 상품을 추가하시겠습니까?
+                  </Text>
+                  <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
+                    <Button
+                      height="40px"
+                      bg={colors.Gray400}
+                      onClick={() => {
+                        toggleAddModal();
+                        toggleBottomSheetOpen();
+                      }}
+                    >
+                      취소
+                    </Button>
+                    <Button
+                      height="40px"
+                      onClick={() => {
+                        handleAddToCart();
+                        toggleAddModal();
+                      }}
+                    >
+                      추가
+                    </Button>
+                  </Flex>
+                </Flex>
+              </Modal>
+            )}
+            {isMoveModalOpen && (
+              <Modal isOpen={isMoveModalOpen} toggleModal={toggleMoveModal}>
+                <Flex direction="column" padding="32px 0 0" gap={12}>
+                  <Text typo="Heading4">장바구니에 상품이 추가되었습니다.</Text>
+                  <Text typo="Body2">장바구니로 이동하시겠습니까?</Text>
+                  <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
+                    <Button
+                      height="40px"
+                      bg={colors.Gray400}
+                      onClick={toggleMoveModal}
+                    >
+                      취소
+                    </Button>
+                    <Button
+                      height="40px"
+                      onClick={() => {
+                        window.location.href = '/cart';
+                      }}
+                    >
+                      이동
+                    </Button>
+                  </Flex>
+                </Flex>
+              </Modal>
+            )}
+          </StickyFooter>
+        </Wrapper>
+      </Flex>
+    </>
   );
 };
+
+const Wrapper = styled(Flex)`
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 65px);
+
+  -ms-overflow-style: none;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
 const Image = styled.img`
   width: 100%;

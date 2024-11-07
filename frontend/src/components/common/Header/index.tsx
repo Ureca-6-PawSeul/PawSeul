@@ -9,6 +9,7 @@ interface HeaderType {
   RightIcon?: JSX.Element | null;
   onLeftIconClick?: () => void;
   onRightIconClick?: () => void;
+  iconWidth?: string;
 }
 
 export const Header = ({
@@ -17,6 +18,7 @@ export const Header = ({
   RightIcon,
   onLeftIconClick,
   onRightIconClick,
+  iconWidth = '48px',
 }: HeaderType) => {
   return (
     <HeaderWrapper>
@@ -27,7 +29,7 @@ export const Header = ({
         height={56}
         padding="0 24px"
       >
-        <IconBox onClick={onLeftIconClick}>{LeftIcon}</IconBox>
+        <IconBox onClick={onLeftIconClick} iconWidth={iconWidth}>{LeftIcon}</IconBox>
 
         {title && (
           <Text
@@ -40,7 +42,7 @@ export const Header = ({
           </Text>
         )}
 
-        <IconBox onClick={onRightIconClick}>{RightIcon}</IconBox>
+        <IconBox onClick={onRightIconClick} iconWidth={iconWidth}>{RightIcon}</IconBox>
       </FixedHeader>
     </HeaderWrapper>
   );
@@ -59,9 +61,9 @@ const FixedHeader = styled(Flex)`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;
 
-const IconBox = styled.div`
+const IconBox = styled.div<{ iconWidth: string }>`
   display: flex;
-  width: 48px;
+  width: ${({ iconWidth }) => `${iconWidth}`};
   height: 100%;
   align-items: center;
   justify-content: center;
