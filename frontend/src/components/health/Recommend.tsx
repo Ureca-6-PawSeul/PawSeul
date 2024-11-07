@@ -1,10 +1,8 @@
-import styled from '@emotion/styled';
 import { Flex, HeightFitFlex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { useUserStore } from '@/stores/userStore';
 import { PartialProductType } from '@/apis/health';
 import { Product } from '../store/Product';
-import { colors } from '@/styles/colors';
 import { Hr } from '../store/Hr';
 import { useNavigate } from 'react-router-dom';
 

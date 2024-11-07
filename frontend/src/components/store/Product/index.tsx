@@ -4,6 +4,7 @@ import { Text } from '../../common/Typo';
 import { colors } from '@styles/colors';
 import StarRating from '@components/store/Star';
 import { ProductType } from '@assets/types/ProductType';
+import DefaultImg from '@assets/images/pngs/default_product.png';
 
 export const Product = ({
   productId,
@@ -13,6 +14,7 @@ export const Product = ({
   averageScore,
 }: ProductType) => {
   const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const imageSrc = productImg || DefaultImg;
 
   return (
     <Wrapper
@@ -25,7 +27,7 @@ export const Product = ({
       backgroundColor={colors.White}
     >
       <Flex direction="column" align="center">
-        <Img src={productImg} width="100%" />
+        <Img src={imageSrc} width="100%" />
       </Flex>
       <Flex height="auto" margin="8px 0 0 0">
         <Title colorCode={colors.Black} typo="Body3">
