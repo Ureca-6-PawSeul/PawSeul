@@ -9,6 +9,8 @@ interface CartStore {
   setCartItems: (items: CartType[]) => void;
   addCartItem: (items: CartType) => void;
   setSelectedItems: (items: CartType[]) => void;
+  setTotalPrice: (price: number) => void;
+
   toggleSelectItem: (product: CartType) => void;
   toggleSelectAll: () => void;
   deleteItem: (productId: string) => void;
@@ -34,6 +36,8 @@ const useCartStore = create<CartStore>()(
         })),
 
       setSelectedItems: (items) => set({ selectedItems: items }),
+
+      setTotalPrice: (price) => set({ totalPrice: price }),
       // 특정 아이템 선택 / 선택 해제
       toggleSelectItem: (product) =>
         set((state) => {

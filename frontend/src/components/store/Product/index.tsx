@@ -12,6 +12,7 @@ export const Product = ({
   title,
   price,
   averageScore,
+  imgWidth,
 }: ProductType) => {
   const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const imageSrc = productImg || DefaultImg;
@@ -27,7 +28,7 @@ export const Product = ({
       backgroundColor={colors.White}
     >
       <Flex direction="column" align="center">
-        <Img src={imageSrc} width="100%" />
+        <Img src={imageSrc} width={imgWidth} />
       </Flex>
       <Flex height="auto" margin="8px 0 0 0">
         <Title colorCode={colors.Black} typo="Body3">
