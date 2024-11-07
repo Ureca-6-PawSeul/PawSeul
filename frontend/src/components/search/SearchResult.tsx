@@ -47,7 +47,7 @@ const SearchResult = ({
         justify="flex-start"
         align="flex-start"
         gap={35}
-        padding="24px 0 0 35px"
+        padding="24px 0 84px 35px"
       >
         {searchResults.map((item, index) => (
           <ProductWrapper
