@@ -44,7 +44,7 @@ const HealthResult = () => {
     }
   }, [healthData]);
 
-  console.log(nutrientData);
+  // console.log(nutrientData);
 
   const currentDate = format(new Date(), 'yyyy-MM-dd');
 

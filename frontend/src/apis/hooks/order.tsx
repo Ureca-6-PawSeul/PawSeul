@@ -37,7 +37,7 @@ export const useDeleteOrder = (handleNavigate: () => void) => {
               }, 1000);
         },
         onError: (error) => {
-            console.log(error)
+            // console.log(error)
             alert("주문 취소에 실패했습니다. 다시 시도해주세요.")
         }
     })

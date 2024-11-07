@@ -6,7 +6,7 @@ import { Product } from '../store/Product';
 import styled from '@emotion/styled';
 
 function Card({ productList }: { productList: ProductType[] }) {
-  console.log(productList);
+  // console.log(productList);
   const settings = {
     className: 'center',
     infinite: true,

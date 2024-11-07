@@ -39,8 +39,13 @@ export const ReviewHistoryPage = () => {
   const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
   const [reviewScore, setReviewScore] = useState(0);
   const [newReview, setNewReview] = useState('');
+  const [currentProductId, setCurrentProductId] = useState<string | null>();
 
   const handleClickTab = (tabIndex: number) => setActiveTab(tabIndex);
+  const handleClickBtn = (productId : string) => {
+    setCurrentProductId(productId);  // 리뷰할 제품의 productId 설정
+    toggleMoveModal();
+  }
   const toggleMoveModal = () => setIsMoveModalOpen((prev) => !prev);
   const handleStarClick = (newScore: number) => setReviewScore(newScore);
   const { mutateAsync } = createReview();
@@ -50,6 +55,7 @@ export const ReviewHistoryPage = () => {
     setNewReview('');
     toggleMoveModal();
   };
+
   const notify = (msg: string) => {
     toast(
       <Flex justify='space-between'>
@@ -62,8 +68,8 @@ export const ReviewHistoryPage = () => {
     );
   };
 
-  const handleSubmit = async (productId : string)=>{
-    console.log(productId)
+  const handleSubmit = async ()=>{
+    console.log(currentProductId)
     if (reviewScore < 1) {
       notify('리뷰 점수를 입력해주세요');
       return;
@@ -75,7 +81,7 @@ export const ReviewHistoryPage = () => {
 
     // 서버로 전송할 데이터 객체 생성
     const reviewData = {
-      productId: productId,
+      productId: currentProductId,
       score: reviewScore,
       text: newReview,
     };
@@ -118,7 +124,7 @@ export const ReviewHistoryPage = () => {
             justify="flex-start"
             gap={12}
             borderRadius={10}
-            padding="12px 24px"
+            padding="24px 24px 12px 24px"
           >
             <IoPersonCircleSharp size={60} color={colors.Gray300} />
             <Flex
@@ -139,8 +145,9 @@ export const ReviewHistoryPage = () => {
           <HeightFitFlex
             justify="flex-start"
             gap={10}
-            margin="3px 0 8px 0"
-            padding="0 12px"
+            margin="12px 0 4px 0"
+            padding="0 24px"
+            height="60px"
           >
             <Tab
               direction="row"
@@ -157,12 +164,13 @@ export const ReviewHistoryPage = () => {
               <Text typo="Label1">작성한 구매후기</Text>
             </Tab>
           </HeightFitFlex>
-          <Flex direction="column" padding="0 12px" justify="flex-start">
+          <Flex direction="column" padding="0 24px" justify="flex-start">
             {userReviewList?.length > 0 ? (
               userReviewList?.map((review) => (
                 <>
-                  <Wrapper align="flex-start" padding="12px 12px">
+                  <Wrapper align="flex-start" padding="12px 12px ">
                     <OrderContent
+                      key={review.productId}
                       price={review.price}
                       title={review.title}
                       bottomContent={review.state}
@@ -175,7 +183,7 @@ export const ReviewHistoryPage = () => {
                             width="103px"
                             height="30px"
                             borderRadius="25px"
-                            onClick={toggleMoveModal}
+                            onClick={()=>handleClickBtn(review.productId)}
                           >
                             <Text typo="Label2">리뷰 작성하기</Text>
                           </Button>
@@ -194,72 +202,6 @@ export const ReviewHistoryPage = () => {
                       </Flex>
                     </OrderContent>
                   </Wrapper>
-                  {isMoveModalOpen && (<>
-                    <Modal
-                      isOpen={isMoveModalOpen}
-                      toggleModal={toggleMoveModal}
-                    >
-                      <Flex direction="column">
-                        <Flex margin="10px 0 10px">
-                          <Text typo="Heading4" colorCode={colors.Gray600}>
-                            별점을 선택해주세요
-                          </Text>
-                        </Flex>
-                        <Flex>
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <span
-                              key={star}
-                              onClick={() => handleStarClick(star)}
-                              style={{ cursor: 'pointer', fontSize: '24px' }}
-                            >
-                              {reviewScore >= star ? (
-                                <FaStar size={24} color={colors.Star} />
-                              ) : (
-                                <FaStar size={24} color={colors.Gray200} />
-                              )}
-                            </span>
-                          ))}
-                        </Flex>
-                        <Flex
-                          direction="column"
-                          padding="10px 20px"
-                          margin="30px 0 0"
-                        >
-                          <Text typo="Heading4" colorCode={colors.Gray600}>
-                            자세한 후기를 알려주세요
-                          </Text>
-                          <Textarea
-                            placeholder="후기를 작성해주세요"
-                            value={newReview}
-                            onChange={handleReviewChange}
-                            onKeyDown={(e) => {
-                              if (e.key === ' ') {
-                                e.preventDefault(); // 스페이스바의 기본 동작을 막음
-                                e.stopPropagation(); // 스페이스바의 이벤트 전파를 막음
-                              }
-                            }}
-                          />
-                        </Flex>
-                        <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
-                          <Button
-                            height="40px"
-                            bg={colors.Gray400}
-                            onClick={handleExit}
-                          >
-                            취소
-                          </Button>
-                          <Button
-                            height="40px"
-                            onClick={()=>handleSubmit(review.productId)}
-                          >
-                            등록
-                          </Button>
-                        </Flex>
-                      </Flex>
-                    <Toast />
-                    </Modal>
-                    </>
-                  )}
                 </>
               ))
             ) : activeTab === 1 ? (
@@ -273,6 +215,72 @@ export const ReviewHistoryPage = () => {
             )}
           </Flex>
         </Flex>
+            {isMoveModalOpen && (<>
+              <Modal
+                isOpen={isMoveModalOpen}
+                toggleModal={toggleMoveModal}
+              >
+                <Flex direction="column">
+                  <Flex margin="10px 0 10px">
+                    <Text typo="Heading4" colorCode={colors.Gray600}>
+                      별점을 선택해주세요
+                    </Text>
+                  </Flex>
+                  <Flex>
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span
+                        key={star}
+                        onClick={() => handleStarClick(star)}
+                        style={{ cursor: 'pointer', fontSize: '24px' }}
+                      >
+                        {reviewScore >= star ? (
+                          <FaStar size={24} color={colors.Star} />
+                        ) : (
+                          <FaStar size={24} color={colors.Gray200} />
+                        )}
+                      </span>
+                    ))}
+                  </Flex>
+                  <Flex
+                    direction="column"
+                    padding="10px 20px"
+                    margin="30px 0 0"
+                  >
+                    <Text typo="Heading4" colorCode={colors.Gray600}>
+                      자세한 후기를 알려주세요
+                    </Text>
+                    <Textarea
+                      placeholder="후기를 작성해주세요"
+                      value={newReview}
+                      onChange={handleReviewChange}
+                      onKeyDown={(e) => {
+                        if (e.key === ' ') {
+                          e.preventDefault(); // 스페이스바의 기본 동작을 막음
+                          e.stopPropagation(); // 스페이스바의 이벤트 전파를 막음
+                        }
+                      }}
+                    />
+                  </Flex>
+                  <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
+                    <Button
+                      height="40px"
+                      bg={colors.Gray400}
+                      onClick={handleExit}
+                    >
+                      취소
+                    </Button>
+                    <Button
+                      height="40px"
+                      onClick={handleSubmit}
+                    >
+                      등록
+                    </Button>
+                  </Flex>
+                </Flex>
+              <Toast />
+              </Modal>
+              </>
+            )}
       </Flex>
     </>
   );
@@ -281,6 +289,7 @@ export const ReviewHistoryPage = () => {
 
 const Tab = styled(ClickBtn)<{ isSelected: boolean }>`
   width: 100px;
+  
   border-bottom: solid 2px;
   border-color: ${({ isSelected }) =>
     isSelected ? colors.Gray200 : 'transparent'};
@@ -288,6 +297,7 @@ const Tab = styled(ClickBtn)<{ isSelected: boolean }>`
 
 const Wrapper = styled(HeightFitFlex)`
   border: solid 1px ${colors.Gray100};
+  border-radius: 5px;
   margin: 4px;
 `;
 

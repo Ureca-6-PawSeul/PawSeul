@@ -40,7 +40,7 @@ const Detail = () => {
 
   useEffect(() => {
     if (data && reviews) {
-      console.log(data);
+      // console.log(data);
       setDescriptionData(tableData(data));
       setProductPrice(data.price.toLocaleString('ko-KR'));
       setCartPrice(data.price);

@@ -67,7 +67,7 @@ const Store = () => {
         justify="flex-start"
         align="center"
         gap={5}
-        padding="72px 12px 0 12px"
+        padding="72px 12px 80px 12px"
       >
         {/* 카테고리 버튼 */}
         <Flex

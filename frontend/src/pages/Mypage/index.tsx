@@ -66,13 +66,13 @@ const Mypage = () => {
           <Text colorCode={colors.Black} typo="Label1" align="flex-start">
             {user ? user.username : '-'}
           </Text>
-          <Text colorCode={colors.Black} typo="Body3" align="flex-start">
+          <Text colorCode={colors.Black} typo="Label1" align="flex-start">
             님의
           </Text>
         </HeightFitFlex>
         {user.pet && (
           <>
-            <Flex direction="row" justify="flex-start" height={40}>
+            <Flex direction="row" justify="flex-start" height={40} margin="0 0 12px 0">
               <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
                 반려견 정보
               </Text>
