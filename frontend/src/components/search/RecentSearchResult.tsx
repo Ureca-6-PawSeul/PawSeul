@@ -15,8 +15,14 @@ const RecentSearchResult = ({
   setRecentSearchQueries,
   setSearchQuery,
 }: RecentSearchResultProps) => {
+  
   const handleRecentClick = (e) => {
     setSearchQuery(e.target.innerText);
+  }
+
+  const handleDeleteRecentSearch = () => {
+    setRecentSearchQueries([]);
+    sessionStorage.removeItem('recentSearchQueries');
   }
 
   return (
@@ -30,7 +36,7 @@ const RecentSearchResult = ({
       <Flex width="auto" height="auto" justify="flex-start" gap={12}>
         <Text typo="Heading4">최근 검색어</Text>
         {recentSearchQueries.length > 0 && (
-          <ClearButton onClick={() => setRecentSearchQueries([])}>
+          <ClearButton onClick={handleDeleteRecentSearch}>
             <IoCloseOutline size={20} color={colors.Gray400} />
           </ClearButton>
         )}
