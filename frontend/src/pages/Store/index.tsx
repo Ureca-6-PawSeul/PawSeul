@@ -13,7 +13,6 @@ import { Header } from '@/components/common/Header';
 import { CartIcon, MiniLogo } from '@/assets/images/svgs';
 import { useGetProductList } from '@/apis/hooks/product';
 import { useUserStore } from '@/stores/userStore';
-import { Hr } from '@/components/store/Hr';
 import { Skeleton } from '@/components/skeleton';
 
 const categoryMapping = {
@@ -98,12 +97,11 @@ const Store = () => {
             {user.pet.petname}의 맞춤 상품 찾기
           </Text>
         </Flex>
-        <Hr />
         <HeightFitFlex
           direction="row"
           justify="flex-start"
           gap={10}
-          margin="4px 0 8px 0"
+          margin="8px"
           padding="0 12px"
         >
           {subCategories[selectedCategory]?.map((subCategory, index) => (
@@ -172,8 +170,4 @@ const ProductWrapper = styled.div`
   /* width: calc(33.33% - 8px); */
   width: calc(50% - 35px);
   box-sizing: border-box;
-`;
-
-const ShadowFlex = styled(Flex)`
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;

@@ -13,7 +13,6 @@ import { colors } from '@/styles/colors';
 import { Toast } from '@/components/common/Toast';
 import { IoIosArrowBack } from 'react-icons/io';
 
-
 // 나중엔 날짜가 Date객체로 올거니까 date-fns 라이브러리 사용해서 포맷 변경해줘야 함
 export const OrderHistoryPage = () => {
   const [userOrder, setUserOrder] = useState([]);
@@ -21,7 +20,7 @@ export const OrderHistoryPage = () => {
   const orderHistory = useGetUserOrder();
   const navigate = useNavigate();
   const handleNavigateToMypage = () => navigate('/mypage');
-  const handleNavigate = () =>window.location.href = '/mypage/order';
+  const handleNavigate = () => (window.location.href = '/mypage/order');
   const { mutate: cancelOrder } = useDeleteOrder(handleNavigate);
   const toggleMoveModal = () => setIsMoveModalOpen((prev) => !prev);
   const handleCancel = (orderId: string) => cancelOrder(orderId);
@@ -36,7 +35,7 @@ export const OrderHistoryPage = () => {
     <>
       <Header
         title="주문내역"
-        LeftIcon={<IoIosArrowBack size={26} color={colors.Black}/>}
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black} />}
         onLeftIconClick={handleNavigateToMypage}
       />
       {userOrder?.length > 0 ? (
@@ -48,7 +47,7 @@ export const OrderHistoryPage = () => {
           margin="60px 0 0 0"
         >
           {userOrder?.map((order) => (
-            <HeightFitFlex key={order.orderId}> 
+            <HeightFitFlex key={order.orderId}>
               <Flex direction="column" justify="flex-start">
                 <OrderHistory
                   date={order.orderCreatedAt}
@@ -60,8 +59,8 @@ export const OrderHistoryPage = () => {
                   <Flex margin="0 0 24px 0">
                     <Button
                       width="103px"
-                      height="30px"
-                      borderRadius="25px"
+                      height="36px"
+                      borderRadius="10px"
                       onClick={toggleMoveModal}
                     >
                       <Text typo="Label2">주문 취소하기</Text>
@@ -110,4 +109,4 @@ const Wrapper = styled(Flex)`
 
 const TopToast = styled(Toast)`
   z-index: 1000;
-`
+`;
