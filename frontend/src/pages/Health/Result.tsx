@@ -19,6 +19,7 @@ import { NutrientType } from '@/apis/health';
 import { format } from 'date-fns';
 import ErrorPage from '../404';
 import { useUserStore } from '@/stores/userStore';
+import Recommend from '@/components/health/Recommend';
 
 const HealthResult = () => {
   const navigate = useNavigate();
@@ -200,6 +201,7 @@ const HealthResult = () => {
           excessNutrient={nutrientData.excessNutrient}
           optimalNutrient={nutrientData.optimalNutrient}
         />
+        <Recommend recommandProduct={nutrientData.recommandProduct} />
       </Wrapper>
       <HeightFitFlex margin="12px 0 56px 0" widthPer={80}>
         <Button height="48px" onClick={handleNavigateToHome}>

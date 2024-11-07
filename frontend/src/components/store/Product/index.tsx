@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import { Flex } from '../../common/Flex';
+import { Flex, HeightFitFlex } from '../../common/Flex';
 import { Text } from '../../common/Typo';
 import { colors } from '@styles/colors';
 import StarRating from '@components/store/Star';
 import { ProductType } from '@assets/types/ProductType';
+import DefaultImg from '@assets/images/pngs/default_product.png';
 
 export const Product = ({
   productId,
@@ -11,9 +12,10 @@ export const Product = ({
   title,
   price,
   averageScore,
-  imgWidth
+  imgWidth,
 }: ProductType) => {
   const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const imageSrc = productImg || DefaultImg;
 
   return (
     <Wrapper
@@ -22,11 +24,11 @@ export const Product = ({
       heightPer={100}
       align="flex-start"
       gap={1}
-      padding="2"
+      padding="2px"
       backgroundColor={colors.White}
     >
       <Flex direction="column" align="center">
-        <Img src={productImg} width={imgWidth} />
+        <Img src={imageSrc} width={imgWidth} />
       </Flex>
       <Flex height="auto" margin="8px 0 0 0">
         <Title colorCode={colors.Black} typo="Body3">
@@ -58,7 +60,7 @@ export const Product = ({
   );
 };
 
-const Wrapper = styled(Flex)`
+const Wrapper = styled(HeightFitFlex)`
   box-sizing: border-box;
   border-radius: 10px;
   cursor: pointer;
@@ -81,7 +83,7 @@ const Title = styled(Text)`
 export const Img = styled.img<{ width: string }>`
   display: flex;
   border-radius: 10px;
-  width: ${({ width }) => (width ? width : '70%')};
+  width: ${({ width }) => (width ? width : '100%')};
   flex: 1;
-  object-fit: fill;
+  object-fit: cover;
 `;

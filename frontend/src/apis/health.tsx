@@ -1,10 +1,16 @@
 import { HealthDataType } from '@/assets/types/AnalysisType';
 import client, { ResponseBody } from './client';
+import { ProductType } from '@/assets/types/ProductType';
 
 interface Nutrient {
   current: number;
   recommended: number;
 }
+
+export type PartialProductType = Pick<
+  ProductType,
+  'productId' | 'productImg' | 'title' | 'price' | 'averageScore'
+>;
 
 export interface NutrientType {
   petStatus: string;
@@ -19,6 +25,7 @@ export interface NutrientType {
   deficientNutrients: string[];
   excessNutrient: string;
   optimalNutrient: string;
+  recommandProduct: PartialProductType[];
 }
 
 export interface HealthResponse extends ResponseBody {
