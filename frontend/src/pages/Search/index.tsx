@@ -88,7 +88,7 @@ const Search = () => {
         justify="space-between"
         align="flex-end"
         padding="12px 36px 12px 36px"
-        height="112"
+        height="96"
         gap={16}
       >
         <InputWrapper
