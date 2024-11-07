@@ -1,4 +1,10 @@
-import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+} from 'typeorm';
 import { Pet } from './pet.entity';
 import { BaseEntity } from './base.entity';
 import { ApiProperty } from '@nestjs/swagger';
@@ -10,6 +16,7 @@ export class Health extends BaseEntity {
   healthId: string;
 
   @ApiProperty({ description: '반려동물 ID', type: () => Pet })
+  @JoinColumn({ name: 'pet_id' })
   @ManyToOne(() => Pet, (pet) => pet.healthRecords)
   pet: Pet;
 

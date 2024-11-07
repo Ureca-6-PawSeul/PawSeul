@@ -50,9 +50,7 @@ export class OrderService {
         const product = await this.productRepository.findOneBy({
           productId: orderItem.productId,
         });
-        console.log('ewfwefewfw', product);
         if (!product) {
-          console.log('wevawvdvvwe');
           throw new HttpException(
             `상품이 존재하지 않습니다: ${orderItem.productId}`,
             HttpStatus.BAD_REQUEST,
@@ -140,7 +138,6 @@ export class OrderService {
       const cartProduct = await this.cartProductRepository.findOne({
         where: { user: { userId }, product: { productId: product.productId } },
       });
-      console.log('cartProduct', cartProduct);
 
       if (!cartProduct) {
         throw new HttpException(

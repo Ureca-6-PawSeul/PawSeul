@@ -7,9 +7,12 @@ import { Pet } from 'src/entity/pet.entity';
 // import { HealthInitService } from 'src/health/init/healthInit.service';
 import { Product } from 'src/entity/product.entity';
 import { RecommandProduct } from 'src/entity/recommandProduct.entity';
+import { User } from 'src/entity/user.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Health, Pet, Product, RecommandProduct])],
+  imports: [
+    TypeOrmModule.forFeature([Health, Pet, Product, RecommandProduct, User]),
+  ],
   controllers: [HealthController],
   providers: [
     HealthService,
