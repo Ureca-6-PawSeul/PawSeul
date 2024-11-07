@@ -14,7 +14,7 @@ const Recommend = ({
   const user = useUserStore((state) => state.user);
   const navigate = useNavigate();
   const handleNavigateToDetail = (productId: string) => {
-    navigate(`store/detail/${productId}`);
+    navigate(`/store/detail/${productId}`);
   };
 
   return (
