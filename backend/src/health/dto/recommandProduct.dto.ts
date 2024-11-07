@@ -7,27 +7,12 @@ export class RecommandProductDto {
   @ApiProperty({ description: '물품 이름' })
   title: string;
 
-  @ApiProperty({ description: '칼로리' })
-  cal: number;
+  @ApiProperty({ description: '물품 가격' })
+  price: number;
 
-  @ApiProperty({ description: '탄수화물' })
-  carbon: number;
+  @ApiProperty({ description: '물품 이미지 url' })
+  productImg: string;
 
-  @ApiProperty({ description: '지방' })
-  fat: number;
-
-  @ApiProperty({ description: '단백질' })
-  protein: number;
-
-  @ApiProperty({ description: '칼슘' })
-  calcium: number;
-
-  @ApiProperty({ description: '비타민 A' })
-  vitaminA: number;
-
-  @ApiProperty({ description: '비타민 D' })
-  vitaminD: number;
-
-  @ApiProperty({ description: '비타민 E' })
-  vitaminE: number;
+  @ApiProperty({ description: '물품 평점' })
+  averageScore: number;
 }

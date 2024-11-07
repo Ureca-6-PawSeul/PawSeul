@@ -11,8 +11,8 @@ export class typeORMConfig implements TypeOrmOptionsFactory {
       username: process.env.TYPEORM_USERNAME,
       password: process.env.TYPEORM_PASSWORD,
       database: process.env.TYPEORM_DATABASE,
-      timezone: 'Asia/Seoul',
       namingStrategy: new SnakeNamingStrategy(),
+      timezone: '+09:00',
       entities: [__dirname + '/../**/*.entity.{js,ts}'],
       synchronize: true,
     };
