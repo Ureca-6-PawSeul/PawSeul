@@ -10,6 +10,7 @@ import OpenAI from 'openai';
 import { Health } from 'src/entity/health.entity';
 import { Pet } from 'src/entity/pet.entity';
 import { RecommandProduct } from 'src/entity/recommandProduct.entity';
+import { User } from 'src/entity/user.entity';
 import { AiHealthRequestDto } from 'src/health/dto/aiHealthRequest.dto';
 import { Repository } from 'typeorm';
 
@@ -26,6 +27,9 @@ export class HealthService {
 
     @InjectRepository(RecommandProduct)
     private recommandProductRepository: Repository<RecommandProduct>,
+
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
   ) {}
 
   async aiHealth(aiHealthDto: AiHealthRequestDto) {
@@ -120,13 +124,24 @@ export class HealthService {
       pet: userPet,
       description: data,
     });
-    return await this.healthRepository.save(health);
+
+    await this.healthRepository.save(health);
   }
 
   async getRecentHealthData(userId: string) {
+    const user = await this.userRepository.findOne({ where: { userId } });
+
+    if (!user) {
+      throw new HttpException('사용자를 찾을 수 없어요!', HttpStatus.NOT_FOUND);
+    }
+    console.log('user', user);
+
     const userPet = await this.petRepository.findOne({
-      where: { user: { userId } },
+      where: { user },
+      relations: ['healthRecords'],
     });
+
+    console.log('userPet', userPet);
 
     if (!userPet) {
       throw new HttpException(
@@ -135,18 +150,17 @@ export class HealthService {
       );
     }
 
-    const health = await this.healthRepository.findOne({
-      where: { pet: userPet },
-      order: { createdAt: 'DESC' },
-    });
+    const healthRecentInfo = userPet.healthRecords.sort(
+      (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
+    );
 
-    if (!health) {
+    if (healthRecentInfo.length === 0) {
       throw new HttpException(
         '건강 정보를 찾을 수 없어요!',
         HttpStatus.NOT_FOUND,
       );
     }
 
-    return health;
+    return healthRecentInfo[0];
   }
 }
