@@ -82,7 +82,7 @@ const Home = () => {
 
         {/* {nutrientData && (
           <HealthHistory
-            petname={user.pet.petname}
+            petname={user?.pet.petname}
             nutrientData={nutrientData}
           />
         )} */}

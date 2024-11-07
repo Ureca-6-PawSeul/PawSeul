@@ -35,7 +35,6 @@ const Store = () => {
 
   const navigate = useNavigate();
   const handleClick = (productId: number | string) => {
-    console.log(`Navigating to detail/${productId}`);
     navigate(`detail/${productId}`);
   };
 

@@ -103,8 +103,8 @@ const HealthHistory = ({
               <CircularProgressBar
                 progress={Math.min(
                   Math.floor(
-                    (nutrientData.calories.current /
-                      nutrientData.calories.recommended) *
+                    (nutrientData?.calories.current /
+                      nutrientData?.calories.recommended) *
                       100,
                   ),
                   100,
@@ -118,8 +118,8 @@ const HealthHistory = ({
               />
               <CenterText direction="column">
                 <InnerText typo="Heading2">
-                  {nutrientData.calories.current} /{' '}
-                  {nutrientData.calories.recommended}
+                  {nutrientData?.calories.current} /{' '}
+                  {nutrientData?.calories.recommended}
                 </InnerText>
                 <InnerText typo="Heading2">Kcal</InnerText>
               </CenterText>
