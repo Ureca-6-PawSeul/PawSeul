@@ -95,6 +95,7 @@ const Cart = () => {
 
       if (response) {
         deleteSelectedItems(); // 상태에서 선택된 아이템 삭제
+        setSelectedItems([]); // 선택된 아이템 초기화
         notify('선택한 상품이 삭제되었습니다.');
       }
     } catch (error) {
