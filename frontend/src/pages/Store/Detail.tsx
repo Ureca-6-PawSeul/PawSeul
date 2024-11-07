@@ -113,7 +113,7 @@ const Detail = () => {
         justify="flex-start"
         align="center"
         gap={5}
-        padding="56px 12px 0 12px"
+        padding="56px 0 0"
       >
         <Wrapper
           direction="column"
