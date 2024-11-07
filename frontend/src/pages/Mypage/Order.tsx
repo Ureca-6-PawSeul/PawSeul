@@ -1,4 +1,4 @@
-import { Flex } from '@/components/common/Flex';
+import { Flex, HeightFitFlex } from '@/components/common/Flex';
 import { OrderHistory } from '@components/mypage/orderHistory';
 import styled from '@emotion/styled';
 import { useDeleteOrder, useGetUserOrder } from '@/apis/hooks/order';
@@ -48,8 +48,8 @@ export const OrderHistoryPage = () => {
           margin="60px 0 0 0"
         >
           {userOrder?.map((order) => (
-            <div key={order.orderId}> 
-              <Flex direction="column" justify="flex-start" height="fit-content">
+            <HeightFitFlex key={order.orderId}> 
+              <Flex direction="column" justify="flex-start">
                 <OrderHistory
                   date={order.orderCreatedAt}
                   state={order.orderState}
@@ -93,7 +93,7 @@ export const OrderHistoryPage = () => {
                   </Flex>
                 </Modal>
               )}
-            </div>
+            </HeightFitFlex>
           ))}
         </Wrapper>
       ) : (
