@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { Flex } from '@/components/common/Flex';
 import { Button } from '@/components/common/Button';
-import { Text } from '@/components/common/Typo';
+import { HardText, Text } from '@/components/common/Typo';
 
 import Allergy, { Allergies } from '@/components/health/Allergy';
 import CurFood from '@/components/health/CurFood';
@@ -10,7 +10,12 @@ import healthFood from '@/mocks/data/healthFood.json';
 import healthSnack from '@/mocks/data/healthSnack.json';
 import { InfoLine } from '../Signup/Result';
 import { colors } from '@/styles/colors';
-import { AllergyItem, FoodItem, SnackItem } from '@/assets/types/AnalysisType';
+import {
+  AllergyItem,
+  FoodItem,
+  HealthDataType,
+  SnackItem,
+} from '@/assets/types/AnalysisType';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '@/stores/userStore';
 
@@ -74,7 +79,7 @@ const Analysis = () => {
         );
       }
     } else {
-      const selectedData = {
+      const selectedData: HealthDataType = {
         allergy: selectedAllergiesItems,
         food: selectedFoodItem,
         snack: selectedSnackItem,
@@ -85,9 +90,8 @@ const Analysis = () => {
           gender: user.pet.gender,
         },
       };
-      console.log('전송할 데이터:', selectedData);
 
-      navigate('/health/result');
+      navigate('/health/result', { state: selectedData });
     }
   };
 
@@ -134,9 +138,9 @@ const Analysis = () => {
               borderRadius={10}
               backgroundColor={colors.White}
             >
-              <Text typo="Body3" margin="0 10px 0 0">
+              <HardText typo="Body3" margin="0 24px 0 0">
                 알러지
-              </Text>
+              </HardText>
               <Text typo="Body3" colorCode={colors.Gray400}>
                 {selectedAllergiesItems.length === 0
                   ? '없음'
@@ -148,9 +152,9 @@ const Analysis = () => {
               borderRadius={10}
               backgroundColor={colors.White}
             >
-              <Text typo="Body3" margin="0 10px 0 0">
+              <HardText typo="Body3" margin="0 24px 0 0">
                 선택한 사료
-              </Text>
+              </HardText>
               <Text typo="Body3" colorCode={colors.Gray400}>
                 {selectedFoodItem?.title || '선택된 사료 없음'}
               </Text>
@@ -160,9 +164,9 @@ const Analysis = () => {
               borderRadius={10}
               backgroundColor={colors.White}
             >
-              <Text typo="Body3" margin="0 10px 0 0">
+              <HardText typo="Body3" margin="0 24px 0 0">
                 선택한 간식
-              </Text>
+              </HardText>
               <Text typo="Body3" colorCode={colors.Gray400}>
                 {selectedSnackItem?.title || '선택된 간식 없음'}
               </Text>

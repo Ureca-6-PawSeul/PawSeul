@@ -38,6 +38,7 @@ const LoginButton = styled(Flex)`
   height: fit-content;
   position: relative;
   flex: 1;
+  cursor: pointer;
 `;
 
 const KaKaoLogin = styled.img`

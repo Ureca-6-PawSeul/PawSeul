@@ -18,6 +18,8 @@ export const OrderContent = ({
   bottomContent: string;
   children?: React.ReactNode;
 }) => {
+  const priceString = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
   return (
     <Flex
       justify="flex-start"
@@ -33,7 +35,7 @@ export const OrderContent = ({
         </Text>
         <Flex direction="row" align="center" justify="flex-start" gap={10}>
           <Text typo="Label1" colorCode={colors.Black}>
-            {price}원
+            {priceString}원
           </Text>
           <Text typo="Body4" colorCode={colors.Gray500}>
             {quantity}개

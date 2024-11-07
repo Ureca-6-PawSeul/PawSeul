@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { colors } from './colors';
+import { colors } from '../colors';
 
 export const calcRem = (px: number) => `${px / 16}rem`;
 

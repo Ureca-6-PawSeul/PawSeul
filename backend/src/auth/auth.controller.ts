@@ -41,13 +41,17 @@ export class AuthController {
 
     if (!isSignup) {
       // 정보 등록 페이지
-      return res.redirect('http://localhost:3000/signup');
+      return res.redirect(
+        `${process.env.FRONTEND_URL || 'http://localhost:3000'}/signup`,
+      );
     }
 
     this.logger.log('카카오 API');
 
     //홈페이지
-    return res.redirect('http://localhost:3000');
+    return res.redirect(
+      `${process.env.FRONTEND_URL || 'http://localhost:3000'}`,
+    );
   }
 
   @Post('logout')

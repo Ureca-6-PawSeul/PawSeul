@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Flex } from '../Flex';
-import { tag } from '@styles/tag';
+import { tag } from '@styles/themes/tag';
 import { css } from '@emotion/react';
 
 interface TagProps {
