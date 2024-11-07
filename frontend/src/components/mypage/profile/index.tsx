@@ -15,7 +15,7 @@ const Profile = (
   
   return (
     <ProfileWrapper direction="column" justify='flex-start' padding="10px 10px" borderRadius={10}>
-      <ClickBtn justify="flex-end" direction="row" onClick={onClick}>
+      <ClickBtn justify="flex-end" direction="row" onClick={onClick} padding="4px 4px">
         <Text align="flex-end" typo="Label3" colorCode={colors.Gray600}>
           정보 수정하기
         </Text>
@@ -23,7 +23,7 @@ const Profile = (
       </ClickBtn>
       <Flex direction="row" padding="0 0 13px 0">
         <DogProfile width={200} />
-        <Flex direction="column" justify="center" align="flex-start" gap={5}>
+        <Flex direction="column" justify="center" align="flex-start" gap={8}>
           <Text typo="Body2" colorCode={colors.Black}>
             {petname}
           </Text>

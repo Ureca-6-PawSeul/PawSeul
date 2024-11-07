@@ -17,7 +17,6 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       setReviews(data);
     }
   }, [data]);

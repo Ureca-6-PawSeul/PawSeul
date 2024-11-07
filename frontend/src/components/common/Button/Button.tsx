@@ -39,9 +39,9 @@ const Button = styled.div<ButtonProps>`
   &:hover {
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     background-color: ${({ hoverBg, disabled }) =>
-      disabled ? "none" : hoverBg || colors.MainColor};
+      disabled ? 'none' : hoverBg || colors.MainColor};
     color: ${({ hoverFontColor, disabled }) =>
-      disabled ? "none" : hoverFontColor || colors.White};
+      disabled ? 'none' : hoverFontColor || colors.White};
   }
 `;
 

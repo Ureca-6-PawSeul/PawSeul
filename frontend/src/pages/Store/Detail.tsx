@@ -251,7 +251,11 @@ const Detail = () => {
                   </Flex>
                 </Flex>
                 <Flex justify="center">
-                  <Button bg={colors.MainColor} onClick={toggleAddModal}>
+                  <Button
+                    bg={colors.MainColor}
+                    onClick={toggleAddModal}
+                    height="48px"
+                  >
                     장바구니에 추가하기
                   </Button>
                 </Flex>
@@ -266,11 +270,11 @@ const Detail = () => {
             )}
             {isAddModalOpen && ( // 장바구니 추가 모달
               <Modal isOpen={isAddModalOpen} toggleModal={toggleAddModal}>
-                <Flex direction="column" padding="32px 0 0" gap={12}>
+                <Flex direction="column" padding="16px 0 0" gap={8}>
                   <Text typo="Heading4">
                     장바구니에 상품을 추가하시겠습니까?
                   </Text>
-                  <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
+                  <Flex padding="0px 24px" margin="16px 0 16px" gap={24}>
                     <Button
                       height="40px"
                       bg={colors.Gray400}
@@ -296,10 +300,10 @@ const Detail = () => {
             )}
             {isMoveModalOpen && ( // 장바구니 이동 모달
               <Modal isOpen={isMoveModalOpen} toggleModal={toggleMoveModal}>
-                <Flex direction="column" padding="32px 0 0" gap={12}>
+                <Flex direction="column" padding="16px 0 0" gap={0}>
                   <Text typo="Heading4">장바구니에 상품이 추가되었습니다.</Text>
                   <Text typo="Body2">장바구니로 이동하시겠습니까?</Text>
-                  <Flex padding="0px 52px" margin="20px 0 10px" gap={20}>
+                  <Flex padding="0px 24px" margin="24px 0 16px" gap={24}>
                     <Button
                       height="40px"
                       bg={colors.Gray400}

@@ -1,3 +1,4 @@
+export { default as MiniSearchIcon } from './MiniSearchIcon';
 export { default as TossLogo } from './TossLogo';
 export { default as Banner1 } from './Banner1';
 export { default as Banner2 } from './Banner2';

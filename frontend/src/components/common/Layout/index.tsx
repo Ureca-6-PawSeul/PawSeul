@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Navbar from '../Navbar';
 import { Flex } from '../Flex';
+import { colors } from '@/styles/colors';
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -15,6 +16,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
 const Wrapper = styled(Flex)`
   overflow-x: hidden;
+  background-color: ${colors.Gray700};
 `;
 
 const MobileWrapper = styled(Flex)`
@@ -28,4 +30,5 @@ const MobileWrapper = styled(Flex)`
     border-image: initial;
     border-width: 0.5px;
   }
+  background-color: ${colors.White};
 `;

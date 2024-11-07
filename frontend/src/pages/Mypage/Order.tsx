@@ -44,7 +44,7 @@ export const OrderHistoryPage = () => {
           direction="column"
           justify="flex-start"
           align="flex-start"
-          padding="0 12px"
+          padding="0 24px"
           margin="60px 0 0 0"
         >
           {userOrder?.map((order) => (
@@ -99,7 +99,6 @@ export const OrderHistoryPage = () => {
       ) : (
         <Flex>주문한 내역이 없습니다.</Flex>
       )}
-      
     </>
   );
 };

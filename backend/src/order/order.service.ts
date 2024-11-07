@@ -201,6 +201,7 @@ export class OrderService {
           OrderStateType.CANCELED,
         ]),
       },
+      order: { createdAt: 'DESC' },
       relations: ['orderItems', 'orderItems.product'],
     });
 
@@ -254,6 +255,7 @@ export class OrderService {
       where: { user: { userId } },
       relations: ['product'],
       select: ['product'],
+      order: { createdAt: 'DESC' },
     });
 
     const reviewedProductIds = reviewedProducts.map(

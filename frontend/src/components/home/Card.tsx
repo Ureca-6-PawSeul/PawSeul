@@ -6,18 +6,13 @@ import { Product } from '../store/Product';
 import styled from '@emotion/styled';
 
 function Card({ productList }: { productList: ProductType[] }) {
-  console.log(productList);
   const settings = {
     className: 'center',
     infinite: true,
     centerPadding: '60px',
     slidesToShow: 3,
     swipeToSlide: true,
-    afterChange: function (index) {
-      console.log(
-        `Slider Changed to: ${index + 1}, background: #222; color: #bada55`,
-      );
-    },
+
   };
   return (
     <div className="slider-container">

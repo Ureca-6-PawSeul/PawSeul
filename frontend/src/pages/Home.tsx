@@ -37,13 +37,11 @@ const Home = () => {
   useEffect(() => {
     if (data) setUserInfo(data);
     if (productListData) setProductList(productListData);
-
   }, [data, setUserInfo, productListData, healthData]);
 
-  useEffect(()=>{
-    if(healthData) setNutrientData(healthData.data);
-  },[healthData, setNutrientData])
-
+  useEffect(() => {
+    if (healthData) setNutrientData(healthData);
+  }, [healthData]);
 
   const navigate = useNavigate();
   const handleNavigateToHome = () => {
@@ -72,7 +70,7 @@ const Home = () => {
         margin="0 0 60px 0"
       >
         {/* 배너 */}
-        <Flex direction="column" height="fit-content" margin="56px 0 0 0">
+        <Flex direction="column" height="fit-content" margin="56px 0 24px 0">
           <Carousel>
             {imageList.map((ImageComponent, index) => (
               <Flex key={index}>
@@ -84,13 +82,13 @@ const Home = () => {
 
         {nutrientData && (
           <HealthHistory
-            petname={user.pet.petname}
+            petname={user?.pet.petname}
             nutrientData={nutrientData}
           />
         )}
 
         {/* TOP10 상품 리스트 */}
-        <HeightFitFlex padding="12px 12px" direction="column">
+        <HeightFitFlex padding="24px" direction="column" gap={12}>
           <Flex gap={5} justify="flex-start" height="fit-content">
             <Text typo="Heading3" colorCode={colors.Black}>
               요즘 포슬 트렌드는?&nbsp;<MarkText>TOP 10</MarkText>

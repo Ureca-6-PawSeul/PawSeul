@@ -128,7 +128,6 @@ const StyledMark = styled.mark`
 const Wrapper = styled(Flex)`
   overflow-y: auto;
   overflow-x: hidden;
-  height: calc(100vh - 140px);
   flex-wrap: wrap;
   width: 100%;
 

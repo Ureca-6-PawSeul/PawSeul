@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Flex } from '@components/common/Flex';
+import { Flex, HeightFitFlex } from '@components/common/Flex';
 import { Text } from '@components/common/Typo';
 import { colors } from '@styles/colors';
 import { Product } from '@components/store/Product';
@@ -13,6 +13,8 @@ import { Header } from '@/components/common/Header';
 import { CartIcon, MiniLogo } from '@/assets/images/svgs';
 import { useGetProductList } from '@/apis/hooks/product';
 import { useUserStore } from '@/stores/userStore';
+import { Hr } from '@/components/store/Hr';
+import { Skeleton } from '@/components/skeleton';
 
 const categoryMapping = {
   사료: 'food',
@@ -35,7 +37,6 @@ const Store = () => {
 
   const navigate = useNavigate();
   const handleClick = (productId: number | string) => {
-    console.log(`Navigating to detail/${productId}`);
     navigate(`detail/${productId}`);
   };
 
@@ -68,16 +69,14 @@ const Store = () => {
         justify="flex-start"
         align="center"
         gap={5}
-        padding="72px 12px 0 12px"
+        padding="72px 12px 80px 12px"
       >
         {/* 카테고리 버튼 */}
-        <Flex
+        <HeightFitFlex
           direction="row"
           align="center"
-          // justify="space-between"
-          height={40}
+          margin="4px 0 16px 0"
           gap={30}
-          margin="0 0 8px 0"
         >
           {(['사료', '간식', '영양제'] as Category[]).map((category) => (
             <Tag
@@ -92,26 +91,27 @@ const Store = () => {
               <Text typo="Body3">{category}</Text>
             </Tag>
           ))}
-        </Flex>
+        </HeightFitFlex>
 
-        <Flex justify="flex-start" height={24} margin="4px 0px 4px 0">
+        <Flex justify="flex-start" height={24} padding="0 14px">
           <Text colorCode={colors.Black} typo="Heading4" align="flex-start">
-            {user.username.slice(1)}님의 맞춤 상품 찾기
+            {user.pet.petname}의 맞춤 상품 찾기
           </Text>
         </Flex>
-        <Flex
+        <Hr />
+        <HeightFitFlex
           direction="row"
           justify="flex-start"
-          height={40}
-          gap={8}
-          margin="0 0 16px 0"
+          gap={10}
+          margin="4px 0 8px 0"
+          padding="0 12px"
         >
           {subCategories[selectedCategory]?.map((subCategory, index) => (
             <Tag
               key={index}
               colorCode={
                 selectedSubCategory === subCategory
-                  ? 'FilledMainColor'
+                  ? 'FilledGray'
                   : 'BorderGray'
               }
               onClick={() => setSelectedSubCategory(subCategory)}
@@ -119,8 +119,7 @@ const Store = () => {
               <Text typo="Label3">{subCategory}</Text>
             </Tag>
           ))}
-        </Flex>
-
+        </HeightFitFlex>
         {/* 상품 리스트 */}
         <Wrapper
           direction="row"
@@ -129,6 +128,10 @@ const Store = () => {
           gap={35}
           padding="0 0 0 35px"
         >
+          {productDataList.length === 0 &&
+            Array.from({ length: 4 }).map((_, index) => (
+              <Skeleton key={index} />
+            ))}
           {productDataList?.map((item, index) => (
             <ProductWrapper
               key={index}
@@ -169,4 +172,8 @@ const ProductWrapper = styled.div`
   /* width: calc(33.33% - 8px); */
   width: calc(50% - 35px);
   box-sizing: border-box;
+`;
+
+const ShadowFlex = styled(Flex)`
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;

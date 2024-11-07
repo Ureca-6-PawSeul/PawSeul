@@ -16,7 +16,6 @@ export const getProductDetail = async (id: string) => {
 };
 
 export const getProductList = async (category, subCategory ) => {
-    // console.log(`product/${category}/${subCategory}`)
     const { data } = await client.get(`product?category=${category}&subcategory=${subCategory}`, {
         withCredentials: true,
     })
@@ -25,7 +24,6 @@ export const getProductList = async (category, subCategory ) => {
 }
 
 export const getTopProductList = async ( ) => {
-    // console.log(`api/product/${category}`)
     const {data} = await client.get(`product/topTen`, {
         withCredentials: true,
     })

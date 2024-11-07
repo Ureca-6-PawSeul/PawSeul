@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '@/stores/userStore';
 import { Header } from '@/components/common/Header';
 import { CheckIcon } from '@/assets/images/svgs';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack } from 'react-icons/io';
 
 import { toast } from 'react-toastify';
 import { Toast } from '@/components/common/Toast';
@@ -51,7 +51,7 @@ const Mypage = () => {
     <>
       <Header
         title="마이페이지"
-        LeftIcon={<IoIosArrowBack size={26} color={colors.Black}/>}
+        LeftIcon={<IoIosArrowBack size={26} color={colors.Black} />}
         onLeftIconClick={handleNavigateToHome}
       />
       <Flex
@@ -59,20 +59,57 @@ const Mypage = () => {
         align="center"
         padding="12px 24px"
         justify="flex-start"
-        margin="60px 0 60px 0"
-        // style={{ flex: 1 }}
+        margin="72px 0 60px 0"
       >
-        <HeightFitFlex direction="row" justify="flex-start" gap={3}>
-          <Text colorCode={colors.Black} typo="Label1" align="flex-start">
-            {user ? user.username : '-'}
-          </Text>
-          <Text colorCode={colors.Black} typo="Body3" align="flex-start">
-            님의
-          </Text>
+        <HeightFitFlex
+          direction="column"
+          justify="flex-start"
+          align="flex-end"
+          margin="0 0 24px 0"
+        >
+          <HeightFitFlex justify="flex-start" align="flex-end" gap={6}>
+            <HeightFitFlex
+              width="fit-content"
+              justify="flex-start"
+              align="flex-end"
+            >
+              <Text colorCode={colors.Black} typo="Heading4" align="flex-start">
+                {user ? user.username : '-'}
+              </Text>
+              <Text colorCode={colors.Black} typo="Body2" align="flex-start">
+                님
+              </Text>
+            </HeightFitFlex>
+            <Text
+              colorCode={colors.MainColor}
+              typo="Heading3"
+              align="flex-start"
+              style={{ fontWeight: 700 }}
+            >
+              포슬과 함께
+            </Text>
+          </HeightFitFlex>
+          <HeightFitFlex gap={4} justify="flex-start">
+            <Text
+              typo="Heading3"
+              align="flex-start"
+              style={{ fontWeight: 700 }}
+            >
+              슬기로운
+            </Text>
+            <Text typo="Heading3" align="flex-start">
+              반려생활 시작해요!
+            </Text>
+          </HeightFitFlex>
         </HeightFitFlex>
         {user.pet && (
           <>
-            <Flex direction="row" justify="flex-start" height={40}>
+            <Flex
+              direction="row"
+              justify="flex-start"
+              height={40}
+              margin="0 0 8px 0"
+            >
               <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
                 반려견 정보
               </Text>

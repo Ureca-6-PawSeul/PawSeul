@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Flex } from '@components/common/Flex';
+import { Flex, HeightFitFlex } from '@components/common/Flex';
 import { colors } from '@styles/colors';
 import { IoArrowBack, IoSearch } from 'react-icons/io5';
 import { TiDelete } from 'react-icons/ti';
@@ -11,6 +11,7 @@ import { ProductType } from '@/assets/types/ProductType';
 import { debounce } from 'lodash';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
+import { MiniSearchIcon } from '@/assets/images/svgs';
 
 const Search = () => {
   // 현재 검색어
@@ -69,10 +70,6 @@ const Search = () => {
     [], //랜더링 시 매번 새로운 함수가 생성되는 것을 방지
   );
 
-  const handleBackClick = () => {
-    navigate(-1); //
-  };
-
   useEffect(() => {
     if (searchQuery) {
       setIsSearchComplete(false); //검색어 입력 중에는 검색 완료 상태를 false로 변경
@@ -89,19 +86,20 @@ const Search = () => {
     <Flex direction="column" justify="flex-start">
       <SearchWrapper
         justify="space-between"
-        padding="12px 24px 12px 12px"
-        height="fit-content"
-        gap={12}
+        align="flex-end"
+        padding="12px 36px 12px 36px"
+        height="96"
+        gap={16}
       >
-        <BackWrapper onClick={handleBackClick}>
-          <IoIosArrowBack size={24} />
-        </BackWrapper>
         <InputWrapper
-          padding="6px 6px 6px 12px "
+          padding="6px 12px 6px 12px "
           backgroundColor={colors.White}
-          justify="space-between"
+          gap={8}
           height={40}
         >
+          <ShrinkFlex width={24} height={24}>
+            <MiniSearchIcon height={24} />
+          </ShrinkFlex>
           <Input
             type="text"
             placeholder="검색"
@@ -117,7 +115,9 @@ const Search = () => {
           />
           {searchQuery && (
             <EraseButton onClick={() => setSearchQuery('')} width="fit-content">
-              <TiDelete size={26} color={colors.Gray300} />
+              <ShrinkFlex>
+                <TiDelete size={26} color={colors.Gray300} />
+              </ShrinkFlex>
             </EraseButton>
           )}
         </InputWrapper>
@@ -140,26 +140,17 @@ const Search = () => {
 };
 
 const SearchWrapper = styled(Flex)`
-  border-bottom: 1px solid ${colors.Gray100};
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  box-sizing: border-box;
 `;
 
 const InputWrapper = styled(Flex)`
   border-radius: 52px;
   backdrop-filter: blur(8px);
-  border: 1px solid ${colors.Gray600};
-`;
-
-const InputButton = styled.button`
-  border: none;
-  background-color: transparent;
-`;
-
-const BackWrapper = styled.button`
-  border: none;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: ${colors.Gray100};
+  flex-shrink: 0;
+  box-sizing: border-box;
 `;
 
 const Input = styled.input`
@@ -168,13 +159,17 @@ const Input = styled.input`
   resize: none;
   border: none;
   width: 100%;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 23px;
 `;
 
 const EraseButton = styled(Flex)`
   cursor: pointer;
+`;
+
+const ShrinkFlex = styled(Flex)`
+  flex-shrink: 0;
 `;
 
 export default Search;
