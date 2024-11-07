@@ -36,7 +36,13 @@ const ProductWrapper = styled.div`
   gap: 10px;
 `;
 
-const Placeholder = styled.div`
+interface PlaceholderProps {
+  width: string;
+  height: string;
+  delay?: string;
+}
+
+const Placeholder = styled.div<PlaceholderProps>`
   background-color: ${colors.Gray200};
   border-radius: 10px;
   animation: pulse 1.5s infinite;
