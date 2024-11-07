@@ -16,7 +16,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
 const Wrapper = styled(Flex)`
   overflow-x: hidden;
-  background-color: ${colors.Gray700};
+  background-color: ${colors.Gray100};
 `;
 
 const MobileWrapper = styled(Flex)`
