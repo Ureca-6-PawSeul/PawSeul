@@ -192,7 +192,7 @@ const Cart = () => {
         <CartCost cost={0} />
       )}
       <StickyFooter isScrolledToBottom={false}>
-        <Button bg={colors.MainColor} onClick={handleMoveToPayment}>
+        <Button bg={colors.MainColor} onClick={handleMoveToPayment} height='40px'>
           결제하기
         </Button>
       </StickyFooter>
