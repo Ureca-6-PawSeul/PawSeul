@@ -53,9 +53,9 @@ export class HealthService {
               - Give the current and recommended values (in grams) for carbon, protein, and fat for pet(dog).
               - Identify two deficient nutrients from the following: calories, carbon, protein, fat, vitamin A, vitamin D, vitamin E, and calcium.
               - Select one nutrient in excess and one nutrient within the optimal range.
-              - Recommend a product that meets the pet's nutritional needs. Pick one product in ${JSON.stringify(recommandProduct)}
-              - put the product id,title,price,productImg,averageScore in the recommandProduct field.
-              -
+              - Recommend one or two product that meets the pet's nutritional needs. Pick one product in ${JSON.stringify(recommandProduct)}
+              - you must put the products's id,title,price,productImg,averageScore in the recommandProduct field.
+
               Your answer must always be PetNutrientStatus in JSON format and do not use \`\, I will provide JSON type :
       type NutrientName = '칼로리' | '탄수화물' | '단백질' | '지방' | '비타민A' | '비타민D' | '비타민E' | '칼슘';
       type Nutrient = {
@@ -82,7 +82,7 @@ export class HealthService {
             price:number;
             productImg:string;
             averageScroe:number;
-          }
+          }[]
       };
        `,
           },
