@@ -23,7 +23,7 @@ const PaymentLoading = () => {
         <Flex direction="column" gap={24}>
           <LottieContainer ref={lottieRef} />
           <LoadingMsg>
-            건강 분석 중입니다. <br />
+            결제 중입니다. <br />
             잠시만 기다려주세요.
           </LoadingMsg>
         </Flex>
