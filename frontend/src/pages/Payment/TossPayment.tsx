@@ -52,7 +52,6 @@ export const TossPayment = ({ price, orderItems }: TossPaymentProps) => {
       totalPrice: price,
       orderItems,
     };
-    // console.log(orderData);
     const orderId = await postUserOrder(orderData);
 
     // 결제 과정에서 악의적으로 결제 금액이 바뀌는 것을 확인하는 용도입니다.

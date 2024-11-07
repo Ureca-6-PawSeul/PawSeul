@@ -32,7 +32,6 @@ const tableData = (data: Record<string, any>) => {
     return obj;
   }, {} as Record<string, any>);
 
-  // console.log(afterDescriptionImg);
 
   // JSON 문자열로 리턴
   return afterDescriptionImg;

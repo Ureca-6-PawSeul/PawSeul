@@ -69,7 +69,6 @@ export const ReviewHistoryPage = () => {
   };
 
   const handleSubmit = async ()=>{
-    console.log(currentProductId)
     if (reviewScore < 1) {
       notify('리뷰 점수를 입력해주세요');
       return;
@@ -101,7 +100,6 @@ export const ReviewHistoryPage = () => {
       setUserReviewList(reviewRemain);
     } else if (activeTab === 2) {
       setUserReviewList(reviewDone);
-      // console.log(reviewDone)
     }
   }, [activeTab, reviewDone, reviewRemain]);
 

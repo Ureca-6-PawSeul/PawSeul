@@ -41,7 +41,6 @@ const Home = () => {
 
   useEffect(() => {
     if (healthData) setNutrientData(healthData);
-    console.log(healthData);
   }, [healthData]);
 
   const navigate = useNavigate();
