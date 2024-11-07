@@ -59,7 +59,7 @@ const Mypage = () => {
         align="center"
         padding="12px 24px"
         justify="flex-start"
-        margin="72px 0 60px 0"
+        margin="72px 0 112px 0"
       >
         <HeightFitFlex
           direction="column"
@@ -128,7 +128,7 @@ const Mypage = () => {
           </>
         )}
         <BottomBtn direction="column" align="flex-start" padding="19px 11px">
-          <Text colorCode={colors.Black} typo="Body3" align="flex-start">
+          <Text colorCode={colors.Black} typo="Body2" align="flex-start">
             찜한 목록
           </Text>
         </BottomBtn>
@@ -138,7 +138,7 @@ const Mypage = () => {
           padding="19px 11px"
           onClick={handleClickOrderHistory}
         >
-          <Text colorCode={colors.Black} typo="Body3" align="flex-start">
+          <Text colorCode={colors.Black} typo="Body2" align="flex-start">
             주문 내역
           </Text>
         </BottomBtn>
@@ -148,7 +148,7 @@ const Mypage = () => {
           padding="19px 11px"
           onClick={handleClickReviewHistory}
         >
-          <Text colorCode={colors.Black} typo="Body3" align="flex-start">
+          <Text colorCode={colors.Black} typo="Body2" align="flex-start">
             구매 후기
           </Text>
         </BottomBtn>
@@ -158,7 +158,7 @@ const Mypage = () => {
           padding="19px 11px"
           onClick={handleClickLogout}
         >
-          <Text colorCode={colors.Black} typo="Body3" align="flex-start">
+          <Text colorCode={colors.Black} typo="Body2" align="flex-start">
             로그아웃
           </Text>
         </BottomBtn>
