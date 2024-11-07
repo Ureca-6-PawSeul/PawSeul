@@ -6,13 +6,25 @@ import { IoCloseOutline } from 'react-icons/io5';
 
 interface RecentSearchResultProps {
   recentSearchQueries: string[];
-  clearRecentSearchQueries: () => void;
+  setRecentSearchQueries: (queries: string[]) => void;
+  setSearchQuery: (query: string) => void;
 }
 
 const RecentSearchResult = ({
   recentSearchQueries,
-  clearRecentSearchQueries
+  setRecentSearchQueries,
+  setSearchQuery,
 }: RecentSearchResultProps) => {
+  
+  const handleRecentClick = (e) => {
+    setSearchQuery(e.target.innerText);
+  }
+
+  const handleDeleteRecentSearch = () => {
+    setRecentSearchQueries([]);
+    sessionStorage.removeItem('recentSearchQueries');
+  }
+
   return (
     <Flex
       padding="40px 24px"
@@ -24,7 +36,7 @@ const RecentSearchResult = ({
       <Flex width="auto" height="auto" justify="flex-start" gap={12}>
         <Text typo="Heading4">최근 검색어</Text>
         {recentSearchQueries.length > 0 && (
-          <ClearButton onClick={clearRecentSearchQueries}>
+          <ClearButton onClick={handleDeleteRecentSearch}>
             <IoCloseOutline size={20} color={colors.Gray400} />
           </ClearButton>
         )}
@@ -38,6 +50,8 @@ const RecentSearchResult = ({
               backgroundColor={colors.Gray50}
               width="fit-content"
               height="fit-content"
+              key={index}
+              onClick={handleRecentClick}
             >
               <Text typo="Label2" colorCode={colors.Gray500}>
                 {recent}
@@ -57,6 +71,10 @@ const RecentWrapper = styled(Flex)`
 `;
 const RecentItem = styled(Flex)`
   border-radius: 70px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${colors.Gray100};
+  }
 `;
 
 const ClearButton = styled.button`
