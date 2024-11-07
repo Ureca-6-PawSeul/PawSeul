@@ -6,16 +6,19 @@ import { colors } from '@styles/colors';
 
 import CartItem from '@components/cart/CartItem';
 import CartCost from '@/components/cart/CartCost';
-import { CartEmptyBlack } from '@/assets/images/svgs';
+import { CartEmptyBlack, ErrorIcon } from '@/assets/images/svgs';
 
 import useCartStore from '@/stores/cartStore';
-import {useCartQuery} from '@/apis/hooks/useCartQuery';
+import { useCartQuery } from '@/apis/hooks/useCartQuery';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import StickyFooter from '@/components/store/StickyFooter';
 import { Button } from '@/components/common/Button';
-import { set } from 'date-fns';
-import { CartType } from '@/assets/types/CartType';
+import client from '@/apis/client';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toast } from '@/components/common/Toast';
 
 const Cart = () => {
   const data = useCartQuery();
@@ -36,20 +39,21 @@ const Cart = () => {
   useEffect(() => {
     if (data) {
       setCartItems(data);
-      
+
       // data를 기반으로 selectedItems의 수량을 업데이트한 배열
-      const updatedSelectedItems = useCartStore.getState().selectedItems.map((selectedItem) => {
-        const updatedItem = data.find(
-          (item) => item.productId === selectedItem.productId
-        );
-        return updatedItem
-          ? { ...selectedItem, quantity: updatedItem.quantity }
-          : selectedItem;
-      });
-  
+      const updatedSelectedItems = useCartStore
+        .getState()
+        .selectedItems.map((selectedItem) => {
+          const updatedItem = data.find(
+            (item) => item.productId === selectedItem.productId,
+          );
+          return updatedItem
+            ? { ...selectedItem, quantity: updatedItem.quantity }
+            : selectedItem;
+        });
+
       // updatedSelectedItems로 selectedItems 업데이트
       setSelectedItems(updatedSelectedItems);
-  
       calculateTotalPrice();
     }
   }, [data, setCartItems, setSelectedItems, calculateTotalPrice]);
@@ -64,6 +68,38 @@ const Cart = () => {
 
   const handleAllItemSelect = () => {
     toggleSelectAll();
+  };
+
+  const notify = (msg: string) => {
+    toast(
+      <Flex justify="space-between">
+        <span>{msg}</span>
+        <ErrorIcon width={24} height={24} style={{ marginLeft: '8px' }} />
+      </Flex>,
+      {
+        position: 'bottom-center',
+      },
+    );
+  };
+
+  const handleDeleteSelectedItems = async () => {
+    // selectedItems에서 productId 배열 생성
+    const deleteSelectedData = {
+      productIds: selectedItems.map((item) => item.productId),
+    };
+
+    try {
+      const response = await client.delete('/cart/remove', {
+        data: deleteSelectedData, // 요청 본문에 배열 데이터를 포함
+      });
+
+      if (response) {
+        deleteSelectedItems(); // 상태에서 선택된 아이템 삭제
+        notify('선택한 상품이 삭제되었습니다.');
+      }
+    } catch (error) {
+      notify('선택한 상품 삭제에 실패했습니다.');
+    }
   };
 
   return (
@@ -92,7 +128,7 @@ const Cart = () => {
         <DeleteText
           typo="Label1"
           colorCode={colors.Gray500}
-          onClick={deleteSelectedItems}
+          onClick={handleDeleteSelectedItems}
         >
           상품삭제
         </DeleteText>
@@ -129,6 +165,7 @@ const Cart = () => {
           결제하기
         </Button>
       </StickyFooter>
+      <Toast />
     </Flex>
   );
 };
