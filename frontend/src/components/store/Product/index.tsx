@@ -83,7 +83,7 @@ const Title = styled(Text)`
 export const Img = styled.img<{ width: string }>`
   display: flex;
   border-radius: 10px;
-  width: ${({ width }) => (width ? width : '70%')};
+  width: ${({ width }) => (width ? width : '100%')};
   flex: 1;
   object-fit: cover;
 `;
