@@ -34,7 +34,7 @@ export const PaymentFail = () => {
   }, [navigate, orderId]);
 
   if (isLoading) {
-    return <PaymentLoading />; // 로딩 애니메이션 컴포넌트
+    return <PaymentLoading />;
   }
 
   return <></>;
