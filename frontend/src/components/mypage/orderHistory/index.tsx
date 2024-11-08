@@ -21,9 +21,8 @@ export const OrderHistory = ({
   bottomContent: string;
   children?: React.ReactNode;
 }) => {
-  const dateString = format(date, 'yyyy-MM-dd / hh:mm:ss')
   const parseDateString = format(date, 'yyyy-MM-dd');
-  const shipDateString = format(addDays(date, 3),'yyyy-MM-dd')
+  const shipDateString = format(addDays(date, 3), 'yyyy-MM-dd');
   const [isOpen, setisOpen] = useState<boolean>(false);
   const handleClick = () => {
     setisOpen(!isOpen);
@@ -36,11 +35,11 @@ export const OrderHistory = ({
       align="flex-start"
       margin="24px 0 4px 0"
     >
-      <HeightFitFlex justify='flex-start' margin='0 0 4px 0'>
-      <Text typo="Body2" colorCode={colors.Black}>
-        {/* {dateString} */}
-        {parseDateString}
-      </Text>
+      <HeightFitFlex justify="flex-start" margin="0 0 4px 0">
+        <Text typo="Body2" colorCode={colors.Black}>
+          {/* {dateString} */}
+          {parseDateString}
+        </Text>
       </HeightFitFlex>
 
       <OrderWrapper
@@ -50,8 +49,16 @@ export const OrderHistory = ({
         align="flex-start"
         gap={10}
       >
-        <ClickBtn direction="row" justify="space-between" onClick={handleClick} padding="0 4px">
-          <Text typo="Body2" colorCode={state === "결제 취소" ? colors.Red : colors.MainColor}>
+        <ClickBtn
+          direction="row"
+          justify="space-between"
+          onClick={handleClick}
+          padding="0 4px"
+        >
+          <Text
+            typo="Body2"
+            colorCode={state === '결제 취소' ? colors.Red : colors.MainColor}
+          >
             {state}
           </Text>
           {items.length > 1 ? (
@@ -96,7 +103,7 @@ export const OrderHistory = ({
               title={item.title}
               price={item.price}
               quantity={item.quantity}
-              bottomContent={shipDateString+bottomContent}
+              bottomContent={shipDateString + bottomContent}
               children={children}
             />
           ) : null,

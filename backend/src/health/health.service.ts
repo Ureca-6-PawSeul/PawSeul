@@ -9,7 +9,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import OpenAI from 'openai';
 import { Health } from 'src/entity/health.entity';
 import { Pet } from 'src/entity/pet.entity';
-import { RecommandProduct } from 'src/entity/recommandProduct.entity';
+import { RecommendProduct } from 'src/entity/recommendProduct.entity';
 import { User } from 'src/entity/user.entity';
 import { AiHealthRequestDto } from 'src/health/dto/aiHealthRequest.dto';
 import { Repository } from 'typeorm';
@@ -25,15 +25,15 @@ export class HealthService {
     @InjectRepository(Pet)
     private petRepository: Repository<Pet>,
 
-    @InjectRepository(RecommandProduct)
-    private recommandProductRepository: Repository<RecommandProduct>,
+    @InjectRepository(RecommendProduct)
+    private recommendProductRepository: Repository<RecommendProduct>,
 
     @InjectRepository(User)
     private userRepository: Repository<User>,
   ) {}
 
   async aiHealth(aiHealthDto: AiHealthRequestDto) {
-    const recommandProduct = await this.recommandProductRepository.find({
+    const recommendProduct = await this.recommendProductRepository.find({
       relations: ['product'],
     });
     const openai = new OpenAI({
@@ -53,9 +53,14 @@ export class HealthService {
               - Give the current and recommended values (in grams) for carbon, protein, and fat for pet(dog).
               - Identify two deficient nutrients from the following: calories, carbon, protein, fat, vitamin A, vitamin D, vitamin E, and calcium.
               - Select one nutrient in excess and one nutrient within the optimal range.
-              - Recommend one or two product that meets the pet's nutritional needs. Pick one or two product in ${JSON.stringify(recommandProduct)} accurately. Recommend product must not be duplicated.
-              - you must put the products's id,title,price,productImg,averageScore in the recommandProduct field accurately.
-              - please provide the answer accurately especially recommend products.
+              - Recommend one or two product that meets the pet's nutritional needs. Pick one or two product objects in recommendProduct field.
+              - this is the recommend product information :
+              ${JSON.stringify(recommendProduct)}
+              - Using the provided product information, make sure to use the same productId as the recommend product information.
+              - you must put the products's id,title,price,productImg,averageScore in the recommendProduct field accurately.
+              - Please match the product's title, product's id with the product's id in the recommendProduct field.
+              - Especially please Recommend productId accurately. product must not be duplicated.
+              - please provide the answer accurately especially recommendedProducts.
 
               Your answer must always be PetNutrientStatus in JSON format and do not use \`\, I will provide JSON type :
       type NutrientName = '칼로리' | '탄수화물' | '단백질' | '지방' | '비타민A' | '비타민D' | '비타민E' | '칼슘';
@@ -77,7 +82,7 @@ export class HealthService {
         deficientNutrients: [NutrientName, NutrientName];
         excessNutrient: NutrientName;
         optimalNutrient: NutrientName;
-        recommandProduct: {
+        recommendProduct: {
             productId:string;
             title:string;
             price:number;
@@ -98,7 +103,7 @@ export class HealthService {
       // this.logger.log(`AI 응답: ${JSON.stringify(chatCompletion)}`);
 
       const answer = chatCompletion.choices[0].message.content;
-
+      console.log(answer);
       // JSON 형식 응답 파싱
       return JSON.parse(answer.replace(/```json|```/g, '').trim());
     } catch (error) {

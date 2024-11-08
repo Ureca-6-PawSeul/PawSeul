@@ -41,7 +41,7 @@ export const PaymentSuccess = () => {
     };
 
     handlePatchOrder();
-  }, [amount, navigate, orderId, paymentKey]);
+  }, [amount, navigate, orderId, paymentKey, setSelectedItems, setTotalPrice]);
 
   if (isLoading) {
     return <PaymentLoading />;

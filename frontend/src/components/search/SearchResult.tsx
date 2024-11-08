@@ -4,9 +4,8 @@ import { colors } from '@styles/colors';
 import styled from '@emotion/styled';
 import { ProductType } from '@/assets/types/ProductType';
 import { IoSearch } from 'react-icons/io5';
-import { n } from 'node_modules/msw/lib/core/GraphQLHandler-udzgBRPf';
 import { useNavigate } from 'react-router-dom';
-import { CartEmptyBlack, NotFound } from '@/assets/images/svgs';
+import { NotFound } from '@/assets/images/svgs';
 import { Product } from '../store/Product';
 interface SearchResultProps {
   searchResults: ProductType[];

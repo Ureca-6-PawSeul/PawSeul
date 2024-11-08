@@ -19,7 +19,6 @@ import { Modal } from '@/components/common/Modal';
 import { getReviews } from '@/apis/hooks/review';
 import { Header } from '@/components/common/Header';
 import { IoIosArrowBack } from 'react-icons/io';
-import { BiShoppingBag } from 'react-icons/bi';
 import { toast } from 'react-toastify';
 import { Toast } from '@/components/common/Toast';
 import { CartIcon, ErrorIcon } from '@/assets/images/svgs';
@@ -357,10 +356,6 @@ const DetailText = styled(Text)<{
     decorationLine ? `${decorationLine}` : 'none'};
   justify-content: ${({ justify }) => (justify ? `${justify}` : 'center')};
   width: ${({ width }) => (width ? `${width}` : 'auto')};
-`;
-
-const PriceText = styled(Text)`
-  letter-spacing: -0.5px;
 `;
 
 const BottomItemWrapper = styled(Flex)`

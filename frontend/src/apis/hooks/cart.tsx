@@ -16,4 +16,4 @@ export const createCartItem = () => {
       alert('장바구니에 상품을 추가하는데 실패했습니다.');
     },
   });
-}
+};

@@ -36,7 +36,6 @@ const HealthHistory = ({
   nutrientData: NutrientType;
 }) => {
   const [isOpen, setisOpen] = useState<boolean>(false);
-  const [recommendedProductList] = useState<ProductType[]>();
 
   const handleClick = () => setisOpen(!isOpen);
   const navigate = useNavigate();
@@ -141,25 +140,27 @@ const HealthHistory = ({
                 포슬의 추천상품
               </Text>
               <HeightFitFlex margin="10px 0" gap={8} width="100%">
-                {recommendedProductList.length > 0 && (
+                {nutrientData?.recommendProduct.length > 0 && (
                   <HeightFitFlex direction="row" justify="flex-start">
-                    {recommendedProductList.map((product: ProductType) => (
-                      <Flex
-                        key={product.productId}
-                        margin="0 24px 0 0"
-                        onClick={() => handleNavigate(product.productId)}
-                        width={124}
-                      >
-                        <Product
-                          price={product.price}
-                          productId={product.productId}
-                          productImg={product.productImg}
-                          title={product.title}
-                          averageScore={product.averageScore}
-                          imgWidth="80%"
-                        />
-                      </Flex>
-                    ))}
+                    {nutrientData?.recommendProduct.map(
+                      (product: ProductType) => (
+                        <Flex
+                          key={product.productId}
+                          margin="0 24px 0 0"
+                          onClick={() => handleNavigate(product.productId)}
+                          width={124}
+                        >
+                          <Product
+                            price={product.price}
+                            productId={product.productId}
+                            productImg={product.productImg}
+                            title={product.title}
+                            averageScore={product.averageScore}
+                            imgWidth="80%"
+                          />
+                        </Flex>
+                      ),
+                    )}
                   </HeightFitFlex>
                 )}
               </HeightFitFlex>

@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class RecommandProductDto {
+export class RecommendProductDto {
   @ApiProperty({ description: '물품 고유 ID' })
   productId: string;
 

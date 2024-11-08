@@ -1,4 +1,3 @@
-import { Button } from '@/components/common/Button';
 import { Flex } from '@/components/common/Flex';
 import styled from '@emotion/styled';
 import lottie from 'lottie-web';

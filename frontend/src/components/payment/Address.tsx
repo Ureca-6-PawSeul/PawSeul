@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 
 const Address = ({ setLocation, closeModal }) => {

@@ -38,10 +38,10 @@ export class MypageController {
     const userId = req.user?.userId;
 
     // 유저 정보 로그 출력
-    await this.userService.logUserInfo(req.user?.userId);
+    // await this.userService.logUserInfo(req.user?.userId);
 
     // 펫 정보 로그 출력
-    await this.userService.logPetInfo(req.user?.userId);
+    // await this.userService.logPetInfo(req.user?.userId);
 
     return this.userService.findUserById(userId);
   }

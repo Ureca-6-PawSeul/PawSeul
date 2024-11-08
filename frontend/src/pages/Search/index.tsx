@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { Flex, HeightFitFlex } from '@components/common/Flex';
+import { Flex } from '@components/common/Flex';
 import { colors } from '@styles/colors';
-import { IoArrowBack, IoSearch } from 'react-icons/io5';
 import { TiDelete } from 'react-icons/ti';
 import { getSearchList } from '@/apis/getSearchList';
 import SearchResult from '@/components/search/SearchResult';
@@ -9,8 +8,6 @@ import RecentSearchResult from '@/components/search/RecentSearchResult';
 import { useState, useEffect, useCallback } from 'react';
 import { ProductType } from '@/assets/types/ProductType';
 import { debounce } from 'lodash';
-import { IoIosArrowBack } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
 import { MiniSearchIcon } from '@/assets/images/svgs';
 
 const Search = () => {
@@ -22,7 +19,6 @@ const Search = () => {
   const [recentSearchQueries, setRecentSearchQueries] = useState<string[]>([]);
 
   const [isSearchComplete, setIsSearchComplete] = useState(false);
-  const navigate = useNavigate();
 
   // 마운트 시 세션 스토리지에서 최근 검색어 목록 불러오기
   useEffect(() => {

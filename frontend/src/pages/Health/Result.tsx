@@ -42,7 +42,7 @@ const HealthResult = () => {
     if (healthData) {
       healthMutate(healthData);
     }
-  }, [healthData]);
+  }, [healthData, healthMutate]);
 
   const currentDate = format(new Date(), 'yyyy-MM-dd');
 
@@ -199,7 +199,7 @@ const HealthResult = () => {
           excessNutrient={nutrientData.excessNutrient}
           optimalNutrient={nutrientData.optimalNutrient}
         />
-        <Recommend recommandProduct={nutrientData.recommandProduct} />
+        <Recommend recommendProduct={nutrientData.recommendProduct} />
       </Wrapper>
       <HeightFitFlex margin="12px 0 56px 0" widthPer={80}>
         <Button height="48px" onClick={handleNavigateToHome}>
