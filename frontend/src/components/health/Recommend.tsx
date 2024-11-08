@@ -7,9 +7,9 @@ import { Hr } from '../store/Hr';
 import { useNavigate } from 'react-router-dom';
 
 const Recommend = ({
-  recommandProduct,
+  recommendProduct,
 }: {
-  recommandProduct: PartialProductType[];
+  recommendProduct: PartialProductType[];
 }) => {
   const user = useUserStore((state) => state.user);
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Recommend = ({
       </Text>
 
       <HeightFitFlex justify="flex-start" gap={18}>
-        {recommandProduct?.map((item) => (
+        {recommendProduct?.map((item) => (
           <Flex
             width={124}
             onClick={() => handleNavigateToDetail(item.productId)}

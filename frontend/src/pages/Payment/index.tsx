@@ -9,7 +9,7 @@ import StickyFooter from '@components/store/StickyFooter';
 import Select from '@components/store/Select';
 import { Button } from '@/components/common/Button';
 import { TossPayment } from './TossPayment';
-import { LeftArrow, TossLogo } from '@/assets/images/svgs';
+import { TossLogo } from '@/assets/images/svgs';
 import useCartStore from '@/stores/cartStore';
 import useModal from '@/components/common/Modal/useModal';
 import { Modal } from '@/components/common/Modal';

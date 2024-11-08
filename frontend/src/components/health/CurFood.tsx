@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Flex, HeightFitFlex } from '@/components/common/Flex';
 import { Text } from '@/components/common/Typo';

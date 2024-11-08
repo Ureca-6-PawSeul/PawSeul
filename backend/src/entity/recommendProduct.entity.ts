@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class RecommandProduct {
+export class RecommendProduct {
   @ApiProperty({ description: '물품 고유 ID', type: () => Product })
   @IsNotEmpty()
   @OneToOne(() => Product, (product) => product.productId, {
@@ -23,7 +23,7 @@ export class RecommandProduct {
   @ApiProperty({ description: '추천 물품 고유 ID' })
   @IsNotEmpty()
   @PrimaryGeneratedColumn('uuid')
-  recommandProductId: string;
+  recommendProductId: string;
   //   @ApiProperty({ description: '물품 이름' })
   //   @IsNotEmpty()
   //   @Column()

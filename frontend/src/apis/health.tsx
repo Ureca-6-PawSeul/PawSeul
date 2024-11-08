@@ -25,7 +25,7 @@ export interface NutrientType {
   deficientNutrients: string[];
   excessNutrient: string;
   optimalNutrient: string;
-  recommandProduct: PartialProductType[];
+  recommendProduct: PartialProductType[];
 }
 
 export interface HealthResponse extends ResponseBody {

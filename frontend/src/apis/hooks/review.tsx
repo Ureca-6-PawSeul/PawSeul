@@ -1,15 +1,9 @@
-import {
-  QueryCache,
-  QueryClient,
-  useMutation,
-  useQuery,
-} from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import client from '@/apis/client';
 import { toast } from 'react-toastify';
 import { CheckIcon, ErrorIcon } from '@/assets/images/svgs';
 import { Flex } from '@components/common/Flex';
 import 'react-toastify/dist/ReactToastify.css';
-import { Toast } from '@/components/common/Toast';
 import { ReviewType } from '@/assets/types/ReviewType';
 
 // 후기를 생성하는 Mutation 훅
@@ -60,14 +54,6 @@ export const createReview = () => {
   });
 };
 
-const queryClient = new QueryClient({
-  queryCache: new QueryCache({
-    onError: (error: Error) => {
-      notifyError(error.message);
-    },
-  }),
-});
-
 export const getReviews = (id: string) => {
   const { data } = useQuery<ReviewType[], Error>({
     queryKey: ['getReviews', id],
@@ -89,6 +75,8 @@ const getReviewsAPI = async (id: string): Promise<ReviewType[]> => {
       return [];
     }
     // 다른 에러는 그대로 던져서 React Query에서 처리
-    throw new Error(error.message || '데이터를 불러오는 중 문제가 발생했습니다.');
+    throw new Error(
+      error.message || '데이터를 불러오는 중 문제가 발생했습니다.',
+    );
   }
 };
