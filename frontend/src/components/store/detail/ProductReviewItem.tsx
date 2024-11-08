@@ -5,7 +5,7 @@ import { ReviewType } from '@assets/types/ReviewType';
 import StarRating from '@components/store/Star';
 import { ReviewText } from '@components/store/detail/ReviewText';
 import { Hr } from '@components/store/Hr';
-import { MdOutlinePets } from "react-icons/md";
+import { MdOutlinePets } from 'react-icons/md';
 import styled from '@emotion/styled';
 
 interface ProductReviewItemProps {
@@ -15,11 +15,15 @@ interface ProductReviewItemProps {
 const ProductReviewItem = ({ review }: ProductReviewItemProps) => {
   return (
     <>
-      <Flex direction="column" padding="0px 16px" gap={16} align="flex-start">
+      <Wrapper direction="column" padding="24px 16px" gap={16} align="flex-start">
         <Flex justify="space-between" align="flex-start">
           <Flex gap={12} justify="flex-start">
-            <Profile backgroundColor={colors.Gray200} padding='8px' width='40px'>
-              <MdOutlinePets size={24} color={colors.White}/>
+            <Profile
+              backgroundColor={colors.Gray200}
+              padding="8px"
+              width="40px"
+            >
+              <MdOutlinePets size={24} color={colors.White} />
             </Profile>
             <Flex
               direction="column"
@@ -67,7 +71,7 @@ const ProductReviewItem = ({ review }: ProductReviewItemProps) => {
         >
           {review.text}
         </ReviewText>
-      </Flex>
+      </Wrapper>
       <Hr />
     </>
   );
@@ -75,6 +79,10 @@ const ProductReviewItem = ({ review }: ProductReviewItemProps) => {
 
 const Profile = styled(Flex)`
   border-radius: 50%;
-`
+`;
+
+const Wrapper = styled(Flex)`
+  border-bottom: 1px solid ${colors.Gray50};
+`;
 
 export default ProductReviewItem;

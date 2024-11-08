@@ -39,10 +39,10 @@ const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
     <Flex
       ref={ref}
       direction="column"
-      gap={24}
       padding="32px 0 0"
       margin="16px 0 0"
       backgroundColor={colors.White}
+      height={900}
     >
       <Flex direction="column" justify="flex-start" padding="0px 16px">
         <ReviewText

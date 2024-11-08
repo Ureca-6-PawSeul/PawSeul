@@ -22,7 +22,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { BiShoppingBag } from 'react-icons/bi';
 import { toast } from 'react-toastify';
 import { Toast } from '@/components/common/Toast';
-import { ErrorIcon } from '@/assets/images/svgs';
+import { CartIcon, ErrorIcon } from '@/assets/images/svgs';
 import useProductDetailQuery from '@/apis/hooks/product';
 
 const Detail = () => {
@@ -124,7 +124,7 @@ const Detail = () => {
     <>
       <Header
         LeftIcon={<IoIosArrowBack size={28} />}
-        RightIcon={<BiShoppingBag size={28} />}
+        RightIcon={<CartIcon height={24} />}
         onLeftIconClick={handleNavigateToBack}
         onRightIconClick={handleNavigateToCart}
       />

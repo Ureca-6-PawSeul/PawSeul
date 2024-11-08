@@ -22,7 +22,8 @@ export const OrderHistory = ({
   children?: React.ReactNode;
 }) => {
   const dateString = format(date, 'yyyy-MM-dd / hh:mm:ss')
-  const shipDateString = format(addDays(dateString, 3),'yyyy-MM-dd')
+  const parseDateString = format(date, 'yyyy-MM-dd');
+  const shipDateString = format(addDays(date, 3),'yyyy-MM-dd')
   const [isOpen, setisOpen] = useState<boolean>(false);
   const handleClick = () => {
     setisOpen(!isOpen);
@@ -37,7 +38,8 @@ export const OrderHistory = ({
     >
       <HeightFitFlex justify='flex-start' margin='0 0 4px 0'>
       <Text typo="Body2" colorCode={colors.Black}>
-        {dateString}
+        {/* {dateString} */}
+        {parseDateString}
       </Text>
       </HeightFitFlex>
 

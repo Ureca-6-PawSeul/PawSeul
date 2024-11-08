@@ -26,6 +26,7 @@ const Profile = ({
       justify="flex-start"
       padding="16px 12px 8px 12px"
       borderRadius={10}
+      margin="0 0 24px"
     >
       <ClickBtn
         justify="flex-end"
