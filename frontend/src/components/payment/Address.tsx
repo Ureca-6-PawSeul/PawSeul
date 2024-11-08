@@ -11,7 +11,7 @@ const Address = ({ setLocation, closeModal }) => {
     <Wrapper>
       <DaumPostcode
         onComplete={selectAddress} // 값을 선택할 경우 실행되는 이벤트
-        autoClose={false} // 값을 선택할 경우 사용되는 DOM을 제거하여 자동 닫힘 설정
+        autoClose={false}
         style={{ height: '360px' }}
       />
     </Wrapper>
