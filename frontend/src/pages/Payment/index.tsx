@@ -18,6 +18,7 @@ import { StyledButton } from '@/components/health/Allergy';
 import { useUserStore } from '@/stores/userStore';
 import { Header } from '@/components/common/Header';
 import { useNavigate } from 'react-router-dom';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const SHIPMENT_MESSAGE = [
   '배송 요청 사항을 선택해주세요 (선택)',
@@ -63,7 +64,8 @@ const Payment = () => {
   const handleClickBtn = (method: number) => setIsClickedBtn(method);
   const handleChange = (value: string, setFunction) => setFunction(value);
   const handleAlert = () => alert('배송 정보를 모두 입력해주세요.');
-  const handleNavigateToHome = () => navigate('/cart');
+  // const handleNavigateToHome = () => navigate('/cart');
+  const handleNavigateToHome = () => navigate(-1);
   const formatPhone = (value) => {
     if (value === undefined) return null;
     const onlyNums = value.replace(/[^0-9]/g, '');
@@ -93,7 +95,13 @@ const Payment = () => {
     <>
       <Header
         title="결제"
-        LeftIcon={<LeftArrow height={24} />}
+        LeftIcon={
+          <IoIosArrowBack
+            size={26}
+            color={colors.Black}
+            style={{ cursor: 'pointer' }}
+          />
+        }
         onLeftIconClick={handleNavigateToHome}
       />
       <Container
