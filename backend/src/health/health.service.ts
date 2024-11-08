@@ -53,7 +53,7 @@ export class HealthService {
               - Give the current and recommended values (in grams) for carbon, protein, and fat for pet(dog).
               - Identify two deficient nutrients from the following: calories, carbon, protein, fat, vitamin A, vitamin D, vitamin E, and calcium.
               - Select one nutrient in excess and one nutrient within the optimal range.
-              - Recommend one or two product that meets the pet's nutritional needs. Pick one or two product in ${JSON.stringify(recommandProduct)} accurately.
+              - Recommend one or two product that meets the pet's nutritional needs. Pick one or two product in ${JSON.stringify(recommandProduct)} accurately. Recommand product must not be duplicated.
               - you must put the products's id,title,price,productImg,averageScore in the recommandProduct field accurately.
               - please provide the answer accurately especially recommand products.
 
