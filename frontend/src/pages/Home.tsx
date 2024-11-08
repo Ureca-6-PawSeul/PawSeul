@@ -111,6 +111,7 @@ const Home = () => {
                     title={product.title}
                     price={product.price}
                     productImg={product.productImg}
+                    averageScore={Number(Number(product.averageScore).toFixed(1))}
                   />
                 </ProductWrapper>
               ))}
