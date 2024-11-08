@@ -14,7 +14,8 @@ import { useNavigate } from 'react-router-dom';
 import { Hr } from '../store/Hr';
 
 const description = {
-  칼로리: '칼로리 부족은 단순히 체중 감소를 초래할 수 있습니다.',
+  칼로리:
+    '칼로리 부족은 단순히 체중 감소를 초래할 뿐 아니라, 장기적으로 강아지의 전반적인 건강과 생활의 질에 영향을 미칩니다.',
   탄수화물:
     '탄수화물이 부족하면 활동적인 시간을 유지하기 힘들어 하고 쉽게 지칠 수 있어요.',
   단백질:
@@ -27,27 +28,6 @@ const description = {
   칼슘: '칼슘이 부족하면 뼈와 치아 건강뿐만 아니라 신경, 근육 기능에도 여러 가지 문제가 발생할 수 있어요.',
 };
 
-const dummy = [
-  {
-    productId: '1',
-    category: 'food',
-    productImg:
-      'https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg',
-    title: '탐사 6free 강아지 사료 연어 레시피, 6kg, 연어, 1개',
-    price: 25990,
-    averageScore: 5,
-  },
-  {
-    productId: '2',
-    category: 'food',
-    productImg:
-      'https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/7295993519305983-34d2ca7f-5ca8-4a5e-ba39-b9776d147b49.jpg',
-    title: '탐사 6free 강아지 사료 연어 레시피, 6kg, 연어, 1개',
-    price: 25990,
-    averageScore: 5,
-  },
-];
-
 const HealthHistory = ({
   petname,
   nutrientData,
@@ -56,7 +36,7 @@ const HealthHistory = ({
   nutrientData: NutrientType;
 }) => {
   const [isOpen, setisOpen] = useState<boolean>(false);
-  const [recommendedProductList] = useState<ProductType[]>(dummy);
+  const [recommendedProductList] = useState<ProductType[]>();
 
   const handleClick = () => setisOpen(!isOpen);
   const navigate = useNavigate();
@@ -130,10 +110,12 @@ const HealthHistory = ({
                   </Text>
                 </HeightFitFlex>
                 <HeightFitFlex justify="flex-start">
-                  <Text typo="Body2">
-                    <MarkText>{`${nutrientData.deficientNutrients[0]}, ${nutrientData.deficientNutrients[1]}`}</MarkText>
-                    (이)가 부족해요!
-                  </Text>
+                  <TextLine typo="Body2">
+                    <MarkText>
+                      {nutrientData.deficientNutrients.join(', ')}
+                    </MarkText>
+                    {` (이)가 부족해요!`}
+                  </TextLine>
                 </HeightFitFlex>
               </HeightFitFlex>
               <HeightFitFlex
@@ -200,4 +182,8 @@ const ProductWrapper = styled(HeightFitFlex)<{ isOpen: boolean }>`
 
 export const MarkText = styled.span`
   color: ${colors.MainColor};
+`;
+
+export const TextLine = styled(Text)`
+  display: inline;
 `;
