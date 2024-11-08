@@ -59,9 +59,9 @@ export const Header = ({
           isLeft={false}
         >
           {RightIcon}
-          {isCartIcon && cartItems.length > 0 && (
+          {/* {isCartIcon && cartItems.length > 0 && (
             <RedBadge />
-          )}
+          )} */}
         </IconBox>
       </FixedHeader>
     </HeaderWrapper>

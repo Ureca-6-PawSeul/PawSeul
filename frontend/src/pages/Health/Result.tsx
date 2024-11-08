@@ -119,7 +119,7 @@ const HealthResult = () => {
               trackStrokeWidth={20}
             />
             <CenterText direction="column">
-              <InnerText typo="Heading4">
+              <InnerText typo="Heading2">
                 {nutrientData.calories.current} /{' '}
                 {nutrientData.calories.recommended}
               </InnerText>
