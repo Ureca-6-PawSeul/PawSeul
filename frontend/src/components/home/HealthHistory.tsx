@@ -140,9 +140,9 @@ const HealthHistory = ({
                 포슬의 추천상품
               </Text>
               <HeightFitFlex margin="10px 0" gap={8} width="100%">
-                {nutrientData?.recommendProduct.length > 0 && (
+                {nutrientData?.recommendProduct?.length > 0 && (
                   <HeightFitFlex direction="row" justify="flex-start">
-                    {nutrientData?.recommendProduct.map(
+                    {nutrientData?.recommendProduct?.map(
                       (product: ProductType) => (
                         <Flex
                           key={product.productId}
