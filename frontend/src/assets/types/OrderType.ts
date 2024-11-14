@@ -1,12 +1,12 @@
 import { ProductType } from './ProductType';
 
 export interface OrderHistoryType {
-  order_id: string;
-  product_img: string;
-  order_created_at: Date;
-  order_state: string;
-  total_price: number;
-  order_items: OrderItemType[];
+  orderId: string;
+  productImg: string;
+  orderCreatedAt: Date;
+  orderState: string;
+  totalPrice: number;
+  orderItems: OrderItemType[];
 }
 
 export interface OrderItemType {
