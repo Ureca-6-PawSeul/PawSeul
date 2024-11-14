@@ -79,7 +79,7 @@ const Home = () => {
             ))}
           </Carousel>
         </Flex>
-
+        {/* 영양 정보 분석 이력 */}
         {nutrientData && (
           <HealthHistory
             petname={user?.pet.petname}
@@ -111,7 +111,9 @@ const Home = () => {
                     title={product.title}
                     price={product.price}
                     productImg={product.productImg}
-                    averageScore={Number(Number(product.averageScore).toFixed(1))}
+                    averageScore={Number(
+                      Number(product.averageScore).toFixed(1),
+                    )}
                   />
                 </ProductWrapper>
               ))}

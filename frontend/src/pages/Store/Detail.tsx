@@ -14,9 +14,9 @@ import { Button } from '@/components/common/Button';
 import { FiPlusCircle } from 'react-icons/fi';
 import { FiMinusCircle } from 'react-icons/fi';
 import { useNavigate, useParams } from 'react-router-dom';
-import { createCartItem } from '@/apis/hooks/cart';
+import { useCartItem } from '@/apis/hooks/cart';
 import { Modal } from '@/components/common/Modal';
-import { getReviews } from '@/apis/hooks/review';
+import { useGetReviews } from '@/apis/hooks/review';
 import { Header } from '@/components/common/Header';
 import { IoIosArrowBack } from 'react-icons/io';
 import { toast } from 'react-toastify';
@@ -28,14 +28,14 @@ const Detail = () => {
   const { id } = useParams<{ id: string }>();
   // tanstack query 사용
   const { data } = useProductDetailQuery();
-  const reviews = getReviews(id);
+  const reviews = useGetReviews(id);
   const [reviewData, setReviewData] = useState([]);
   const [descriptionData, setDescriptionData] = useState(null);
   const [productPrice, setProductPrice] = useState('');
   const [cartPrice, setCartPrice] = useState(0);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const { mutateAsync } = createCartItem();
+  const { mutateAsync } = useCartItem();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
   const navigate = useNavigate();

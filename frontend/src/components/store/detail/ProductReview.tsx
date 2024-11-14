@@ -5,7 +5,7 @@ import ProductReviewItem from './ProductReviewItem';
 import { ReviewText } from '@components/store/detail/ReviewText';
 import { calculateScoreCounts } from '@/utils/scoreCounts';
 import { forwardRef, useEffect, useState } from 'react';
-import { getReviews } from '@/apis/hooks/review';
+import { useGetReviews } from '@/apis/hooks/review';
 import { useParams } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { Toast } from '@/components/common/Toast';
@@ -13,7 +13,7 @@ import { Toast } from '@/components/common/Toast';
 const ProductReview = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const [reviews, setReviews] = useState([]);
   const { id } = useParams<{ id: string }>();
-  const data = getReviews(id);
+  const data = useGetReviews(id);
 
   useEffect(() => {
     if (data) {

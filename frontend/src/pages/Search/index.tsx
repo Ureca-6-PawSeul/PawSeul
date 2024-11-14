@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Flex } from '@components/common/Flex';
 import { colors } from '@styles/colors';
 import { TiDelete } from 'react-icons/ti';
-import { getSearchList } from '@/apis/getSearchList';
+import { getSearchList } from '@/apis/search';
 import SearchResult from '@/components/search/SearchResult';
 import RecentSearchResult from '@/components/search/RecentSearchResult';
 import { useState, useEffect, useCallback } from 'react';

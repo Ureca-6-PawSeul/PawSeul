@@ -8,7 +8,7 @@ import { Button } from '@/components/common/Button';
 import {
   useGetReviewDone,
   useGetReviewRemain,
-} from '@/apis/hooks/useUserReview';
+} from '@/apis/hooks/review';
 import { OrderContent } from '@/components/mypage/orderHistory/orderContent';
 import { IoPersonCircleSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +19,7 @@ import { useUserStore } from '@/stores/userStore';
 import { Modal } from '@/components/common/Modal';
 import { FaStar } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import { createReview } from '@/apis/hooks/review';
+import { useCreateReview } from '@/apis/hooks/review';
 import { Toast } from '@/components/common/Toast';
 import { IoIosArrowBack } from 'react-icons/io';
 
@@ -48,7 +48,7 @@ export const ReviewHistoryPage = () => {
   }
   const toggleMoveModal = () => setIsMoveModalOpen((prev) => !prev);
   const handleStarClick = (newScore: number) => setReviewScore(newScore);
-  const { mutateAsync } = createReview();
+  const { mutateAsync } = useCreateReview();
   const handleReviewChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setNewReview(e.target.value);
   const handleExit = () => {
     setReviewScore(0);

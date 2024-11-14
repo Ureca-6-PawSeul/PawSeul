@@ -113,8 +113,8 @@ const Mypage = () => {
               <Text colorCode={colors.Black} typo="Heading3" align="flex-start">
                 반려견 정보
               </Text>
-              {/* 반려견 정보 컴포넌트 */}
             </Flex>
+            {/* 반려견 정보 컴포넌트 */}
             <Profile
               petId={user.pet.petId}
               petname={user.pet.petname}

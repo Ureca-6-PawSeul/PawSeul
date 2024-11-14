@@ -5,6 +5,8 @@ import { CheckIcon, ErrorIcon } from '@/assets/images/svgs';
 import { Flex } from '@components/common/Flex';
 import 'react-toastify/dist/ReactToastify.css';
 import { ReviewType } from '@/assets/types/ReviewType';
+import { getReviews } from '@/apis/review';
+import { getUserReviewDone, getUserReviewRemain } from "@/apis/review";
 
 // 후기를 생성하는 Mutation 훅
 interface ReviewData {
@@ -40,7 +42,7 @@ const notifyError = (msg: string) => {
 };
 
 // 후기 작성하기 mutation
-export const createReview = () => {
+export const useCreateReview = () => {
   return useMutation<void, Error, ReviewData>({
     mutationFn: async (reviewData) => {
       return await client.post(`/review/${reviewData.productId}`, reviewData);
@@ -54,10 +56,10 @@ export const createReview = () => {
   });
 };
 
-export const getReviews = (id: string) => {
+export const useGetReviews = (id: string) => {
   const { data } = useQuery<ReviewType[], Error>({
     queryKey: ['getReviews', id],
-    queryFn: () => getReviewsAPI(id),
+    queryFn: () => getReviews(id),
     meta: {
       errorMessage: '후기를 불러오는 중 문제가 발생했습니다.',
     },
@@ -65,18 +67,20 @@ export const getReviews = (id: string) => {
   return data;
 };
 
-const getReviewsAPI = async (id: string): Promise<ReviewType[]> => {
-  try {
-    const { data } = await client.get(`/review/${id}`);
-    return data;
-  } catch (error: any) {
-    if (error.response && error.response.status === 400) {
-      // 400 에러일 경우 빈 배열을 반환
-      return [];
-    }
-    // 다른 에러는 그대로 던져서 React Query에서 처리
-    throw new Error(
-      error.message || '데이터를 불러오는 중 문제가 발생했습니다.',
-    );
-  }
+export const useGetReviewDone = () => {
+  const {data} = useQuery({
+      queryKey: ['getUserReviewDone'],
+      queryFn: () => getUserReviewDone()
+  })
+
+  return data
+};
+
+export const useGetReviewRemain = () => {
+  const {data} = useQuery({
+      queryKey: ['getUserReviewRemain'],
+      queryFn: () => getUserReviewRemain()
+  })
+
+  return data;
 };

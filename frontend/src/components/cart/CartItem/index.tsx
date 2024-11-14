@@ -8,7 +8,7 @@ import { FiPlusCircle } from 'react-icons/fi';
 import { FiMinusCircle } from 'react-icons/fi';
 import { CartType } from '@assets/types/CartType';
 import useCartStore from '@/stores/cartStore';
-import { useChangeQuantityMutation } from '@/apis/hooks/useCartQuery';
+import { useChangeQuantityMutation } from '@/apis/hooks/cart';
 
 import { ErrorIcon } from '@/assets/images/svgs';
 import client from '@/apis/client';

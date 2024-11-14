@@ -12,10 +12,11 @@ import { Modal } from '@/components/common/Modal';
 import { colors } from '@/styles/colors';
 import { Toast } from '@/components/common/Toast';
 import { IoIosArrowBack } from 'react-icons/io';
+import { OrderHistoryType } from '@/assets/types/OrderType';
 
 // 나중엔 날짜가 Date객체로 올거니까 date-fns 라이브러리 사용해서 포맷 변경해줘야 함
 export const OrderHistoryPage = () => {
-  const [userOrder, setUserOrder] = useState([]);
+  const [userOrder, setUserOrder] = useState<OrderHistoryType[] | null>([]);
   const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
   const orderHistory = useGetUserOrder();
   const navigate = useNavigate();

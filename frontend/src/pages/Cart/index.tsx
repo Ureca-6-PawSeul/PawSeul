@@ -9,7 +9,7 @@ import CartCost from '@/components/cart/CartCost';
 import { CartEmptyBlack, ErrorIcon } from '@/assets/images/svgs';
 
 import useCartStore from '@/stores/cartStore';
-import { useCartQuery } from '@/apis/hooks/useCartQuery';
+import { useCartQuery } from '@/apis/hooks/cart';
 
 import { useEffect, useState } from 'react';
 import StickyFooter from '@/components/store/StickyFooter';
